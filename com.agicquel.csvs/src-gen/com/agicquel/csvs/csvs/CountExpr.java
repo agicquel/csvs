@@ -21,7 +21,7 @@ package com.agicquel.csvs.csvs;
  * @model
  * @generated
  */
-public interface CountExpr extends Expression
+public interface CountExpr extends PrimaryExpr
 {
   /**
    * Returns the value of the '<em><b>Var</b></em>' attribute.
@@ -50,12 +50,12 @@ public interface CountExpr extends Expression
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Expression</em>' containment reference.
-   * @see #setExpression(Expression)
+   * @see #setExpression(PrimaryExpr)
    * @see com.agicquel.csvs.csvs.CsvsPackage#getCountExpr_Expression()
    * @model containment="true"
    * @generated
    */
-  Expression getExpression();
+  PrimaryExpr getExpression();
 
   /**
    * Sets the value of the '{@link com.agicquel.csvs.csvs.CountExpr#getExpression <em>Expression</em>}' containment reference.
@@ -65,6 +65,6 @@ public interface CountExpr extends Expression
    * @see #getExpression()
    * @generated
    */
-  void setExpression(Expression value);
+  void setExpression(PrimaryExpr value);
 
 } // CountExpr

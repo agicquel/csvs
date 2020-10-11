@@ -27,7 +27,7 @@ public class CSVsParser extends AbstractAntlrParser {
 
 	@Override 
 	protected String getDefaultRuleName() {
-		return "Program";
+		return "Model";
 	}
 
 	public CSVsGrammarAccess getGrammarAccess() {

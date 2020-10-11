@@ -5,7 +5,7 @@ package com.agicquel.csvs.csvs.impl;
 
 import com.agicquel.csvs.csvs.CellSelect;
 import com.agicquel.csvs.csvs.CsvsPackage;
-import com.agicquel.csvs.csvs.Expression;
+import com.agicquel.csvs.csvs.PrimaryExpr;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -23,6 +23,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link com.agicquel.csvs.csvs.impl.CellSelectImpl#getVar <em>Var</em>}</li>
  *   <li>{@link com.agicquel.csvs.csvs.impl.CellSelectImpl#getExpressionRow <em>Expression Row</em>}</li>
  *   <li>{@link com.agicquel.csvs.csvs.impl.CellSelectImpl#getExpressionCol <em>Expression Col</em>}</li>
  * </ul>
@@ -32,6 +33,26 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 public class CellSelectImpl extends SelectorImpl implements CellSelect
 {
   /**
+   * The default value of the '{@link #getVar() <em>Var</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getVar()
+   * @generated
+   * @ordered
+   */
+  protected static final String VAR_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getVar() <em>Var</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getVar()
+   * @generated
+   * @ordered
+   */
+  protected String var = VAR_EDEFAULT;
+
+  /**
    * The cached value of the '{@link #getExpressionRow() <em>Expression Row</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -39,7 +60,7 @@ public class CellSelectImpl extends SelectorImpl implements CellSelect
    * @generated
    * @ordered
    */
-  protected Expression expressionRow;
+  protected PrimaryExpr expressionRow;
 
   /**
    * The cached value of the '{@link #getExpressionCol() <em>Expression Col</em>}' containment reference.
@@ -49,7 +70,7 @@ public class CellSelectImpl extends SelectorImpl implements CellSelect
    * @generated
    * @ordered
    */
-  protected Expression expressionCol;
+  protected PrimaryExpr expressionCol;
 
   /**
    * <!-- begin-user-doc -->
@@ -78,7 +99,32 @@ public class CellSelectImpl extends SelectorImpl implements CellSelect
    * @generated
    */
   @Override
-  public Expression getExpressionRow()
+  public String getVar()
+  {
+    return var;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setVar(String newVar)
+  {
+    String oldVar = var;
+    var = newVar;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, CsvsPackage.CELL_SELECT__VAR, oldVar, var));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public PrimaryExpr getExpressionRow()
   {
     return expressionRow;
   }
@@ -88,9 +134,9 @@ public class CellSelectImpl extends SelectorImpl implements CellSelect
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetExpressionRow(Expression newExpressionRow, NotificationChain msgs)
+  public NotificationChain basicSetExpressionRow(PrimaryExpr newExpressionRow, NotificationChain msgs)
   {
-    Expression oldExpressionRow = expressionRow;
+    PrimaryExpr oldExpressionRow = expressionRow;
     expressionRow = newExpressionRow;
     if (eNotificationRequired())
     {
@@ -106,7 +152,7 @@ public class CellSelectImpl extends SelectorImpl implements CellSelect
    * @generated
    */
   @Override
-  public void setExpressionRow(Expression newExpressionRow)
+  public void setExpressionRow(PrimaryExpr newExpressionRow)
   {
     if (newExpressionRow != expressionRow)
     {
@@ -128,7 +174,7 @@ public class CellSelectImpl extends SelectorImpl implements CellSelect
    * @generated
    */
   @Override
-  public Expression getExpressionCol()
+  public PrimaryExpr getExpressionCol()
   {
     return expressionCol;
   }
@@ -138,9 +184,9 @@ public class CellSelectImpl extends SelectorImpl implements CellSelect
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetExpressionCol(Expression newExpressionCol, NotificationChain msgs)
+  public NotificationChain basicSetExpressionCol(PrimaryExpr newExpressionCol, NotificationChain msgs)
   {
-    Expression oldExpressionCol = expressionCol;
+    PrimaryExpr oldExpressionCol = expressionCol;
     expressionCol = newExpressionCol;
     if (eNotificationRequired())
     {
@@ -156,7 +202,7 @@ public class CellSelectImpl extends SelectorImpl implements CellSelect
    * @generated
    */
   @Override
-  public void setExpressionCol(Expression newExpressionCol)
+  public void setExpressionCol(PrimaryExpr newExpressionCol)
   {
     if (newExpressionCol != expressionCol)
     {
@@ -200,6 +246,8 @@ public class CellSelectImpl extends SelectorImpl implements CellSelect
   {
     switch (featureID)
     {
+      case CsvsPackage.CELL_SELECT__VAR:
+        return getVar();
       case CsvsPackage.CELL_SELECT__EXPRESSION_ROW:
         return getExpressionRow();
       case CsvsPackage.CELL_SELECT__EXPRESSION_COL:
@@ -218,11 +266,14 @@ public class CellSelectImpl extends SelectorImpl implements CellSelect
   {
     switch (featureID)
     {
+      case CsvsPackage.CELL_SELECT__VAR:
+        setVar((String)newValue);
+        return;
       case CsvsPackage.CELL_SELECT__EXPRESSION_ROW:
-        setExpressionRow((Expression)newValue);
+        setExpressionRow((PrimaryExpr)newValue);
         return;
       case CsvsPackage.CELL_SELECT__EXPRESSION_COL:
-        setExpressionCol((Expression)newValue);
+        setExpressionCol((PrimaryExpr)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -238,11 +289,14 @@ public class CellSelectImpl extends SelectorImpl implements CellSelect
   {
     switch (featureID)
     {
+      case CsvsPackage.CELL_SELECT__VAR:
+        setVar(VAR_EDEFAULT);
+        return;
       case CsvsPackage.CELL_SELECT__EXPRESSION_ROW:
-        setExpressionRow((Expression)null);
+        setExpressionRow((PrimaryExpr)null);
         return;
       case CsvsPackage.CELL_SELECT__EXPRESSION_COL:
-        setExpressionCol((Expression)null);
+        setExpressionCol((PrimaryExpr)null);
         return;
     }
     super.eUnset(featureID);
@@ -258,12 +312,31 @@ public class CellSelectImpl extends SelectorImpl implements CellSelect
   {
     switch (featureID)
     {
+      case CsvsPackage.CELL_SELECT__VAR:
+        return VAR_EDEFAULT == null ? var != null : !VAR_EDEFAULT.equals(var);
       case CsvsPackage.CELL_SELECT__EXPRESSION_ROW:
         return expressionRow != null;
       case CsvsPackage.CELL_SELECT__EXPRESSION_COL:
         return expressionCol != null;
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuilder result = new StringBuilder(super.toString());
+    result.append(" (var: ");
+    result.append(var);
+    result.append(')');
+    return result.toString();
   }
 
 } //CellSelectImpl

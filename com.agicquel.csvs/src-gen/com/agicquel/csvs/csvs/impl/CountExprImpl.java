@@ -5,7 +5,7 @@ package com.agicquel.csvs.csvs.impl;
 
 import com.agicquel.csvs.csvs.CountExpr;
 import com.agicquel.csvs.csvs.CsvsPackage;
-import com.agicquel.csvs.csvs.Expression;
+import com.agicquel.csvs.csvs.PrimaryExpr;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -29,7 +29,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class CountExprImpl extends ExpressionImpl implements CountExpr
+public class CountExprImpl extends PrimaryExprImpl implements CountExpr
 {
   /**
    * The default value of the '{@link #getVar() <em>Var</em>}' attribute.
@@ -59,7 +59,7 @@ public class CountExprImpl extends ExpressionImpl implements CountExpr
    * @generated
    * @ordered
    */
-  protected Expression expression;
+  protected PrimaryExpr expression;
 
   /**
    * <!-- begin-user-doc -->
@@ -113,7 +113,7 @@ public class CountExprImpl extends ExpressionImpl implements CountExpr
    * @generated
    */
   @Override
-  public Expression getExpression()
+  public PrimaryExpr getExpression()
   {
     return expression;
   }
@@ -123,9 +123,9 @@ public class CountExprImpl extends ExpressionImpl implements CountExpr
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetExpression(Expression newExpression, NotificationChain msgs)
+  public NotificationChain basicSetExpression(PrimaryExpr newExpression, NotificationChain msgs)
   {
-    Expression oldExpression = expression;
+    PrimaryExpr oldExpression = expression;
     expression = newExpression;
     if (eNotificationRequired())
     {
@@ -141,7 +141,7 @@ public class CountExprImpl extends ExpressionImpl implements CountExpr
    * @generated
    */
   @Override
-  public void setExpression(Expression newExpression)
+  public void setExpression(PrimaryExpr newExpression)
   {
     if (newExpression != expression)
     {
@@ -205,7 +205,7 @@ public class CountExprImpl extends ExpressionImpl implements CountExpr
         setVar((String)newValue);
         return;
       case CsvsPackage.COUNT_EXPR__EXPRESSION:
-        setExpression((Expression)newValue);
+        setExpression((PrimaryExpr)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -225,7 +225,7 @@ public class CountExprImpl extends ExpressionImpl implements CountExpr
         setVar(VAR_EDEFAULT);
         return;
       case CsvsPackage.COUNT_EXPR__EXPRESSION:
-        setExpression((Expression)null);
+        setExpression((PrimaryExpr)null);
         return;
     }
     super.eUnset(featureID);

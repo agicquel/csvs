@@ -1,14 +1,14 @@
 load variableName "./path/to/file.csv"; // load a csv
 store variableName "./path/to/file.csv"; // save csv
 create variableName; // create an empty csv
-export variableName; // export csv to json
+export variableName "./path/to/file.json"; // export csv to json
 
 // declare and initialize a variable
-set variableName "value";
-set variableName variable2;
-set variableName 123;
-set variableName 2 < 4;
-set (cell variableName (123, 456)) 789;
+variableName = "value";
+variableName = variable2;
+variableName = 123;
+variableName = 2 < 4;
+cell variableName (123, 456) = 789;
 
 // print values to stdout
 print "value";
@@ -26,9 +26,16 @@ print (field variableName (123));
 delete (row variableName (123));
 delete (col variableName (123));
 
-set i 10;
+// add
+add col variableName;
+add row variableName;
+
+on variableName filter (x: x / 2 == 0) apply (x : x * 2);
+
+
+i = 10;
 while(i < 10) {
-	set i (i+1);
+	i = i + 1;
 }
 if(i == 10) {
 	print "ten!";
@@ -36,3 +43,4 @@ if(i == 10) {
 else {
 	print "not ten.";
 }
+

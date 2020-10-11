@@ -28,12 +28,12 @@ public interface SetCommand extends CsvCommand
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Var</em>' containment reference.
-   * @see #setVar(Expression)
+   * @see #setVar(Selector)
    * @see com.agicquel.csvs.csvs.CsvsPackage#getSetCommand_Var()
    * @model containment="true"
    * @generated
    */
-  Expression getVar();
+  Selector getVar();
 
   /**
    * Sets the value of the '{@link com.agicquel.csvs.csvs.SetCommand#getVar <em>Var</em>}' containment reference.
@@ -43,7 +43,7 @@ public interface SetCommand extends CsvCommand
    * @see #getVar()
    * @generated
    */
-  void setVar(Expression value);
+  void setVar(Selector value);
 
   /**
    * Returns the value of the '<em><b>Expression</b></em>' containment reference.

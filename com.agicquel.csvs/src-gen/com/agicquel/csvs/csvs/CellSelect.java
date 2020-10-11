@@ -13,6 +13,7 @@ package com.agicquel.csvs.csvs;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link com.agicquel.csvs.csvs.CellSelect#getVar <em>Var</em>}</li>
  *   <li>{@link com.agicquel.csvs.csvs.CellSelect#getExpressionRow <em>Expression Row</em>}</li>
  *   <li>{@link com.agicquel.csvs.csvs.CellSelect#getExpressionCol <em>Expression Col</em>}</li>
  * </ul>
@@ -24,16 +25,38 @@ package com.agicquel.csvs.csvs;
 public interface CellSelect extends Selector
 {
   /**
+   * Returns the value of the '<em><b>Var</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Var</em>' attribute.
+   * @see #setVar(String)
+   * @see com.agicquel.csvs.csvs.CsvsPackage#getCellSelect_Var()
+   * @model
+   * @generated
+   */
+  String getVar();
+
+  /**
+   * Sets the value of the '{@link com.agicquel.csvs.csvs.CellSelect#getVar <em>Var</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Var</em>' attribute.
+   * @see #getVar()
+   * @generated
+   */
+  void setVar(String value);
+
+  /**
    * Returns the value of the '<em><b>Expression Row</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Expression Row</em>' containment reference.
-   * @see #setExpressionRow(Expression)
+   * @see #setExpressionRow(PrimaryExpr)
    * @see com.agicquel.csvs.csvs.CsvsPackage#getCellSelect_ExpressionRow()
    * @model containment="true"
    * @generated
    */
-  Expression getExpressionRow();
+  PrimaryExpr getExpressionRow();
 
   /**
    * Sets the value of the '{@link com.agicquel.csvs.csvs.CellSelect#getExpressionRow <em>Expression Row</em>}' containment reference.
@@ -43,19 +66,19 @@ public interface CellSelect extends Selector
    * @see #getExpressionRow()
    * @generated
    */
-  void setExpressionRow(Expression value);
+  void setExpressionRow(PrimaryExpr value);
 
   /**
    * Returns the value of the '<em><b>Expression Col</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Expression Col</em>' containment reference.
-   * @see #setExpressionCol(Expression)
+   * @see #setExpressionCol(PrimaryExpr)
    * @see com.agicquel.csvs.csvs.CsvsPackage#getCellSelect_ExpressionCol()
    * @model containment="true"
    * @generated
    */
-  Expression getExpressionCol();
+  PrimaryExpr getExpressionCol();
 
   /**
    * Sets the value of the '{@link com.agicquel.csvs.csvs.CellSelect#getExpressionCol <em>Expression Col</em>}' containment reference.
@@ -65,6 +88,6 @@ public interface CellSelect extends Selector
    * @see #getExpressionCol()
    * @generated
    */
-  void setExpressionCol(Expression value);
+  void setExpressionCol(PrimaryExpr value);
 
 } // CellSelect

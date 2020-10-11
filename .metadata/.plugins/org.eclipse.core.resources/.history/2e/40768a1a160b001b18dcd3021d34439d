@@ -1,0 +1,74 @@
+package com.agicquel.csvs.generator
+
+import com.agicquel.csvs.csvs.AddCommand
+import com.agicquel.csvs.csvs.ApplyCommand
+import com.agicquel.csvs.csvs.Command
+import com.agicquel.csvs.csvs.ControlCommand
+import com.agicquel.csvs.csvs.CreateCommand
+import com.agicquel.csvs.csvs.CsvCommand
+import com.agicquel.csvs.csvs.DeleteCommand
+import com.agicquel.csvs.csvs.ExportCommand
+import com.agicquel.csvs.csvs.LoadCommand
+import com.agicquel.csvs.csvs.PrintCommand
+import com.agicquel.csvs.csvs.SetCommand
+import com.agicquel.csvs.csvs.StoreCommand
+import java.util.List
+import org.eclipse.emf.ecore.resource.Resource
+import com.agicquel.csvs.csvs.Selector
+import com.agicquel.csvs.csvs.Expression
+
+class CSVSGeneratorPython {
+	
+	def String compileIR(Resource resource) {
+		var pythonCode = "import csv\n";
+		for(command : resource.allContents.toIterable.filter(Command)) {
+			pythonCode += command.compileCommand()
+		}
+		
+		return pythonCode;
+	}
+	
+	private def dispatch String compileCommand(CsvCommand csvCommand) {
+		return csvCommand.compileCommand()
+	}
+	
+	private def dispatch String compileCommand(ControlCommand controlCommand) {
+		return controlCommand.compileCommand()
+	}
+	
+	private def dispatch String compileCommand(LoadCommand loadCommand) {
+		loadCommand.^var + " = csv.reader(open(" + loadCommand.path ", mode='rb')\n"
+	}
+	
+	private def dispatch String compileCommand(StoreCommand storeCommand) {
+	}
+	
+	private def dispatch String compileCommand(CreateCommand createCommand) {
+	}
+	
+	private def dispatch String compileCommand(SetCommand setCommand) {
+	}
+	
+	private def dispatch String compileCommand(PrintCommand printCommand) {
+	}
+	
+	private def dispatch String compileCommand(ExportCommand exportCommand) {
+	}
+	
+	private def dispatch String compileCommand(DeleteCommand deleteCommand) {
+	}
+	
+	private def dispatch String compileCommand(AddCommand addCommand) {
+	}
+	
+	private def dispatch String compileCommand(ApplyCommand applyCommand) {
+	}
+	
+	
+	private	def dispatch String compileExpr(Expression expression) {	
+	}
+	
+	private	def dispatch String compileExpr(Selector selector) {
+	}
+	
+}

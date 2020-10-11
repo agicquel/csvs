@@ -5,13 +5,10 @@ package com.agicquel.csvs.csvs.impl;
 
 import com.agicquel.csvs.csvs.CsvsPackage;
 import com.agicquel.csvs.csvs.ExportCommand;
-import com.agicquel.csvs.csvs.Expression;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
@@ -23,7 +20,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.agicquel.csvs.csvs.impl.ExportCommandImpl#getExpression <em>Expression</em>}</li>
+ *   <li>{@link com.agicquel.csvs.csvs.impl.ExportCommandImpl#getVar <em>Var</em>}</li>
+ *   <li>{@link com.agicquel.csvs.csvs.impl.ExportCommandImpl#getPath <em>Path</em>}</li>
  * </ul>
  *
  * @generated
@@ -31,14 +29,44 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 public class ExportCommandImpl extends CsvCommandImpl implements ExportCommand
 {
   /**
-   * The cached value of the '{@link #getExpression() <em>Expression</em>}' containment reference.
+   * The default value of the '{@link #getVar() <em>Var</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getExpression()
+   * @see #getVar()
    * @generated
    * @ordered
    */
-  protected Expression expression;
+  protected static final String VAR_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getVar() <em>Var</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getVar()
+   * @generated
+   * @ordered
+   */
+  protected String var = VAR_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getPath() <em>Path</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getPath()
+   * @generated
+   * @ordered
+   */
+  protected static final String PATH_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getPath() <em>Path</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getPath()
+   * @generated
+   * @ordered
+   */
+  protected String path = PATH_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -67,9 +95,9 @@ public class ExportCommandImpl extends CsvCommandImpl implements ExportCommand
    * @generated
    */
   @Override
-  public Expression getExpression()
+  public String getVar()
   {
-    return expression;
+    return var;
   }
 
   /**
@@ -77,16 +105,13 @@ public class ExportCommandImpl extends CsvCommandImpl implements ExportCommand
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetExpression(Expression newExpression, NotificationChain msgs)
+  @Override
+  public void setVar(String newVar)
   {
-    Expression oldExpression = expression;
-    expression = newExpression;
+    String oldVar = var;
+    var = newVar;
     if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CsvsPackage.EXPORT_COMMAND__EXPRESSION, oldExpression, newExpression);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
+      eNotify(new ENotificationImpl(this, Notification.SET, CsvsPackage.EXPORT_COMMAND__VAR, oldVar, var));
   }
 
   /**
@@ -95,20 +120,9 @@ public class ExportCommandImpl extends CsvCommandImpl implements ExportCommand
    * @generated
    */
   @Override
-  public void setExpression(Expression newExpression)
+  public String getPath()
   {
-    if (newExpression != expression)
-    {
-      NotificationChain msgs = null;
-      if (expression != null)
-        msgs = ((InternalEObject)expression).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CsvsPackage.EXPORT_COMMAND__EXPRESSION, null, msgs);
-      if (newExpression != null)
-        msgs = ((InternalEObject)newExpression).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CsvsPackage.EXPORT_COMMAND__EXPRESSION, null, msgs);
-      msgs = basicSetExpression(newExpression, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, CsvsPackage.EXPORT_COMMAND__EXPRESSION, newExpression, newExpression));
+    return path;
   }
 
   /**
@@ -117,14 +131,12 @@ public class ExportCommandImpl extends CsvCommandImpl implements ExportCommand
    * @generated
    */
   @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  public void setPath(String newPath)
   {
-    switch (featureID)
-    {
-      case CsvsPackage.EXPORT_COMMAND__EXPRESSION:
-        return basicSetExpression(null, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
+    String oldPath = path;
+    path = newPath;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, CsvsPackage.EXPORT_COMMAND__PATH, oldPath, path));
   }
 
   /**
@@ -137,8 +149,10 @@ public class ExportCommandImpl extends CsvCommandImpl implements ExportCommand
   {
     switch (featureID)
     {
-      case CsvsPackage.EXPORT_COMMAND__EXPRESSION:
-        return getExpression();
+      case CsvsPackage.EXPORT_COMMAND__VAR:
+        return getVar();
+      case CsvsPackage.EXPORT_COMMAND__PATH:
+        return getPath();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -153,8 +167,11 @@ public class ExportCommandImpl extends CsvCommandImpl implements ExportCommand
   {
     switch (featureID)
     {
-      case CsvsPackage.EXPORT_COMMAND__EXPRESSION:
-        setExpression((Expression)newValue);
+      case CsvsPackage.EXPORT_COMMAND__VAR:
+        setVar((String)newValue);
+        return;
+      case CsvsPackage.EXPORT_COMMAND__PATH:
+        setPath((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -170,8 +187,11 @@ public class ExportCommandImpl extends CsvCommandImpl implements ExportCommand
   {
     switch (featureID)
     {
-      case CsvsPackage.EXPORT_COMMAND__EXPRESSION:
-        setExpression((Expression)null);
+      case CsvsPackage.EXPORT_COMMAND__VAR:
+        setVar(VAR_EDEFAULT);
+        return;
+      case CsvsPackage.EXPORT_COMMAND__PATH:
+        setPath(PATH_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -187,10 +207,31 @@ public class ExportCommandImpl extends CsvCommandImpl implements ExportCommand
   {
     switch (featureID)
     {
-      case CsvsPackage.EXPORT_COMMAND__EXPRESSION:
-        return expression != null;
+      case CsvsPackage.EXPORT_COMMAND__VAR:
+        return VAR_EDEFAULT == null ? var != null : !VAR_EDEFAULT.equals(var);
+      case CsvsPackage.EXPORT_COMMAND__PATH:
+        return PATH_EDEFAULT == null ? path != null : !PATH_EDEFAULT.equals(path);
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuilder result = new StringBuilder(super.toString());
+    result.append(" (var: ");
+    result.append(var);
+    result.append(", path: ");
+    result.append(path);
+    result.append(')');
+    return result.toString();
   }
 
 } //ExportCommandImpl

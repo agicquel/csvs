@@ -4,33 +4,36 @@
 package com.agicquel.csvs.serializer;
 
 import com.agicquel.csvs.csvs.AddCommand;
-import com.agicquel.csvs.csvs.And;
+import com.agicquel.csvs.csvs.AddExpr;
+import com.agicquel.csvs.csvs.ApplyCommand;
+import com.agicquel.csvs.csvs.ApplyExecCommand;
+import com.agicquel.csvs.csvs.ApplyFilterCommand;
 import com.agicquel.csvs.csvs.BoolConstant;
 import com.agicquel.csvs.csvs.CellSelect;
 import com.agicquel.csvs.csvs.ColSelect;
 import com.agicquel.csvs.csvs.Command;
-import com.agicquel.csvs.csvs.Comparison;
+import com.agicquel.csvs.csvs.ComparaisonExpr;
 import com.agicquel.csvs.csvs.CountExpr;
 import com.agicquel.csvs.csvs.CreateCommand;
 import com.agicquel.csvs.csvs.CsvsPackage;
 import com.agicquel.csvs.csvs.DeleteCommand;
-import com.agicquel.csvs.csvs.Equality;
+import com.agicquel.csvs.csvs.EqualityExpr;
 import com.agicquel.csvs.csvs.ExportCommand;
 import com.agicquel.csvs.csvs.FieldSelect;
 import com.agicquel.csvs.csvs.IfCommand;
 import com.agicquel.csvs.csvs.IntConstant;
 import com.agicquel.csvs.csvs.LoadCommand;
-import com.agicquel.csvs.csvs.MulOrDiv;
-import com.agicquel.csvs.csvs.Not;
-import com.agicquel.csvs.csvs.Or;
-import com.agicquel.csvs.csvs.Plus;
+import com.agicquel.csvs.csvs.Model;
+import com.agicquel.csvs.csvs.MulOrDivExpr;
+import com.agicquel.csvs.csvs.NotExpr;
+import com.agicquel.csvs.csvs.OrExpr;
+import com.agicquel.csvs.csvs.PlusOrMinusExpr;
 import com.agicquel.csvs.csvs.PrintCommand;
-import com.agicquel.csvs.csvs.Program;
 import com.agicquel.csvs.csvs.RowSelect;
 import com.agicquel.csvs.csvs.SetCommand;
 import com.agicquel.csvs.csvs.StoreCommand;
 import com.agicquel.csvs.csvs.StringConstant;
-import com.agicquel.csvs.csvs.VariableExpr;
+import com.agicquel.csvs.csvs.VariableSelect;
 import com.agicquel.csvs.csvs.WhileCommand;
 import com.agicquel.csvs.services.CSVsGrammarAccess;
 import com.google.inject.Inject;
@@ -62,11 +65,20 @@ public class CSVsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case CsvsPackage.ADD_COMMAND:
 				sequence_AddCommand(context, (AddCommand) semanticObject); 
 				return; 
-			case CsvsPackage.AND:
-				sequence_And(context, (And) semanticObject); 
+			case CsvsPackage.ADD_EXPR:
+				sequence_AddExpr(context, (AddExpr) semanticObject); 
+				return; 
+			case CsvsPackage.APPLY_COMMAND:
+				sequence_ApplyCommand(context, (ApplyCommand) semanticObject); 
+				return; 
+			case CsvsPackage.APPLY_EXEC_COMMAND:
+				sequence_ApplyExecCommand(context, (ApplyExecCommand) semanticObject); 
+				return; 
+			case CsvsPackage.APPLY_FILTER_COMMAND:
+				sequence_ApplyFilterCommand(context, (ApplyFilterCommand) semanticObject); 
 				return; 
 			case CsvsPackage.BOOL_CONSTANT:
-				sequence_Atomic(context, (BoolConstant) semanticObject); 
+				sequence_AtomicExpr(context, (BoolConstant) semanticObject); 
 				return; 
 			case CsvsPackage.CELL_SELECT:
 				sequence_CellSelect(context, (CellSelect) semanticObject); 
@@ -77,8 +89,8 @@ public class CSVsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case CsvsPackage.COMMAND:
 				sequence_Command(context, (Command) semanticObject); 
 				return; 
-			case CsvsPackage.COMPARISON:
-				sequence_Comparison(context, (Comparison) semanticObject); 
+			case CsvsPackage.COMPARAISON_EXPR:
+				sequence_ComparaisonExpr(context, (ComparaisonExpr) semanticObject); 
 				return; 
 			case CsvsPackage.COUNT_EXPR:
 				sequence_CountExpr(context, (CountExpr) semanticObject); 
@@ -89,8 +101,8 @@ public class CSVsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case CsvsPackage.DELETE_COMMAND:
 				sequence_DeleteCommand(context, (DeleteCommand) semanticObject); 
 				return; 
-			case CsvsPackage.EQUALITY:
-				sequence_Equality(context, (Equality) semanticObject); 
+			case CsvsPackage.EQUALITY_EXPR:
+				sequence_EqualityExpr(context, (EqualityExpr) semanticObject); 
 				return; 
 			case CsvsPackage.EXPORT_COMMAND:
 				sequence_ExportCommand(context, (ExportCommand) semanticObject); 
@@ -102,28 +114,28 @@ public class CSVsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				sequence_IfCommand(context, (IfCommand) semanticObject); 
 				return; 
 			case CsvsPackage.INT_CONSTANT:
-				sequence_Atomic(context, (IntConstant) semanticObject); 
+				sequence_AtomicExpr(context, (IntConstant) semanticObject); 
 				return; 
 			case CsvsPackage.LOAD_COMMAND:
 				sequence_LoadCommand(context, (LoadCommand) semanticObject); 
 				return; 
-			case CsvsPackage.MUL_OR_DIV:
-				sequence_MulOrDiv(context, (MulOrDiv) semanticObject); 
+			case CsvsPackage.MODEL:
+				sequence_Model(context, (Model) semanticObject); 
 				return; 
-			case CsvsPackage.NOT:
-				sequence_Primary(context, (Not) semanticObject); 
+			case CsvsPackage.MUL_OR_DIV_EXPR:
+				sequence_MulOrDivExpr(context, (MulOrDivExpr) semanticObject); 
 				return; 
-			case CsvsPackage.OR:
-				sequence_Or(context, (Or) semanticObject); 
+			case CsvsPackage.NOT_EXPR:
+				sequence_NotExpr(context, (NotExpr) semanticObject); 
 				return; 
-			case CsvsPackage.PLUS:
-				sequence_PlusOrMinus(context, (Plus) semanticObject); 
+			case CsvsPackage.OR_EXPR:
+				sequence_OrExpr(context, (OrExpr) semanticObject); 
+				return; 
+			case CsvsPackage.PLUS_OR_MINUS_EXPR:
+				sequence_PlusOrMinusExpr(context, (PlusOrMinusExpr) semanticObject); 
 				return; 
 			case CsvsPackage.PRINT_COMMAND:
 				sequence_PrintCommand(context, (PrintCommand) semanticObject); 
-				return; 
-			case CsvsPackage.PROGRAM:
-				sequence_Program(context, (Program) semanticObject); 
 				return; 
 			case CsvsPackage.ROW_SELECT:
 				sequence_RowSelect(context, (RowSelect) semanticObject); 
@@ -135,10 +147,10 @@ public class CSVsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				sequence_StoreCommand(context, (StoreCommand) semanticObject); 
 				return; 
 			case CsvsPackage.STRING_CONSTANT:
-				sequence_Atomic(context, (StringConstant) semanticObject); 
+				sequence_AtomicExpr(context, (StringConstant) semanticObject); 
 				return; 
-			case CsvsPackage.VARIABLE_EXPR:
-				sequence_VariableExpr(context, (VariableExpr) semanticObject); 
+			case CsvsPackage.VARIABLE_SELECT:
+				sequence_VariableSelect(context, (VariableSelect) semanticObject); 
 				return; 
 			case CsvsPackage.WHILE_COMMAND:
 				sequence_WhileCommand(context, (WhileCommand) semanticObject); 
@@ -164,154 +176,136 @@ public class CSVsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     Expression returns And
-	 *     Or returns And
-	 *     Or.Or_1_0 returns And
-	 *     And returns And
-	 *     And.And_1_0 returns And
-	 *     Equality returns And
-	 *     Equality.Equality_1_0 returns And
-	 *     Comparison returns And
-	 *     Comparison.Comparison_1_0 returns And
-	 *     PlusOrMinus returns And
-	 *     PlusOrMinus.Plus_1_0_0 returns And
-	 *     MulOrDiv returns And
-	 *     MulOrDiv.MulOrDiv_1_0_0 returns And
-	 *     Primary returns And
+	 *     AddExpr returns AddExpr
 	 *
 	 * Constraint:
-	 *     (left=And_And_1_0 right=Equality)
+	 *     (left=EqualityExpr right+=EqualityExpr*)
 	 */
-	protected void sequence_And(ISerializationContext context, And semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, CsvsPackage.Literals.AND__LEFT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CsvsPackage.Literals.AND__LEFT));
-			if (transientValues.isValueTransient(semanticObject, CsvsPackage.Literals.AND__RIGHT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CsvsPackage.Literals.AND__RIGHT));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getAndAccess().getAndLeftAction_1_0(), semanticObject.getLeft());
-		feeder.accept(grammarAccess.getAndAccess().getRightEqualityParserRuleCall_1_4_0(), semanticObject.getRight());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Expression returns BoolConstant
-	 *     Or returns BoolConstant
-	 *     Or.Or_1_0 returns BoolConstant
-	 *     And returns BoolConstant
-	 *     And.And_1_0 returns BoolConstant
-	 *     Equality returns BoolConstant
-	 *     Equality.Equality_1_0 returns BoolConstant
-	 *     Comparison returns BoolConstant
-	 *     Comparison.Comparison_1_0 returns BoolConstant
-	 *     PlusOrMinus returns BoolConstant
-	 *     PlusOrMinus.Plus_1_0_0 returns BoolConstant
-	 *     MulOrDiv returns BoolConstant
-	 *     MulOrDiv.MulOrDiv_1_0_0 returns BoolConstant
-	 *     Primary returns BoolConstant
-	 *     Atomic returns BoolConstant
-	 *
-	 * Constraint:
-	 *     (value='true' | value='false')
-	 */
-	protected void sequence_Atomic(ISerializationContext context, BoolConstant semanticObject) {
+	protected void sequence_AddExpr(ISerializationContext context, AddExpr semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     Expression returns IntConstant
-	 *     Or returns IntConstant
-	 *     Or.Or_1_0 returns IntConstant
-	 *     And returns IntConstant
-	 *     And.And_1_0 returns IntConstant
-	 *     Equality returns IntConstant
-	 *     Equality.Equality_1_0 returns IntConstant
-	 *     Comparison returns IntConstant
-	 *     Comparison.Comparison_1_0 returns IntConstant
-	 *     PlusOrMinus returns IntConstant
-	 *     PlusOrMinus.Plus_1_0_0 returns IntConstant
-	 *     MulOrDiv returns IntConstant
-	 *     MulOrDiv.MulOrDiv_1_0_0 returns IntConstant
-	 *     Primary returns IntConstant
-	 *     Atomic returns IntConstant
+	 *     Command returns ApplyCommand
+	 *     CsvCommand returns ApplyCommand
+	 *     ApplyCommand returns ApplyCommand
+	 *
+	 * Constraint:
+	 *     (selection=Selector if=ApplyFilterCommand? exec=ApplyExecCommand)
+	 */
+	protected void sequence_ApplyCommand(ISerializationContext context, ApplyCommand semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     ApplyExecCommand returns ApplyExecCommand
+	 *
+	 * Constraint:
+	 *     (varName=ID expr=Expression)
+	 */
+	protected void sequence_ApplyExecCommand(ISerializationContext context, ApplyExecCommand semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, CsvsPackage.Literals.APPLY_EXEC_COMMAND__VAR_NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CsvsPackage.Literals.APPLY_EXEC_COMMAND__VAR_NAME));
+			if (transientValues.isValueTransient(semanticObject, CsvsPackage.Literals.APPLY_EXEC_COMMAND__EXPR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CsvsPackage.Literals.APPLY_EXEC_COMMAND__EXPR));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getApplyExecCommandAccess().getVarNameIDTerminalRuleCall_4_0(), semanticObject.getVarName());
+		feeder.accept(grammarAccess.getApplyExecCommandAccess().getExprExpressionParserRuleCall_8_0(), semanticObject.getExpr());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     ApplyFilterCommand returns ApplyFilterCommand
+	 *
+	 * Constraint:
+	 *     (varName=ID expr=Expression)
+	 */
+	protected void sequence_ApplyFilterCommand(ISerializationContext context, ApplyFilterCommand semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, CsvsPackage.Literals.APPLY_FILTER_COMMAND__VAR_NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CsvsPackage.Literals.APPLY_FILTER_COMMAND__VAR_NAME));
+			if (transientValues.isValueTransient(semanticObject, CsvsPackage.Literals.APPLY_FILTER_COMMAND__EXPR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CsvsPackage.Literals.APPLY_FILTER_COMMAND__EXPR));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getApplyFilterCommandAccess().getVarNameIDTerminalRuleCall_4_0(), semanticObject.getVarName());
+		feeder.accept(grammarAccess.getApplyFilterCommandAccess().getExprExpressionParserRuleCall_8_0(), semanticObject.getExpr());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     PrimaryExpr returns BoolConstant
+	 *     AtomicExpr returns BoolConstant
+	 *
+	 * Constraint:
+	 *     (value='true' | value='false')
+	 */
+	protected void sequence_AtomicExpr(ISerializationContext context, BoolConstant semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     PrimaryExpr returns IntConstant
+	 *     AtomicExpr returns IntConstant
 	 *
 	 * Constraint:
 	 *     value=INT
 	 */
-	protected void sequence_Atomic(ISerializationContext context, IntConstant semanticObject) {
+	protected void sequence_AtomicExpr(ISerializationContext context, IntConstant semanticObject) {
 		if (errorAcceptor != null) {
 			if (transientValues.isValueTransient(semanticObject, CsvsPackage.Literals.INT_CONSTANT__VALUE) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CsvsPackage.Literals.INT_CONSTANT__VALUE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getAtomicAccess().getValueINTTerminalRuleCall_0_1_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getAtomicExprAccess().getValueINTTerminalRuleCall_0_1_0(), semanticObject.getValue());
 		feeder.finish();
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     Expression returns StringConstant
-	 *     Or returns StringConstant
-	 *     Or.Or_1_0 returns StringConstant
-	 *     And returns StringConstant
-	 *     And.And_1_0 returns StringConstant
-	 *     Equality returns StringConstant
-	 *     Equality.Equality_1_0 returns StringConstant
-	 *     Comparison returns StringConstant
-	 *     Comparison.Comparison_1_0 returns StringConstant
-	 *     PlusOrMinus returns StringConstant
-	 *     PlusOrMinus.Plus_1_0_0 returns StringConstant
-	 *     MulOrDiv returns StringConstant
-	 *     MulOrDiv.MulOrDiv_1_0_0 returns StringConstant
-	 *     Primary returns StringConstant
-	 *     Atomic returns StringConstant
+	 *     PrimaryExpr returns StringConstant
+	 *     AtomicExpr returns StringConstant
 	 *
 	 * Constraint:
 	 *     value=STRING
 	 */
-	protected void sequence_Atomic(ISerializationContext context, StringConstant semanticObject) {
+	protected void sequence_AtomicExpr(ISerializationContext context, StringConstant semanticObject) {
 		if (errorAcceptor != null) {
 			if (transientValues.isValueTransient(semanticObject, CsvsPackage.Literals.STRING_CONSTANT__VALUE) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CsvsPackage.Literals.STRING_CONSTANT__VALUE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getAtomicAccess().getValueSTRINGTerminalRuleCall_1_1_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getAtomicExprAccess().getValueSTRINGTerminalRuleCall_1_1_0(), semanticObject.getValue());
 		feeder.finish();
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     Expression returns CellSelect
 	 *     Selector returns CellSelect
 	 *     CellSelect returns CellSelect
-	 *     Or returns CellSelect
-	 *     Or.Or_1_0 returns CellSelect
-	 *     And returns CellSelect
-	 *     And.And_1_0 returns CellSelect
-	 *     Equality returns CellSelect
-	 *     Equality.Equality_1_0 returns CellSelect
-	 *     Comparison returns CellSelect
-	 *     Comparison.Comparison_1_0 returns CellSelect
-	 *     PlusOrMinus returns CellSelect
-	 *     PlusOrMinus.Plus_1_0_0 returns CellSelect
-	 *     MulOrDiv returns CellSelect
-	 *     MulOrDiv.MulOrDiv_1_0_0 returns CellSelect
-	 *     Primary returns CellSelect
+	 *     PrimaryExpr returns CellSelect
 	 *
 	 * Constraint:
-	 *     (var=ID expressionRow=Expression expressionCol=Expression)
+	 *     (var=ID expressionRow=PrimaryExpr expressionCol=PrimaryExpr)
 	 */
 	protected void sequence_CellSelect(ISerializationContext context, CellSelect semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, CsvsPackage.Literals.SELECTOR__VAR) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CsvsPackage.Literals.SELECTOR__VAR));
+			if (transientValues.isValueTransient(semanticObject, CsvsPackage.Literals.CELL_SELECT__VAR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CsvsPackage.Literals.CELL_SELECT__VAR));
 			if (transientValues.isValueTransient(semanticObject, CsvsPackage.Literals.CELL_SELECT__EXPRESSION_ROW) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CsvsPackage.Literals.CELL_SELECT__EXPRESSION_ROW));
 			if (transientValues.isValueTransient(semanticObject, CsvsPackage.Literals.CELL_SELECT__EXPRESSION_COL) == ValueTransient.YES)
@@ -319,44 +313,31 @@ public class CSVsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getCellSelectAccess().getVarIDTerminalRuleCall_2_0(), semanticObject.getVar());
-		feeder.accept(grammarAccess.getCellSelectAccess().getExpressionRowExpressionParserRuleCall_6_0(), semanticObject.getExpressionRow());
-		feeder.accept(grammarAccess.getCellSelectAccess().getExpressionColExpressionParserRuleCall_10_0(), semanticObject.getExpressionCol());
+		feeder.accept(grammarAccess.getCellSelectAccess().getExpressionRowPrimaryExprParserRuleCall_6_0(), semanticObject.getExpressionRow());
+		feeder.accept(grammarAccess.getCellSelectAccess().getExpressionColPrimaryExprParserRuleCall_10_0(), semanticObject.getExpressionCol());
 		feeder.finish();
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     Expression returns ColSelect
 	 *     Selector returns ColSelect
 	 *     ColSelect returns ColSelect
-	 *     Or returns ColSelect
-	 *     Or.Or_1_0 returns ColSelect
-	 *     And returns ColSelect
-	 *     And.And_1_0 returns ColSelect
-	 *     Equality returns ColSelect
-	 *     Equality.Equality_1_0 returns ColSelect
-	 *     Comparison returns ColSelect
-	 *     Comparison.Comparison_1_0 returns ColSelect
-	 *     PlusOrMinus returns ColSelect
-	 *     PlusOrMinus.Plus_1_0_0 returns ColSelect
-	 *     MulOrDiv returns ColSelect
-	 *     MulOrDiv.MulOrDiv_1_0_0 returns ColSelect
-	 *     Primary returns ColSelect
+	 *     PrimaryExpr returns ColSelect
 	 *
 	 * Constraint:
-	 *     (var=ID expression=Expression)
+	 *     (var=ID expression=PrimaryExpr)
 	 */
 	protected void sequence_ColSelect(ISerializationContext context, ColSelect semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, CsvsPackage.Literals.SELECTOR__VAR) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CsvsPackage.Literals.SELECTOR__VAR));
+			if (transientValues.isValueTransient(semanticObject, CsvsPackage.Literals.COL_SELECT__VAR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CsvsPackage.Literals.COL_SELECT__VAR));
 			if (transientValues.isValueTransient(semanticObject, CsvsPackage.Literals.COL_SELECT__EXPRESSION) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CsvsPackage.Literals.COL_SELECT__EXPRESSION));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getColSelectAccess().getVarIDTerminalRuleCall_2_0(), semanticObject.getVar());
-		feeder.accept(grammarAccess.getColSelectAccess().getExpressionExpressionParserRuleCall_6_0(), semanticObject.getExpression());
+		feeder.accept(grammarAccess.getColSelectAccess().getExpressionPrimaryExprParserRuleCall_6_0(), semanticObject.getExpression());
 		feeder.finish();
 	}
 	
@@ -375,49 +356,23 @@ public class CSVsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     Expression returns Comparison
-	 *     Or returns Comparison
-	 *     Or.Or_1_0 returns Comparison
-	 *     And returns Comparison
-	 *     And.And_1_0 returns Comparison
-	 *     Equality returns Comparison
-	 *     Equality.Equality_1_0 returns Comparison
-	 *     Comparison returns Comparison
-	 *     Comparison.Comparison_1_0 returns Comparison
-	 *     PlusOrMinus returns Comparison
-	 *     PlusOrMinus.Plus_1_0_0 returns Comparison
-	 *     MulOrDiv returns Comparison
-	 *     MulOrDiv.MulOrDiv_1_0_0 returns Comparison
-	 *     Primary returns Comparison
+	 *     ComparaisonExpr returns ComparaisonExpr
 	 *
 	 * Constraint:
-	 *     (left=Comparison_Comparison_1_0 (op='>=' | op='<=' | op='>' | op='<') right=PlusOrMinus)
+	 *     (left=PlusOrMinusExpr ((op='>=' | op='<=' | op='>' | op='<') right=PlusOrMinusExpr)?)
 	 */
-	protected void sequence_Comparison(ISerializationContext context, Comparison semanticObject) {
+	protected void sequence_ComparaisonExpr(ISerializationContext context, ComparaisonExpr semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     Expression returns CountExpr
 	 *     CountExpr returns CountExpr
-	 *     Or returns CountExpr
-	 *     Or.Or_1_0 returns CountExpr
-	 *     And returns CountExpr
-	 *     And.And_1_0 returns CountExpr
-	 *     Equality returns CountExpr
-	 *     Equality.Equality_1_0 returns CountExpr
-	 *     Comparison returns CountExpr
-	 *     Comparison.Comparison_1_0 returns CountExpr
-	 *     PlusOrMinus returns CountExpr
-	 *     PlusOrMinus.Plus_1_0_0 returns CountExpr
-	 *     MulOrDiv returns CountExpr
-	 *     MulOrDiv.MulOrDiv_1_0_0 returns CountExpr
-	 *     Primary returns CountExpr
+	 *     PrimaryExpr returns CountExpr
 	 *
 	 * Constraint:
-	 *     (var=ID expression=Expression)
+	 *     (var=ID expression=PrimaryExpr)
 	 */
 	protected void sequence_CountExpr(ISerializationContext context, CountExpr semanticObject) {
 		if (errorAcceptor != null) {
@@ -428,7 +383,7 @@ public class CSVsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getCountExprAccess().getVarIDTerminalRuleCall_2_0(), semanticObject.getVar());
-		feeder.accept(grammarAccess.getCountExprAccess().getExpressionExpressionParserRuleCall_6_0(), semanticObject.getExpression());
+		feeder.accept(grammarAccess.getCountExprAccess().getExpressionPrimaryExprParserRuleCall_6_0(), semanticObject.getExpression());
 		feeder.finish();
 	}
 	
@@ -475,25 +430,12 @@ public class CSVsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     Expression returns Equality
-	 *     Or returns Equality
-	 *     Or.Or_1_0 returns Equality
-	 *     And returns Equality
-	 *     And.And_1_0 returns Equality
-	 *     Equality returns Equality
-	 *     Equality.Equality_1_0 returns Equality
-	 *     Comparison returns Equality
-	 *     Comparison.Comparison_1_0 returns Equality
-	 *     PlusOrMinus returns Equality
-	 *     PlusOrMinus.Plus_1_0_0 returns Equality
-	 *     MulOrDiv returns Equality
-	 *     MulOrDiv.MulOrDiv_1_0_0 returns Equality
-	 *     Primary returns Equality
+	 *     EqualityExpr returns EqualityExpr
 	 *
 	 * Constraint:
-	 *     (left=Equality_Equality_1_0 (op='==' | op='!=') right=Comparison)
+	 *     (left=ComparaisonExpr ((op='==' | op='!=') right=ComparaisonExpr)?)
 	 */
-	protected void sequence_Equality(ISerializationContext context, Equality semanticObject) {
+	protected void sequence_EqualityExpr(ISerializationContext context, EqualityExpr semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -505,51 +447,41 @@ public class CSVsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     ExportCommand returns ExportCommand
 	 *
 	 * Constraint:
-	 *     expression=Expression
+	 *     (var=ID path=STRING)
 	 */
 	protected void sequence_ExportCommand(ISerializationContext context, ExportCommand semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, CsvsPackage.Literals.EXPORT_COMMAND__EXPRESSION) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CsvsPackage.Literals.EXPORT_COMMAND__EXPRESSION));
+			if (transientValues.isValueTransient(semanticObject, CsvsPackage.Literals.EXPORT_COMMAND__VAR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CsvsPackage.Literals.EXPORT_COMMAND__VAR));
+			if (transientValues.isValueTransient(semanticObject, CsvsPackage.Literals.EXPORT_COMMAND__PATH) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CsvsPackage.Literals.EXPORT_COMMAND__PATH));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getExportCommandAccess().getExpressionExpressionParserRuleCall_2_0(), semanticObject.getExpression());
+		feeder.accept(grammarAccess.getExportCommandAccess().getVarIDTerminalRuleCall_2_0(), semanticObject.getVar());
+		feeder.accept(grammarAccess.getExportCommandAccess().getPathSTRINGTerminalRuleCall_4_0(), semanticObject.getPath());
 		feeder.finish();
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     Expression returns FieldSelect
 	 *     Selector returns FieldSelect
 	 *     FieldSelect returns FieldSelect
-	 *     Or returns FieldSelect
-	 *     Or.Or_1_0 returns FieldSelect
-	 *     And returns FieldSelect
-	 *     And.And_1_0 returns FieldSelect
-	 *     Equality returns FieldSelect
-	 *     Equality.Equality_1_0 returns FieldSelect
-	 *     Comparison returns FieldSelect
-	 *     Comparison.Comparison_1_0 returns FieldSelect
-	 *     PlusOrMinus returns FieldSelect
-	 *     PlusOrMinus.Plus_1_0_0 returns FieldSelect
-	 *     MulOrDiv returns FieldSelect
-	 *     MulOrDiv.MulOrDiv_1_0_0 returns FieldSelect
-	 *     Primary returns FieldSelect
+	 *     PrimaryExpr returns FieldSelect
 	 *
 	 * Constraint:
-	 *     (var=ID expression=Expression)
+	 *     (var=ID expression=PrimaryExpr)
 	 */
 	protected void sequence_FieldSelect(ISerializationContext context, FieldSelect semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, CsvsPackage.Literals.SELECTOR__VAR) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CsvsPackage.Literals.SELECTOR__VAR));
+			if (transientValues.isValueTransient(semanticObject, CsvsPackage.Literals.FIELD_SELECT__VAR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CsvsPackage.Literals.FIELD_SELECT__VAR));
 			if (transientValues.isValueTransient(semanticObject, CsvsPackage.Literals.FIELD_SELECT__EXPRESSION) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CsvsPackage.Literals.FIELD_SELECT__EXPRESSION));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getFieldSelectAccess().getVarIDTerminalRuleCall_2_0(), semanticObject.getVar());
-		feeder.accept(grammarAccess.getFieldSelectAccess().getExpressionExpressionParserRuleCall_6_0(), semanticObject.getExpression());
+		feeder.accept(grammarAccess.getFieldSelectAccess().getExpressionPrimaryExprParserRuleCall_6_0(), semanticObject.getExpression());
 		feeder.finish();
 	}
 	
@@ -575,131 +507,89 @@ public class CSVsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     LoadCommand returns LoadCommand
 	 *
 	 * Constraint:
-	 *     var=ID
+	 *     (var=ID path=STRING)
 	 */
 	protected void sequence_LoadCommand(ISerializationContext context, LoadCommand semanticObject) {
 		if (errorAcceptor != null) {
 			if (transientValues.isValueTransient(semanticObject, CsvsPackage.Literals.LOAD_COMMAND__VAR) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CsvsPackage.Literals.LOAD_COMMAND__VAR));
+			if (transientValues.isValueTransient(semanticObject, CsvsPackage.Literals.LOAD_COMMAND__PATH) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CsvsPackage.Literals.LOAD_COMMAND__PATH));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getLoadCommandAccess().getVarIDTerminalRuleCall_2_0(), semanticObject.getVar());
+		feeder.accept(grammarAccess.getLoadCommandAccess().getPathSTRINGTerminalRuleCall_4_0(), semanticObject.getPath());
 		feeder.finish();
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     Expression returns MulOrDiv
-	 *     Or returns MulOrDiv
-	 *     Or.Or_1_0 returns MulOrDiv
-	 *     And returns MulOrDiv
-	 *     And.And_1_0 returns MulOrDiv
-	 *     Equality returns MulOrDiv
-	 *     Equality.Equality_1_0 returns MulOrDiv
-	 *     Comparison returns MulOrDiv
-	 *     Comparison.Comparison_1_0 returns MulOrDiv
-	 *     PlusOrMinus returns MulOrDiv
-	 *     PlusOrMinus.Plus_1_0_0 returns MulOrDiv
-	 *     MulOrDiv returns MulOrDiv
-	 *     MulOrDiv.MulOrDiv_1_0_0 returns MulOrDiv
-	 *     Primary returns MulOrDiv
+	 *     Model returns Model
+	 *     Block returns Model
 	 *
 	 * Constraint:
-	 *     (left=MulOrDiv_MulOrDiv_1_0_0 (op='*' | op='/') right=Primary)
+	 *     commands+=Command+
 	 */
-	protected void sequence_MulOrDiv(ISerializationContext context, MulOrDiv semanticObject) {
+	protected void sequence_Model(ISerializationContext context, Model semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     Expression returns Or
-	 *     Or returns Or
-	 *     Or.Or_1_0 returns Or
-	 *     And returns Or
-	 *     And.And_1_0 returns Or
-	 *     Equality returns Or
-	 *     Equality.Equality_1_0 returns Or
-	 *     Comparison returns Or
-	 *     Comparison.Comparison_1_0 returns Or
-	 *     PlusOrMinus returns Or
-	 *     PlusOrMinus.Plus_1_0_0 returns Or
-	 *     MulOrDiv returns Or
-	 *     MulOrDiv.MulOrDiv_1_0_0 returns Or
-	 *     Primary returns Or
+	 *     MulOrDivExpr returns MulOrDivExpr
 	 *
 	 * Constraint:
-	 *     (left=Or_Or_1_0 right=And)
+	 *     (left=PrimaryExpr ((op+='*' | op+='/' | op+='%') right+=PrimaryExpr)*)
 	 */
-	protected void sequence_Or(ISerializationContext context, Or semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, CsvsPackage.Literals.OR__LEFT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CsvsPackage.Literals.OR__LEFT));
-			if (transientValues.isValueTransient(semanticObject, CsvsPackage.Literals.OR__RIGHT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CsvsPackage.Literals.OR__RIGHT));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getOrAccess().getOrLeftAction_1_0(), semanticObject.getLeft());
-		feeder.accept(grammarAccess.getOrAccess().getRightAndParserRuleCall_1_4_0(), semanticObject.getRight());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Expression returns Plus
-	 *     Or returns Plus
-	 *     Or.Or_1_0 returns Plus
-	 *     And returns Plus
-	 *     And.And_1_0 returns Plus
-	 *     Equality returns Plus
-	 *     Equality.Equality_1_0 returns Plus
-	 *     Comparison returns Plus
-	 *     Comparison.Comparison_1_0 returns Plus
-	 *     PlusOrMinus returns Plus
-	 *     PlusOrMinus.Plus_1_0_0 returns Plus
-	 *     MulOrDiv returns Plus
-	 *     MulOrDiv.MulOrDiv_1_0_0 returns Plus
-	 *     Primary returns Plus
-	 *
-	 * Constraint:
-	 *     (left=PlusOrMinus_Plus_1_0_0 (op='+' | op='-') right=MulOrDiv)
-	 */
-	protected void sequence_PlusOrMinus(ISerializationContext context, Plus semanticObject) {
+	protected void sequence_MulOrDivExpr(ISerializationContext context, MulOrDivExpr semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     Expression returns Not
-	 *     Or returns Not
-	 *     Or.Or_1_0 returns Not
-	 *     And returns Not
-	 *     And.And_1_0 returns Not
-	 *     Equality returns Not
-	 *     Equality.Equality_1_0 returns Not
-	 *     Comparison returns Not
-	 *     Comparison.Comparison_1_0 returns Not
-	 *     PlusOrMinus returns Not
-	 *     PlusOrMinus.Plus_1_0_0 returns Not
-	 *     MulOrDiv returns Not
-	 *     MulOrDiv.MulOrDiv_1_0_0 returns Not
-	 *     Primary returns Not
+	 *     PrimaryExpr returns NotExpr
+	 *     NotExpr returns NotExpr
 	 *
 	 * Constraint:
-	 *     expression=Primary
+	 *     expr=PrimaryExpr
 	 */
-	protected void sequence_Primary(ISerializationContext context, Not semanticObject) {
+	protected void sequence_NotExpr(ISerializationContext context, NotExpr semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, CsvsPackage.Literals.NOT__EXPRESSION) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CsvsPackage.Literals.NOT__EXPRESSION));
+			if (transientValues.isValueTransient(semanticObject, CsvsPackage.Literals.NOT_EXPR__EXPR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CsvsPackage.Literals.NOT_EXPR__EXPR));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getPrimaryAccess().getExpressionPrimaryParserRuleCall_1_2_0(), semanticObject.getExpression());
+		feeder.accept(grammarAccess.getNotExprAccess().getExprPrimaryExprParserRuleCall_2_0(), semanticObject.getExpr());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Expression returns OrExpr
+	 *     OrExpr returns OrExpr
+	 *     PrimaryExpr returns OrExpr
+	 *
+	 * Constraint:
+	 *     (left=AddExpr right+=AddExpr*)
+	 */
+	protected void sequence_OrExpr(ISerializationContext context, OrExpr semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     PlusOrMinusExpr returns PlusOrMinusExpr
+	 *
+	 * Constraint:
+	 *     (left=MulOrDivExpr ((op+='+' | op+='-') right+=MulOrDivExpr)*)
+	 */
+	protected void sequence_PlusOrMinusExpr(ISerializationContext context, PlusOrMinusExpr semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -725,49 +615,23 @@ public class CSVsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     Program returns Program
-	 *     Block returns Program
-	 *
-	 * Constraint:
-	 *     commands+=Command+
-	 */
-	protected void sequence_Program(ISerializationContext context, Program semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Expression returns RowSelect
 	 *     Selector returns RowSelect
 	 *     RowSelect returns RowSelect
-	 *     Or returns RowSelect
-	 *     Or.Or_1_0 returns RowSelect
-	 *     And returns RowSelect
-	 *     And.And_1_0 returns RowSelect
-	 *     Equality returns RowSelect
-	 *     Equality.Equality_1_0 returns RowSelect
-	 *     Comparison returns RowSelect
-	 *     Comparison.Comparison_1_0 returns RowSelect
-	 *     PlusOrMinus returns RowSelect
-	 *     PlusOrMinus.Plus_1_0_0 returns RowSelect
-	 *     MulOrDiv returns RowSelect
-	 *     MulOrDiv.MulOrDiv_1_0_0 returns RowSelect
-	 *     Primary returns RowSelect
+	 *     PrimaryExpr returns RowSelect
 	 *
 	 * Constraint:
-	 *     (var=ID expression=Expression)
+	 *     (var=ID expression=PrimaryExpr)
 	 */
 	protected void sequence_RowSelect(ISerializationContext context, RowSelect semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, CsvsPackage.Literals.SELECTOR__VAR) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CsvsPackage.Literals.SELECTOR__VAR));
+			if (transientValues.isValueTransient(semanticObject, CsvsPackage.Literals.ROW_SELECT__VAR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CsvsPackage.Literals.ROW_SELECT__VAR));
 			if (transientValues.isValueTransient(semanticObject, CsvsPackage.Literals.ROW_SELECT__EXPRESSION) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CsvsPackage.Literals.ROW_SELECT__EXPRESSION));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getRowSelectAccess().getVarIDTerminalRuleCall_2_0(), semanticObject.getVar());
-		feeder.accept(grammarAccess.getRowSelectAccess().getExpressionExpressionParserRuleCall_6_0(), semanticObject.getExpression());
+		feeder.accept(grammarAccess.getRowSelectAccess().getExpressionPrimaryExprParserRuleCall_6_0(), semanticObject.getExpression());
 		feeder.finish();
 	}
 	
@@ -779,7 +643,7 @@ public class CSVsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     SetCommand returns SetCommand
 	 *
 	 * Constraint:
-	 *     (var=Expression expression=Expression)
+	 *     (var=Selector expression=Expression)
 	 */
 	protected void sequence_SetCommand(ISerializationContext context, SetCommand semanticObject) {
 		if (errorAcceptor != null) {
@@ -789,7 +653,7 @@ public class CSVsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CsvsPackage.Literals.SET_COMMAND__EXPRESSION));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getSetCommandAccess().getVarExpressionParserRuleCall_2_0(), semanticObject.getVar());
+		feeder.accept(grammarAccess.getSetCommandAccess().getVarSelectorParserRuleCall_0_0(), semanticObject.getVar());
 		feeder.accept(grammarAccess.getSetCommandAccess().getExpressionExpressionParserRuleCall_4_0(), semanticObject.getExpression());
 		feeder.finish();
 	}
@@ -802,48 +666,38 @@ public class CSVsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     StoreCommand returns StoreCommand
 	 *
 	 * Constraint:
-	 *     var=ID
+	 *     (var=ID path=STRING)
 	 */
 	protected void sequence_StoreCommand(ISerializationContext context, StoreCommand semanticObject) {
 		if (errorAcceptor != null) {
 			if (transientValues.isValueTransient(semanticObject, CsvsPackage.Literals.STORE_COMMAND__VAR) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CsvsPackage.Literals.STORE_COMMAND__VAR));
+			if (transientValues.isValueTransient(semanticObject, CsvsPackage.Literals.STORE_COMMAND__PATH) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CsvsPackage.Literals.STORE_COMMAND__PATH));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getStoreCommandAccess().getVarIDTerminalRuleCall_2_0(), semanticObject.getVar());
+		feeder.accept(grammarAccess.getStoreCommandAccess().getPathSTRINGTerminalRuleCall_4_0(), semanticObject.getPath());
 		feeder.finish();
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     Expression returns VariableExpr
-	 *     VariableExpr returns VariableExpr
-	 *     Or returns VariableExpr
-	 *     Or.Or_1_0 returns VariableExpr
-	 *     And returns VariableExpr
-	 *     And.And_1_0 returns VariableExpr
-	 *     Equality returns VariableExpr
-	 *     Equality.Equality_1_0 returns VariableExpr
-	 *     Comparison returns VariableExpr
-	 *     Comparison.Comparison_1_0 returns VariableExpr
-	 *     PlusOrMinus returns VariableExpr
-	 *     PlusOrMinus.Plus_1_0_0 returns VariableExpr
-	 *     MulOrDiv returns VariableExpr
-	 *     MulOrDiv.MulOrDiv_1_0_0 returns VariableExpr
-	 *     Primary returns VariableExpr
-	 *     Atomic returns VariableExpr
+	 *     Selector returns VariableSelect
+	 *     VariableSelect returns VariableSelect
+	 *     PrimaryExpr returns VariableSelect
 	 *
 	 * Constraint:
 	 *     term=ID
 	 */
-	protected void sequence_VariableExpr(ISerializationContext context, VariableExpr semanticObject) {
+	protected void sequence_VariableSelect(ISerializationContext context, VariableSelect semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, CsvsPackage.Literals.VARIABLE_EXPR__TERM) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CsvsPackage.Literals.VARIABLE_EXPR__TERM));
+			if (transientValues.isValueTransient(semanticObject, CsvsPackage.Literals.VARIABLE_SELECT__TERM) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CsvsPackage.Literals.VARIABLE_SELECT__TERM));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getVariableExprAccess().getTermIDTerminalRuleCall_0(), semanticObject.getTerm());
+		feeder.accept(grammarAccess.getVariableSelectAccess().getTermIDTerminalRuleCall_0(), semanticObject.getTerm());
 		feeder.finish();
 	}
 	

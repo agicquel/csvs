@@ -76,9 +76,9 @@ public class CsvsAdapterFactory extends AdapterFactoryImpl
     new CsvsSwitch<Adapter>()
     {
       @Override
-      public Adapter caseProgram(Program object)
+      public Adapter caseModel(Model object)
       {
-        return createProgramAdapter();
+        return createModelAdapter();
       }
       @Override
       public Adapter caseCommand(Command object)
@@ -121,6 +121,11 @@ public class CsvsAdapterFactory extends AdapterFactoryImpl
         return createStoreCommandAdapter();
       }
       @Override
+      public Adapter caseExportCommand(ExportCommand object)
+      {
+        return createExportCommandAdapter();
+      }
+      @Override
       public Adapter caseCreateCommand(CreateCommand object)
       {
         return createCreateCommandAdapter();
@@ -136,11 +141,6 @@ public class CsvsAdapterFactory extends AdapterFactoryImpl
         return createPrintCommandAdapter();
       }
       @Override
-      public Adapter caseExportCommand(ExportCommand object)
-      {
-        return createExportCommandAdapter();
-      }
-      @Override
       public Adapter caseDeleteCommand(DeleteCommand object)
       {
         return createDeleteCommandAdapter();
@@ -151,14 +151,24 @@ public class CsvsAdapterFactory extends AdapterFactoryImpl
         return createAddCommandAdapter();
       }
       @Override
+      public Adapter caseApplyCommand(ApplyCommand object)
+      {
+        return createApplyCommandAdapter();
+      }
+      @Override
+      public Adapter caseApplyFilterCommand(ApplyFilterCommand object)
+      {
+        return createApplyFilterCommandAdapter();
+      }
+      @Override
+      public Adapter caseApplyExecCommand(ApplyExecCommand object)
+      {
+        return createApplyExecCommandAdapter();
+      }
+      @Override
       public Adapter caseExpression(Expression object)
       {
         return createExpressionAdapter();
-      }
-      @Override
-      public Adapter caseVariableExpr(VariableExpr object)
-      {
-        return createVariableExprAdapter();
       }
       @Override
       public Adapter caseSelector(Selector object)
@@ -186,44 +196,59 @@ public class CsvsAdapterFactory extends AdapterFactoryImpl
         return createFieldSelectAdapter();
       }
       @Override
+      public Adapter caseVariableSelect(VariableSelect object)
+      {
+        return createVariableSelectAdapter();
+      }
+      @Override
       public Adapter caseCountExpr(CountExpr object)
       {
         return createCountExprAdapter();
       }
       @Override
-      public Adapter caseOr(Or object)
+      public Adapter caseOrExpr(OrExpr object)
       {
-        return createOrAdapter();
+        return createOrExprAdapter();
       }
       @Override
-      public Adapter caseAnd(And object)
+      public Adapter caseAddExpr(AddExpr object)
       {
-        return createAndAdapter();
+        return createAddExprAdapter();
       }
       @Override
-      public Adapter caseEquality(Equality object)
+      public Adapter caseEqualityExpr(EqualityExpr object)
       {
-        return createEqualityAdapter();
+        return createEqualityExprAdapter();
       }
       @Override
-      public Adapter caseComparison(Comparison object)
+      public Adapter caseComparaisonExpr(ComparaisonExpr object)
       {
-        return createComparisonAdapter();
+        return createComparaisonExprAdapter();
       }
       @Override
-      public Adapter casePlus(Plus object)
+      public Adapter casePlusOrMinusExpr(PlusOrMinusExpr object)
       {
-        return createPlusAdapter();
+        return createPlusOrMinusExprAdapter();
       }
       @Override
-      public Adapter caseMulOrDiv(MulOrDiv object)
+      public Adapter caseMulOrDivExpr(MulOrDivExpr object)
       {
-        return createMulOrDivAdapter();
+        return createMulOrDivExprAdapter();
       }
       @Override
-      public Adapter caseNot(Not object)
+      public Adapter casePrimaryExpr(PrimaryExpr object)
       {
-        return createNotAdapter();
+        return createPrimaryExprAdapter();
+      }
+      @Override
+      public Adapter caseNotExpr(NotExpr object)
+      {
+        return createNotExprAdapter();
+      }
+      @Override
+      public Adapter caseAtomicExpr(AtomicExpr object)
+      {
+        return createAtomicExprAdapter();
       }
       @Override
       public Adapter caseIntConstant(IntConstant object)
@@ -263,16 +288,16 @@ public class CsvsAdapterFactory extends AdapterFactoryImpl
 
 
   /**
-   * Creates a new adapter for an object of class '{@link com.agicquel.csvs.csvs.Program <em>Program</em>}'.
+   * Creates a new adapter for an object of class '{@link com.agicquel.csvs.csvs.Model <em>Model</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see com.agicquel.csvs.csvs.Program
+   * @see com.agicquel.csvs.csvs.Model
    * @generated
    */
-  public Adapter createProgramAdapter()
+  public Adapter createModelAdapter()
   {
     return null;
   }
@@ -398,6 +423,21 @@ public class CsvsAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link com.agicquel.csvs.csvs.ExportCommand <em>Export Command</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.agicquel.csvs.csvs.ExportCommand
+   * @generated
+   */
+  public Adapter createExportCommandAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link com.agicquel.csvs.csvs.CreateCommand <em>Create Command</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -443,21 +483,6 @@ public class CsvsAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link com.agicquel.csvs.csvs.ExportCommand <em>Export Command</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see com.agicquel.csvs.csvs.ExportCommand
-   * @generated
-   */
-  public Adapter createExportCommandAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link com.agicquel.csvs.csvs.DeleteCommand <em>Delete Command</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -488,6 +513,51 @@ public class CsvsAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link com.agicquel.csvs.csvs.ApplyCommand <em>Apply Command</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.agicquel.csvs.csvs.ApplyCommand
+   * @generated
+   */
+  public Adapter createApplyCommandAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.agicquel.csvs.csvs.ApplyFilterCommand <em>Apply Filter Command</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.agicquel.csvs.csvs.ApplyFilterCommand
+   * @generated
+   */
+  public Adapter createApplyFilterCommandAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.agicquel.csvs.csvs.ApplyExecCommand <em>Apply Exec Command</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.agicquel.csvs.csvs.ApplyExecCommand
+   * @generated
+   */
+  public Adapter createApplyExecCommandAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link com.agicquel.csvs.csvs.Expression <em>Expression</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -498,21 +568,6 @@ public class CsvsAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createExpressionAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link com.agicquel.csvs.csvs.VariableExpr <em>Variable Expr</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see com.agicquel.csvs.csvs.VariableExpr
-   * @generated
-   */
-  public Adapter createVariableExprAdapter()
   {
     return null;
   }
@@ -593,6 +648,21 @@ public class CsvsAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link com.agicquel.csvs.csvs.VariableSelect <em>Variable Select</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.agicquel.csvs.csvs.VariableSelect
+   * @generated
+   */
+  public Adapter createVariableSelectAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link com.agicquel.csvs.csvs.CountExpr <em>Count Expr</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -608,106 +678,136 @@ public class CsvsAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link com.agicquel.csvs.csvs.Or <em>Or</em>}'.
+   * Creates a new adapter for an object of class '{@link com.agicquel.csvs.csvs.OrExpr <em>Or Expr</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see com.agicquel.csvs.csvs.Or
+   * @see com.agicquel.csvs.csvs.OrExpr
    * @generated
    */
-  public Adapter createOrAdapter()
+  public Adapter createOrExprAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link com.agicquel.csvs.csvs.And <em>And</em>}'.
+   * Creates a new adapter for an object of class '{@link com.agicquel.csvs.csvs.AddExpr <em>Add Expr</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see com.agicquel.csvs.csvs.And
+   * @see com.agicquel.csvs.csvs.AddExpr
    * @generated
    */
-  public Adapter createAndAdapter()
+  public Adapter createAddExprAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link com.agicquel.csvs.csvs.Equality <em>Equality</em>}'.
+   * Creates a new adapter for an object of class '{@link com.agicquel.csvs.csvs.EqualityExpr <em>Equality Expr</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see com.agicquel.csvs.csvs.Equality
+   * @see com.agicquel.csvs.csvs.EqualityExpr
    * @generated
    */
-  public Adapter createEqualityAdapter()
+  public Adapter createEqualityExprAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link com.agicquel.csvs.csvs.Comparison <em>Comparison</em>}'.
+   * Creates a new adapter for an object of class '{@link com.agicquel.csvs.csvs.ComparaisonExpr <em>Comparaison Expr</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see com.agicquel.csvs.csvs.Comparison
+   * @see com.agicquel.csvs.csvs.ComparaisonExpr
    * @generated
    */
-  public Adapter createComparisonAdapter()
+  public Adapter createComparaisonExprAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link com.agicquel.csvs.csvs.Plus <em>Plus</em>}'.
+   * Creates a new adapter for an object of class '{@link com.agicquel.csvs.csvs.PlusOrMinusExpr <em>Plus Or Minus Expr</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see com.agicquel.csvs.csvs.Plus
+   * @see com.agicquel.csvs.csvs.PlusOrMinusExpr
    * @generated
    */
-  public Adapter createPlusAdapter()
+  public Adapter createPlusOrMinusExprAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link com.agicquel.csvs.csvs.MulOrDiv <em>Mul Or Div</em>}'.
+   * Creates a new adapter for an object of class '{@link com.agicquel.csvs.csvs.MulOrDivExpr <em>Mul Or Div Expr</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see com.agicquel.csvs.csvs.MulOrDiv
+   * @see com.agicquel.csvs.csvs.MulOrDivExpr
    * @generated
    */
-  public Adapter createMulOrDivAdapter()
+  public Adapter createMulOrDivExprAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link com.agicquel.csvs.csvs.Not <em>Not</em>}'.
+   * Creates a new adapter for an object of class '{@link com.agicquel.csvs.csvs.PrimaryExpr <em>Primary Expr</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see com.agicquel.csvs.csvs.Not
+   * @see com.agicquel.csvs.csvs.PrimaryExpr
    * @generated
    */
-  public Adapter createNotAdapter()
+  public Adapter createPrimaryExprAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.agicquel.csvs.csvs.NotExpr <em>Not Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.agicquel.csvs.csvs.NotExpr
+   * @generated
+   */
+  public Adapter createNotExprAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.agicquel.csvs.csvs.AtomicExpr <em>Atomic Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.agicquel.csvs.csvs.AtomicExpr
+   * @generated
+   */
+  public Adapter createAtomicExprAdapter()
   {
     return null;
   }

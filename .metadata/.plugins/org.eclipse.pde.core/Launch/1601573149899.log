@@ -1,0 +1,27 @@
+!SESSION 2020-10-01 19:25:49.740 -----------------------------------------------
+eclipse.buildId=4.16.0.v20200612-0706
+java.version=11.0.8
+java.vendor=Red Hat, Inc.
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=fr_FR
+
+!ENTRY org.eclipse.osgi 4 0 2020-10-01 19:25:49.915
+!MESSAGE /home/agicquel/workspace/CsvDslProject/.metadata/.plugins/org.eclipse.pde.core/Launch (est un dossier)
+!STACK 0
+java.io.FileNotFoundException: /home/agicquel/workspace/CsvDslProject/.metadata/.plugins/org.eclipse.pde.core/Launch (est un dossier)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at org.eclipse.osgi.internal.location.LocationHelper.getStream(LocationHelper.java:91)
+	at org.eclipse.osgi.internal.framework.EquinoxConfiguration.<init>(EquinoxConfiguration.java:575)
+	at org.eclipse.osgi.internal.framework.EquinoxContainer.<init>(EquinoxContainer.java:89)
+	at org.eclipse.osgi.launch.Equinox.<init>(Equinox.java:34)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.startup(EclipseStarter.java:315)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:251)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:669)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:606)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)

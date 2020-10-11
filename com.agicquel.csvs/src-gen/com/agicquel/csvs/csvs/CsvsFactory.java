@@ -24,13 +24,13 @@ public interface CsvsFactory extends EFactory
   CsvsFactory eINSTANCE = com.agicquel.csvs.csvs.impl.CsvsFactoryImpl.init();
 
   /**
-   * Returns a new object of class '<em>Program</em>'.
+   * Returns a new object of class '<em>Model</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Program</em>'.
+   * @return a new object of class '<em>Model</em>'.
    * @generated
    */
-  Program createProgram();
+  Model createModel();
 
   /**
    * Returns a new object of class '<em>Command</em>'.
@@ -105,6 +105,15 @@ public interface CsvsFactory extends EFactory
   StoreCommand createStoreCommand();
 
   /**
+   * Returns a new object of class '<em>Export Command</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Export Command</em>'.
+   * @generated
+   */
+  ExportCommand createExportCommand();
+
+  /**
    * Returns a new object of class '<em>Create Command</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -132,15 +141,6 @@ public interface CsvsFactory extends EFactory
   PrintCommand createPrintCommand();
 
   /**
-   * Returns a new object of class '<em>Export Command</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Export Command</em>'.
-   * @generated
-   */
-  ExportCommand createExportCommand();
-
-  /**
    * Returns a new object of class '<em>Delete Command</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -159,6 +159,33 @@ public interface CsvsFactory extends EFactory
   AddCommand createAddCommand();
 
   /**
+   * Returns a new object of class '<em>Apply Command</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Apply Command</em>'.
+   * @generated
+   */
+  ApplyCommand createApplyCommand();
+
+  /**
+   * Returns a new object of class '<em>Apply Filter Command</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Apply Filter Command</em>'.
+   * @generated
+   */
+  ApplyFilterCommand createApplyFilterCommand();
+
+  /**
+   * Returns a new object of class '<em>Apply Exec Command</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Apply Exec Command</em>'.
+   * @generated
+   */
+  ApplyExecCommand createApplyExecCommand();
+
+  /**
    * Returns a new object of class '<em>Expression</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -166,15 +193,6 @@ public interface CsvsFactory extends EFactory
    * @generated
    */
   Expression createExpression();
-
-  /**
-   * Returns a new object of class '<em>Variable Expr</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Variable Expr</em>'.
-   * @generated
-   */
-  VariableExpr createVariableExpr();
 
   /**
    * Returns a new object of class '<em>Selector</em>'.
@@ -222,6 +240,15 @@ public interface CsvsFactory extends EFactory
   FieldSelect createFieldSelect();
 
   /**
+   * Returns a new object of class '<em>Variable Select</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Variable Select</em>'.
+   * @generated
+   */
+  VariableSelect createVariableSelect();
+
+  /**
    * Returns a new object of class '<em>Count Expr</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -231,67 +258,85 @@ public interface CsvsFactory extends EFactory
   CountExpr createCountExpr();
 
   /**
-   * Returns a new object of class '<em>Or</em>'.
+   * Returns a new object of class '<em>Or Expr</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Or</em>'.
+   * @return a new object of class '<em>Or Expr</em>'.
    * @generated
    */
-  Or createOr();
+  OrExpr createOrExpr();
 
   /**
-   * Returns a new object of class '<em>And</em>'.
+   * Returns a new object of class '<em>Add Expr</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>And</em>'.
+   * @return a new object of class '<em>Add Expr</em>'.
    * @generated
    */
-  And createAnd();
+  AddExpr createAddExpr();
 
   /**
-   * Returns a new object of class '<em>Equality</em>'.
+   * Returns a new object of class '<em>Equality Expr</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Equality</em>'.
+   * @return a new object of class '<em>Equality Expr</em>'.
    * @generated
    */
-  Equality createEquality();
+  EqualityExpr createEqualityExpr();
 
   /**
-   * Returns a new object of class '<em>Comparison</em>'.
+   * Returns a new object of class '<em>Comparaison Expr</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Comparison</em>'.
+   * @return a new object of class '<em>Comparaison Expr</em>'.
    * @generated
    */
-  Comparison createComparison();
+  ComparaisonExpr createComparaisonExpr();
 
   /**
-   * Returns a new object of class '<em>Plus</em>'.
+   * Returns a new object of class '<em>Plus Or Minus Expr</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Plus</em>'.
+   * @return a new object of class '<em>Plus Or Minus Expr</em>'.
    * @generated
    */
-  Plus createPlus();
+  PlusOrMinusExpr createPlusOrMinusExpr();
 
   /**
-   * Returns a new object of class '<em>Mul Or Div</em>'.
+   * Returns a new object of class '<em>Mul Or Div Expr</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Mul Or Div</em>'.
+   * @return a new object of class '<em>Mul Or Div Expr</em>'.
    * @generated
    */
-  MulOrDiv createMulOrDiv();
+  MulOrDivExpr createMulOrDivExpr();
 
   /**
-   * Returns a new object of class '<em>Not</em>'.
+   * Returns a new object of class '<em>Primary Expr</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Not</em>'.
+   * @return a new object of class '<em>Primary Expr</em>'.
    * @generated
    */
-  Not createNot();
+  PrimaryExpr createPrimaryExpr();
+
+  /**
+   * Returns a new object of class '<em>Not Expr</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Not Expr</em>'.
+   * @generated
+   */
+  NotExpr createNotExpr();
+
+  /**
+   * Returns a new object of class '<em>Atomic Expr</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Atomic Expr</em>'.
+   * @generated
+   */
+  AtomicExpr createAtomicExpr();
 
   /**
    * Returns a new object of class '<em>Int Constant</em>'.

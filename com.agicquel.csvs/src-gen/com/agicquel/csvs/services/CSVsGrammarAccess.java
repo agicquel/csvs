@@ -23,8 +23,8 @@ import org.eclipse.xtext.service.GrammarProvider;
 @Singleton
 public class CSVsGrammarAccess extends AbstractElementFinder.AbstractGrammarElementFinder {
 	
-	public class ProgramElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.agicquel.csvs.CSVs.Program");
+	public class ModelElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.agicquel.csvs.CSVs.Model");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final RuleCall cLCParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
 		private final Assignment cCommandsAssignment_1 = (Assignment)cGroup.eContents().get(1);
@@ -32,7 +32,7 @@ public class CSVsGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		private final RuleCall cLCParserRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
 		
 		/////////// PROGRAM //////////
-		//Program:
+		//Model:
 		//	LC commands+=Command* LC;
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -69,17 +69,17 @@ public class CSVsGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		private final RuleCall cCsvCommandParserRuleCall_0_0 = (RuleCall)cGroup_0.eContents().get(0);
 		private final RuleCall cLCParserRuleCall_0_1 = (RuleCall)cGroup_0.eContents().get(1);
 		private final Keyword cSemicolonKeyword_0_2 = (Keyword)cGroup_0.eContents().get(2);
-		private final RuleCall cControlCommandParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
-		private final Action cCommandAction_2_0 = (Action)cGroup_2.eContents().get(0);
-		private final RuleCall cCommentCommandParserRuleCall_2_1 = (RuleCall)cGroup_2.eContents().get(1);
+		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
+		private final Action cCommandAction_1_0 = (Action)cGroup_1.eContents().get(0);
+		private final RuleCall cCommentCommandParserRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
+		private final RuleCall cControlCommandParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		
 		/////////// COMMANDS /////////
 		//Command:
-		//	CsvCommand LC ';' | ControlCommand | {Command} CommentCommand;
+		//	CsvCommand LC ';' | {Command} CommentCommand | ControlCommand;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//CsvCommand LC ';' | ControlCommand | {Command} CommentCommand
+		//CsvCommand LC ';' | {Command} CommentCommand | ControlCommand
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//CsvCommand LC ';'
@@ -94,32 +94,32 @@ public class CSVsGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		//';'
 		public Keyword getSemicolonKeyword_0_2() { return cSemicolonKeyword_0_2; }
 		
-		//ControlCommand
-		public RuleCall getControlCommandParserRuleCall_1() { return cControlCommandParserRuleCall_1; }
-		
 		//{Command} CommentCommand
-		public Group getGroup_2() { return cGroup_2; }
+		public Group getGroup_1() { return cGroup_1; }
 		
 		//{Command}
-		public Action getCommandAction_2_0() { return cCommandAction_2_0; }
+		public Action getCommandAction_1_0() { return cCommandAction_1_0; }
 		
 		//CommentCommand
-		public RuleCall getCommentCommandParserRuleCall_2_1() { return cCommentCommandParserRuleCall_2_1; }
+		public RuleCall getCommentCommandParserRuleCall_1_1() { return cCommentCommandParserRuleCall_1_1; }
+		
+		//ControlCommand
+		public RuleCall getControlCommandParserRuleCall_2() { return cControlCommandParserRuleCall_2; }
 	}
 	public class BlockElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.agicquel.csvs.CSVs.Block");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cLeftCurlyBracketKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final RuleCall cLCParserRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
-		private final RuleCall cProgramParserRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final RuleCall cModelParserRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
 		private final RuleCall cLCParserRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
 		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//Block:
-		//	'{' LC Program LC '}';
+		//	'{' LC Model LC '}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'{' LC Program LC '}'
+		//'{' LC Model LC '}'
 		public Group getGroup() { return cGroup; }
 		
 		//'{'
@@ -128,8 +128,8 @@ public class CSVsGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		//LC
 		public RuleCall getLCParserRuleCall_1() { return cLCParserRuleCall_1; }
 		
-		//Program
-		public RuleCall getProgramParserRuleCall_2() { return cProgramParserRuleCall_2; }
+		//Model
+		public RuleCall getModelParserRuleCall_2() { return cModelParserRuleCall_2; }
 		
 		//LC
 		public RuleCall getLCParserRuleCall_3() { return cLCParserRuleCall_3; }
@@ -305,12 +305,15 @@ public class CSVsGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		private final RuleCall cExportCommandParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
 		private final RuleCall cDeleteCommandParserRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
 		private final RuleCall cAddCommandParserRuleCall_7 = (RuleCall)cAlternatives.eContents().get(7);
+		private final RuleCall cApplyCommandParserRuleCall_8 = (RuleCall)cAlternatives.eContents().get(8);
 		
 		//CsvCommand:
-		//	LoadCommand | StoreCommand | CreateCommand | SetCommand | PrintCommand | ExportCommand | DeleteCommand | AddCommand;
+		//	LoadCommand | StoreCommand | CreateCommand | SetCommand | PrintCommand | ExportCommand | DeleteCommand | AddCommand |
+		//	ApplyCommand;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//LoadCommand | StoreCommand | CreateCommand | SetCommand | PrintCommand | ExportCommand | DeleteCommand | AddCommand
+		//LoadCommand | StoreCommand | CreateCommand | SetCommand | PrintCommand | ExportCommand | DeleteCommand | AddCommand |
+		//ApplyCommand
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//LoadCommand
@@ -336,6 +339,9 @@ public class CSVsGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		
 		//AddCommand
 		public RuleCall getAddCommandParserRuleCall_7() { return cAddCommandParserRuleCall_7; }
+		
+		//ApplyCommand
+		public RuleCall getApplyCommandParserRuleCall_8() { return cApplyCommandParserRuleCall_8; }
 	}
 	public class LoadCommandElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.agicquel.csvs.CSVs.LoadCommand");
@@ -345,13 +351,14 @@ public class CSVsGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		private final Assignment cVarAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cVarIDTerminalRuleCall_2_0 = (RuleCall)cVarAssignment_2.eContents().get(0);
 		private final RuleCall cLCParserRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
-		private final RuleCall cSTRINGTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final Assignment cPathAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cPathSTRINGTerminalRuleCall_4_0 = (RuleCall)cPathAssignment_4.eContents().get(0);
 		
 		//LoadCommand:
-		//	'load' LC var=ID LC STRING;
+		//	'load' LC var=ID LC path=STRING;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'load' LC var=ID LC STRING
+		//'load' LC var=ID LC path=STRING
 		public Group getGroup() { return cGroup; }
 		
 		//'load'
@@ -369,8 +376,11 @@ public class CSVsGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		//LC
 		public RuleCall getLCParserRuleCall_3() { return cLCParserRuleCall_3; }
 		
+		//path=STRING
+		public Assignment getPathAssignment_4() { return cPathAssignment_4; }
+		
 		//STRING
-		public RuleCall getSTRINGTerminalRuleCall_4() { return cSTRINGTerminalRuleCall_4; }
+		public RuleCall getPathSTRINGTerminalRuleCall_4_0() { return cPathSTRINGTerminalRuleCall_4_0; }
 	}
 	public class StoreCommandElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.agicquel.csvs.CSVs.StoreCommand");
@@ -380,13 +390,14 @@ public class CSVsGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		private final Assignment cVarAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cVarIDTerminalRuleCall_2_0 = (RuleCall)cVarAssignment_2.eContents().get(0);
 		private final RuleCall cLCParserRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
-		private final RuleCall cSTRINGTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final Assignment cPathAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cPathSTRINGTerminalRuleCall_4_0 = (RuleCall)cPathAssignment_4.eContents().get(0);
 		
 		//StoreCommand:
-		//	'store' LC var=ID LC STRING;
+		//	'store' LC var=ID LC path=STRING;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'store' LC var=ID LC STRING
+		//'store' LC var=ID LC path=STRING
 		public Group getGroup() { return cGroup; }
 		
 		//'store'
@@ -404,8 +415,50 @@ public class CSVsGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		//LC
 		public RuleCall getLCParserRuleCall_3() { return cLCParserRuleCall_3; }
 		
+		//path=STRING
+		public Assignment getPathAssignment_4() { return cPathAssignment_4; }
+		
 		//STRING
-		public RuleCall getSTRINGTerminalRuleCall_4() { return cSTRINGTerminalRuleCall_4; }
+		public RuleCall getPathSTRINGTerminalRuleCall_4_0() { return cPathSTRINGTerminalRuleCall_4_0; }
+	}
+	public class ExportCommandElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.agicquel.csvs.CSVs.ExportCommand");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cExportKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final RuleCall cLCParserRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final Assignment cVarAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cVarIDTerminalRuleCall_2_0 = (RuleCall)cVarAssignment_2.eContents().get(0);
+		private final RuleCall cLCParserRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
+		private final Assignment cPathAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cPathSTRINGTerminalRuleCall_4_0 = (RuleCall)cPathAssignment_4.eContents().get(0);
+		
+		//ExportCommand:
+		//	'export' LC var=ID LC path=STRING;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'export' LC var=ID LC path=STRING
+		public Group getGroup() { return cGroup; }
+		
+		//'export'
+		public Keyword getExportKeyword_0() { return cExportKeyword_0; }
+		
+		//LC
+		public RuleCall getLCParserRuleCall_1() { return cLCParserRuleCall_1; }
+		
+		//var=ID
+		public Assignment getVarAssignment_2() { return cVarAssignment_2; }
+		
+		//ID
+		public RuleCall getVarIDTerminalRuleCall_2_0() { return cVarIDTerminalRuleCall_2_0; }
+		
+		//LC
+		public RuleCall getLCParserRuleCall_3() { return cLCParserRuleCall_3; }
+		
+		//path=STRING
+		public Assignment getPathAssignment_4() { return cPathAssignment_4; }
+		
+		//STRING
+		public RuleCall getPathSTRINGTerminalRuleCall_4_0() { return cPathSTRINGTerminalRuleCall_4_0; }
 	}
 	public class CreateCommandElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.agicquel.csvs.CSVs.CreateCommand");
@@ -437,32 +490,32 @@ public class CSVsGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	public class SetCommandElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.agicquel.csvs.CSVs.SetCommand");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cSetKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cVarAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cVarSelectorParserRuleCall_0_0 = (RuleCall)cVarAssignment_0.eContents().get(0);
 		private final RuleCall cLCParserRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
-		private final Assignment cVarAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cVarExpressionParserRuleCall_2_0 = (RuleCall)cVarAssignment_2.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final RuleCall cLCParserRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
 		private final Assignment cExpressionAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final RuleCall cExpressionExpressionParserRuleCall_4_0 = (RuleCall)cExpressionAssignment_4.eContents().get(0);
 		
 		//SetCommand:
-		//	'set' LC var=Expression LC expression=Expression;
+		//	var=Selector LC '=' LC expression=Expression;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'set' LC var=Expression LC expression=Expression
+		//var=Selector LC '=' LC expression=Expression
 		public Group getGroup() { return cGroup; }
 		
-		//'set'
-		public Keyword getSetKeyword_0() { return cSetKeyword_0; }
+		//var=Selector
+		public Assignment getVarAssignment_0() { return cVarAssignment_0; }
+		
+		//Selector
+		public RuleCall getVarSelectorParserRuleCall_0_0() { return cVarSelectorParserRuleCall_0_0; }
 		
 		//LC
 		public RuleCall getLCParserRuleCall_1() { return cLCParserRuleCall_1; }
 		
-		//var=Expression
-		public Assignment getVarAssignment_2() { return cVarAssignment_2; }
-		
-		//Expression
-		public RuleCall getVarExpressionParserRuleCall_2_0() { return cVarExpressionParserRuleCall_2_0; }
+		//'='
+		public Keyword getEqualsSignKeyword_2() { return cEqualsSignKeyword_2; }
 		
 		//LC
 		public RuleCall getLCParserRuleCall_3() { return cLCParserRuleCall_3; }
@@ -490,33 +543,6 @@ public class CSVsGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		
 		//'print'
 		public Keyword getPrintKeyword_0() { return cPrintKeyword_0; }
-		
-		//LC
-		public RuleCall getLCParserRuleCall_1() { return cLCParserRuleCall_1; }
-		
-		//expression=Expression
-		public Assignment getExpressionAssignment_2() { return cExpressionAssignment_2; }
-		
-		//Expression
-		public RuleCall getExpressionExpressionParserRuleCall_2_0() { return cExpressionExpressionParserRuleCall_2_0; }
-	}
-	public class ExportCommandElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.agicquel.csvs.CSVs.ExportCommand");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cExportKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final RuleCall cLCParserRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
-		private final Assignment cExpressionAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cExpressionExpressionParserRuleCall_2_0 = (RuleCall)cExpressionAssignment_2.eContents().get(0);
-		
-		//ExportCommand:
-		//	'export' LC expression=Expression;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//'export' LC expression=Expression
-		public Group getGroup() { return cGroup; }
-		
-		//'export'
-		public Keyword getExportKeyword_0() { return cExportKeyword_0; }
 		
 		//LC
 		public RuleCall getLCParserRuleCall_1() { return cLCParserRuleCall_1; }
@@ -601,6 +627,183 @@ public class CSVsGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		//Expression
 		public RuleCall getExpressionExpressionParserRuleCall_4_0() { return cExpressionExpressionParserRuleCall_4_0; }
 	}
+	public class ApplyCommandElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.agicquel.csvs.CSVs.ApplyCommand");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cOnKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final RuleCall cLCParserRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final Assignment cSelectionAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cSelectionSelectorParserRuleCall_2_0 = (RuleCall)cSelectionAssignment_2.eContents().get(0);
+		private final RuleCall cLCParserRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
+		private final Assignment cIfAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cIfApplyFilterCommandParserRuleCall_4_0 = (RuleCall)cIfAssignment_4.eContents().get(0);
+		private final RuleCall cLCParserRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
+		private final Assignment cExecAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cExecApplyExecCommandParserRuleCall_6_0 = (RuleCall)cExecAssignment_6.eContents().get(0);
+		
+		//ApplyCommand:
+		//	'on' LC selection=Selector LC if=ApplyFilterCommand? LC exec=ApplyExecCommand;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'on' LC selection=Selector LC if=ApplyFilterCommand? LC exec=ApplyExecCommand
+		public Group getGroup() { return cGroup; }
+		
+		//'on'
+		public Keyword getOnKeyword_0() { return cOnKeyword_0; }
+		
+		//LC
+		public RuleCall getLCParserRuleCall_1() { return cLCParserRuleCall_1; }
+		
+		//selection=Selector
+		public Assignment getSelectionAssignment_2() { return cSelectionAssignment_2; }
+		
+		//Selector
+		public RuleCall getSelectionSelectorParserRuleCall_2_0() { return cSelectionSelectorParserRuleCall_2_0; }
+		
+		//LC
+		public RuleCall getLCParserRuleCall_3() { return cLCParserRuleCall_3; }
+		
+		//if=ApplyFilterCommand?
+		public Assignment getIfAssignment_4() { return cIfAssignment_4; }
+		
+		//ApplyFilterCommand
+		public RuleCall getIfApplyFilterCommandParserRuleCall_4_0() { return cIfApplyFilterCommandParserRuleCall_4_0; }
+		
+		//LC
+		public RuleCall getLCParserRuleCall_5() { return cLCParserRuleCall_5; }
+		
+		//exec=ApplyExecCommand
+		public Assignment getExecAssignment_6() { return cExecAssignment_6; }
+		
+		//ApplyExecCommand
+		public RuleCall getExecApplyExecCommandParserRuleCall_6_0() { return cExecApplyExecCommandParserRuleCall_6_0; }
+	}
+	public class ApplyFilterCommandElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.agicquel.csvs.CSVs.ApplyFilterCommand");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cFilterKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final RuleCall cLCParserRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final Keyword cLeftParenthesisKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final RuleCall cLCParserRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
+		private final Assignment cVarNameAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cVarNameIDTerminalRuleCall_4_0 = (RuleCall)cVarNameAssignment_4.eContents().get(0);
+		private final RuleCall cLCParserRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
+		private final Keyword cColonKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final RuleCall cLCParserRuleCall_7 = (RuleCall)cGroup.eContents().get(7);
+		private final Assignment cExprAssignment_8 = (Assignment)cGroup.eContents().get(8);
+		private final RuleCall cExprExpressionParserRuleCall_8_0 = (RuleCall)cExprAssignment_8.eContents().get(0);
+		private final RuleCall cLCParserRuleCall_9 = (RuleCall)cGroup.eContents().get(9);
+		private final Keyword cRightParenthesisKeyword_10 = (Keyword)cGroup.eContents().get(10);
+		
+		//ApplyFilterCommand:
+		//	'filter' LC '(' LC varName=ID LC ':' LC expr=Expression LC ')';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'filter' LC '(' LC varName=ID LC ':' LC expr=Expression LC ')'
+		public Group getGroup() { return cGroup; }
+		
+		//'filter'
+		public Keyword getFilterKeyword_0() { return cFilterKeyword_0; }
+		
+		//LC
+		public RuleCall getLCParserRuleCall_1() { return cLCParserRuleCall_1; }
+		
+		//'('
+		public Keyword getLeftParenthesisKeyword_2() { return cLeftParenthesisKeyword_2; }
+		
+		//LC
+		public RuleCall getLCParserRuleCall_3() { return cLCParserRuleCall_3; }
+		
+		//varName=ID
+		public Assignment getVarNameAssignment_4() { return cVarNameAssignment_4; }
+		
+		//ID
+		public RuleCall getVarNameIDTerminalRuleCall_4_0() { return cVarNameIDTerminalRuleCall_4_0; }
+		
+		//LC
+		public RuleCall getLCParserRuleCall_5() { return cLCParserRuleCall_5; }
+		
+		//':'
+		public Keyword getColonKeyword_6() { return cColonKeyword_6; }
+		
+		//LC
+		public RuleCall getLCParserRuleCall_7() { return cLCParserRuleCall_7; }
+		
+		//expr=Expression
+		public Assignment getExprAssignment_8() { return cExprAssignment_8; }
+		
+		//Expression
+		public RuleCall getExprExpressionParserRuleCall_8_0() { return cExprExpressionParserRuleCall_8_0; }
+		
+		//LC
+		public RuleCall getLCParserRuleCall_9() { return cLCParserRuleCall_9; }
+		
+		//')'
+		public Keyword getRightParenthesisKeyword_10() { return cRightParenthesisKeyword_10; }
+	}
+	public class ApplyExecCommandElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.agicquel.csvs.CSVs.ApplyExecCommand");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cApplyKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final RuleCall cLCParserRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final Keyword cLeftParenthesisKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final RuleCall cLCParserRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
+		private final Assignment cVarNameAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cVarNameIDTerminalRuleCall_4_0 = (RuleCall)cVarNameAssignment_4.eContents().get(0);
+		private final RuleCall cLCParserRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
+		private final Keyword cColonKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final RuleCall cLCParserRuleCall_7 = (RuleCall)cGroup.eContents().get(7);
+		private final Assignment cExprAssignment_8 = (Assignment)cGroup.eContents().get(8);
+		private final RuleCall cExprExpressionParserRuleCall_8_0 = (RuleCall)cExprAssignment_8.eContents().get(0);
+		private final RuleCall cLCParserRuleCall_9 = (RuleCall)cGroup.eContents().get(9);
+		private final Keyword cRightParenthesisKeyword_10 = (Keyword)cGroup.eContents().get(10);
+		
+		//ApplyExecCommand:
+		//	'apply' LC '(' LC varName=ID LC ':' LC expr=Expression LC ')';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'apply' LC '(' LC varName=ID LC ':' LC expr=Expression LC ')'
+		public Group getGroup() { return cGroup; }
+		
+		//'apply'
+		public Keyword getApplyKeyword_0() { return cApplyKeyword_0; }
+		
+		//LC
+		public RuleCall getLCParserRuleCall_1() { return cLCParserRuleCall_1; }
+		
+		//'('
+		public Keyword getLeftParenthesisKeyword_2() { return cLeftParenthesisKeyword_2; }
+		
+		//LC
+		public RuleCall getLCParserRuleCall_3() { return cLCParserRuleCall_3; }
+		
+		//varName=ID
+		public Assignment getVarNameAssignment_4() { return cVarNameAssignment_4; }
+		
+		//ID
+		public RuleCall getVarNameIDTerminalRuleCall_4_0() { return cVarNameIDTerminalRuleCall_4_0; }
+		
+		//LC
+		public RuleCall getLCParserRuleCall_5() { return cLCParserRuleCall_5; }
+		
+		//':'
+		public Keyword getColonKeyword_6() { return cColonKeyword_6; }
+		
+		//LC
+		public RuleCall getLCParserRuleCall_7() { return cLCParserRuleCall_7; }
+		
+		//expr=Expression
+		public Assignment getExprAssignment_8() { return cExprAssignment_8; }
+		
+		//Expression
+		public RuleCall getExprExpressionParserRuleCall_8_0() { return cExprExpressionParserRuleCall_8_0; }
+		
+		//LC
+		public RuleCall getLCParserRuleCall_9() { return cLCParserRuleCall_9; }
+		
+		//')'
+		public Keyword getRightParenthesisKeyword_10() { return cRightParenthesisKeyword_10; }
+	}
 	public class CommentCommandElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.agicquel.csvs.CSVs.CommentCommand");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
@@ -622,42 +825,15 @@ public class CSVsGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	}
 	public class ExpressionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.agicquel.csvs.CSVs.Expression");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cOrParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cSelectorParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cCountExprParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cOrExprParserRuleCall = (RuleCall)rule.eContents().get(1);
 		
 		///////// EXPRESSIONS ////////
 		//Expression:
-		//	Or | Selector | CountExpr;
+		//	OrExpr;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//Or | Selector | CountExpr
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//Or
-		public RuleCall getOrParserRuleCall_0() { return cOrParserRuleCall_0; }
-		
-		//Selector
-		public RuleCall getSelectorParserRuleCall_1() { return cSelectorParserRuleCall_1; }
-		
-		//CountExpr
-		public RuleCall getCountExprParserRuleCall_2() { return cCountExprParserRuleCall_2; }
-	}
-	public class VariableExprElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.agicquel.csvs.CSVs.VariableExpr");
-		private final Assignment cTermAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cTermIDTerminalRuleCall_0 = (RuleCall)cTermAssignment.eContents().get(0);
-		
-		//VariableExpr:
-		//	term=ID;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//term=ID
-		public Assignment getTermAssignment() { return cTermAssignment; }
-		
-		//ID
-		public RuleCall getTermIDTerminalRuleCall_0() { return cTermIDTerminalRuleCall_0; }
+		//OrExpr
+		public RuleCall getOrExprParserRuleCall() { return cOrExprParserRuleCall; }
 	}
 	public class SelectorElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.agicquel.csvs.CSVs.Selector");
@@ -666,12 +842,13 @@ public class CSVsGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		private final RuleCall cColSelectParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		private final RuleCall cCellSelectParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		private final RuleCall cFieldSelectParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final RuleCall cVariableSelectParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
 		
 		//Selector:
-		//	RowSelect | ColSelect | CellSelect | FieldSelect;
+		//	RowSelect | ColSelect | CellSelect | FieldSelect | VariableSelect;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//RowSelect | ColSelect | CellSelect | FieldSelect
+		//RowSelect | ColSelect | CellSelect | FieldSelect | VariableSelect
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//RowSelect
@@ -685,6 +862,9 @@ public class CSVsGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		
 		//FieldSelect
 		public RuleCall getFieldSelectParserRuleCall_3() { return cFieldSelectParserRuleCall_3; }
+		
+		//VariableSelect
+		public RuleCall getVariableSelectParserRuleCall_4() { return cVariableSelectParserRuleCall_4; }
 	}
 	public class RowSelectElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.agicquel.csvs.CSVs.RowSelect");
@@ -697,15 +877,15 @@ public class CSVsGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		private final Keyword cLeftParenthesisKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		private final RuleCall cLCParserRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
 		private final Assignment cExpressionAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final RuleCall cExpressionExpressionParserRuleCall_6_0 = (RuleCall)cExpressionAssignment_6.eContents().get(0);
+		private final RuleCall cExpressionPrimaryExprParserRuleCall_6_0 = (RuleCall)cExpressionAssignment_6.eContents().get(0);
 		private final RuleCall cLCParserRuleCall_7 = (RuleCall)cGroup.eContents().get(7);
 		private final Keyword cRightParenthesisKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		
 		//RowSelect:
-		//	'row' LC var=ID LC '(' LC expression=Expression LC ')';
+		//	'row' LC var=ID LC '(' LC expression=PrimaryExpr LC ')';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'row' LC var=ID LC '(' LC expression=Expression LC ')'
+		//'row' LC var=ID LC '(' LC expression=PrimaryExpr LC ')'
 		public Group getGroup() { return cGroup; }
 		
 		//'row'
@@ -729,11 +909,11 @@ public class CSVsGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		//LC
 		public RuleCall getLCParserRuleCall_5() { return cLCParserRuleCall_5; }
 		
-		//expression=Expression
+		//expression=PrimaryExpr
 		public Assignment getExpressionAssignment_6() { return cExpressionAssignment_6; }
 		
-		//Expression
-		public RuleCall getExpressionExpressionParserRuleCall_6_0() { return cExpressionExpressionParserRuleCall_6_0; }
+		//PrimaryExpr
+		public RuleCall getExpressionPrimaryExprParserRuleCall_6_0() { return cExpressionPrimaryExprParserRuleCall_6_0; }
 		
 		//LC
 		public RuleCall getLCParserRuleCall_7() { return cLCParserRuleCall_7; }
@@ -752,15 +932,15 @@ public class CSVsGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		private final Keyword cLeftParenthesisKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		private final RuleCall cLCParserRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
 		private final Assignment cExpressionAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final RuleCall cExpressionExpressionParserRuleCall_6_0 = (RuleCall)cExpressionAssignment_6.eContents().get(0);
+		private final RuleCall cExpressionPrimaryExprParserRuleCall_6_0 = (RuleCall)cExpressionAssignment_6.eContents().get(0);
 		private final RuleCall cLCParserRuleCall_7 = (RuleCall)cGroup.eContents().get(7);
 		private final Keyword cRightParenthesisKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		
 		//ColSelect:
-		//	'col' LC var=ID LC '(' LC expression=Expression LC ')';
+		//	'col' LC var=ID LC '(' LC expression=PrimaryExpr LC ')';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'col' LC var=ID LC '(' LC expression=Expression LC ')'
+		//'col' LC var=ID LC '(' LC expression=PrimaryExpr LC ')'
 		public Group getGroup() { return cGroup; }
 		
 		//'col'
@@ -784,11 +964,11 @@ public class CSVsGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		//LC
 		public RuleCall getLCParserRuleCall_5() { return cLCParserRuleCall_5; }
 		
-		//expression=Expression
+		//expression=PrimaryExpr
 		public Assignment getExpressionAssignment_6() { return cExpressionAssignment_6; }
 		
-		//Expression
-		public RuleCall getExpressionExpressionParserRuleCall_6_0() { return cExpressionExpressionParserRuleCall_6_0; }
+		//PrimaryExpr
+		public RuleCall getExpressionPrimaryExprParserRuleCall_6_0() { return cExpressionPrimaryExprParserRuleCall_6_0; }
 		
 		//LC
 		public RuleCall getLCParserRuleCall_7() { return cLCParserRuleCall_7; }
@@ -807,20 +987,20 @@ public class CSVsGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		private final Keyword cLeftParenthesisKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		private final RuleCall cLCParserRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
 		private final Assignment cExpressionRowAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final RuleCall cExpressionRowExpressionParserRuleCall_6_0 = (RuleCall)cExpressionRowAssignment_6.eContents().get(0);
+		private final RuleCall cExpressionRowPrimaryExprParserRuleCall_6_0 = (RuleCall)cExpressionRowAssignment_6.eContents().get(0);
 		private final RuleCall cLCParserRuleCall_7 = (RuleCall)cGroup.eContents().get(7);
 		private final Keyword cCommaKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		private final RuleCall cLCParserRuleCall_9 = (RuleCall)cGroup.eContents().get(9);
 		private final Assignment cExpressionColAssignment_10 = (Assignment)cGroup.eContents().get(10);
-		private final RuleCall cExpressionColExpressionParserRuleCall_10_0 = (RuleCall)cExpressionColAssignment_10.eContents().get(0);
+		private final RuleCall cExpressionColPrimaryExprParserRuleCall_10_0 = (RuleCall)cExpressionColAssignment_10.eContents().get(0);
 		private final RuleCall cLCParserRuleCall_11 = (RuleCall)cGroup.eContents().get(11);
 		private final Keyword cRightParenthesisKeyword_12 = (Keyword)cGroup.eContents().get(12);
 		
 		//CellSelect:
-		//	'cell' LC var=ID LC '(' LC expressionRow=Expression LC ',' LC expressionCol=Expression LC ')';
+		//	'cell' LC var=ID LC '(' LC expressionRow=PrimaryExpr LC ',' LC expressionCol=PrimaryExpr LC ')';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'cell' LC var=ID LC '(' LC expressionRow=Expression LC ',' LC expressionCol=Expression LC ')'
+		//'cell' LC var=ID LC '(' LC expressionRow=PrimaryExpr LC ',' LC expressionCol=PrimaryExpr LC ')'
 		public Group getGroup() { return cGroup; }
 		
 		//'cell'
@@ -844,11 +1024,11 @@ public class CSVsGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		//LC
 		public RuleCall getLCParserRuleCall_5() { return cLCParserRuleCall_5; }
 		
-		//expressionRow=Expression
+		//expressionRow=PrimaryExpr
 		public Assignment getExpressionRowAssignment_6() { return cExpressionRowAssignment_6; }
 		
-		//Expression
-		public RuleCall getExpressionRowExpressionParserRuleCall_6_0() { return cExpressionRowExpressionParserRuleCall_6_0; }
+		//PrimaryExpr
+		public RuleCall getExpressionRowPrimaryExprParserRuleCall_6_0() { return cExpressionRowPrimaryExprParserRuleCall_6_0; }
 		
 		//LC
 		public RuleCall getLCParserRuleCall_7() { return cLCParserRuleCall_7; }
@@ -859,11 +1039,11 @@ public class CSVsGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		//LC
 		public RuleCall getLCParserRuleCall_9() { return cLCParserRuleCall_9; }
 		
-		//expressionCol=Expression
+		//expressionCol=PrimaryExpr
 		public Assignment getExpressionColAssignment_10() { return cExpressionColAssignment_10; }
 		
-		//Expression
-		public RuleCall getExpressionColExpressionParserRuleCall_10_0() { return cExpressionColExpressionParserRuleCall_10_0; }
+		//PrimaryExpr
+		public RuleCall getExpressionColPrimaryExprParserRuleCall_10_0() { return cExpressionColPrimaryExprParserRuleCall_10_0; }
 		
 		//LC
 		public RuleCall getLCParserRuleCall_11() { return cLCParserRuleCall_11; }
@@ -882,15 +1062,15 @@ public class CSVsGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		private final Keyword cLeftParenthesisKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		private final RuleCall cLCParserRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
 		private final Assignment cExpressionAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final RuleCall cExpressionExpressionParserRuleCall_6_0 = (RuleCall)cExpressionAssignment_6.eContents().get(0);
+		private final RuleCall cExpressionPrimaryExprParserRuleCall_6_0 = (RuleCall)cExpressionAssignment_6.eContents().get(0);
 		private final RuleCall cLCParserRuleCall_7 = (RuleCall)cGroup.eContents().get(7);
 		private final Keyword cRightParenthesisKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		
 		//FieldSelect:
-		//	'field' LC var=ID LC '(' LC expression=Expression LC ')';
+		//	'field' LC var=ID LC '(' LC expression=PrimaryExpr LC ')';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'field' LC var=ID LC '(' LC expression=Expression LC ')'
+		//'field' LC var=ID LC '(' LC expression=PrimaryExpr LC ')'
 		public Group getGroup() { return cGroup; }
 		
 		//'field'
@@ -914,17 +1094,32 @@ public class CSVsGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		//LC
 		public RuleCall getLCParserRuleCall_5() { return cLCParserRuleCall_5; }
 		
-		//expression=Expression
+		//expression=PrimaryExpr
 		public Assignment getExpressionAssignment_6() { return cExpressionAssignment_6; }
 		
-		//Expression
-		public RuleCall getExpressionExpressionParserRuleCall_6_0() { return cExpressionExpressionParserRuleCall_6_0; }
+		//PrimaryExpr
+		public RuleCall getExpressionPrimaryExprParserRuleCall_6_0() { return cExpressionPrimaryExprParserRuleCall_6_0; }
 		
 		//LC
 		public RuleCall getLCParserRuleCall_7() { return cLCParserRuleCall_7; }
 		
 		//')'
 		public Keyword getRightParenthesisKeyword_8() { return cRightParenthesisKeyword_8; }
+	}
+	public class VariableSelectElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.agicquel.csvs.CSVs.VariableSelect");
+		private final Assignment cTermAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cTermIDTerminalRuleCall_0 = (RuleCall)cTermAssignment.eContents().get(0);
+		
+		//VariableSelect:
+		//	term=ID;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//term=ID
+		public Assignment getTermAssignment() { return cTermAssignment; }
+		
+		//ID
+		public RuleCall getTermIDTerminalRuleCall_0() { return cTermIDTerminalRuleCall_0; }
 	}
 	public class CountExprElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.agicquel.csvs.CSVs.CountExpr");
@@ -937,15 +1132,15 @@ public class CSVsGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		private final Keyword cLeftParenthesisKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		private final RuleCall cLCParserRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
 		private final Assignment cExpressionAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final RuleCall cExpressionExpressionParserRuleCall_6_0 = (RuleCall)cExpressionAssignment_6.eContents().get(0);
+		private final RuleCall cExpressionPrimaryExprParserRuleCall_6_0 = (RuleCall)cExpressionAssignment_6.eContents().get(0);
 		private final RuleCall cLCParserRuleCall_7 = (RuleCall)cGroup.eContents().get(7);
 		private final Keyword cRightParenthesisKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		
 		//CountExpr:
-		//	'count' LC var=ID LC '(' LC expression=Expression LC ')';
+		//	'count' LC var=ID LC '(' LC expression=PrimaryExpr LC ')';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'count' LC var=ID LC '(' LC expression=Expression LC ')'
+		//'count' LC var=ID LC '(' LC expression=PrimaryExpr LC ')'
 		public Group getGroup() { return cGroup; }
 		
 		//'count'
@@ -969,11 +1164,11 @@ public class CSVsGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		//LC
 		public RuleCall getLCParserRuleCall_5() { return cLCParserRuleCall_5; }
 		
-		//expression=Expression
+		//expression=PrimaryExpr
 		public Assignment getExpressionAssignment_6() { return cExpressionAssignment_6; }
 		
-		//Expression
-		public RuleCall getExpressionExpressionParserRuleCall_6_0() { return cExpressionExpressionParserRuleCall_6_0; }
+		//PrimaryExpr
+		public RuleCall getExpressionPrimaryExprParserRuleCall_6_0() { return cExpressionPrimaryExprParserRuleCall_6_0; }
 		
 		//LC
 		public RuleCall getLCParserRuleCall_7() { return cLCParserRuleCall_7; }
@@ -981,337 +1176,326 @@ public class CSVsGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		//')'
 		public Keyword getRightParenthesisKeyword_8() { return cRightParenthesisKeyword_8; }
 	}
-	public class OrElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.agicquel.csvs.CSVs.Or");
+	public class OrExprElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.agicquel.csvs.CSVs.OrExpr");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final RuleCall cAndParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Assignment cLeftAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cLeftAddExprParserRuleCall_0_0 = (RuleCall)cLeftAssignment_0.eContents().get(0);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Action cOrLeftAction_1_0 = (Action)cGroup_1.eContents().get(0);
-		private final RuleCall cLCParserRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
-		private final Keyword cVerticalLineVerticalLineKeyword_1_2 = (Keyword)cGroup_1.eContents().get(2);
-		private final RuleCall cLCParserRuleCall_1_3 = (RuleCall)cGroup_1.eContents().get(3);
-		private final Assignment cRightAssignment_1_4 = (Assignment)cGroup_1.eContents().get(4);
-		private final RuleCall cRightAndParserRuleCall_1_4_0 = (RuleCall)cRightAssignment_1_4.eContents().get(0);
+		private final RuleCall cLCParserRuleCall_1_0 = (RuleCall)cGroup_1.eContents().get(0);
+		private final Keyword cVerticalLineVerticalLineKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
+		private final RuleCall cLCParserRuleCall_1_2 = (RuleCall)cGroup_1.eContents().get(2);
+		private final Assignment cRightAssignment_1_3 = (Assignment)cGroup_1.eContents().get(3);
+		private final RuleCall cRightAddExprParserRuleCall_1_3_0 = (RuleCall)cRightAssignment_1_3.eContents().get(0);
 		
-		///*
-		// * CREDIT : Lorenzo Bettini
-		// * URL : https://github.com/LorenzoBettini/packtpub-xtext-book-2nd-examples/blob/master/org.example.expressions.parent/org.example.expressions/src/org/example/expressions/Expressions.xtext 
-		// */ Or Expression:
-		//	And ({Or.left=current} LC "||" LC right=And)*;
+		//OrExpr:
+		//	left=AddExpr (LC '||' LC right+=AddExpr)*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//And ({Or.left=current} LC "||" LC right=And)*
+		//left=AddExpr (LC '||' LC right+=AddExpr)*
 		public Group getGroup() { return cGroup; }
 		
-		//And
-		public RuleCall getAndParserRuleCall_0() { return cAndParserRuleCall_0; }
+		//left=AddExpr
+		public Assignment getLeftAssignment_0() { return cLeftAssignment_0; }
 		
-		//({Or.left=current} LC "||" LC right=And)*
+		//AddExpr
+		public RuleCall getLeftAddExprParserRuleCall_0_0() { return cLeftAddExprParserRuleCall_0_0; }
+		
+		//(LC '||' LC right+=AddExpr)*
 		public Group getGroup_1() { return cGroup_1; }
 		
-		//{Or.left=current}
-		public Action getOrLeftAction_1_0() { return cOrLeftAction_1_0; }
+		//LC
+		public RuleCall getLCParserRuleCall_1_0() { return cLCParserRuleCall_1_0; }
+		
+		//'||'
+		public Keyword getVerticalLineVerticalLineKeyword_1_1() { return cVerticalLineVerticalLineKeyword_1_1; }
 		
 		//LC
-		public RuleCall getLCParserRuleCall_1_1() { return cLCParserRuleCall_1_1; }
+		public RuleCall getLCParserRuleCall_1_2() { return cLCParserRuleCall_1_2; }
 		
-		//"||"
-		public Keyword getVerticalLineVerticalLineKeyword_1_2() { return cVerticalLineVerticalLineKeyword_1_2; }
+		//right+=AddExpr
+		public Assignment getRightAssignment_1_3() { return cRightAssignment_1_3; }
 		
-		//LC
-		public RuleCall getLCParserRuleCall_1_3() { return cLCParserRuleCall_1_3; }
-		
-		//right=And
-		public Assignment getRightAssignment_1_4() { return cRightAssignment_1_4; }
-		
-		//And
-		public RuleCall getRightAndParserRuleCall_1_4_0() { return cRightAndParserRuleCall_1_4_0; }
+		//AddExpr
+		public RuleCall getRightAddExprParserRuleCall_1_3_0() { return cRightAddExprParserRuleCall_1_3_0; }
 	}
-	public class AndElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.agicquel.csvs.CSVs.And");
+	public class AddExprElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.agicquel.csvs.CSVs.AddExpr");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final RuleCall cEqualityParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Assignment cLeftAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cLeftEqualityExprParserRuleCall_0_0 = (RuleCall)cLeftAssignment_0.eContents().get(0);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Action cAndLeftAction_1_0 = (Action)cGroup_1.eContents().get(0);
-		private final RuleCall cLCParserRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
-		private final Keyword cAmpersandAmpersandKeyword_1_2 = (Keyword)cGroup_1.eContents().get(2);
-		private final RuleCall cLCParserRuleCall_1_3 = (RuleCall)cGroup_1.eContents().get(3);
-		private final Assignment cRightAssignment_1_4 = (Assignment)cGroup_1.eContents().get(4);
-		private final RuleCall cRightEqualityParserRuleCall_1_4_0 = (RuleCall)cRightAssignment_1_4.eContents().get(0);
+		private final RuleCall cLCParserRuleCall_1_0 = (RuleCall)cGroup_1.eContents().get(0);
+		private final Keyword cAmpersandAmpersandKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
+		private final RuleCall cLCParserRuleCall_1_2 = (RuleCall)cGroup_1.eContents().get(2);
+		private final Assignment cRightAssignment_1_3 = (Assignment)cGroup_1.eContents().get(3);
+		private final RuleCall cRightEqualityExprParserRuleCall_1_3_0 = (RuleCall)cRightAssignment_1_3.eContents().get(0);
 		
-		//And Expression:
-		//	Equality ({And.left=current} LC "&&" LC right=Equality)*;
+		//AddExpr:
+		//	left=EqualityExpr (LC '&&' LC right+=EqualityExpr)*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//Equality ({And.left=current} LC "&&" LC right=Equality)*
+		//left=EqualityExpr (LC '&&' LC right+=EqualityExpr)*
 		public Group getGroup() { return cGroup; }
 		
-		//Equality
-		public RuleCall getEqualityParserRuleCall_0() { return cEqualityParserRuleCall_0; }
+		//left=EqualityExpr
+		public Assignment getLeftAssignment_0() { return cLeftAssignment_0; }
 		
-		//({And.left=current} LC "&&" LC right=Equality)*
+		//EqualityExpr
+		public RuleCall getLeftEqualityExprParserRuleCall_0_0() { return cLeftEqualityExprParserRuleCall_0_0; }
+		
+		//(LC '&&' LC right+=EqualityExpr)*
 		public Group getGroup_1() { return cGroup_1; }
 		
-		//{And.left=current}
-		public Action getAndLeftAction_1_0() { return cAndLeftAction_1_0; }
+		//LC
+		public RuleCall getLCParserRuleCall_1_0() { return cLCParserRuleCall_1_0; }
+		
+		//'&&'
+		public Keyword getAmpersandAmpersandKeyword_1_1() { return cAmpersandAmpersandKeyword_1_1; }
 		
 		//LC
-		public RuleCall getLCParserRuleCall_1_1() { return cLCParserRuleCall_1_1; }
+		public RuleCall getLCParserRuleCall_1_2() { return cLCParserRuleCall_1_2; }
 		
-		//"&&"
-		public Keyword getAmpersandAmpersandKeyword_1_2() { return cAmpersandAmpersandKeyword_1_2; }
+		//right+=EqualityExpr
+		public Assignment getRightAssignment_1_3() { return cRightAssignment_1_3; }
 		
-		//LC
-		public RuleCall getLCParserRuleCall_1_3() { return cLCParserRuleCall_1_3; }
-		
-		//right=Equality
-		public Assignment getRightAssignment_1_4() { return cRightAssignment_1_4; }
-		
-		//Equality
-		public RuleCall getRightEqualityParserRuleCall_1_4_0() { return cRightEqualityParserRuleCall_1_4_0; }
+		//EqualityExpr
+		public RuleCall getRightEqualityExprParserRuleCall_1_3_0() { return cRightEqualityExprParserRuleCall_1_3_0; }
 	}
-	public class EqualityElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.agicquel.csvs.CSVs.Equality");
+	public class EqualityExprElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.agicquel.csvs.CSVs.EqualityExpr");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final RuleCall cComparisonParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Assignment cLeftAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cLeftComparaisonExprParserRuleCall_0_0 = (RuleCall)cLeftAssignment_0.eContents().get(0);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Action cEqualityLeftAction_1_0 = (Action)cGroup_1.eContents().get(0);
-		private final RuleCall cLCParserRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
-		private final Assignment cOpAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
-		private final Alternatives cOpAlternatives_1_2_0 = (Alternatives)cOpAssignment_1_2.eContents().get(0);
-		private final Keyword cOpEqualsSignEqualsSignKeyword_1_2_0_0 = (Keyword)cOpAlternatives_1_2_0.eContents().get(0);
-		private final Keyword cOpExclamationMarkEqualsSignKeyword_1_2_0_1 = (Keyword)cOpAlternatives_1_2_0.eContents().get(1);
-		private final RuleCall cLCParserRuleCall_1_3 = (RuleCall)cGroup_1.eContents().get(3);
-		private final Assignment cRightAssignment_1_4 = (Assignment)cGroup_1.eContents().get(4);
-		private final RuleCall cRightComparisonParserRuleCall_1_4_0 = (RuleCall)cRightAssignment_1_4.eContents().get(0);
+		private final RuleCall cLCParserRuleCall_1_0 = (RuleCall)cGroup_1.eContents().get(0);
+		private final Assignment cOpAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final Alternatives cOpAlternatives_1_1_0 = (Alternatives)cOpAssignment_1_1.eContents().get(0);
+		private final Keyword cOpEqualsSignEqualsSignKeyword_1_1_0_0 = (Keyword)cOpAlternatives_1_1_0.eContents().get(0);
+		private final Keyword cOpExclamationMarkEqualsSignKeyword_1_1_0_1 = (Keyword)cOpAlternatives_1_1_0.eContents().get(1);
+		private final RuleCall cLCParserRuleCall_1_2 = (RuleCall)cGroup_1.eContents().get(2);
+		private final Assignment cRightAssignment_1_3 = (Assignment)cGroup_1.eContents().get(3);
+		private final RuleCall cRightComparaisonExprParserRuleCall_1_3_0 = (RuleCall)cRightAssignment_1_3.eContents().get(0);
 		
-		//Equality Expression:
-		//	Comparison ({Equality.left=current} LC op=("==" | "!=") LC
-		//	right=Comparison)*;
+		//EqualityExpr:
+		//	left=ComparaisonExpr (LC op=("==" | "!=") LC right=ComparaisonExpr)?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//Comparison ({Equality.left=current} LC op=("==" | "!=") LC right=Comparison)*
+		//left=ComparaisonExpr (LC op=("==" | "!=") LC right=ComparaisonExpr)?
 		public Group getGroup() { return cGroup; }
 		
-		//Comparison
-		public RuleCall getComparisonParserRuleCall_0() { return cComparisonParserRuleCall_0; }
+		//left=ComparaisonExpr
+		public Assignment getLeftAssignment_0() { return cLeftAssignment_0; }
 		
-		//({Equality.left=current} LC op=("==" | "!=") LC right=Comparison)*
+		//ComparaisonExpr
+		public RuleCall getLeftComparaisonExprParserRuleCall_0_0() { return cLeftComparaisonExprParserRuleCall_0_0; }
+		
+		//(LC op=("==" | "!=") LC right=ComparaisonExpr)?
 		public Group getGroup_1() { return cGroup_1; }
 		
-		//{Equality.left=current}
-		public Action getEqualityLeftAction_1_0() { return cEqualityLeftAction_1_0; }
-		
 		//LC
-		public RuleCall getLCParserRuleCall_1_1() { return cLCParserRuleCall_1_1; }
+		public RuleCall getLCParserRuleCall_1_0() { return cLCParserRuleCall_1_0; }
 		
 		//op=("==" | "!=")
-		public Assignment getOpAssignment_1_2() { return cOpAssignment_1_2; }
+		public Assignment getOpAssignment_1_1() { return cOpAssignment_1_1; }
 		
 		//("==" | "!=")
-		public Alternatives getOpAlternatives_1_2_0() { return cOpAlternatives_1_2_0; }
+		public Alternatives getOpAlternatives_1_1_0() { return cOpAlternatives_1_1_0; }
 		
 		//"=="
-		public Keyword getOpEqualsSignEqualsSignKeyword_1_2_0_0() { return cOpEqualsSignEqualsSignKeyword_1_2_0_0; }
+		public Keyword getOpEqualsSignEqualsSignKeyword_1_1_0_0() { return cOpEqualsSignEqualsSignKeyword_1_1_0_0; }
 		
 		//"!="
-		public Keyword getOpExclamationMarkEqualsSignKeyword_1_2_0_1() { return cOpExclamationMarkEqualsSignKeyword_1_2_0_1; }
+		public Keyword getOpExclamationMarkEqualsSignKeyword_1_1_0_1() { return cOpExclamationMarkEqualsSignKeyword_1_1_0_1; }
 		
 		//LC
-		public RuleCall getLCParserRuleCall_1_3() { return cLCParserRuleCall_1_3; }
+		public RuleCall getLCParserRuleCall_1_2() { return cLCParserRuleCall_1_2; }
 		
-		//right=Comparison
-		public Assignment getRightAssignment_1_4() { return cRightAssignment_1_4; }
+		//right=ComparaisonExpr
+		public Assignment getRightAssignment_1_3() { return cRightAssignment_1_3; }
 		
-		//Comparison
-		public RuleCall getRightComparisonParserRuleCall_1_4_0() { return cRightComparisonParserRuleCall_1_4_0; }
+		//ComparaisonExpr
+		public RuleCall getRightComparaisonExprParserRuleCall_1_3_0() { return cRightComparaisonExprParserRuleCall_1_3_0; }
 	}
-	public class ComparisonElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.agicquel.csvs.CSVs.Comparison");
+	public class ComparaisonExprElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.agicquel.csvs.CSVs.ComparaisonExpr");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final RuleCall cPlusOrMinusParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Assignment cLeftAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cLeftPlusOrMinusExprParserRuleCall_0_0 = (RuleCall)cLeftAssignment_0.eContents().get(0);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Action cComparisonLeftAction_1_0 = (Action)cGroup_1.eContents().get(0);
-		private final RuleCall cLCParserRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
-		private final Assignment cOpAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
-		private final Alternatives cOpAlternatives_1_2_0 = (Alternatives)cOpAssignment_1_2.eContents().get(0);
-		private final Keyword cOpGreaterThanSignEqualsSignKeyword_1_2_0_0 = (Keyword)cOpAlternatives_1_2_0.eContents().get(0);
-		private final Keyword cOpLessThanSignEqualsSignKeyword_1_2_0_1 = (Keyword)cOpAlternatives_1_2_0.eContents().get(1);
-		private final Keyword cOpGreaterThanSignKeyword_1_2_0_2 = (Keyword)cOpAlternatives_1_2_0.eContents().get(2);
-		private final Keyword cOpLessThanSignKeyword_1_2_0_3 = (Keyword)cOpAlternatives_1_2_0.eContents().get(3);
-		private final RuleCall cLCParserRuleCall_1_3 = (RuleCall)cGroup_1.eContents().get(3);
-		private final Assignment cRightAssignment_1_4 = (Assignment)cGroup_1.eContents().get(4);
-		private final RuleCall cRightPlusOrMinusParserRuleCall_1_4_0 = (RuleCall)cRightAssignment_1_4.eContents().get(0);
+		private final RuleCall cLCParserRuleCall_1_0 = (RuleCall)cGroup_1.eContents().get(0);
+		private final Assignment cOpAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final Alternatives cOpAlternatives_1_1_0 = (Alternatives)cOpAssignment_1_1.eContents().get(0);
+		private final Keyword cOpGreaterThanSignEqualsSignKeyword_1_1_0_0 = (Keyword)cOpAlternatives_1_1_0.eContents().get(0);
+		private final Keyword cOpLessThanSignEqualsSignKeyword_1_1_0_1 = (Keyword)cOpAlternatives_1_1_0.eContents().get(1);
+		private final Keyword cOpGreaterThanSignKeyword_1_1_0_2 = (Keyword)cOpAlternatives_1_1_0.eContents().get(2);
+		private final Keyword cOpLessThanSignKeyword_1_1_0_3 = (Keyword)cOpAlternatives_1_1_0.eContents().get(3);
+		private final RuleCall cLCParserRuleCall_1_2 = (RuleCall)cGroup_1.eContents().get(2);
+		private final Assignment cRightAssignment_1_3 = (Assignment)cGroup_1.eContents().get(3);
+		private final RuleCall cRightPlusOrMinusExprParserRuleCall_1_3_0 = (RuleCall)cRightAssignment_1_3.eContents().get(0);
 		
-		//Comparison Expression:
-		//	PlusOrMinus ({Comparison.left=current} LC op=(">=" | "<=" | ">" | "<") LC
-		//	right=PlusOrMinus)*;
+		//ComparaisonExpr:
+		//	left=PlusOrMinusExpr (LC op=(">=" | "<=" | ">" | "<") LC right=PlusOrMinusExpr)?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//PlusOrMinus ({Comparison.left=current} LC op=(">=" | "<=" | ">" | "<") LC right=PlusOrMinus)*
+		//left=PlusOrMinusExpr (LC op=(">=" | "<=" | ">" | "<") LC right=PlusOrMinusExpr)?
 		public Group getGroup() { return cGroup; }
 		
-		//PlusOrMinus
-		public RuleCall getPlusOrMinusParserRuleCall_0() { return cPlusOrMinusParserRuleCall_0; }
+		//left=PlusOrMinusExpr
+		public Assignment getLeftAssignment_0() { return cLeftAssignment_0; }
 		
-		//({Comparison.left=current} LC op=(">=" | "<=" | ">" | "<") LC right=PlusOrMinus)*
+		//PlusOrMinusExpr
+		public RuleCall getLeftPlusOrMinusExprParserRuleCall_0_0() { return cLeftPlusOrMinusExprParserRuleCall_0_0; }
+		
+		//(LC op=(">=" | "<=" | ">" | "<") LC right=PlusOrMinusExpr)?
 		public Group getGroup_1() { return cGroup_1; }
 		
-		//{Comparison.left=current}
-		public Action getComparisonLeftAction_1_0() { return cComparisonLeftAction_1_0; }
-		
 		//LC
-		public RuleCall getLCParserRuleCall_1_1() { return cLCParserRuleCall_1_1; }
+		public RuleCall getLCParserRuleCall_1_0() { return cLCParserRuleCall_1_0; }
 		
 		//op=(">=" | "<=" | ">" | "<")
-		public Assignment getOpAssignment_1_2() { return cOpAssignment_1_2; }
+		public Assignment getOpAssignment_1_1() { return cOpAssignment_1_1; }
 		
 		//(">=" | "<=" | ">" | "<")
-		public Alternatives getOpAlternatives_1_2_0() { return cOpAlternatives_1_2_0; }
+		public Alternatives getOpAlternatives_1_1_0() { return cOpAlternatives_1_1_0; }
 		
 		//">="
-		public Keyword getOpGreaterThanSignEqualsSignKeyword_1_2_0_0() { return cOpGreaterThanSignEqualsSignKeyword_1_2_0_0; }
+		public Keyword getOpGreaterThanSignEqualsSignKeyword_1_1_0_0() { return cOpGreaterThanSignEqualsSignKeyword_1_1_0_0; }
 		
 		//"<="
-		public Keyword getOpLessThanSignEqualsSignKeyword_1_2_0_1() { return cOpLessThanSignEqualsSignKeyword_1_2_0_1; }
+		public Keyword getOpLessThanSignEqualsSignKeyword_1_1_0_1() { return cOpLessThanSignEqualsSignKeyword_1_1_0_1; }
 		
 		//">"
-		public Keyword getOpGreaterThanSignKeyword_1_2_0_2() { return cOpGreaterThanSignKeyword_1_2_0_2; }
+		public Keyword getOpGreaterThanSignKeyword_1_1_0_2() { return cOpGreaterThanSignKeyword_1_1_0_2; }
 		
 		//"<"
-		public Keyword getOpLessThanSignKeyword_1_2_0_3() { return cOpLessThanSignKeyword_1_2_0_3; }
+		public Keyword getOpLessThanSignKeyword_1_1_0_3() { return cOpLessThanSignKeyword_1_1_0_3; }
 		
 		//LC
-		public RuleCall getLCParserRuleCall_1_3() { return cLCParserRuleCall_1_3; }
+		public RuleCall getLCParserRuleCall_1_2() { return cLCParserRuleCall_1_2; }
 		
-		//right=PlusOrMinus
-		public Assignment getRightAssignment_1_4() { return cRightAssignment_1_4; }
+		//right=PlusOrMinusExpr
+		public Assignment getRightAssignment_1_3() { return cRightAssignment_1_3; }
 		
-		//PlusOrMinus
-		public RuleCall getRightPlusOrMinusParserRuleCall_1_4_0() { return cRightPlusOrMinusParserRuleCall_1_4_0; }
+		//PlusOrMinusExpr
+		public RuleCall getRightPlusOrMinusExprParserRuleCall_1_3_0() { return cRightPlusOrMinusExprParserRuleCall_1_3_0; }
 	}
-	public class PlusOrMinusElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.agicquel.csvs.CSVs.PlusOrMinus");
+	public class PlusOrMinusExprElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.agicquel.csvs.CSVs.PlusOrMinusExpr");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final RuleCall cMulOrDivParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Assignment cLeftAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cLeftMulOrDivExprParserRuleCall_0_0 = (RuleCall)cLeftAssignment_0.eContents().get(0);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Group cGroup_1_0 = (Group)cGroup_1.eContents().get(0);
-		private final Action cPlusLeftAction_1_0_0 = (Action)cGroup_1_0.eContents().get(0);
-		private final RuleCall cLCParserRuleCall_1_0_1 = (RuleCall)cGroup_1_0.eContents().get(1);
-		private final Assignment cOpAssignment_1_0_2 = (Assignment)cGroup_1_0.eContents().get(2);
-		private final Alternatives cOpAlternatives_1_0_2_0 = (Alternatives)cOpAssignment_1_0_2.eContents().get(0);
-		private final Keyword cOpPlusSignKeyword_1_0_2_0_0 = (Keyword)cOpAlternatives_1_0_2_0.eContents().get(0);
-		private final Keyword cOpHyphenMinusKeyword_1_0_2_0_1 = (Keyword)cOpAlternatives_1_0_2_0.eContents().get(1);
-		private final RuleCall cLCParserRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
-		private final Assignment cRightAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
-		private final RuleCall cRightMulOrDivParserRuleCall_1_2_0 = (RuleCall)cRightAssignment_1_2.eContents().get(0);
+		private final RuleCall cLCParserRuleCall_1_0 = (RuleCall)cGroup_1.eContents().get(0);
+		private final Assignment cOpAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final Alternatives cOpAlternatives_1_1_0 = (Alternatives)cOpAssignment_1_1.eContents().get(0);
+		private final Keyword cOpPlusSignKeyword_1_1_0_0 = (Keyword)cOpAlternatives_1_1_0.eContents().get(0);
+		private final Keyword cOpHyphenMinusKeyword_1_1_0_1 = (Keyword)cOpAlternatives_1_1_0.eContents().get(1);
+		private final RuleCall cLCParserRuleCall_1_2 = (RuleCall)cGroup_1.eContents().get(2);
+		private final Assignment cRightAssignment_1_3 = (Assignment)cGroup_1.eContents().get(3);
+		private final RuleCall cRightMulOrDivExprParserRuleCall_1_3_0 = (RuleCall)cRightAssignment_1_3.eContents().get(0);
 		
-		//PlusOrMinus Expression:
-		//	MulOrDiv (({Plus.left=current} LC op=("+" | "-")) LC
-		//	right=MulOrDiv)*;
+		//PlusOrMinusExpr:
+		//	left=MulOrDivExpr (LC op+=("+" | "-") LC right+=MulOrDivExpr)*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//MulOrDiv (({Plus.left=current} LC op=("+" | "-")) LC right=MulOrDiv)*
+		//left=MulOrDivExpr (LC op+=("+" | "-") LC right+=MulOrDivExpr)*
 		public Group getGroup() { return cGroup; }
 		
-		//MulOrDiv
-		public RuleCall getMulOrDivParserRuleCall_0() { return cMulOrDivParserRuleCall_0; }
+		//left=MulOrDivExpr
+		public Assignment getLeftAssignment_0() { return cLeftAssignment_0; }
 		
-		//(({Plus.left=current} LC op=("+" | "-")) LC right=MulOrDiv)*
+		//MulOrDivExpr
+		public RuleCall getLeftMulOrDivExprParserRuleCall_0_0() { return cLeftMulOrDivExprParserRuleCall_0_0; }
+		
+		//(LC op+=("+" | "-") LC right+=MulOrDivExpr)*
 		public Group getGroup_1() { return cGroup_1; }
 		
-		//({Plus.left=current} LC op=("+" | "-"))
-		public Group getGroup_1_0() { return cGroup_1_0; }
-		
-		//{Plus.left=current}
-		public Action getPlusLeftAction_1_0_0() { return cPlusLeftAction_1_0_0; }
-		
 		//LC
-		public RuleCall getLCParserRuleCall_1_0_1() { return cLCParserRuleCall_1_0_1; }
+		public RuleCall getLCParserRuleCall_1_0() { return cLCParserRuleCall_1_0; }
 		
-		//op=("+" | "-")
-		public Assignment getOpAssignment_1_0_2() { return cOpAssignment_1_0_2; }
+		//op+=("+" | "-")
+		public Assignment getOpAssignment_1_1() { return cOpAssignment_1_1; }
 		
 		//("+" | "-")
-		public Alternatives getOpAlternatives_1_0_2_0() { return cOpAlternatives_1_0_2_0; }
+		public Alternatives getOpAlternatives_1_1_0() { return cOpAlternatives_1_1_0; }
 		
 		//"+"
-		public Keyword getOpPlusSignKeyword_1_0_2_0_0() { return cOpPlusSignKeyword_1_0_2_0_0; }
+		public Keyword getOpPlusSignKeyword_1_1_0_0() { return cOpPlusSignKeyword_1_1_0_0; }
 		
 		//"-"
-		public Keyword getOpHyphenMinusKeyword_1_0_2_0_1() { return cOpHyphenMinusKeyword_1_0_2_0_1; }
+		public Keyword getOpHyphenMinusKeyword_1_1_0_1() { return cOpHyphenMinusKeyword_1_1_0_1; }
 		
 		//LC
-		public RuleCall getLCParserRuleCall_1_1() { return cLCParserRuleCall_1_1; }
+		public RuleCall getLCParserRuleCall_1_2() { return cLCParserRuleCall_1_2; }
 		
-		//right=MulOrDiv
-		public Assignment getRightAssignment_1_2() { return cRightAssignment_1_2; }
+		//right+=MulOrDivExpr
+		public Assignment getRightAssignment_1_3() { return cRightAssignment_1_3; }
 		
-		//MulOrDiv
-		public RuleCall getRightMulOrDivParserRuleCall_1_2_0() { return cRightMulOrDivParserRuleCall_1_2_0; }
+		//MulOrDivExpr
+		public RuleCall getRightMulOrDivExprParserRuleCall_1_3_0() { return cRightMulOrDivExprParserRuleCall_1_3_0; }
 	}
-	public class MulOrDivElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.agicquel.csvs.CSVs.MulOrDiv");
+	public class MulOrDivExprElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.agicquel.csvs.CSVs.MulOrDivExpr");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final RuleCall cPrimaryParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Assignment cLeftAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cLeftPrimaryExprParserRuleCall_0_0 = (RuleCall)cLeftAssignment_0.eContents().get(0);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Group cGroup_1_0 = (Group)cGroup_1.eContents().get(0);
-		private final Action cMulOrDivLeftAction_1_0_0 = (Action)cGroup_1_0.eContents().get(0);
-		private final RuleCall cLCParserRuleCall_1_0_1 = (RuleCall)cGroup_1_0.eContents().get(1);
-		private final Assignment cOpAssignment_1_0_2 = (Assignment)cGroup_1_0.eContents().get(2);
-		private final Alternatives cOpAlternatives_1_0_2_0 = (Alternatives)cOpAssignment_1_0_2.eContents().get(0);
-		private final Keyword cOpAsteriskKeyword_1_0_2_0_0 = (Keyword)cOpAlternatives_1_0_2_0.eContents().get(0);
-		private final Keyword cOpSolidusKeyword_1_0_2_0_1 = (Keyword)cOpAlternatives_1_0_2_0.eContents().get(1);
-		private final RuleCall cLCParserRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
-		private final Assignment cRightAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
-		private final RuleCall cRightPrimaryParserRuleCall_1_2_0 = (RuleCall)cRightAssignment_1_2.eContents().get(0);
+		private final RuleCall cLCParserRuleCall_1_0 = (RuleCall)cGroup_1.eContents().get(0);
+		private final Assignment cOpAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final Alternatives cOpAlternatives_1_1_0 = (Alternatives)cOpAssignment_1_1.eContents().get(0);
+		private final Keyword cOpAsteriskKeyword_1_1_0_0 = (Keyword)cOpAlternatives_1_1_0.eContents().get(0);
+		private final Keyword cOpSolidusKeyword_1_1_0_1 = (Keyword)cOpAlternatives_1_1_0.eContents().get(1);
+		private final Keyword cOpPercentSignKeyword_1_1_0_2 = (Keyword)cOpAlternatives_1_1_0.eContents().get(2);
+		private final RuleCall cLCParserRuleCall_1_2 = (RuleCall)cGroup_1.eContents().get(2);
+		private final Assignment cRightAssignment_1_3 = (Assignment)cGroup_1.eContents().get(3);
+		private final RuleCall cRightPrimaryExprParserRuleCall_1_3_0 = (RuleCall)cRightAssignment_1_3.eContents().get(0);
 		
-		//MulOrDiv Expression:
-		//	Primary (({MulOrDiv.left=current} LC op=('*' | '/')) LC
-		//	right=Primary)*;
+		//MulOrDivExpr:
+		//	left=PrimaryExpr (LC op+=('*' | '/' | '%') LC right+=PrimaryExpr)*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//Primary (({MulOrDiv.left=current} LC op=('*' | '/')) LC right=Primary)*
+		//left=PrimaryExpr (LC op+=('*' | '/' | '%') LC right+=PrimaryExpr)*
 		public Group getGroup() { return cGroup; }
 		
-		//Primary
-		public RuleCall getPrimaryParserRuleCall_0() { return cPrimaryParserRuleCall_0; }
+		//left=PrimaryExpr
+		public Assignment getLeftAssignment_0() { return cLeftAssignment_0; }
 		
-		//(({MulOrDiv.left=current} LC op=('*' | '/')) LC right=Primary)*
+		//PrimaryExpr
+		public RuleCall getLeftPrimaryExprParserRuleCall_0_0() { return cLeftPrimaryExprParserRuleCall_0_0; }
+		
+		//(LC op+=('*' | '/' | '%') LC right+=PrimaryExpr)*
 		public Group getGroup_1() { return cGroup_1; }
 		
-		//({MulOrDiv.left=current} LC op=('*' | '/'))
-		public Group getGroup_1_0() { return cGroup_1_0; }
-		
-		//{MulOrDiv.left=current}
-		public Action getMulOrDivLeftAction_1_0_0() { return cMulOrDivLeftAction_1_0_0; }
-		
 		//LC
-		public RuleCall getLCParserRuleCall_1_0_1() { return cLCParserRuleCall_1_0_1; }
+		public RuleCall getLCParserRuleCall_1_0() { return cLCParserRuleCall_1_0; }
 		
-		//op=('*' | '/')
-		public Assignment getOpAssignment_1_0_2() { return cOpAssignment_1_0_2; }
+		//op+=('*' | '/' | '%')
+		public Assignment getOpAssignment_1_1() { return cOpAssignment_1_1; }
 		
-		//('*' | '/')
-		public Alternatives getOpAlternatives_1_0_2_0() { return cOpAlternatives_1_0_2_0; }
+		//('*' | '/' | '%')
+		public Alternatives getOpAlternatives_1_1_0() { return cOpAlternatives_1_1_0; }
 		
 		//'*'
-		public Keyword getOpAsteriskKeyword_1_0_2_0_0() { return cOpAsteriskKeyword_1_0_2_0_0; }
+		public Keyword getOpAsteriskKeyword_1_1_0_0() { return cOpAsteriskKeyword_1_1_0_0; }
 		
 		//'/'
-		public Keyword getOpSolidusKeyword_1_0_2_0_1() { return cOpSolidusKeyword_1_0_2_0_1; }
+		public Keyword getOpSolidusKeyword_1_1_0_1() { return cOpSolidusKeyword_1_1_0_1; }
+		
+		//'%'
+		public Keyword getOpPercentSignKeyword_1_1_0_2() { return cOpPercentSignKeyword_1_1_0_2; }
 		
 		//LC
-		public RuleCall getLCParserRuleCall_1_1() { return cLCParserRuleCall_1_1; }
+		public RuleCall getLCParserRuleCall_1_2() { return cLCParserRuleCall_1_2; }
 		
-		//right=Primary
-		public Assignment getRightAssignment_1_2() { return cRightAssignment_1_2; }
+		//right+=PrimaryExpr
+		public Assignment getRightAssignment_1_3() { return cRightAssignment_1_3; }
 		
-		//Primary
-		public RuleCall getRightPrimaryParserRuleCall_1_2_0() { return cRightPrimaryParserRuleCall_1_2_0; }
+		//PrimaryExpr
+		public RuleCall getRightPrimaryExprParserRuleCall_1_3_0() { return cRightPrimaryExprParserRuleCall_1_3_0; }
 	}
-	public class PrimaryElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.agicquel.csvs.CSVs.Primary");
+	public class PrimaryExprElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.agicquel.csvs.CSVs.PrimaryExpr");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
 		private final Keyword cLeftParenthesisKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
@@ -1319,18 +1503,16 @@ public class CSVsGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		private final RuleCall cExpressionParserRuleCall_0_2 = (RuleCall)cGroup_0.eContents().get(2);
 		private final RuleCall cLCParserRuleCall_0_3 = (RuleCall)cGroup_0.eContents().get(3);
 		private final Keyword cRightParenthesisKeyword_0_4 = (Keyword)cGroup_0.eContents().get(4);
-		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
-		private final Action cNotAction_1_0 = (Action)cGroup_1.eContents().get(0);
-		private final Keyword cExclamationMarkKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
-		private final Assignment cExpressionAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
-		private final RuleCall cExpressionPrimaryParserRuleCall_1_2_0 = (RuleCall)cExpressionAssignment_1_2.eContents().get(0);
-		private final RuleCall cAtomicParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cNotExprParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cAtomicExprParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cSelectorParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final RuleCall cCountExprParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
 		
-		//Primary Expression:
-		//	'(' LC Expression LC ')' | {Not} "!" expression=Primary | Atomic;
+		//PrimaryExpr:
+		//	'(' LC Expression LC ')' | NotExpr | AtomicExpr | Selector | CountExpr;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'(' LC Expression LC ')' | {Not} "!" expression=Primary | Atomic
+		//'(' LC Expression LC ')' | NotExpr | AtomicExpr | Selector | CountExpr
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//'(' LC Expression LC ')'
@@ -1351,26 +1533,47 @@ public class CSVsGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		//')'
 		public Keyword getRightParenthesisKeyword_0_4() { return cRightParenthesisKeyword_0_4; }
 		
-		//{Not} "!" expression=Primary
-		public Group getGroup_1() { return cGroup_1; }
+		//NotExpr
+		public RuleCall getNotExprParserRuleCall_1() { return cNotExprParserRuleCall_1; }
 		
-		//{Not}
-		public Action getNotAction_1_0() { return cNotAction_1_0; }
+		//AtomicExpr
+		public RuleCall getAtomicExprParserRuleCall_2() { return cAtomicExprParserRuleCall_2; }
 		
-		//"!"
-		public Keyword getExclamationMarkKeyword_1_1() { return cExclamationMarkKeyword_1_1; }
+		//Selector
+		public RuleCall getSelectorParserRuleCall_3() { return cSelectorParserRuleCall_3; }
 		
-		//expression=Primary
-		public Assignment getExpressionAssignment_1_2() { return cExpressionAssignment_1_2; }
-		
-		//Primary
-		public RuleCall getExpressionPrimaryParserRuleCall_1_2_0() { return cExpressionPrimaryParserRuleCall_1_2_0; }
-		
-		//Atomic
-		public RuleCall getAtomicParserRuleCall_2() { return cAtomicParserRuleCall_2; }
+		//CountExpr
+		public RuleCall getCountExprParserRuleCall_4() { return cCountExprParserRuleCall_4; }
 	}
-	public class AtomicElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.agicquel.csvs.CSVs.Atomic");
+	public class NotExprElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.agicquel.csvs.CSVs.NotExpr");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cExclamationMarkKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final RuleCall cLCParserRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final Assignment cExprAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cExprPrimaryExprParserRuleCall_2_0 = (RuleCall)cExprAssignment_2.eContents().get(0);
+		
+		//NotExpr:
+		//	'!' LC expr=PrimaryExpr;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'!' LC expr=PrimaryExpr
+		public Group getGroup() { return cGroup; }
+		
+		//'!'
+		public Keyword getExclamationMarkKeyword_0() { return cExclamationMarkKeyword_0; }
+		
+		//LC
+		public RuleCall getLCParserRuleCall_1() { return cLCParserRuleCall_1; }
+		
+		//expr=PrimaryExpr
+		public Assignment getExprAssignment_2() { return cExprAssignment_2; }
+		
+		//PrimaryExpr
+		public RuleCall getExprPrimaryExprParserRuleCall_2_0() { return cExprPrimaryExprParserRuleCall_2_0; }
+	}
+	public class AtomicExprElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.agicquel.csvs.CSVs.AtomicExpr");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
 		private final Action cIntConstantAction_0_0 = (Action)cGroup_0.eContents().get(0);
@@ -1386,13 +1589,12 @@ public class CSVsGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		private final Alternatives cValueAlternatives_2_1_0 = (Alternatives)cValueAssignment_2_1.eContents().get(0);
 		private final Keyword cValueTrueKeyword_2_1_0_0 = (Keyword)cValueAlternatives_2_1_0.eContents().get(0);
 		private final Keyword cValueFalseKeyword_2_1_0_1 = (Keyword)cValueAlternatives_2_1_0.eContents().get(1);
-		private final RuleCall cVariableExprParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		
-		//Atomic Expression:
-		//	{IntConstant} value=INT | {StringConstant} value=STRING | {BoolConstant} value=('true' | 'false') | VariableExpr;
+		//AtomicExpr:
+		//	{IntConstant} value=INT | {StringConstant} value=STRING | {BoolConstant} value=('true' | 'false');
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{IntConstant} value=INT | {StringConstant} value=STRING | {BoolConstant} value=('true' | 'false') | VariableExpr
+		//{IntConstant} value=INT | {StringConstant} value=STRING | {BoolConstant} value=('true' | 'false')
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//{IntConstant} value=INT
@@ -1436,13 +1638,10 @@ public class CSVsGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		
 		//'false'
 		public Keyword getValueFalseKeyword_2_1_0_1() { return cValueFalseKeyword_2_1_0_1; }
-		
-		//VariableExpr
-		public RuleCall getVariableExprParserRuleCall_3() { return cVariableExprParserRuleCall_3; }
 	}
 	
 	
-	private final ProgramElements pProgram;
+	private final ModelElements pModel;
 	private final LCElements pLC;
 	private final CommandElements pCommand;
 	private final BlockElements pBlock;
@@ -1452,29 +1651,33 @@ public class CSVsGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	private final CsvCommandElements pCsvCommand;
 	private final LoadCommandElements pLoadCommand;
 	private final StoreCommandElements pStoreCommand;
+	private final ExportCommandElements pExportCommand;
 	private final CreateCommandElements pCreateCommand;
 	private final SetCommandElements pSetCommand;
 	private final PrintCommandElements pPrintCommand;
-	private final ExportCommandElements pExportCommand;
 	private final DeleteCommandElements pDeleteCommand;
 	private final AddCommandElements pAddCommand;
+	private final ApplyCommandElements pApplyCommand;
+	private final ApplyFilterCommandElements pApplyFilterCommand;
+	private final ApplyExecCommandElements pApplyExecCommand;
 	private final CommentCommandElements pCommentCommand;
 	private final ExpressionElements pExpression;
-	private final VariableExprElements pVariableExpr;
 	private final SelectorElements pSelector;
 	private final RowSelectElements pRowSelect;
 	private final ColSelectElements pColSelect;
 	private final CellSelectElements pCellSelect;
 	private final FieldSelectElements pFieldSelect;
+	private final VariableSelectElements pVariableSelect;
 	private final CountExprElements pCountExpr;
-	private final OrElements pOr;
-	private final AndElements pAnd;
-	private final EqualityElements pEquality;
-	private final ComparisonElements pComparison;
-	private final PlusOrMinusElements pPlusOrMinus;
-	private final MulOrDivElements pMulOrDiv;
-	private final PrimaryElements pPrimary;
-	private final AtomicElements pAtomic;
+	private final OrExprElements pOrExpr;
+	private final AddExprElements pAddExpr;
+	private final EqualityExprElements pEqualityExpr;
+	private final ComparaisonExprElements pComparaisonExpr;
+	private final PlusOrMinusExprElements pPlusOrMinusExpr;
+	private final MulOrDivExprElements pMulOrDivExpr;
+	private final PrimaryExprElements pPrimaryExpr;
+	private final NotExprElements pNotExpr;
+	private final AtomicExprElements pAtomicExpr;
 	
 	private final Grammar grammar;
 	
@@ -1485,7 +1688,7 @@ public class CSVsGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 			TerminalsGrammarAccess gaTerminals) {
 		this.grammar = internalFindGrammar(grammarProvider);
 		this.gaTerminals = gaTerminals;
-		this.pProgram = new ProgramElements();
+		this.pModel = new ModelElements();
 		this.pLC = new LCElements();
 		this.pCommand = new CommandElements();
 		this.pBlock = new BlockElements();
@@ -1495,29 +1698,33 @@ public class CSVsGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		this.pCsvCommand = new CsvCommandElements();
 		this.pLoadCommand = new LoadCommandElements();
 		this.pStoreCommand = new StoreCommandElements();
+		this.pExportCommand = new ExportCommandElements();
 		this.pCreateCommand = new CreateCommandElements();
 		this.pSetCommand = new SetCommandElements();
 		this.pPrintCommand = new PrintCommandElements();
-		this.pExportCommand = new ExportCommandElements();
 		this.pDeleteCommand = new DeleteCommandElements();
 		this.pAddCommand = new AddCommandElements();
+		this.pApplyCommand = new ApplyCommandElements();
+		this.pApplyFilterCommand = new ApplyFilterCommandElements();
+		this.pApplyExecCommand = new ApplyExecCommandElements();
 		this.pCommentCommand = new CommentCommandElements();
 		this.pExpression = new ExpressionElements();
-		this.pVariableExpr = new VariableExprElements();
 		this.pSelector = new SelectorElements();
 		this.pRowSelect = new RowSelectElements();
 		this.pColSelect = new ColSelectElements();
 		this.pCellSelect = new CellSelectElements();
 		this.pFieldSelect = new FieldSelectElements();
+		this.pVariableSelect = new VariableSelectElements();
 		this.pCountExpr = new CountExprElements();
-		this.pOr = new OrElements();
-		this.pAnd = new AndElements();
-		this.pEquality = new EqualityElements();
-		this.pComparison = new ComparisonElements();
-		this.pPlusOrMinus = new PlusOrMinusElements();
-		this.pMulOrDiv = new MulOrDivElements();
-		this.pPrimary = new PrimaryElements();
-		this.pAtomic = new AtomicElements();
+		this.pOrExpr = new OrExprElements();
+		this.pAddExpr = new AddExprElements();
+		this.pEqualityExpr = new EqualityExprElements();
+		this.pComparaisonExpr = new ComparaisonExprElements();
+		this.pPlusOrMinusExpr = new PlusOrMinusExprElements();
+		this.pMulOrDivExpr = new MulOrDivExprElements();
+		this.pPrimaryExpr = new PrimaryExprElements();
+		this.pNotExpr = new NotExprElements();
+		this.pAtomicExpr = new AtomicExprElements();
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -1548,14 +1755,14 @@ public class CSVsGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 
 	
 	/////////// PROGRAM //////////
-	//Program:
+	//Model:
 	//	LC commands+=Command* LC;
-	public ProgramElements getProgramAccess() {
-		return pProgram;
+	public ModelElements getModelAccess() {
+		return pModel;
 	}
 	
-	public ParserRule getProgramRule() {
-		return getProgramAccess().getRule();
+	public ParserRule getModelRule() {
+		return getModelAccess().getRule();
 	}
 	
 	//LC:
@@ -1570,7 +1777,7 @@ public class CSVsGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	
 	/////////// COMMANDS /////////
 	//Command:
-	//	CsvCommand LC ';' | ControlCommand | {Command} CommentCommand;
+	//	CsvCommand LC ';' | {Command} CommentCommand | ControlCommand;
 	public CommandElements getCommandAccess() {
 		return pCommand;
 	}
@@ -1580,7 +1787,7 @@ public class CSVsGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	}
 	
 	//Block:
-	//	'{' LC Program LC '}';
+	//	'{' LC Model LC '}';
 	public BlockElements getBlockAccess() {
 		return pBlock;
 	}
@@ -1620,7 +1827,8 @@ public class CSVsGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	}
 	
 	//CsvCommand:
-	//	LoadCommand | StoreCommand | CreateCommand | SetCommand | PrintCommand | ExportCommand | DeleteCommand | AddCommand;
+	//	LoadCommand | StoreCommand | CreateCommand | SetCommand | PrintCommand | ExportCommand | DeleteCommand | AddCommand |
+	//	ApplyCommand;
 	public CsvCommandElements getCsvCommandAccess() {
 		return pCsvCommand;
 	}
@@ -1630,7 +1838,7 @@ public class CSVsGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	}
 	
 	//LoadCommand:
-	//	'load' LC var=ID LC STRING;
+	//	'load' LC var=ID LC path=STRING;
 	public LoadCommandElements getLoadCommandAccess() {
 		return pLoadCommand;
 	}
@@ -1640,13 +1848,23 @@ public class CSVsGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	}
 	
 	//StoreCommand:
-	//	'store' LC var=ID LC STRING;
+	//	'store' LC var=ID LC path=STRING;
 	public StoreCommandElements getStoreCommandAccess() {
 		return pStoreCommand;
 	}
 	
 	public ParserRule getStoreCommandRule() {
 		return getStoreCommandAccess().getRule();
+	}
+	
+	//ExportCommand:
+	//	'export' LC var=ID LC path=STRING;
+	public ExportCommandElements getExportCommandAccess() {
+		return pExportCommand;
+	}
+	
+	public ParserRule getExportCommandRule() {
+		return getExportCommandAccess().getRule();
 	}
 	
 	//CreateCommand:
@@ -1660,7 +1878,7 @@ public class CSVsGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	}
 	
 	//SetCommand:
-	//	'set' LC var=Expression LC expression=Expression;
+	//	var=Selector LC '=' LC expression=Expression;
 	public SetCommandElements getSetCommandAccess() {
 		return pSetCommand;
 	}
@@ -1677,16 +1895,6 @@ public class CSVsGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	
 	public ParserRule getPrintCommandRule() {
 		return getPrintCommandAccess().getRule();
-	}
-	
-	//ExportCommand:
-	//	'export' LC expression=Expression;
-	public ExportCommandElements getExportCommandAccess() {
-		return pExportCommand;
-	}
-	
-	public ParserRule getExportCommandRule() {
-		return getExportCommandAccess().getRule();
 	}
 	
 	//DeleteCommand:
@@ -1709,6 +1917,36 @@ public class CSVsGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		return getAddCommandAccess().getRule();
 	}
 	
+	//ApplyCommand:
+	//	'on' LC selection=Selector LC if=ApplyFilterCommand? LC exec=ApplyExecCommand;
+	public ApplyCommandElements getApplyCommandAccess() {
+		return pApplyCommand;
+	}
+	
+	public ParserRule getApplyCommandRule() {
+		return getApplyCommandAccess().getRule();
+	}
+	
+	//ApplyFilterCommand:
+	//	'filter' LC '(' LC varName=ID LC ':' LC expr=Expression LC ')';
+	public ApplyFilterCommandElements getApplyFilterCommandAccess() {
+		return pApplyFilterCommand;
+	}
+	
+	public ParserRule getApplyFilterCommandRule() {
+		return getApplyFilterCommandAccess().getRule();
+	}
+	
+	//ApplyExecCommand:
+	//	'apply' LC '(' LC varName=ID LC ':' LC expr=Expression LC ')';
+	public ApplyExecCommandElements getApplyExecCommandAccess() {
+		return pApplyExecCommand;
+	}
+	
+	public ParserRule getApplyExecCommandRule() {
+		return getApplyExecCommandAccess().getRule();
+	}
+	
 	//CommentCommand:
 	//	ML_COMMENT | SL_COMMENT;
 	public CommentCommandElements getCommentCommandAccess() {
@@ -1721,7 +1959,7 @@ public class CSVsGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	
 	///////// EXPRESSIONS ////////
 	//Expression:
-	//	Or | Selector | CountExpr;
+	//	OrExpr;
 	public ExpressionElements getExpressionAccess() {
 		return pExpression;
 	}
@@ -1730,18 +1968,8 @@ public class CSVsGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		return getExpressionAccess().getRule();
 	}
 	
-	//VariableExpr:
-	//	term=ID;
-	public VariableExprElements getVariableExprAccess() {
-		return pVariableExpr;
-	}
-	
-	public ParserRule getVariableExprRule() {
-		return getVariableExprAccess().getRule();
-	}
-	
 	//Selector:
-	//	RowSelect | ColSelect | CellSelect | FieldSelect;
+	//	RowSelect | ColSelect | CellSelect | FieldSelect | VariableSelect;
 	public SelectorElements getSelectorAccess() {
 		return pSelector;
 	}
@@ -1751,7 +1979,7 @@ public class CSVsGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	}
 	
 	//RowSelect:
-	//	'row' LC var=ID LC '(' LC expression=Expression LC ')';
+	//	'row' LC var=ID LC '(' LC expression=PrimaryExpr LC ')';
 	public RowSelectElements getRowSelectAccess() {
 		return pRowSelect;
 	}
@@ -1761,7 +1989,7 @@ public class CSVsGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	}
 	
 	//ColSelect:
-	//	'col' LC var=ID LC '(' LC expression=Expression LC ')';
+	//	'col' LC var=ID LC '(' LC expression=PrimaryExpr LC ')';
 	public ColSelectElements getColSelectAccess() {
 		return pColSelect;
 	}
@@ -1771,7 +1999,7 @@ public class CSVsGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	}
 	
 	//CellSelect:
-	//	'cell' LC var=ID LC '(' LC expressionRow=Expression LC ',' LC expressionCol=Expression LC ')';
+	//	'cell' LC var=ID LC '(' LC expressionRow=PrimaryExpr LC ',' LC expressionCol=PrimaryExpr LC ')';
 	public CellSelectElements getCellSelectAccess() {
 		return pCellSelect;
 	}
@@ -1781,7 +2009,7 @@ public class CSVsGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	}
 	
 	//FieldSelect:
-	//	'field' LC var=ID LC '(' LC expression=Expression LC ')';
+	//	'field' LC var=ID LC '(' LC expression=PrimaryExpr LC ')';
 	public FieldSelectElements getFieldSelectAccess() {
 		return pFieldSelect;
 	}
@@ -1790,8 +2018,18 @@ public class CSVsGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		return getFieldSelectAccess().getRule();
 	}
 	
+	//VariableSelect:
+	//	term=ID;
+	public VariableSelectElements getVariableSelectAccess() {
+		return pVariableSelect;
+	}
+	
+	public ParserRule getVariableSelectRule() {
+		return getVariableSelectAccess().getRule();
+	}
+	
 	//CountExpr:
-	//	'count' LC var=ID LC '(' LC expression=Expression LC ')';
+	//	'count' LC var=ID LC '(' LC expression=PrimaryExpr LC ')';
 	public CountExprElements getCountExprAccess() {
 		return pCountExpr;
 	}
@@ -1800,91 +2038,94 @@ public class CSVsGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		return getCountExprAccess().getRule();
 	}
 	
-	///*
-	// * CREDIT : Lorenzo Bettini
-	// * URL : https://github.com/LorenzoBettini/packtpub-xtext-book-2nd-examples/blob/master/org.example.expressions.parent/org.example.expressions/src/org/example/expressions/Expressions.xtext 
-	// */ Or Expression:
-	//	And ({Or.left=current} LC "||" LC right=And)*;
-	public OrElements getOrAccess() {
-		return pOr;
+	//OrExpr:
+	//	left=AddExpr (LC '||' LC right+=AddExpr)*;
+	public OrExprElements getOrExprAccess() {
+		return pOrExpr;
 	}
 	
-	public ParserRule getOrRule() {
-		return getOrAccess().getRule();
+	public ParserRule getOrExprRule() {
+		return getOrExprAccess().getRule();
 	}
 	
-	//And Expression:
-	//	Equality ({And.left=current} LC "&&" LC right=Equality)*;
-	public AndElements getAndAccess() {
-		return pAnd;
+	//AddExpr:
+	//	left=EqualityExpr (LC '&&' LC right+=EqualityExpr)*;
+	public AddExprElements getAddExprAccess() {
+		return pAddExpr;
 	}
 	
-	public ParserRule getAndRule() {
-		return getAndAccess().getRule();
+	public ParserRule getAddExprRule() {
+		return getAddExprAccess().getRule();
 	}
 	
-	//Equality Expression:
-	//	Comparison ({Equality.left=current} LC op=("==" | "!=") LC
-	//	right=Comparison)*;
-	public EqualityElements getEqualityAccess() {
-		return pEquality;
+	//EqualityExpr:
+	//	left=ComparaisonExpr (LC op=("==" | "!=") LC right=ComparaisonExpr)?;
+	public EqualityExprElements getEqualityExprAccess() {
+		return pEqualityExpr;
 	}
 	
-	public ParserRule getEqualityRule() {
-		return getEqualityAccess().getRule();
+	public ParserRule getEqualityExprRule() {
+		return getEqualityExprAccess().getRule();
 	}
 	
-	//Comparison Expression:
-	//	PlusOrMinus ({Comparison.left=current} LC op=(">=" | "<=" | ">" | "<") LC
-	//	right=PlusOrMinus)*;
-	public ComparisonElements getComparisonAccess() {
-		return pComparison;
+	//ComparaisonExpr:
+	//	left=PlusOrMinusExpr (LC op=(">=" | "<=" | ">" | "<") LC right=PlusOrMinusExpr)?;
+	public ComparaisonExprElements getComparaisonExprAccess() {
+		return pComparaisonExpr;
 	}
 	
-	public ParserRule getComparisonRule() {
-		return getComparisonAccess().getRule();
+	public ParserRule getComparaisonExprRule() {
+		return getComparaisonExprAccess().getRule();
 	}
 	
-	//PlusOrMinus Expression:
-	//	MulOrDiv (({Plus.left=current} LC op=("+" | "-")) LC
-	//	right=MulOrDiv)*;
-	public PlusOrMinusElements getPlusOrMinusAccess() {
-		return pPlusOrMinus;
+	//PlusOrMinusExpr:
+	//	left=MulOrDivExpr (LC op+=("+" | "-") LC right+=MulOrDivExpr)*;
+	public PlusOrMinusExprElements getPlusOrMinusExprAccess() {
+		return pPlusOrMinusExpr;
 	}
 	
-	public ParserRule getPlusOrMinusRule() {
-		return getPlusOrMinusAccess().getRule();
+	public ParserRule getPlusOrMinusExprRule() {
+		return getPlusOrMinusExprAccess().getRule();
 	}
 	
-	//MulOrDiv Expression:
-	//	Primary (({MulOrDiv.left=current} LC op=('*' | '/')) LC
-	//	right=Primary)*;
-	public MulOrDivElements getMulOrDivAccess() {
-		return pMulOrDiv;
+	//MulOrDivExpr:
+	//	left=PrimaryExpr (LC op+=('*' | '/' | '%') LC right+=PrimaryExpr)*;
+	public MulOrDivExprElements getMulOrDivExprAccess() {
+		return pMulOrDivExpr;
 	}
 	
-	public ParserRule getMulOrDivRule() {
-		return getMulOrDivAccess().getRule();
+	public ParserRule getMulOrDivExprRule() {
+		return getMulOrDivExprAccess().getRule();
 	}
 	
-	//Primary Expression:
-	//	'(' LC Expression LC ')' | {Not} "!" expression=Primary | Atomic;
-	public PrimaryElements getPrimaryAccess() {
-		return pPrimary;
+	//PrimaryExpr:
+	//	'(' LC Expression LC ')' | NotExpr | AtomicExpr | Selector | CountExpr;
+	public PrimaryExprElements getPrimaryExprAccess() {
+		return pPrimaryExpr;
 	}
 	
-	public ParserRule getPrimaryRule() {
-		return getPrimaryAccess().getRule();
+	public ParserRule getPrimaryExprRule() {
+		return getPrimaryExprAccess().getRule();
 	}
 	
-	//Atomic Expression:
-	//	{IntConstant} value=INT | {StringConstant} value=STRING | {BoolConstant} value=('true' | 'false') | VariableExpr;
-	public AtomicElements getAtomicAccess() {
-		return pAtomic;
+	//NotExpr:
+	//	'!' LC expr=PrimaryExpr;
+	public NotExprElements getNotExprAccess() {
+		return pNotExpr;
 	}
 	
-	public ParserRule getAtomicRule() {
-		return getAtomicAccess().getRule();
+	public ParserRule getNotExprRule() {
+		return getNotExprAccess().getRule();
+	}
+	
+	//AtomicExpr:
+	//	{IntConstant} value=INT | {StringConstant} value=STRING | {BoolConstant} value=('true' | 'false');
+	public AtomicExprElements getAtomicExprAccess() {
+		return pAtomicExpr;
+	}
+	
+	public ParserRule getAtomicExprRule() {
+		return getAtomicExprAccess().getRule();
 	}
 	
 	//terminal ID:

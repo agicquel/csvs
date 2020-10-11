@@ -4,7 +4,7 @@
 package com.agicquel.csvs.csvs.impl;
 
 import com.agicquel.csvs.csvs.CsvsPackage;
-import com.agicquel.csvs.csvs.Expression;
+import com.agicquel.csvs.csvs.PrimaryExpr;
 import com.agicquel.csvs.csvs.RowSelect;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -23,6 +23,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link com.agicquel.csvs.csvs.impl.RowSelectImpl#getVar <em>Var</em>}</li>
  *   <li>{@link com.agicquel.csvs.csvs.impl.RowSelectImpl#getExpression <em>Expression</em>}</li>
  * </ul>
  *
@@ -31,6 +32,26 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 public class RowSelectImpl extends SelectorImpl implements RowSelect
 {
   /**
+   * The default value of the '{@link #getVar() <em>Var</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getVar()
+   * @generated
+   * @ordered
+   */
+  protected static final String VAR_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getVar() <em>Var</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getVar()
+   * @generated
+   * @ordered
+   */
+  protected String var = VAR_EDEFAULT;
+
+  /**
    * The cached value of the '{@link #getExpression() <em>Expression</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -38,7 +59,7 @@ public class RowSelectImpl extends SelectorImpl implements RowSelect
    * @generated
    * @ordered
    */
-  protected Expression expression;
+  protected PrimaryExpr expression;
 
   /**
    * <!-- begin-user-doc -->
@@ -67,7 +88,32 @@ public class RowSelectImpl extends SelectorImpl implements RowSelect
    * @generated
    */
   @Override
-  public Expression getExpression()
+  public String getVar()
+  {
+    return var;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setVar(String newVar)
+  {
+    String oldVar = var;
+    var = newVar;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, CsvsPackage.ROW_SELECT__VAR, oldVar, var));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public PrimaryExpr getExpression()
   {
     return expression;
   }
@@ -77,9 +123,9 @@ public class RowSelectImpl extends SelectorImpl implements RowSelect
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetExpression(Expression newExpression, NotificationChain msgs)
+  public NotificationChain basicSetExpression(PrimaryExpr newExpression, NotificationChain msgs)
   {
-    Expression oldExpression = expression;
+    PrimaryExpr oldExpression = expression;
     expression = newExpression;
     if (eNotificationRequired())
     {
@@ -95,7 +141,7 @@ public class RowSelectImpl extends SelectorImpl implements RowSelect
    * @generated
    */
   @Override
-  public void setExpression(Expression newExpression)
+  public void setExpression(PrimaryExpr newExpression)
   {
     if (newExpression != expression)
     {
@@ -137,6 +183,8 @@ public class RowSelectImpl extends SelectorImpl implements RowSelect
   {
     switch (featureID)
     {
+      case CsvsPackage.ROW_SELECT__VAR:
+        return getVar();
       case CsvsPackage.ROW_SELECT__EXPRESSION:
         return getExpression();
     }
@@ -153,8 +201,11 @@ public class RowSelectImpl extends SelectorImpl implements RowSelect
   {
     switch (featureID)
     {
+      case CsvsPackage.ROW_SELECT__VAR:
+        setVar((String)newValue);
+        return;
       case CsvsPackage.ROW_SELECT__EXPRESSION:
-        setExpression((Expression)newValue);
+        setExpression((PrimaryExpr)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -170,8 +221,11 @@ public class RowSelectImpl extends SelectorImpl implements RowSelect
   {
     switch (featureID)
     {
+      case CsvsPackage.ROW_SELECT__VAR:
+        setVar(VAR_EDEFAULT);
+        return;
       case CsvsPackage.ROW_SELECT__EXPRESSION:
-        setExpression((Expression)null);
+        setExpression((PrimaryExpr)null);
         return;
     }
     super.eUnset(featureID);
@@ -187,10 +241,29 @@ public class RowSelectImpl extends SelectorImpl implements RowSelect
   {
     switch (featureID)
     {
+      case CsvsPackage.ROW_SELECT__VAR:
+        return VAR_EDEFAULT == null ? var != null : !VAR_EDEFAULT.equals(var);
       case CsvsPackage.ROW_SELECT__EXPRESSION:
         return expression != null;
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuilder result = new StringBuilder(super.toString());
+    result.append(" (var: ");
+    result.append(var);
+    result.append(')');
+    return result.toString();
   }
 
 } //RowSelectImpl

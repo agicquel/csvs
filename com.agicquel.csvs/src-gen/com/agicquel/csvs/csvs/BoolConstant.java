@@ -20,7 +20,7 @@ package com.agicquel.csvs.csvs;
  * @model
  * @generated
  */
-public interface BoolConstant extends Expression
+public interface BoolConstant extends AtomicExpr
 {
   /**
    * Returns the value of the '<em><b>Value</b></em>' attribute.

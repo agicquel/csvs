@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?artifactRepository version='1.1.0'?>
+<repository name='/usr/lib/eclipse/.eclipseextension' type='org.eclipse.equinox.p2.artifact.repository.simpleRepository' version='1.0.0'>
+  <properties size='3'>
+    <property name='p2.timestamp' value='1601573010764'/>
+    <property name='org.eclipse.update.site.policy' value='USER-EXCLUDE'/>
+    <property name='org.eclipse.update.site.list' value=''/>
+  </properties>
+  <mappings size='3'>
+    <rule filter='(&amp; (classifier=osgi.bundle))' output='${repoUrl}/plugins/${id}_${version}.jar'/>
+    <rule filter='(&amp; (classifier=binary))' output='${repoUrl}/binary/${id}_${version}'/>
+    <rule filter='(&amp; (classifier=org.eclipse.update.feature))' output='${repoUrl}/features/${id}_${version}.jar'/>
+  </mappings>
+  <artifacts size='4'>
+    <artifact classifier='osgi.bundle' id='org.eclipse.ecf.provider.filetransfer.httpclient4' version='1.1.500.v20200618-1435'>
+      <properties size='2'>
+        <property name='artifact.size' value='67424'/>
+        <property name='download.size' value='67424'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib/eclipse/plugins/org.eclipse.ecf.provider.filetransfer.httpclient4_1.1.500.v20200618-1435.jar'/>
+        <property name='file.name' value='/usr/lib/eclipse/plugins/org.eclipse.ecf.provider.filetransfer.httpclient4_1.1.500.v20200618-1435.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='org.eclipse.ecf.filetransfer.httpclient4.feature' version='3.14.8.v20200618-1435'>
+      <properties size='1'>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+      <repositoryProperties size='3'>
+        <property name='artifact.folder' value='true'/>
+        <property name='artifact.reference' value='file:/usr/lib/eclipse/features/org.eclipse.ecf.filetransfer.httpclient4.feature_3.14.8.v20200618-1435/'/>
+        <property name='file.name' value='/usr/lib/eclipse/features/org.eclipse.ecf.filetransfer.httpclient4.feature_3.14.8.v20200618-1435'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='org.eclipse.ecf.filetransfer.httpclient4.ssl.feature' version='1.1.300.v20200618-1435'>
+      <properties size='1'>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+      <repositoryProperties size='3'>
+        <property name='artifact.folder' value='true'/>
+        <property name='artifact.reference' value='file:/usr/lib/eclipse/features/org.eclipse.ecf.filetransfer.httpclient4.ssl.feature_1.1.300.v20200618-1435/'/>
+        <property name='file.name' value='/usr/lib/eclipse/features/org.eclipse.ecf.filetransfer.httpclient4.ssl.feature_1.1.300.v20200618-1435'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.ecf.provider.filetransfer.httpclient4.ssl' version='1.1.200.v20200618-1435'>
+      <properties size='2'>
+        <property name='artifact.size' value='11993'/>
+        <property name='download.size' value='11993'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib/eclipse/plugins/org.eclipse.ecf.provider.filetransfer.httpclient4.ssl_1.1.200.v20200618-1435.jar'/>
+        <property name='file.name' value='/usr/lib/eclipse/plugins/org.eclipse.ecf.provider.filetransfer.httpclient4.ssl_1.1.200.v20200618-1435.jar'/>
+      </repositoryProperties>
+    </artifact>
+  </artifacts>
+</repository>

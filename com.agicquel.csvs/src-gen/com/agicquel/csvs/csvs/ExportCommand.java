@@ -13,7 +13,8 @@ package com.agicquel.csvs.csvs;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.agicquel.csvs.csvs.ExportCommand#getExpression <em>Expression</em>}</li>
+ *   <li>{@link com.agicquel.csvs.csvs.ExportCommand#getVar <em>Var</em>}</li>
+ *   <li>{@link com.agicquel.csvs.csvs.ExportCommand#getPath <em>Path</em>}</li>
  * </ul>
  *
  * @see com.agicquel.csvs.csvs.CsvsPackage#getExportCommand()
@@ -23,25 +24,47 @@ package com.agicquel.csvs.csvs;
 public interface ExportCommand extends CsvCommand
 {
   /**
-   * Returns the value of the '<em><b>Expression</b></em>' containment reference.
+   * Returns the value of the '<em><b>Var</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Expression</em>' containment reference.
-   * @see #setExpression(Expression)
-   * @see com.agicquel.csvs.csvs.CsvsPackage#getExportCommand_Expression()
-   * @model containment="true"
+   * @return the value of the '<em>Var</em>' attribute.
+   * @see #setVar(String)
+   * @see com.agicquel.csvs.csvs.CsvsPackage#getExportCommand_Var()
+   * @model
    * @generated
    */
-  Expression getExpression();
+  String getVar();
 
   /**
-   * Sets the value of the '{@link com.agicquel.csvs.csvs.ExportCommand#getExpression <em>Expression</em>}' containment reference.
+   * Sets the value of the '{@link com.agicquel.csvs.csvs.ExportCommand#getVar <em>Var</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Expression</em>' containment reference.
-   * @see #getExpression()
+   * @param value the new value of the '<em>Var</em>' attribute.
+   * @see #getVar()
    * @generated
    */
-  void setExpression(Expression value);
+  void setVar(String value);
+
+  /**
+   * Returns the value of the '<em><b>Path</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Path</em>' attribute.
+   * @see #setPath(String)
+   * @see com.agicquel.csvs.csvs.CsvsPackage#getExportCommand_Path()
+   * @model
+   * @generated
+   */
+  String getPath();
+
+  /**
+   * Sets the value of the '{@link com.agicquel.csvs.csvs.ExportCommand#getPath <em>Path</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Path</em>' attribute.
+   * @see #getPath()
+   * @generated
+   */
+  void setPath(String value);
 
 } // ExportCommand

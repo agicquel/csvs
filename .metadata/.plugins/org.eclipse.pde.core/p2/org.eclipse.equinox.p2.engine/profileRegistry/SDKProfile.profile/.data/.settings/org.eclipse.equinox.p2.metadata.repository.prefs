@@ -1,0 +1,16 @@
+eclipse.preferences.version=1
+repositories/file\:_home_agicquel_workspace_CsvDslProject_.metadata_.plugins_org.eclipse.pde.core_Launch_org.eclipse.osgi_118_data_listener_1925729951/description=
+repositories/file\:_home_agicquel_workspace_CsvDslProject_.metadata_.plugins_org.eclipse.pde.core_Launch_org.eclipse.osgi_118_data_listener_1925729951/isSystem=true
+repositories/file\:_home_agicquel_workspace_CsvDslProject_.metadata_.plugins_org.eclipse.pde.core_Launch_org.eclipse.osgi_118_data_listener_1925729951/name=dropins
+repositories/file\:_home_agicquel_workspace_CsvDslProject_.metadata_.plugins_org.eclipse.pde.core_Launch_org.eclipse.osgi_118_data_listener_1925729951/provider=
+repositories/file\:_home_agicquel_workspace_CsvDslProject_.metadata_.plugins_org.eclipse.pde.core_Launch_org.eclipse.osgi_118_data_listener_1925729951/type=org.eclipse.equinox.internal.p2.metadata.repository.LocalMetadataRepository
+repositories/file\:_home_agicquel_workspace_CsvDslProject_.metadata_.plugins_org.eclipse.pde.core_Launch_org.eclipse.osgi_118_data_listener_1925729951/uri=file\:/home/agicquel/workspace/CsvDslProject/.metadata/.plugins/org.eclipse.pde.core/Launch/org.eclipse.osgi/118/data/listener_1925729951/
+repositories/file\:_home_agicquel_workspace_CsvDslProject_.metadata_.plugins_org.eclipse.pde.core_Launch_org.eclipse.osgi_118_data_listener_1925729951/version=1
+repositories/file\:_usr_lib_eclipse_.eclipseextension/description=
+repositories/file\:_usr_lib_eclipse_.eclipseextension/enabled=true
+repositories/file\:_usr_lib_eclipse_.eclipseextension/isSystem=true
+repositories/file\:_usr_lib_eclipse_.eclipseextension/name=/usr/lib/eclipse/.eclipseextension
+repositories/file\:_usr_lib_eclipse_.eclipseextension/provider=
+repositories/file\:_usr_lib_eclipse_.eclipseextension/type=org.eclipse.equinox.p2.extensionlocation.metadataRepository
+repositories/file\:_usr_lib_eclipse_.eclipseextension/uri=file\:/usr/lib/eclipse/.eclipseextension
+repositories/file\:_usr_lib_eclipse_.eclipseextension/version=1

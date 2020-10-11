@@ -14,6 +14,7 @@ package com.agicquel.csvs.csvs;
  * </p>
  * <ul>
  *   <li>{@link com.agicquel.csvs.csvs.LoadCommand#getVar <em>Var</em>}</li>
+ *   <li>{@link com.agicquel.csvs.csvs.LoadCommand#getPath <em>Path</em>}</li>
  * </ul>
  *
  * @see com.agicquel.csvs.csvs.CsvsPackage#getLoadCommand()
@@ -43,5 +44,27 @@ public interface LoadCommand extends CsvCommand
    * @generated
    */
   void setVar(String value);
+
+  /**
+   * Returns the value of the '<em><b>Path</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Path</em>' attribute.
+   * @see #setPath(String)
+   * @see com.agicquel.csvs.csvs.CsvsPackage#getLoadCommand_Path()
+   * @model
+   * @generated
+   */
+  String getPath();
+
+  /**
+   * Sets the value of the '{@link com.agicquel.csvs.csvs.LoadCommand#getPath <em>Path</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Path</em>' attribute.
+   * @see #getPath()
+   * @generated
+   */
+  void setPath(String value);
 
 } // LoadCommand

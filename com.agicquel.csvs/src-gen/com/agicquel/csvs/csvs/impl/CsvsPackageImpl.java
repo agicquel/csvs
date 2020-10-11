@@ -4,13 +4,17 @@
 package com.agicquel.csvs.csvs.impl;
 
 import com.agicquel.csvs.csvs.AddCommand;
-import com.agicquel.csvs.csvs.And;
+import com.agicquel.csvs.csvs.AddExpr;
+import com.agicquel.csvs.csvs.ApplyCommand;
+import com.agicquel.csvs.csvs.ApplyExecCommand;
+import com.agicquel.csvs.csvs.ApplyFilterCommand;
+import com.agicquel.csvs.csvs.AtomicExpr;
 import com.agicquel.csvs.csvs.Block;
 import com.agicquel.csvs.csvs.BoolConstant;
 import com.agicquel.csvs.csvs.CellSelect;
 import com.agicquel.csvs.csvs.ColSelect;
 import com.agicquel.csvs.csvs.Command;
-import com.agicquel.csvs.csvs.Comparison;
+import com.agicquel.csvs.csvs.ComparaisonExpr;
 import com.agicquel.csvs.csvs.ControlCommand;
 import com.agicquel.csvs.csvs.CountExpr;
 import com.agicquel.csvs.csvs.CreateCommand;
@@ -18,25 +22,26 @@ import com.agicquel.csvs.csvs.CsvCommand;
 import com.agicquel.csvs.csvs.CsvsFactory;
 import com.agicquel.csvs.csvs.CsvsPackage;
 import com.agicquel.csvs.csvs.DeleteCommand;
-import com.agicquel.csvs.csvs.Equality;
+import com.agicquel.csvs.csvs.EqualityExpr;
 import com.agicquel.csvs.csvs.ExportCommand;
 import com.agicquel.csvs.csvs.Expression;
 import com.agicquel.csvs.csvs.FieldSelect;
 import com.agicquel.csvs.csvs.IfCommand;
 import com.agicquel.csvs.csvs.IntConstant;
 import com.agicquel.csvs.csvs.LoadCommand;
-import com.agicquel.csvs.csvs.MulOrDiv;
-import com.agicquel.csvs.csvs.Not;
-import com.agicquel.csvs.csvs.Or;
-import com.agicquel.csvs.csvs.Plus;
+import com.agicquel.csvs.csvs.Model;
+import com.agicquel.csvs.csvs.MulOrDivExpr;
+import com.agicquel.csvs.csvs.NotExpr;
+import com.agicquel.csvs.csvs.OrExpr;
+import com.agicquel.csvs.csvs.PlusOrMinusExpr;
+import com.agicquel.csvs.csvs.PrimaryExpr;
 import com.agicquel.csvs.csvs.PrintCommand;
-import com.agicquel.csvs.csvs.Program;
 import com.agicquel.csvs.csvs.RowSelect;
 import com.agicquel.csvs.csvs.Selector;
 import com.agicquel.csvs.csvs.SetCommand;
 import com.agicquel.csvs.csvs.StoreCommand;
 import com.agicquel.csvs.csvs.StringConstant;
-import com.agicquel.csvs.csvs.VariableExpr;
+import com.agicquel.csvs.csvs.VariableSelect;
 import com.agicquel.csvs.csvs.WhileCommand;
 
 import org.eclipse.emf.ecore.EAttribute;
@@ -59,7 +64,7 @@ public class CsvsPackageImpl extends EPackageImpl implements CsvsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass programEClass = null;
+  private EClass modelEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -122,6 +127,13 @@ public class CsvsPackageImpl extends EPackageImpl implements CsvsPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass exportCommandEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass createCommandEClass = null;
 
   /**
@@ -143,13 +155,6 @@ public class CsvsPackageImpl extends EPackageImpl implements CsvsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass exportCommandEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   private EClass deleteCommandEClass = null;
 
   /**
@@ -164,14 +169,28 @@ public class CsvsPackageImpl extends EPackageImpl implements CsvsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass expressionEClass = null;
+  private EClass applyCommandEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass variableExprEClass = null;
+  private EClass applyFilterCommandEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass applyExecCommandEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass expressionEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -213,6 +232,13 @@ public class CsvsPackageImpl extends EPackageImpl implements CsvsPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass variableSelectEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass countExprEClass = null;
 
   /**
@@ -220,49 +246,63 @@ public class CsvsPackageImpl extends EPackageImpl implements CsvsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass orEClass = null;
+  private EClass orExprEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass andEClass = null;
+  private EClass addExprEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass equalityEClass = null;
+  private EClass equalityExprEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass comparisonEClass = null;
+  private EClass comparaisonExprEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass plusEClass = null;
+  private EClass plusOrMinusExprEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass mulOrDivEClass = null;
+  private EClass mulOrDivExprEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass notEClass = null;
+  private EClass primaryExprEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass notExprEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass atomicExprEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -354,9 +394,9 @@ public class CsvsPackageImpl extends EPackageImpl implements CsvsPackage
    * @generated
    */
   @Override
-  public EClass getProgram()
+  public EClass getModel()
   {
-    return programEClass;
+    return modelEClass;
   }
 
   /**
@@ -365,9 +405,9 @@ public class CsvsPackageImpl extends EPackageImpl implements CsvsPackage
    * @generated
    */
   @Override
-  public EReference getProgram_Commands()
+  public EReference getModel_Commands()
   {
-    return (EReference)programEClass.getEStructuralFeatures().get(0);
+    return (EReference)modelEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -508,6 +548,17 @@ public class CsvsPackageImpl extends EPackageImpl implements CsvsPackage
    * @generated
    */
   @Override
+  public EAttribute getLoadCommand_Path()
+  {
+    return (EAttribute)loadCommandEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getStoreCommand()
   {
     return storeCommandEClass;
@@ -522,6 +573,50 @@ public class CsvsPackageImpl extends EPackageImpl implements CsvsPackage
   public EAttribute getStoreCommand_Var()
   {
     return (EAttribute)storeCommandEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getStoreCommand_Path()
+  {
+    return (EAttribute)storeCommandEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getExportCommand()
+  {
+    return exportCommandEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getExportCommand_Var()
+  {
+    return (EAttribute)exportCommandEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getExportCommand_Path()
+  {
+    return (EAttribute)exportCommandEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -607,28 +702,6 @@ public class CsvsPackageImpl extends EPackageImpl implements CsvsPackage
    * @generated
    */
   @Override
-  public EClass getExportCommand()
-  {
-    return exportCommandEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getExportCommand_Expression()
-  {
-    return (EReference)exportCommandEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public EClass getDeleteCommand()
   {
     return deleteCommandEClass;
@@ -684,31 +757,119 @@ public class CsvsPackageImpl extends EPackageImpl implements CsvsPackage
    * @generated
    */
   @Override
+  public EClass getApplyCommand()
+  {
+    return applyCommandEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getApplyCommand_Selection()
+  {
+    return (EReference)applyCommandEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getApplyCommand_If()
+  {
+    return (EReference)applyCommandEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getApplyCommand_Exec()
+  {
+    return (EReference)applyCommandEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getApplyFilterCommand()
+  {
+    return applyFilterCommandEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getApplyFilterCommand_VarName()
+  {
+    return (EAttribute)applyFilterCommandEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getApplyFilterCommand_Expr()
+  {
+    return (EReference)applyFilterCommandEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getApplyExecCommand()
+  {
+    return applyExecCommandEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getApplyExecCommand_VarName()
+  {
+    return (EAttribute)applyExecCommandEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getApplyExecCommand_Expr()
+  {
+    return (EReference)applyExecCommandEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getExpression()
   {
     return expressionEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EClass getVariableExpr()
-  {
-    return variableExprEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getVariableExpr_Term()
-  {
-    return (EAttribute)variableExprEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -728,17 +889,6 @@ public class CsvsPackageImpl extends EPackageImpl implements CsvsPackage
    * @generated
    */
   @Override
-  public EAttribute getSelector_Var()
-  {
-    return (EAttribute)selectorEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public EClass getRowSelect()
   {
     return rowSelectEClass;
@@ -750,9 +900,20 @@ public class CsvsPackageImpl extends EPackageImpl implements CsvsPackage
    * @generated
    */
   @Override
+  public EAttribute getRowSelect_Var()
+  {
+    return (EAttribute)rowSelectEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EReference getRowSelect_Expression()
   {
-    return (EReference)rowSelectEClass.getEStructuralFeatures().get(0);
+    return (EReference)rowSelectEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -772,9 +933,20 @@ public class CsvsPackageImpl extends EPackageImpl implements CsvsPackage
    * @generated
    */
   @Override
+  public EAttribute getColSelect_Var()
+  {
+    return (EAttribute)colSelectEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EReference getColSelect_Expression()
   {
-    return (EReference)colSelectEClass.getEStructuralFeatures().get(0);
+    return (EReference)colSelectEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -794,9 +966,20 @@ public class CsvsPackageImpl extends EPackageImpl implements CsvsPackage
    * @generated
    */
   @Override
+  public EAttribute getCellSelect_Var()
+  {
+    return (EAttribute)cellSelectEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EReference getCellSelect_ExpressionRow()
   {
-    return (EReference)cellSelectEClass.getEStructuralFeatures().get(0);
+    return (EReference)cellSelectEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -807,7 +990,7 @@ public class CsvsPackageImpl extends EPackageImpl implements CsvsPackage
   @Override
   public EReference getCellSelect_ExpressionCol()
   {
-    return (EReference)cellSelectEClass.getEStructuralFeatures().get(1);
+    return (EReference)cellSelectEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -827,9 +1010,42 @@ public class CsvsPackageImpl extends EPackageImpl implements CsvsPackage
    * @generated
    */
   @Override
+  public EAttribute getFieldSelect_Var()
+  {
+    return (EAttribute)fieldSelectEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EReference getFieldSelect_Expression()
   {
-    return (EReference)fieldSelectEClass.getEStructuralFeatures().get(0);
+    return (EReference)fieldSelectEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getVariableSelect()
+  {
+    return variableSelectEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getVariableSelect_Term()
+  {
+    return (EAttribute)variableSelectEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -871,9 +1087,9 @@ public class CsvsPackageImpl extends EPackageImpl implements CsvsPackage
    * @generated
    */
   @Override
-  public EClass getOr()
+  public EClass getOrExpr()
   {
-    return orEClass;
+    return orExprEClass;
   }
 
   /**
@@ -882,9 +1098,9 @@ public class CsvsPackageImpl extends EPackageImpl implements CsvsPackage
    * @generated
    */
   @Override
-  public EReference getOr_Left()
+  public EReference getOrExpr_Left()
   {
-    return (EReference)orEClass.getEStructuralFeatures().get(0);
+    return (EReference)orExprEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -893,9 +1109,9 @@ public class CsvsPackageImpl extends EPackageImpl implements CsvsPackage
    * @generated
    */
   @Override
-  public EReference getOr_Right()
+  public EReference getOrExpr_Right()
   {
-    return (EReference)orEClass.getEStructuralFeatures().get(1);
+    return (EReference)orExprEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -904,9 +1120,9 @@ public class CsvsPackageImpl extends EPackageImpl implements CsvsPackage
    * @generated
    */
   @Override
-  public EClass getAnd()
+  public EClass getAddExpr()
   {
-    return andEClass;
+    return addExprEClass;
   }
 
   /**
@@ -915,9 +1131,9 @@ public class CsvsPackageImpl extends EPackageImpl implements CsvsPackage
    * @generated
    */
   @Override
-  public EReference getAnd_Left()
+  public EReference getAddExpr_Left()
   {
-    return (EReference)andEClass.getEStructuralFeatures().get(0);
+    return (EReference)addExprEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -926,9 +1142,9 @@ public class CsvsPackageImpl extends EPackageImpl implements CsvsPackage
    * @generated
    */
   @Override
-  public EReference getAnd_Right()
+  public EReference getAddExpr_Right()
   {
-    return (EReference)andEClass.getEStructuralFeatures().get(1);
+    return (EReference)addExprEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -937,9 +1153,9 @@ public class CsvsPackageImpl extends EPackageImpl implements CsvsPackage
    * @generated
    */
   @Override
-  public EClass getEquality()
+  public EClass getEqualityExpr()
   {
-    return equalityEClass;
+    return equalityExprEClass;
   }
 
   /**
@@ -948,9 +1164,9 @@ public class CsvsPackageImpl extends EPackageImpl implements CsvsPackage
    * @generated
    */
   @Override
-  public EReference getEquality_Left()
+  public EReference getEqualityExpr_Left()
   {
-    return (EReference)equalityEClass.getEStructuralFeatures().get(0);
+    return (EReference)equalityExprEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -959,9 +1175,9 @@ public class CsvsPackageImpl extends EPackageImpl implements CsvsPackage
    * @generated
    */
   @Override
-  public EAttribute getEquality_Op()
+  public EAttribute getEqualityExpr_Op()
   {
-    return (EAttribute)equalityEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)equalityExprEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -970,9 +1186,9 @@ public class CsvsPackageImpl extends EPackageImpl implements CsvsPackage
    * @generated
    */
   @Override
-  public EReference getEquality_Right()
+  public EReference getEqualityExpr_Right()
   {
-    return (EReference)equalityEClass.getEStructuralFeatures().get(2);
+    return (EReference)equalityExprEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -981,9 +1197,9 @@ public class CsvsPackageImpl extends EPackageImpl implements CsvsPackage
    * @generated
    */
   @Override
-  public EClass getComparison()
+  public EClass getComparaisonExpr()
   {
-    return comparisonEClass;
+    return comparaisonExprEClass;
   }
 
   /**
@@ -992,9 +1208,9 @@ public class CsvsPackageImpl extends EPackageImpl implements CsvsPackage
    * @generated
    */
   @Override
-  public EReference getComparison_Left()
+  public EReference getComparaisonExpr_Left()
   {
-    return (EReference)comparisonEClass.getEStructuralFeatures().get(0);
+    return (EReference)comparaisonExprEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1003,9 +1219,9 @@ public class CsvsPackageImpl extends EPackageImpl implements CsvsPackage
    * @generated
    */
   @Override
-  public EAttribute getComparison_Op()
+  public EAttribute getComparaisonExpr_Op()
   {
-    return (EAttribute)comparisonEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)comparaisonExprEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1014,9 +1230,9 @@ public class CsvsPackageImpl extends EPackageImpl implements CsvsPackage
    * @generated
    */
   @Override
-  public EReference getComparison_Right()
+  public EReference getComparaisonExpr_Right()
   {
-    return (EReference)comparisonEClass.getEStructuralFeatures().get(2);
+    return (EReference)comparaisonExprEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1025,9 +1241,9 @@ public class CsvsPackageImpl extends EPackageImpl implements CsvsPackage
    * @generated
    */
   @Override
-  public EClass getPlus()
+  public EClass getPlusOrMinusExpr()
   {
-    return plusEClass;
+    return plusOrMinusExprEClass;
   }
 
   /**
@@ -1036,9 +1252,9 @@ public class CsvsPackageImpl extends EPackageImpl implements CsvsPackage
    * @generated
    */
   @Override
-  public EReference getPlus_Left()
+  public EReference getPlusOrMinusExpr_Left()
   {
-    return (EReference)plusEClass.getEStructuralFeatures().get(0);
+    return (EReference)plusOrMinusExprEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1047,9 +1263,9 @@ public class CsvsPackageImpl extends EPackageImpl implements CsvsPackage
    * @generated
    */
   @Override
-  public EAttribute getPlus_Op()
+  public EAttribute getPlusOrMinusExpr_Op()
   {
-    return (EAttribute)plusEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)plusOrMinusExprEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1058,9 +1274,9 @@ public class CsvsPackageImpl extends EPackageImpl implements CsvsPackage
    * @generated
    */
   @Override
-  public EReference getPlus_Right()
+  public EReference getPlusOrMinusExpr_Right()
   {
-    return (EReference)plusEClass.getEStructuralFeatures().get(2);
+    return (EReference)plusOrMinusExprEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1069,9 +1285,9 @@ public class CsvsPackageImpl extends EPackageImpl implements CsvsPackage
    * @generated
    */
   @Override
-  public EClass getMulOrDiv()
+  public EClass getMulOrDivExpr()
   {
-    return mulOrDivEClass;
+    return mulOrDivExprEClass;
   }
 
   /**
@@ -1080,9 +1296,9 @@ public class CsvsPackageImpl extends EPackageImpl implements CsvsPackage
    * @generated
    */
   @Override
-  public EReference getMulOrDiv_Left()
+  public EReference getMulOrDivExpr_Left()
   {
-    return (EReference)mulOrDivEClass.getEStructuralFeatures().get(0);
+    return (EReference)mulOrDivExprEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1091,9 +1307,9 @@ public class CsvsPackageImpl extends EPackageImpl implements CsvsPackage
    * @generated
    */
   @Override
-  public EAttribute getMulOrDiv_Op()
+  public EAttribute getMulOrDivExpr_Op()
   {
-    return (EAttribute)mulOrDivEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)mulOrDivExprEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1102,9 +1318,9 @@ public class CsvsPackageImpl extends EPackageImpl implements CsvsPackage
    * @generated
    */
   @Override
-  public EReference getMulOrDiv_Right()
+  public EReference getMulOrDivExpr_Right()
   {
-    return (EReference)mulOrDivEClass.getEStructuralFeatures().get(2);
+    return (EReference)mulOrDivExprEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1113,9 +1329,9 @@ public class CsvsPackageImpl extends EPackageImpl implements CsvsPackage
    * @generated
    */
   @Override
-  public EClass getNot()
+  public EClass getPrimaryExpr()
   {
-    return notEClass;
+    return primaryExprEClass;
   }
 
   /**
@@ -1124,9 +1340,31 @@ public class CsvsPackageImpl extends EPackageImpl implements CsvsPackage
    * @generated
    */
   @Override
-  public EReference getNot_Expression()
+  public EClass getNotExpr()
   {
-    return (EReference)notEClass.getEStructuralFeatures().get(0);
+    return notExprEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getNotExpr_Expr()
+  {
+    return (EReference)notExprEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getAtomicExpr()
+  {
+    return atomicExprEClass;
   }
 
   /**
@@ -1226,8 +1464,8 @@ public class CsvsPackageImpl extends EPackageImpl implements CsvsPackage
     isCreated = true;
 
     // Create classes and their features
-    programEClass = createEClass(PROGRAM);
-    createEReference(programEClass, PROGRAM__COMMANDS);
+    modelEClass = createEClass(MODEL);
+    createEReference(modelEClass, MODEL__COMMANDS);
 
     commandEClass = createEClass(COMMAND);
 
@@ -1247,9 +1485,15 @@ public class CsvsPackageImpl extends EPackageImpl implements CsvsPackage
 
     loadCommandEClass = createEClass(LOAD_COMMAND);
     createEAttribute(loadCommandEClass, LOAD_COMMAND__VAR);
+    createEAttribute(loadCommandEClass, LOAD_COMMAND__PATH);
 
     storeCommandEClass = createEClass(STORE_COMMAND);
     createEAttribute(storeCommandEClass, STORE_COMMAND__VAR);
+    createEAttribute(storeCommandEClass, STORE_COMMAND__PATH);
+
+    exportCommandEClass = createEClass(EXPORT_COMMAND);
+    createEAttribute(exportCommandEClass, EXPORT_COMMAND__VAR);
+    createEAttribute(exportCommandEClass, EXPORT_COMMAND__PATH);
 
     createCommandEClass = createEClass(CREATE_COMMAND);
     createEAttribute(createCommandEClass, CREATE_COMMAND__VAR);
@@ -1261,9 +1505,6 @@ public class CsvsPackageImpl extends EPackageImpl implements CsvsPackage
     printCommandEClass = createEClass(PRINT_COMMAND);
     createEReference(printCommandEClass, PRINT_COMMAND__EXPRESSION);
 
-    exportCommandEClass = createEClass(EXPORT_COMMAND);
-    createEReference(exportCommandEClass, EXPORT_COMMAND__EXPRESSION);
-
     deleteCommandEClass = createEClass(DELETE_COMMAND);
     createEReference(deleteCommandEClass, DELETE_COMMAND__EXPRESSION);
 
@@ -1271,61 +1512,81 @@ public class CsvsPackageImpl extends EPackageImpl implements CsvsPackage
     createEAttribute(addCommandEClass, ADD_COMMAND__OP);
     createEReference(addCommandEClass, ADD_COMMAND__EXPRESSION);
 
+    applyCommandEClass = createEClass(APPLY_COMMAND);
+    createEReference(applyCommandEClass, APPLY_COMMAND__SELECTION);
+    createEReference(applyCommandEClass, APPLY_COMMAND__IF);
+    createEReference(applyCommandEClass, APPLY_COMMAND__EXEC);
+
+    applyFilterCommandEClass = createEClass(APPLY_FILTER_COMMAND);
+    createEAttribute(applyFilterCommandEClass, APPLY_FILTER_COMMAND__VAR_NAME);
+    createEReference(applyFilterCommandEClass, APPLY_FILTER_COMMAND__EXPR);
+
+    applyExecCommandEClass = createEClass(APPLY_EXEC_COMMAND);
+    createEAttribute(applyExecCommandEClass, APPLY_EXEC_COMMAND__VAR_NAME);
+    createEReference(applyExecCommandEClass, APPLY_EXEC_COMMAND__EXPR);
+
     expressionEClass = createEClass(EXPRESSION);
 
-    variableExprEClass = createEClass(VARIABLE_EXPR);
-    createEAttribute(variableExprEClass, VARIABLE_EXPR__TERM);
-
     selectorEClass = createEClass(SELECTOR);
-    createEAttribute(selectorEClass, SELECTOR__VAR);
 
     rowSelectEClass = createEClass(ROW_SELECT);
+    createEAttribute(rowSelectEClass, ROW_SELECT__VAR);
     createEReference(rowSelectEClass, ROW_SELECT__EXPRESSION);
 
     colSelectEClass = createEClass(COL_SELECT);
+    createEAttribute(colSelectEClass, COL_SELECT__VAR);
     createEReference(colSelectEClass, COL_SELECT__EXPRESSION);
 
     cellSelectEClass = createEClass(CELL_SELECT);
+    createEAttribute(cellSelectEClass, CELL_SELECT__VAR);
     createEReference(cellSelectEClass, CELL_SELECT__EXPRESSION_ROW);
     createEReference(cellSelectEClass, CELL_SELECT__EXPRESSION_COL);
 
     fieldSelectEClass = createEClass(FIELD_SELECT);
+    createEAttribute(fieldSelectEClass, FIELD_SELECT__VAR);
     createEReference(fieldSelectEClass, FIELD_SELECT__EXPRESSION);
+
+    variableSelectEClass = createEClass(VARIABLE_SELECT);
+    createEAttribute(variableSelectEClass, VARIABLE_SELECT__TERM);
 
     countExprEClass = createEClass(COUNT_EXPR);
     createEAttribute(countExprEClass, COUNT_EXPR__VAR);
     createEReference(countExprEClass, COUNT_EXPR__EXPRESSION);
 
-    orEClass = createEClass(OR);
-    createEReference(orEClass, OR__LEFT);
-    createEReference(orEClass, OR__RIGHT);
+    orExprEClass = createEClass(OR_EXPR);
+    createEReference(orExprEClass, OR_EXPR__LEFT);
+    createEReference(orExprEClass, OR_EXPR__RIGHT);
 
-    andEClass = createEClass(AND);
-    createEReference(andEClass, AND__LEFT);
-    createEReference(andEClass, AND__RIGHT);
+    addExprEClass = createEClass(ADD_EXPR);
+    createEReference(addExprEClass, ADD_EXPR__LEFT);
+    createEReference(addExprEClass, ADD_EXPR__RIGHT);
 
-    equalityEClass = createEClass(EQUALITY);
-    createEReference(equalityEClass, EQUALITY__LEFT);
-    createEAttribute(equalityEClass, EQUALITY__OP);
-    createEReference(equalityEClass, EQUALITY__RIGHT);
+    equalityExprEClass = createEClass(EQUALITY_EXPR);
+    createEReference(equalityExprEClass, EQUALITY_EXPR__LEFT);
+    createEAttribute(equalityExprEClass, EQUALITY_EXPR__OP);
+    createEReference(equalityExprEClass, EQUALITY_EXPR__RIGHT);
 
-    comparisonEClass = createEClass(COMPARISON);
-    createEReference(comparisonEClass, COMPARISON__LEFT);
-    createEAttribute(comparisonEClass, COMPARISON__OP);
-    createEReference(comparisonEClass, COMPARISON__RIGHT);
+    comparaisonExprEClass = createEClass(COMPARAISON_EXPR);
+    createEReference(comparaisonExprEClass, COMPARAISON_EXPR__LEFT);
+    createEAttribute(comparaisonExprEClass, COMPARAISON_EXPR__OP);
+    createEReference(comparaisonExprEClass, COMPARAISON_EXPR__RIGHT);
 
-    plusEClass = createEClass(PLUS);
-    createEReference(plusEClass, PLUS__LEFT);
-    createEAttribute(plusEClass, PLUS__OP);
-    createEReference(plusEClass, PLUS__RIGHT);
+    plusOrMinusExprEClass = createEClass(PLUS_OR_MINUS_EXPR);
+    createEReference(plusOrMinusExprEClass, PLUS_OR_MINUS_EXPR__LEFT);
+    createEAttribute(plusOrMinusExprEClass, PLUS_OR_MINUS_EXPR__OP);
+    createEReference(plusOrMinusExprEClass, PLUS_OR_MINUS_EXPR__RIGHT);
 
-    mulOrDivEClass = createEClass(MUL_OR_DIV);
-    createEReference(mulOrDivEClass, MUL_OR_DIV__LEFT);
-    createEAttribute(mulOrDivEClass, MUL_OR_DIV__OP);
-    createEReference(mulOrDivEClass, MUL_OR_DIV__RIGHT);
+    mulOrDivExprEClass = createEClass(MUL_OR_DIV_EXPR);
+    createEReference(mulOrDivExprEClass, MUL_OR_DIV_EXPR__LEFT);
+    createEAttribute(mulOrDivExprEClass, MUL_OR_DIV_EXPR__OP);
+    createEReference(mulOrDivExprEClass, MUL_OR_DIV_EXPR__RIGHT);
 
-    notEClass = createEClass(NOT);
-    createEReference(notEClass, NOT__EXPRESSION);
+    primaryExprEClass = createEClass(PRIMARY_EXPR);
+
+    notExprEClass = createEClass(NOT_EXPR);
+    createEReference(notExprEClass, NOT_EXPR__EXPR);
+
+    atomicExprEClass = createEClass(ATOMIC_EXPR);
 
     intConstantEClass = createEClass(INT_CONSTANT);
     createEAttribute(intConstantEClass, INT_CONSTANT__VALUE);
@@ -1366,40 +1627,38 @@ public class CsvsPackageImpl extends EPackageImpl implements CsvsPackage
     // Set bounds for type parameters
 
     // Add supertypes to classes
-    programEClass.getESuperTypes().add(this.getBlock());
+    modelEClass.getESuperTypes().add(this.getBlock());
     controlCommandEClass.getESuperTypes().add(this.getCommand());
     whileCommandEClass.getESuperTypes().add(this.getControlCommand());
     ifCommandEClass.getESuperTypes().add(this.getControlCommand());
     csvCommandEClass.getESuperTypes().add(this.getCommand());
     loadCommandEClass.getESuperTypes().add(this.getCsvCommand());
     storeCommandEClass.getESuperTypes().add(this.getCsvCommand());
+    exportCommandEClass.getESuperTypes().add(this.getCsvCommand());
     createCommandEClass.getESuperTypes().add(this.getCsvCommand());
     setCommandEClass.getESuperTypes().add(this.getCsvCommand());
     printCommandEClass.getESuperTypes().add(this.getCsvCommand());
-    exportCommandEClass.getESuperTypes().add(this.getCsvCommand());
     deleteCommandEClass.getESuperTypes().add(this.getCsvCommand());
     addCommandEClass.getESuperTypes().add(this.getCsvCommand());
-    variableExprEClass.getESuperTypes().add(this.getExpression());
-    selectorEClass.getESuperTypes().add(this.getExpression());
+    applyCommandEClass.getESuperTypes().add(this.getCsvCommand());
+    expressionEClass.getESuperTypes().add(this.getPrimaryExpr());
+    selectorEClass.getESuperTypes().add(this.getPrimaryExpr());
     rowSelectEClass.getESuperTypes().add(this.getSelector());
     colSelectEClass.getESuperTypes().add(this.getSelector());
     cellSelectEClass.getESuperTypes().add(this.getSelector());
     fieldSelectEClass.getESuperTypes().add(this.getSelector());
-    countExprEClass.getESuperTypes().add(this.getExpression());
-    orEClass.getESuperTypes().add(this.getExpression());
-    andEClass.getESuperTypes().add(this.getExpression());
-    equalityEClass.getESuperTypes().add(this.getExpression());
-    comparisonEClass.getESuperTypes().add(this.getExpression());
-    plusEClass.getESuperTypes().add(this.getExpression());
-    mulOrDivEClass.getESuperTypes().add(this.getExpression());
-    notEClass.getESuperTypes().add(this.getExpression());
-    intConstantEClass.getESuperTypes().add(this.getExpression());
-    stringConstantEClass.getESuperTypes().add(this.getExpression());
-    boolConstantEClass.getESuperTypes().add(this.getExpression());
+    variableSelectEClass.getESuperTypes().add(this.getSelector());
+    countExprEClass.getESuperTypes().add(this.getPrimaryExpr());
+    orExprEClass.getESuperTypes().add(this.getExpression());
+    notExprEClass.getESuperTypes().add(this.getPrimaryExpr());
+    atomicExprEClass.getESuperTypes().add(this.getPrimaryExpr());
+    intConstantEClass.getESuperTypes().add(this.getAtomicExpr());
+    stringConstantEClass.getESuperTypes().add(this.getAtomicExpr());
+    boolConstantEClass.getESuperTypes().add(this.getAtomicExpr());
 
     // Initialize classes and features; add operations and parameters
-    initEClass(programEClass, Program.class, "Program", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getProgram_Commands(), this.getCommand(), null, "commands", null, 0, -1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getModel_Commands(), this.getCommand(), null, "commands", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(commandEClass, Command.class, "Command", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1419,22 +1678,25 @@ public class CsvsPackageImpl extends EPackageImpl implements CsvsPackage
 
     initEClass(loadCommandEClass, LoadCommand.class, "LoadCommand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getLoadCommand_Var(), ecorePackage.getEString(), "var", null, 0, 1, LoadCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getLoadCommand_Path(), ecorePackage.getEString(), "path", null, 0, 1, LoadCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(storeCommandEClass, StoreCommand.class, "StoreCommand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getStoreCommand_Var(), ecorePackage.getEString(), "var", null, 0, 1, StoreCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getStoreCommand_Path(), ecorePackage.getEString(), "path", null, 0, 1, StoreCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(exportCommandEClass, ExportCommand.class, "ExportCommand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getExportCommand_Var(), ecorePackage.getEString(), "var", null, 0, 1, ExportCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getExportCommand_Path(), ecorePackage.getEString(), "path", null, 0, 1, ExportCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(createCommandEClass, CreateCommand.class, "CreateCommand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getCreateCommand_Var(), ecorePackage.getEString(), "var", null, 0, 1, CreateCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(setCommandEClass, SetCommand.class, "SetCommand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getSetCommand_Var(), this.getExpression(), null, "var", null, 0, 1, SetCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSetCommand_Var(), this.getSelector(), null, "var", null, 0, 1, SetCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSetCommand_Expression(), this.getExpression(), null, "expression", null, 0, 1, SetCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(printCommandEClass, PrintCommand.class, "PrintCommand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getPrintCommand_Expression(), this.getExpression(), null, "expression", null, 0, 1, PrintCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(exportCommandEClass, ExportCommand.class, "ExportCommand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getExportCommand_Expression(), this.getExpression(), null, "expression", null, 0, 1, ExportCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(deleteCommandEClass, DeleteCommand.class, "DeleteCommand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getDeleteCommand_Expression(), this.getExpression(), null, "expression", null, 0, 1, DeleteCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1443,61 +1705,81 @@ public class CsvsPackageImpl extends EPackageImpl implements CsvsPackage
     initEAttribute(getAddCommand_Op(), ecorePackage.getEString(), "op", null, 0, 1, AddCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getAddCommand_Expression(), this.getExpression(), null, "expression", null, 0, 1, AddCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(applyCommandEClass, ApplyCommand.class, "ApplyCommand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getApplyCommand_Selection(), this.getSelector(), null, "selection", null, 0, 1, ApplyCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getApplyCommand_If(), this.getApplyFilterCommand(), null, "if", null, 0, 1, ApplyCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getApplyCommand_Exec(), this.getApplyExecCommand(), null, "exec", null, 0, 1, ApplyCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(applyFilterCommandEClass, ApplyFilterCommand.class, "ApplyFilterCommand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getApplyFilterCommand_VarName(), ecorePackage.getEString(), "varName", null, 0, 1, ApplyFilterCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getApplyFilterCommand_Expr(), this.getExpression(), null, "expr", null, 0, 1, ApplyFilterCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(applyExecCommandEClass, ApplyExecCommand.class, "ApplyExecCommand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getApplyExecCommand_VarName(), ecorePackage.getEString(), "varName", null, 0, 1, ApplyExecCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getApplyExecCommand_Expr(), this.getExpression(), null, "expr", null, 0, 1, ApplyExecCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(expressionEClass, Expression.class, "Expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-    initEClass(variableExprEClass, VariableExpr.class, "VariableExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getVariableExpr_Term(), ecorePackage.getEString(), "term", null, 0, 1, VariableExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
     initEClass(selectorEClass, Selector.class, "Selector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getSelector_Var(), ecorePackage.getEString(), "var", null, 0, 1, Selector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(rowSelectEClass, RowSelect.class, "RowSelect", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getRowSelect_Expression(), this.getExpression(), null, "expression", null, 0, 1, RowSelect.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getRowSelect_Var(), ecorePackage.getEString(), "var", null, 0, 1, RowSelect.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRowSelect_Expression(), this.getPrimaryExpr(), null, "expression", null, 0, 1, RowSelect.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(colSelectEClass, ColSelect.class, "ColSelect", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getColSelect_Expression(), this.getExpression(), null, "expression", null, 0, 1, ColSelect.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getColSelect_Var(), ecorePackage.getEString(), "var", null, 0, 1, ColSelect.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getColSelect_Expression(), this.getPrimaryExpr(), null, "expression", null, 0, 1, ColSelect.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(cellSelectEClass, CellSelect.class, "CellSelect", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getCellSelect_ExpressionRow(), this.getExpression(), null, "expressionRow", null, 0, 1, CellSelect.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getCellSelect_ExpressionCol(), this.getExpression(), null, "expressionCol", null, 0, 1, CellSelect.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getCellSelect_Var(), ecorePackage.getEString(), "var", null, 0, 1, CellSelect.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCellSelect_ExpressionRow(), this.getPrimaryExpr(), null, "expressionRow", null, 0, 1, CellSelect.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCellSelect_ExpressionCol(), this.getPrimaryExpr(), null, "expressionCol", null, 0, 1, CellSelect.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(fieldSelectEClass, FieldSelect.class, "FieldSelect", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getFieldSelect_Expression(), this.getExpression(), null, "expression", null, 0, 1, FieldSelect.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getFieldSelect_Var(), ecorePackage.getEString(), "var", null, 0, 1, FieldSelect.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFieldSelect_Expression(), this.getPrimaryExpr(), null, "expression", null, 0, 1, FieldSelect.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(variableSelectEClass, VariableSelect.class, "VariableSelect", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getVariableSelect_Term(), ecorePackage.getEString(), "term", null, 0, 1, VariableSelect.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(countExprEClass, CountExpr.class, "CountExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getCountExpr_Var(), ecorePackage.getEString(), "var", null, 0, 1, CountExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getCountExpr_Expression(), this.getExpression(), null, "expression", null, 0, 1, CountExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCountExpr_Expression(), this.getPrimaryExpr(), null, "expression", null, 0, 1, CountExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(orEClass, Or.class, "Or", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getOr_Left(), this.getExpression(), null, "left", null, 0, 1, Or.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getOr_Right(), this.getExpression(), null, "right", null, 0, 1, Or.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(orExprEClass, OrExpr.class, "OrExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getOrExpr_Left(), this.getAddExpr(), null, "left", null, 0, 1, OrExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getOrExpr_Right(), this.getAddExpr(), null, "right", null, 0, -1, OrExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(andEClass, And.class, "And", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getAnd_Left(), this.getExpression(), null, "left", null, 0, 1, And.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getAnd_Right(), this.getExpression(), null, "right", null, 0, 1, And.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(addExprEClass, AddExpr.class, "AddExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getAddExpr_Left(), this.getEqualityExpr(), null, "left", null, 0, 1, AddExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAddExpr_Right(), this.getEqualityExpr(), null, "right", null, 0, -1, AddExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(equalityEClass, Equality.class, "Equality", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getEquality_Left(), this.getExpression(), null, "left", null, 0, 1, Equality.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getEquality_Op(), ecorePackage.getEString(), "op", null, 0, 1, Equality.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getEquality_Right(), this.getExpression(), null, "right", null, 0, 1, Equality.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(equalityExprEClass, EqualityExpr.class, "EqualityExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getEqualityExpr_Left(), this.getComparaisonExpr(), null, "left", null, 0, 1, EqualityExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getEqualityExpr_Op(), ecorePackage.getEString(), "op", null, 0, 1, EqualityExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getEqualityExpr_Right(), this.getComparaisonExpr(), null, "right", null, 0, 1, EqualityExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(comparisonEClass, Comparison.class, "Comparison", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getComparison_Left(), this.getExpression(), null, "left", null, 0, 1, Comparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getComparison_Op(), ecorePackage.getEString(), "op", null, 0, 1, Comparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getComparison_Right(), this.getExpression(), null, "right", null, 0, 1, Comparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(comparaisonExprEClass, ComparaisonExpr.class, "ComparaisonExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getComparaisonExpr_Left(), this.getPlusOrMinusExpr(), null, "left", null, 0, 1, ComparaisonExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getComparaisonExpr_Op(), ecorePackage.getEString(), "op", null, 0, 1, ComparaisonExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getComparaisonExpr_Right(), this.getPlusOrMinusExpr(), null, "right", null, 0, 1, ComparaisonExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(plusEClass, Plus.class, "Plus", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getPlus_Left(), this.getExpression(), null, "left", null, 0, 1, Plus.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getPlus_Op(), ecorePackage.getEString(), "op", null, 0, 1, Plus.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getPlus_Right(), this.getExpression(), null, "right", null, 0, 1, Plus.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(plusOrMinusExprEClass, PlusOrMinusExpr.class, "PlusOrMinusExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getPlusOrMinusExpr_Left(), this.getMulOrDivExpr(), null, "left", null, 0, 1, PlusOrMinusExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getPlusOrMinusExpr_Op(), ecorePackage.getEString(), "op", null, 0, -1, PlusOrMinusExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPlusOrMinusExpr_Right(), this.getMulOrDivExpr(), null, "right", null, 0, -1, PlusOrMinusExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(mulOrDivEClass, MulOrDiv.class, "MulOrDiv", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getMulOrDiv_Left(), this.getExpression(), null, "left", null, 0, 1, MulOrDiv.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getMulOrDiv_Op(), ecorePackage.getEString(), "op", null, 0, 1, MulOrDiv.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getMulOrDiv_Right(), this.getExpression(), null, "right", null, 0, 1, MulOrDiv.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(mulOrDivExprEClass, MulOrDivExpr.class, "MulOrDivExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getMulOrDivExpr_Left(), this.getPrimaryExpr(), null, "left", null, 0, 1, MulOrDivExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getMulOrDivExpr_Op(), ecorePackage.getEString(), "op", null, 0, -1, MulOrDivExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMulOrDivExpr_Right(), this.getPrimaryExpr(), null, "right", null, 0, -1, MulOrDivExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(notEClass, Not.class, "Not", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getNot_Expression(), this.getExpression(), null, "expression", null, 0, 1, Not.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(primaryExprEClass, PrimaryExpr.class, "PrimaryExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(notExprEClass, NotExpr.class, "NotExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getNotExpr_Expr(), this.getPrimaryExpr(), null, "expr", null, 0, 1, NotExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(atomicExprEClass, AtomicExpr.class, "AtomicExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(intConstantEClass, IntConstant.class, "IntConstant", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getIntConstant_Value(), ecorePackage.getEInt(), "value", null, 0, 1, IntConstant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

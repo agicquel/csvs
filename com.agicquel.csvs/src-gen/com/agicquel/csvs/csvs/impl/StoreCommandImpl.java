@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * </p>
  * <ul>
  *   <li>{@link com.agicquel.csvs.csvs.impl.StoreCommandImpl#getVar <em>Var</em>}</li>
+ *   <li>{@link com.agicquel.csvs.csvs.impl.StoreCommandImpl#getPath <em>Path</em>}</li>
  * </ul>
  *
  * @generated
@@ -46,6 +47,26 @@ public class StoreCommandImpl extends CsvCommandImpl implements StoreCommand
    * @ordered
    */
   protected String var = VAR_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getPath() <em>Path</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getPath()
+   * @generated
+   * @ordered
+   */
+  protected static final String PATH_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getPath() <em>Path</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getPath()
+   * @generated
+   * @ordered
+   */
+  protected String path = PATH_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -99,12 +120,39 @@ public class StoreCommandImpl extends CsvCommandImpl implements StoreCommand
    * @generated
    */
   @Override
+  public String getPath()
+  {
+    return path;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setPath(String newPath)
+  {
+    String oldPath = path;
+    path = newPath;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, CsvsPackage.STORE_COMMAND__PATH, oldPath, path));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
     switch (featureID)
     {
       case CsvsPackage.STORE_COMMAND__VAR:
         return getVar();
+      case CsvsPackage.STORE_COMMAND__PATH:
+        return getPath();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -121,6 +169,9 @@ public class StoreCommandImpl extends CsvCommandImpl implements StoreCommand
     {
       case CsvsPackage.STORE_COMMAND__VAR:
         setVar((String)newValue);
+        return;
+      case CsvsPackage.STORE_COMMAND__PATH:
+        setPath((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -139,6 +190,9 @@ public class StoreCommandImpl extends CsvCommandImpl implements StoreCommand
       case CsvsPackage.STORE_COMMAND__VAR:
         setVar(VAR_EDEFAULT);
         return;
+      case CsvsPackage.STORE_COMMAND__PATH:
+        setPath(PATH_EDEFAULT);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -155,6 +209,8 @@ public class StoreCommandImpl extends CsvCommandImpl implements StoreCommand
     {
       case CsvsPackage.STORE_COMMAND__VAR:
         return VAR_EDEFAULT == null ? var != null : !VAR_EDEFAULT.equals(var);
+      case CsvsPackage.STORE_COMMAND__PATH:
+        return PATH_EDEFAULT == null ? path != null : !PATH_EDEFAULT.equals(path);
     }
     return super.eIsSet(featureID);
   }
@@ -172,6 +228,8 @@ public class StoreCommandImpl extends CsvCommandImpl implements StoreCommand
     StringBuilder result = new StringBuilder(super.toString());
     result.append(" (var: ");
     result.append(var);
+    result.append(", path: ");
+    result.append(path);
     result.append(')');
     return result.toString();
   }

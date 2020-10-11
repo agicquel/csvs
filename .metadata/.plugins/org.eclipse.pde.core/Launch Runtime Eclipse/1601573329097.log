@@ -1,0 +1,15 @@
+!SESSION Thu Oct 01 19:28:49 CEST 2020 -----------------------------------------
+!ENTRY org.eclipse.equinox.launcher 4 0 2020-10-01 19:28:49.113
+!MESSAGE Exception launching the Eclipse Platform:
+!STACK
+java.net.URISyntaxException: Illegal character in path at index 90: file:/home/agicquel/workspace/CsvDslProject/.metadata/.plugins/org.eclipse.pde.core/Launch Runtime Eclipse/
+	at java.base/java.net.URI$Parser.fail(URI.java:2913)
+	at java.base/java.net.URI$Parser.checkChars(URI.java:3084)
+	at java.base/java.net.URI$Parser.parseHierarchical(URI.java:3166)
+	at java.base/java.net.URI$Parser.parse(URI.java:3114)
+	at java.base/java.net.URI.<init>(URI.java:600)
+	at java.base/java.net.URL.toURI(URL.java:1036)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:563)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)
+
