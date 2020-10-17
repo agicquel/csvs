@@ -85,6 +85,7 @@ public class CSVsParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getAtomicExprAccess().getGroup_1(), "rule__AtomicExpr__Group_1__0");
 			builder.put(grammarAccess.getAtomicExprAccess().getGroup_2(), "rule__AtomicExpr__Group_2__0");
 			builder.put(grammarAccess.getModelAccess().getCommandsAssignment_1(), "rule__Model__CommandsAssignment_1");
+			builder.put(grammarAccess.getBlockAccess().getCommandsAssignment_2(), "rule__Block__CommandsAssignment_2");
 			builder.put(grammarAccess.getWhileCommandAccess().getCondAssignment_4(), "rule__WhileCommand__CondAssignment_4");
 			builder.put(grammarAccess.getWhileCommandAccess().getBodyAssignment_8(), "rule__WhileCommand__BodyAssignment_8");
 			builder.put(grammarAccess.getIfCommandAccess().getCondAssignment_4(), "rule__IfCommand__CondAssignment_4");
@@ -120,8 +121,7 @@ public class CSVsParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getFieldSelectAccess().getVarAssignment_2(), "rule__FieldSelect__VarAssignment_2");
 			builder.put(grammarAccess.getFieldSelectAccess().getExpressionAssignment_6(), "rule__FieldSelect__ExpressionAssignment_6");
 			builder.put(grammarAccess.getVariableSelectAccess().getTermAssignment(), "rule__VariableSelect__TermAssignment");
-			builder.put(grammarAccess.getCountExprAccess().getVarAssignment_2(), "rule__CountExpr__VarAssignment_2");
-			builder.put(grammarAccess.getCountExprAccess().getExpressionAssignment_6(), "rule__CountExpr__ExpressionAssignment_6");
+			builder.put(grammarAccess.getCountExprAccess().getExpressionAssignment_4(), "rule__CountExpr__ExpressionAssignment_4");
 			builder.put(grammarAccess.getOrExprAccess().getLeftAssignment_0(), "rule__OrExpr__LeftAssignment_0");
 			builder.put(grammarAccess.getOrExprAccess().getRightAssignment_1_3(), "rule__OrExpr__RightAssignment_1_3");
 			builder.put(grammarAccess.getAddExprAccess().getLeftAssignment_0(), "rule__AddExpr__LeftAssignment_0");

@@ -1,10 +1,10 @@
 #encoding=UTF-8
 #version=1
-com.agicquel.csvs,1.0.0.qualifier,file:/home/agicquel/workspace/CsvDslProject/com.agicquel.csvs/,4,false
-com.agicquel.csvs.ide,1.0.0.qualifier,file:/home/agicquel/workspace/CsvDslProject/com.agicquel.csvs.ide/,4,false
-com.agicquel.csvs.tests,1.0.0.qualifier,file:/home/agicquel/workspace/CsvDslProject/com.agicquel.csvs.tests/,4,false
-com.agicquel.csvs.ui,1.0.0.qualifier,file:/home/agicquel/workspace/CsvDslProject/com.agicquel.csvs.ui/,4,false
-com.agicquel.csvs.ui.tests,1.0.0.qualifier,file:/home/agicquel/workspace/CsvDslProject/com.agicquel.csvs.ui.tests/,4,false
+com.agicquel.csvs,1.0.0.qualifier,file:/home/agicquel/workspace/csvs/com.agicquel.csvs/,4,false
+com.agicquel.csvs.ide,1.0.0.qualifier,file:/home/agicquel/workspace/csvs/com.agicquel.csvs.ide/,4,false
+com.agicquel.csvs.tests,1.0.0.qualifier,file:/home/agicquel/workspace/csvs/com.agicquel.csvs.tests/,4,false
+com.agicquel.csvs.ui,1.0.0.qualifier,file:/home/agicquel/workspace/csvs/com.agicquel.csvs.ui/,4,false
+com.agicquel.csvs.ui.tests,1.0.0.qualifier,file:/home/agicquel/workspace/csvs/com.agicquel.csvs.ui.tests/,4,false
 com.google.guava,27.1.0.v20190517-1946,file:/home/agicquel/.eclipse/org.eclipse.platform_155965261_linux_gtk_x86_64/plugins/com.google.guava_27.1.0.v20190517-1946.jar,4,false
 com.google.inject,3.0.0.v201605172100,file:/home/agicquel/.eclipse/org.eclipse.platform_155965261_linux_gtk_x86_64/plugins/com.google.inject_3.0.0.v201605172100.jar,4,false
 com.ibm.icu,65.1.0,file:/usr/lib/eclipse/plugins/com.ibm.icu_65.1.0.jar,4,false

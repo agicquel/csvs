@@ -5,6 +5,8 @@ package com.agicquel.csvs.csvs;
 
 import org.eclipse.emf.common.util.EList;
 
+import org.eclipse.emf.ecore.EObject;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Model</b></em>'.
@@ -21,7 +23,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface Model extends Block
+public interface Model extends EObject
 {
   /**
    * Returns the value of the '<em><b>Commands</b></em>' containment reference list.

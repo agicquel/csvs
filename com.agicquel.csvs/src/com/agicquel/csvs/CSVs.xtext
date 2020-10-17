@@ -9,7 +9,7 @@ LC : WS?;
 ///////// COMMANDS /////////
 Command: (CsvCommand LC ';') | {Command} CommentCommand | ControlCommand; 
 
-Block: '{' LC Model LC '}';
+Block: '{' LC commands+=Command* LC '}';
 ControlCommand: WhileCommand | IfCommand;
 WhileCommand: 'while' LC '(' LC cond=Expression LC ')' LC body=Block;
 IfCommand: 'if' LC '(' LC cond=Expression LC ')' LC thenBody=Block LC ('else' LC elseBody=Block LC)?;
@@ -40,7 +40,7 @@ ColSelect: 'col' LC var=ID LC '(' LC expression=PrimaryExpr LC ')';
 CellSelect: 'cell' LC var=ID LC '(' LC expressionRow=PrimaryExpr LC ',' LC expressionCol=PrimaryExpr LC ')';
 FieldSelect: 'field' LC var=ID LC '(' LC expression=PrimaryExpr LC ')';
 VariableSelect: term=ID;
-CountExpr: 'count' LC var=ID LC '(' LC expression=PrimaryExpr LC ')';
+CountExpr: 'count' LC '(' LC expression=PrimaryExpr LC ')';
 
 OrExpr: left=AddExpr (LC '||' LC right+=AddExpr)*;
 AddExpr: left=EqualityExpr (LC '&&' LC right+=EqualityExpr)*;

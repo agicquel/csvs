@@ -8,6 +8,7 @@ import com.agicquel.csvs.csvs.AddExpr;
 import com.agicquel.csvs.csvs.ApplyCommand;
 import com.agicquel.csvs.csvs.ApplyExecCommand;
 import com.agicquel.csvs.csvs.ApplyFilterCommand;
+import com.agicquel.csvs.csvs.Block;
 import com.agicquel.csvs.csvs.BoolConstant;
 import com.agicquel.csvs.csvs.CellSelect;
 import com.agicquel.csvs.csvs.ColSelect;
@@ -76,6 +77,9 @@ public class CSVsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case CsvsPackage.APPLY_FILTER_COMMAND:
 				sequence_ApplyFilterCommand(context, (ApplyFilterCommand) semanticObject); 
+				return; 
+			case CsvsPackage.BLOCK:
+				sequence_Block(context, (Block) semanticObject); 
 				return; 
 			case CsvsPackage.BOOL_CONSTANT:
 				sequence_AtomicExpr(context, (BoolConstant) semanticObject); 
@@ -295,6 +299,18 @@ public class CSVsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
+	 *     Block returns Block
+	 *
+	 * Constraint:
+	 *     commands+=Command+
+	 */
+	protected void sequence_Block(ISerializationContext context, Block semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Selector returns CellSelect
 	 *     CellSelect returns CellSelect
 	 *     PrimaryExpr returns CellSelect
@@ -372,18 +388,15 @@ public class CSVsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     PrimaryExpr returns CountExpr
 	 *
 	 * Constraint:
-	 *     (var=ID expression=PrimaryExpr)
+	 *     expression=PrimaryExpr
 	 */
 	protected void sequence_CountExpr(ISerializationContext context, CountExpr semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, CsvsPackage.Literals.COUNT_EXPR__VAR) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CsvsPackage.Literals.COUNT_EXPR__VAR));
 			if (transientValues.isValueTransient(semanticObject, CsvsPackage.Literals.COUNT_EXPR__EXPRESSION) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CsvsPackage.Literals.COUNT_EXPR__EXPRESSION));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getCountExprAccess().getVarIDTerminalRuleCall_2_0(), semanticObject.getVar());
-		feeder.accept(grammarAccess.getCountExprAccess().getExpressionPrimaryExprParserRuleCall_6_0(), semanticObject.getExpression());
+		feeder.accept(grammarAccess.getCountExprAccess().getExpressionPrimaryExprParserRuleCall_4_0(), semanticObject.getExpression());
 		feeder.finish();
 	}
 	
@@ -526,7 +539,6 @@ public class CSVsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * Contexts:
 	 *     Model returns Model
-	 *     Block returns Model
 	 *
 	 * Constraint:
 	 *     commands+=Command+

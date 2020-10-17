@@ -1,3 +1,19 @@
-load csv1 "./path.csv";
+load csv "./deniro.csv";
 
-var = (3 < 4) && (5 < 6);
+index = 0;
+
+while(index < count(col csv("Year"))){
+	print("index = ");
+	print(index);
+	print("    ");
+	
+	if(cell csv(index, "Year") >= 2000) {
+		cell csv(index, "Year") = cell csv(index, "Year") - 2000;
+	}
+	else {
+		cell csv(index, "Year") = cell csv(index, "Year") - 1900;
+	}
+	index = index + 1;
+}
+
+store csv "./deniro2.csv";

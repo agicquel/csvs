@@ -12,7 +12,6 @@ import com.agicquel.csvs.csvs.LoadCommand
 import com.agicquel.csvs.csvs.PrintCommand
 import com.agicquel.csvs.csvs.SetCommand
 import com.agicquel.csvs.csvs.StoreCommand
-import java.util.List
 import org.eclipse.emf.ecore.resource.Resource
 import com.agicquel.csvs.csvs.Selector
 import com.agicquel.csvs.csvs.Expression
@@ -37,13 +36,16 @@ import com.agicquel.csvs.csvs.CellSelect
 import com.agicquel.csvs.csvs.FieldSelect
 import com.agicquel.csvs.csvs.VariableSelect
 import com.agicquel.csvs.csvs.CountExpr
+import com.agicquel.csvs.csvs.Model
 
 class CSVSGeneratorPython {
 	
 	def String compileIR(Resource resource) {
 		var pythonCode = "import pandas as pd\n";
-		for(command : resource.allContents.toIterable.filter(Command)) {
-			pythonCode += command.compileCommand() + "\n"
+		for(model : resource.allContents.toIterable.filter(Model)) {
+			for(command : model.commands) {
+				pythonCode += command.compileCommand() + "\n"	
+			}
 		}
 		
 		return pythonCode;
@@ -62,7 +64,7 @@ class CSVSGeneratorPython {
 	}
 	
 	private def dispatch String compileCommand(StoreCommand storeCommand) {
-		storeCommand.^var + ".to_csv(r'" + storeCommand.path + "')"
+		storeCommand.^var + ".to_csv(r'" + storeCommand.path + "', index=False)"
 	}
 	
 	private def dispatch String compileCommand(CreateCommand createCommand) {
@@ -100,10 +102,19 @@ class CSVSGeneratorPython {
 	
 	
 	private def dispatch String compileCommand(ApplyCommand applyCommand) {
+		"" // TODO
 	}
+
 	
 	private def String compileBlock(Block block) {
-		
+		var blockString = ""
+		for(Command com : block.commands) {
+			var comString = com.compileCommand()
+			for(String s : comString.toString.split(System.getProperty("line.separator"))) {
+				blockString += "\t" + s + "\n";
+			}
+		}
+		return blockString
 	}
 	
 	
@@ -178,7 +189,7 @@ class CSVSGeneratorPython {
 	}
 	
 	private	def dispatch String compileExpr(StringConstant stringConstant) {
-		stringConstant.value
+		"\"" + stringConstant.value + "\""
 	}
 	
 	private	def dispatch String compileExpr(BoolConstant boolConstant) {
@@ -190,22 +201,23 @@ class CSVSGeneratorPython {
 	}
 	
 	private	def dispatch String compileExpr(CountExpr countExpr) {
+		"len(" + countExpr.expression.compileExpr() + ")" 
 	}
 	
 	private	def dispatch String compileExpr(RowSelect rowSelect) {
-		rowSelect.^var + "[" + rowSelect.expression.compileExpr() + "]"
+		rowSelect.^var + "[:" + rowSelect.expression.compileExpr() + "]"
 	}
 	
 	private	def dispatch String compileExpr(ColSelect colSelect) {
-		colSelect.^var + "[:" + colSelect.expression.compileExpr() + "]"
+		colSelect.^var + "[" + colSelect.expression.compileExpr() + "]"
 	}
 	
 	private	def dispatch String compileExpr(CellSelect cellSelect) {
-		cellSelect.^var + "at[" + cellSelect.expressionRow.compileExpr() + ", " + cellSelect.expressionCol.compileExpr() + "]"
+		cellSelect.^var + ".at[" + cellSelect.expressionRow.compileExpr() + ", " + cellSelect.expressionCol.compileExpr() + "]"
 	}
 	
 	private	def dispatch String compileExpr(FieldSelect fieldSelect) {
-		"" // TODO
+		fieldSelect.^var + ".columns[" + fieldSelect.expression + "]"
 	}
 	
 	private	def dispatch String compileExpr(VariableSelect variableSelect) {

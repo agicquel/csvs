@@ -20,6 +20,7 @@ class CSVsGenerator extends AbstractGenerator {
 		this.generator =  new CSVSGeneratorPython();
 		var code = this.generator.compileIR(resource);
 		println(code)
+		fsa.generateFile("test.py", code)
 //		fsa.generateFile('greetings.txt', 'People to greet: ' + 
 //			resource.allContents
 //				.filter(Greeting)

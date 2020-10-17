@@ -1643,9 +1643,9 @@ rule__Block__Group__2__Impl
 	}
 :
 (
-	{ before(grammarAccess.getBlockAccess().getModelParserRuleCall_2()); }
-	ruleModel
-	{ after(grammarAccess.getBlockAccess().getModelParserRuleCall_2()); }
+	{ before(grammarAccess.getBlockAccess().getCommandsAssignment_2()); }
+	(rule__Block__CommandsAssignment_2)*
+	{ after(grammarAccess.getBlockAccess().getCommandsAssignment_2()); }
 )
 ;
 finally {
@@ -5207,9 +5207,9 @@ rule__CountExpr__Group__2__Impl
 	}
 :
 (
-	{ before(grammarAccess.getCountExprAccess().getVarAssignment_2()); }
-	(rule__CountExpr__VarAssignment_2)
-	{ after(grammarAccess.getCountExprAccess().getVarAssignment_2()); }
+	{ before(grammarAccess.getCountExprAccess().getLeftParenthesisKeyword_2()); }
+	'('
+	{ after(grammarAccess.getCountExprAccess().getLeftParenthesisKeyword_2()); }
 )
 ;
 finally {
@@ -5261,9 +5261,9 @@ rule__CountExpr__Group__4__Impl
 	}
 :
 (
-	{ before(grammarAccess.getCountExprAccess().getLeftParenthesisKeyword_4()); }
-	'('
-	{ after(grammarAccess.getCountExprAccess().getLeftParenthesisKeyword_4()); }
+	{ before(grammarAccess.getCountExprAccess().getExpressionAssignment_4()); }
+	(rule__CountExpr__ExpressionAssignment_4)
+	{ after(grammarAccess.getCountExprAccess().getExpressionAssignment_4()); }
 )
 ;
 finally {
@@ -5303,7 +5303,6 @@ rule__CountExpr__Group__6
 	}
 :
 	rule__CountExpr__Group__6__Impl
-	rule__CountExpr__Group__7
 ;
 finally {
 	restoreStackSize(stackSize);
@@ -5315,62 +5314,9 @@ rule__CountExpr__Group__6__Impl
 	}
 :
 (
-	{ before(grammarAccess.getCountExprAccess().getExpressionAssignment_6()); }
-	(rule__CountExpr__ExpressionAssignment_6)
-	{ after(grammarAccess.getCountExprAccess().getExpressionAssignment_6()); }
-)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__CountExpr__Group__7
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	rule__CountExpr__Group__7__Impl
-	rule__CountExpr__Group__8
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__CountExpr__Group__7__Impl
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-(
-	{ before(grammarAccess.getCountExprAccess().getLCParserRuleCall_7()); }
-	ruleLC
-	{ after(grammarAccess.getCountExprAccess().getLCParserRuleCall_7()); }
-)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__CountExpr__Group__8
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	rule__CountExpr__Group__8__Impl
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__CountExpr__Group__8__Impl
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-(
-	{ before(grammarAccess.getCountExprAccess().getRightParenthesisKeyword_8()); }
+	{ before(grammarAccess.getCountExprAccess().getRightParenthesisKeyword_6()); }
 	')'
-	{ after(grammarAccess.getCountExprAccess().getRightParenthesisKeyword_8()); }
+	{ after(grammarAccess.getCountExprAccess().getRightParenthesisKeyword_6()); }
 )
 ;
 finally {
@@ -6743,6 +6689,21 @@ finally {
 	restoreStackSize(stackSize);
 }
 
+rule__Block__CommandsAssignment_2
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getBlockAccess().getCommandsCommandParserRuleCall_2_0()); }
+		ruleCommand
+		{ after(grammarAccess.getBlockAccess().getCommandsCommandParserRuleCall_2_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
 rule__WhileCommand__CondAssignment_4
 	@init {
 		int stackSize = keepStackSize();
@@ -7268,30 +7229,15 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__CountExpr__VarAssignment_2
+rule__CountExpr__ExpressionAssignment_4
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getCountExprAccess().getVarIDTerminalRuleCall_2_0()); }
-		RULE_ID
-		{ after(grammarAccess.getCountExprAccess().getVarIDTerminalRuleCall_2_0()); }
-	)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__CountExpr__ExpressionAssignment_6
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	(
-		{ before(grammarAccess.getCountExprAccess().getExpressionPrimaryExprParserRuleCall_6_0()); }
+		{ before(grammarAccess.getCountExprAccess().getExpressionPrimaryExprParserRuleCall_4_0()); }
 		rulePrimaryExpr
-		{ after(grammarAccess.getCountExprAccess().getExpressionPrimaryExprParserRuleCall_6_0()); }
+		{ after(grammarAccess.getCountExprAccess().getExpressionPrimaryExprParserRuleCall_4_0()); }
 	)
 ;
 finally {

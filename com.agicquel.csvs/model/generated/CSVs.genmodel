@@ -10,7 +10,9 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CSVs.ecore#//Model/commands"/>
     </genClasses>
     <genClasses ecoreClass="CSVs.ecore#//Command"/>
-    <genClasses ecoreClass="CSVs.ecore#//Block"/>
+    <genClasses ecoreClass="CSVs.ecore#//Block">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CSVs.ecore#//Block/commands"/>
+    </genClasses>
     <genClasses ecoreClass="CSVs.ecore#//ControlCommand">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CSVs.ecore#//ControlCommand/cond"/>
     </genClasses>
@@ -87,7 +89,6 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CSVs.ecore#//VariableSelect/term"/>
     </genClasses>
     <genClasses ecoreClass="CSVs.ecore#//CountExpr">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CSVs.ecore#//CountExpr/var"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CSVs.ecore#//CountExpr/expression"/>
     </genClasses>
     <genClasses ecoreClass="CSVs.ecore#//OrExpr">

@@ -22,6 +22,7 @@ import com.agicquel.csvs.csvs.FieldSelect;
 import com.agicquel.csvs.csvs.IfCommand;
 import com.agicquel.csvs.csvs.IntConstant;
 import com.agicquel.csvs.csvs.LoadCommand;
+import com.agicquel.csvs.csvs.Model;
 import com.agicquel.csvs.csvs.MulOrDivExpr;
 import com.agicquel.csvs.csvs.NotExpr;
 import com.agicquel.csvs.csvs.OrExpr;
@@ -47,12 +48,15 @@ import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 public class CSVSGeneratorPython {
   public String compileIR(final Resource resource) {
     String pythonCode = "import pandas as pd\n";
-    Iterable<Command> _filter = Iterables.<Command>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), Command.class);
-    for (final Command command : _filter) {
-      String _pythonCode = pythonCode;
-      String _compileCommand = this.compileCommand(command);
-      String _plus = (_compileCommand + "\n");
-      pythonCode = (_pythonCode + _plus);
+    Iterable<Model> _filter = Iterables.<Model>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), Model.class);
+    for (final Model model : _filter) {
+      EList<Command> _commands = model.getCommands();
+      for (final Command command : _commands) {
+        String _pythonCode = pythonCode;
+        String _compileCommand = this.compileCommand(command);
+        String _plus = (_compileCommand + "\n");
+        pythonCode = (_pythonCode + _plus);
+      }
     }
     return pythonCode;
   }
@@ -78,7 +82,7 @@ public class CSVSGeneratorPython {
     String _plus = (_var + ".to_csv(r\'");
     String _path = storeCommand.getPath();
     String _plus_1 = (_plus + _path);
-    return (_plus_1 + "\')");
+    return (_plus_1 + "\', index=False)");
   }
   
   private String _compileCommand(final CreateCommand createCommand) {
@@ -117,11 +121,23 @@ public class CSVSGeneratorPython {
   }
   
   private String _compileCommand(final ApplyCommand applyCommand) {
-    return null;
+    return "";
   }
   
   private String compileBlock(final Block block) {
-    return null;
+    String blockString = "";
+    EList<Command> _commands = block.getCommands();
+    for (final Command com : _commands) {
+      {
+        String comString = this.compileCommand(com);
+        String[] _split = comString.toString().split(System.getProperty("line.separator"));
+        for (final String s : _split) {
+          String _blockString = blockString;
+          blockString = (_blockString + (("\t" + s) + "\n"));
+        }
+      }
+    }
+    return blockString;
   }
   
   private String _compileCommand(final WhileCommand whileCommand) {
@@ -262,7 +278,9 @@ public class CSVSGeneratorPython {
   }
   
   private String _compileExpr(final StringConstant stringConstant) {
-    return stringConstant.getValue();
+    String _value = stringConstant.getValue();
+    String _plus = ("\"" + _value);
+    return (_plus + "\"");
   }
   
   private String _compileExpr(final BoolConstant boolConstant) {
@@ -276,12 +294,14 @@ public class CSVSGeneratorPython {
   }
   
   private String _compileExpr(final CountExpr countExpr) {
-    return null;
+    String _compileExpr = this.compileExpr(countExpr.getExpression());
+    String _plus = ("len(" + _compileExpr);
+    return (_plus + ")");
   }
   
   private String _compileExpr(final RowSelect rowSelect) {
     String _var = rowSelect.getVar();
-    String _plus = (_var + "[");
+    String _plus = (_var + "[:");
     String _compileExpr = this.compileExpr(rowSelect.getExpression());
     String _plus_1 = (_plus + _compileExpr);
     return (_plus_1 + "]");
@@ -289,7 +309,7 @@ public class CSVSGeneratorPython {
   
   private String _compileExpr(final ColSelect colSelect) {
     String _var = colSelect.getVar();
-    String _plus = (_var + "[:");
+    String _plus = (_var + "[");
     String _compileExpr = this.compileExpr(colSelect.getExpression());
     String _plus_1 = (_plus + _compileExpr);
     return (_plus_1 + "]");
@@ -297,7 +317,7 @@ public class CSVSGeneratorPython {
   
   private String _compileExpr(final CellSelect cellSelect) {
     String _var = cellSelect.getVar();
-    String _plus = (_var + "at[");
+    String _plus = (_var + ".at[");
     String _compileExpr = this.compileExpr(cellSelect.getExpressionRow());
     String _plus_1 = (_plus + _compileExpr);
     String _plus_2 = (_plus_1 + ", ");
@@ -307,7 +327,11 @@ public class CSVSGeneratorPython {
   }
   
   private String _compileExpr(final FieldSelect fieldSelect) {
-    return "";
+    String _var = fieldSelect.getVar();
+    String _plus = (_var + ".columns[");
+    PrimaryExpr _expression = fieldSelect.getExpression();
+    String _plus_1 = (_plus + _expression);
+    return (_plus_1 + "]");
   }
   
   private String _compileExpr(final VariableSelect variableSelect) {

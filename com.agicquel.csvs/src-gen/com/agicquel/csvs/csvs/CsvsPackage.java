@@ -58,25 +58,6 @@ public interface CsvsPackage extends EPackage
   CsvsPackage eINSTANCE = com.agicquel.csvs.csvs.impl.CsvsPackageImpl.init();
 
   /**
-   * The meta object id for the '{@link com.agicquel.csvs.csvs.impl.BlockImpl <em>Block</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see com.agicquel.csvs.csvs.impl.BlockImpl
-   * @see com.agicquel.csvs.csvs.impl.CsvsPackageImpl#getBlock()
-   * @generated
-   */
-  int BLOCK = 2;
-
-  /**
-   * The number of structural features of the '<em>Block</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BLOCK_FEATURE_COUNT = 0;
-
-  /**
    * The meta object id for the '{@link com.agicquel.csvs.csvs.impl.ModelImpl <em>Model</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -93,7 +74,7 @@ public interface CsvsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MODEL__COMMANDS = BLOCK_FEATURE_COUNT + 0;
+  int MODEL__COMMANDS = 0;
 
   /**
    * The number of structural features of the '<em>Model</em>' class.
@@ -102,7 +83,7 @@ public interface CsvsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MODEL_FEATURE_COUNT = BLOCK_FEATURE_COUNT + 1;
+  int MODEL_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link com.agicquel.csvs.csvs.impl.CommandImpl <em>Command</em>}' class.
@@ -122,6 +103,34 @@ public interface CsvsPackage extends EPackage
    * @ordered
    */
   int COMMAND_FEATURE_COUNT = 0;
+
+  /**
+   * The meta object id for the '{@link com.agicquel.csvs.csvs.impl.BlockImpl <em>Block</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.agicquel.csvs.csvs.impl.BlockImpl
+   * @see com.agicquel.csvs.csvs.impl.CsvsPackageImpl#getBlock()
+   * @generated
+   */
+  int BLOCK = 2;
+
+  /**
+   * The feature id for the '<em><b>Commands</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BLOCK__COMMANDS = 0;
+
+  /**
+   * The number of structural features of the '<em>Block</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BLOCK_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link com.agicquel.csvs.csvs.impl.ControlCommandImpl <em>Control Command</em>}' class.
@@ -895,22 +904,13 @@ public interface CsvsPackage extends EPackage
   int COUNT_EXPR = 25;
 
   /**
-   * The feature id for the '<em><b>Var</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int COUNT_EXPR__VAR = PRIMARY_EXPR_FEATURE_COUNT + 0;
-
-  /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int COUNT_EXPR__EXPRESSION = PRIMARY_EXPR_FEATURE_COUNT + 1;
+  int COUNT_EXPR__EXPRESSION = PRIMARY_EXPR_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Count Expr</em>' class.
@@ -919,7 +919,7 @@ public interface CsvsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int COUNT_EXPR_FEATURE_COUNT = PRIMARY_EXPR_FEATURE_COUNT + 2;
+  int COUNT_EXPR_FEATURE_COUNT = PRIMARY_EXPR_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link com.agicquel.csvs.csvs.impl.OrExprImpl <em>Or Expr</em>}' class.
@@ -1351,6 +1351,17 @@ public interface CsvsPackage extends EPackage
    * @generated
    */
   EClass getBlock();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link com.agicquel.csvs.csvs.Block#getCommands <em>Commands</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Commands</em>'.
+   * @see com.agicquel.csvs.csvs.Block#getCommands()
+   * @see #getBlock()
+   * @generated
+   */
+  EReference getBlock_Commands();
 
   /**
    * Returns the meta object for class '{@link com.agicquel.csvs.csvs.ControlCommand <em>Control Command</em>}'.
@@ -1957,17 +1968,6 @@ public interface CsvsPackage extends EPackage
   EClass getCountExpr();
 
   /**
-   * Returns the meta object for the attribute '{@link com.agicquel.csvs.csvs.CountExpr#getVar <em>Var</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Var</em>'.
-   * @see com.agicquel.csvs.csvs.CountExpr#getVar()
-   * @see #getCountExpr()
-   * @generated
-   */
-  EAttribute getCountExpr_Var();
-
-  /**
    * Returns the meta object for the containment reference '{@link com.agicquel.csvs.csvs.CountExpr#getExpression <em>Expression</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2378,6 +2378,14 @@ public interface CsvsPackage extends EPackage
      * @generated
      */
     EClass BLOCK = eINSTANCE.getBlock();
+
+    /**
+     * The meta object literal for the '<em><b>Commands</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference BLOCK__COMMANDS = eINSTANCE.getBlock_Commands();
 
     /**
      * The meta object literal for the '{@link com.agicquel.csvs.csvs.impl.ControlCommandImpl <em>Control Command</em>}' class.
@@ -2880,14 +2888,6 @@ public interface CsvsPackage extends EPackage
      * @generated
      */
     EClass COUNT_EXPR = eINSTANCE.getCountExpr();
-
-    /**
-     * The meta object literal for the '<em><b>Var</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute COUNT_EXPR__VAR = eINSTANCE.getCountExpr_Var();
 
     /**
      * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.

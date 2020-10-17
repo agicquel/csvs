@@ -23,7 +23,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.agicquel.csvs.csvs.impl.CountExprImpl#getVar <em>Var</em>}</li>
  *   <li>{@link com.agicquel.csvs.csvs.impl.CountExprImpl#getExpression <em>Expression</em>}</li>
  * </ul>
  *
@@ -31,26 +30,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class CountExprImpl extends PrimaryExprImpl implements CountExpr
 {
-  /**
-   * The default value of the '{@link #getVar() <em>Var</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getVar()
-   * @generated
-   * @ordered
-   */
-  protected static final String VAR_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getVar() <em>Var</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getVar()
-   * @generated
-   * @ordered
-   */
-  protected String var = VAR_EDEFAULT;
-
   /**
    * The cached value of the '{@link #getExpression() <em>Expression</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -80,31 +59,6 @@ public class CountExprImpl extends PrimaryExprImpl implements CountExpr
   protected EClass eStaticClass()
   {
     return CsvsPackage.Literals.COUNT_EXPR;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String getVar()
-  {
-    return var;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setVar(String newVar)
-  {
-    String oldVar = var;
-    var = newVar;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, CsvsPackage.COUNT_EXPR__VAR, oldVar, var));
   }
 
   /**
@@ -183,8 +137,6 @@ public class CountExprImpl extends PrimaryExprImpl implements CountExpr
   {
     switch (featureID)
     {
-      case CsvsPackage.COUNT_EXPR__VAR:
-        return getVar();
       case CsvsPackage.COUNT_EXPR__EXPRESSION:
         return getExpression();
     }
@@ -201,9 +153,6 @@ public class CountExprImpl extends PrimaryExprImpl implements CountExpr
   {
     switch (featureID)
     {
-      case CsvsPackage.COUNT_EXPR__VAR:
-        setVar((String)newValue);
-        return;
       case CsvsPackage.COUNT_EXPR__EXPRESSION:
         setExpression((PrimaryExpr)newValue);
         return;
@@ -221,9 +170,6 @@ public class CountExprImpl extends PrimaryExprImpl implements CountExpr
   {
     switch (featureID)
     {
-      case CsvsPackage.COUNT_EXPR__VAR:
-        setVar(VAR_EDEFAULT);
-        return;
       case CsvsPackage.COUNT_EXPR__EXPRESSION:
         setExpression((PrimaryExpr)null);
         return;
@@ -241,29 +187,10 @@ public class CountExprImpl extends PrimaryExprImpl implements CountExpr
   {
     switch (featureID)
     {
-      case CsvsPackage.COUNT_EXPR__VAR:
-        return VAR_EDEFAULT == null ? var != null : !VAR_EDEFAULT.equals(var);
       case CsvsPackage.COUNT_EXPR__EXPRESSION:
         return expression != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (var: ");
-    result.append(var);
-    result.append(')');
-    return result.toString();
   }
 
 } //CountExprImpl

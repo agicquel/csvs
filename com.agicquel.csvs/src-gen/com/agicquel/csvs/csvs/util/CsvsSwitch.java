@@ -77,7 +77,6 @@ public class CsvsSwitch<T> extends Switch<T>
       {
         Model model = (Model)theEObject;
         T result = caseModel(model);
-        if (result == null) result = caseBlock(model);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }

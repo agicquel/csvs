@@ -438,6 +438,17 @@ public class CsvsPackageImpl extends EPackageImpl implements CsvsPackage
    * @generated
    */
   @Override
+  public EReference getBlock_Commands()
+  {
+    return (EReference)blockEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getControlCommand()
   {
     return controlCommandEClass;
@@ -1065,20 +1076,9 @@ public class CsvsPackageImpl extends EPackageImpl implements CsvsPackage
    * @generated
    */
   @Override
-  public EAttribute getCountExpr_Var()
-  {
-    return (EAttribute)countExprEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public EReference getCountExpr_Expression()
   {
-    return (EReference)countExprEClass.getEStructuralFeatures().get(1);
+    return (EReference)countExprEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1470,6 +1470,7 @@ public class CsvsPackageImpl extends EPackageImpl implements CsvsPackage
     commandEClass = createEClass(COMMAND);
 
     blockEClass = createEClass(BLOCK);
+    createEReference(blockEClass, BLOCK__COMMANDS);
 
     controlCommandEClass = createEClass(CONTROL_COMMAND);
     createEReference(controlCommandEClass, CONTROL_COMMAND__COND);
@@ -1550,7 +1551,6 @@ public class CsvsPackageImpl extends EPackageImpl implements CsvsPackage
     createEAttribute(variableSelectEClass, VARIABLE_SELECT__TERM);
 
     countExprEClass = createEClass(COUNT_EXPR);
-    createEAttribute(countExprEClass, COUNT_EXPR__VAR);
     createEReference(countExprEClass, COUNT_EXPR__EXPRESSION);
 
     orExprEClass = createEClass(OR_EXPR);
@@ -1627,7 +1627,6 @@ public class CsvsPackageImpl extends EPackageImpl implements CsvsPackage
     // Set bounds for type parameters
 
     // Add supertypes to classes
-    modelEClass.getESuperTypes().add(this.getBlock());
     controlCommandEClass.getESuperTypes().add(this.getCommand());
     whileCommandEClass.getESuperTypes().add(this.getControlCommand());
     ifCommandEClass.getESuperTypes().add(this.getControlCommand());
@@ -1663,6 +1662,7 @@ public class CsvsPackageImpl extends EPackageImpl implements CsvsPackage
     initEClass(commandEClass, Command.class, "Command", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(blockEClass, Block.class, "Block", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getBlock_Commands(), this.getCommand(), null, "commands", null, 0, -1, Block.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(controlCommandEClass, ControlCommand.class, "ControlCommand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getControlCommand_Cond(), this.getExpression(), null, "cond", null, 0, 1, ControlCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1743,7 +1743,6 @@ public class CsvsPackageImpl extends EPackageImpl implements CsvsPackage
     initEAttribute(getVariableSelect_Term(), ecorePackage.getEString(), "term", null, 0, 1, VariableSelect.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(countExprEClass, CountExpr.class, "CountExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getCountExpr_Var(), ecorePackage.getEString(), "var", null, 0, 1, CountExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getCountExpr_Expression(), this.getPrimaryExpr(), null, "expression", null, 0, 1, CountExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(orExprEClass, OrExpr.class, "OrExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

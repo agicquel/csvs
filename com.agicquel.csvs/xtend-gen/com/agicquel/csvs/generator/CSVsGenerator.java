@@ -25,5 +25,6 @@ public class CSVsGenerator extends AbstractGenerator {
     this.generator = _cSVSGeneratorPython;
     String code = this.generator.compileIR(resource);
     InputOutput.<String>println(code);
+    fsa.generateFile("test.py", code);
   }
 }

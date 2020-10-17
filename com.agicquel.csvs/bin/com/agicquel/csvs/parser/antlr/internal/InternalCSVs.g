@@ -231,14 +231,25 @@ ruleBlock returns [EObject current=null]
 		{
 			afterParserOrEnumRuleCall();
 		}
-		{
-			newCompositeNode(grammarAccess.getBlockAccess().getModelParserRuleCall_2());
-		}
-		this_Model_2=ruleModel
-		{
-			$current = $this_Model_2.current;
-			afterParserOrEnumRuleCall();
-		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getBlockAccess().getCommandsCommandParserRuleCall_2_0());
+				}
+				lv_commands_2_0=ruleCommand
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getBlockRule());
+					}
+					add(
+						$current,
+						"commands",
+						lv_commands_2_0,
+						"com.agicquel.csvs.CSVs.Command");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)*
 		{
 			newCompositeNode(grammarAccess.getBlockAccess().getLCParserRuleCall_3());
 		}
@@ -2071,24 +2082,10 @@ ruleCountExpr returns [EObject current=null]
 		{
 			afterParserOrEnumRuleCall();
 		}
-		(
-			(
-				lv_var_2_0=RULE_ID
-				{
-					newLeafNode(lv_var_2_0, grammarAccess.getCountExprAccess().getVarIDTerminalRuleCall_2_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getCountExprRule());
-					}
-					setWithLastConsumed(
-						$current,
-						"var",
-						lv_var_2_0,
-						"org.eclipse.xtext.common.Terminals.ID");
-				}
-			)
-		)
+		otherlv_2='('
+		{
+			newLeafNode(otherlv_2, grammarAccess.getCountExprAccess().getLeftParenthesisKeyword_2());
+		}
 		{
 			newCompositeNode(grammarAccess.getCountExprAccess().getLCParserRuleCall_3());
 		}
@@ -2096,23 +2093,12 @@ ruleCountExpr returns [EObject current=null]
 		{
 			afterParserOrEnumRuleCall();
 		}
-		otherlv_4='('
-		{
-			newLeafNode(otherlv_4, grammarAccess.getCountExprAccess().getLeftParenthesisKeyword_4());
-		}
-		{
-			newCompositeNode(grammarAccess.getCountExprAccess().getLCParserRuleCall_5());
-		}
-		ruleLC
-		{
-			afterParserOrEnumRuleCall();
-		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getCountExprAccess().getExpressionPrimaryExprParserRuleCall_6_0());
+					newCompositeNode(grammarAccess.getCountExprAccess().getExpressionPrimaryExprParserRuleCall_4_0());
 				}
-				lv_expression_6_0=rulePrimaryExpr
+				lv_expression_4_0=rulePrimaryExpr
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getCountExprRule());
@@ -2120,22 +2106,22 @@ ruleCountExpr returns [EObject current=null]
 					set(
 						$current,
 						"expression",
-						lv_expression_6_0,
+						lv_expression_4_0,
 						"com.agicquel.csvs.CSVs.PrimaryExpr");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
 		{
-			newCompositeNode(grammarAccess.getCountExprAccess().getLCParserRuleCall_7());
+			newCompositeNode(grammarAccess.getCountExprAccess().getLCParserRuleCall_5());
 		}
 		ruleLC
 		{
 			afterParserOrEnumRuleCall();
 		}
-		otherlv_8=')'
+		otherlv_6=')'
 		{
-			newLeafNode(otherlv_8, grammarAccess.getCountExprAccess().getRightParenthesisKeyword_8());
+			newLeafNode(otherlv_6, grammarAccess.getCountExprAccess().getRightParenthesisKeyword_6());
 		}
 	)
 ;

@@ -13,7 +13,6 @@ package com.agicquel.csvs.csvs;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.agicquel.csvs.csvs.CountExpr#getVar <em>Var</em>}</li>
  *   <li>{@link com.agicquel.csvs.csvs.CountExpr#getExpression <em>Expression</em>}</li>
  * </ul>
  *
@@ -23,28 +22,6 @@ package com.agicquel.csvs.csvs;
  */
 public interface CountExpr extends PrimaryExpr
 {
-  /**
-   * Returns the value of the '<em><b>Var</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Var</em>' attribute.
-   * @see #setVar(String)
-   * @see com.agicquel.csvs.csvs.CsvsPackage#getCountExpr_Var()
-   * @model
-   * @generated
-   */
-  String getVar();
-
-  /**
-   * Sets the value of the '{@link com.agicquel.csvs.csvs.CountExpr#getVar <em>Var</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Var</em>' attribute.
-   * @see #getVar()
-   * @generated
-   */
-  void setVar(String value);
-
   /**
    * Returns the value of the '<em><b>Expression</b></em>' containment reference.
    * <!-- begin-user-doc -->
