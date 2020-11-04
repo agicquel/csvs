@@ -27,12 +27,12 @@ public interface DeleteCommand extends CsvCommand
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Expression</em>' containment reference.
-   * @see #setExpression(Expression)
+   * @see #setExpression(CsvsExpr)
    * @see com.agicquel.csvs.csvs.CsvsPackage#getDeleteCommand_Expression()
    * @model containment="true"
    * @generated
    */
-  Expression getExpression();
+  CsvsExpr getExpression();
 
   /**
    * Sets the value of the '{@link com.agicquel.csvs.csvs.DeleteCommand#getExpression <em>Expression</em>}' containment reference.
@@ -42,6 +42,6 @@ public interface DeleteCommand extends CsvCommand
    * @see #getExpression()
    * @generated
    */
-  void setExpression(Expression value);
+  void setExpression(CsvsExpr value);
 
 } // DeleteCommand

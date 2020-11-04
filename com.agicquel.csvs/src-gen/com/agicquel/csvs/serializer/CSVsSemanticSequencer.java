@@ -10,19 +10,19 @@ import com.agicquel.csvs.csvs.ApplyExecCommand;
 import com.agicquel.csvs.csvs.ApplyFilterCommand;
 import com.agicquel.csvs.csvs.Block;
 import com.agicquel.csvs.csvs.BoolConstant;
-import com.agicquel.csvs.csvs.CellSelect;
-import com.agicquel.csvs.csvs.ColSelect;
 import com.agicquel.csvs.csvs.Command;
 import com.agicquel.csvs.csvs.ComparaisonExpr;
 import com.agicquel.csvs.csvs.CountExpr;
 import com.agicquel.csvs.csvs.CreateCommand;
 import com.agicquel.csvs.csvs.CsvsPackage;
 import com.agicquel.csvs.csvs.DeleteCommand;
+import com.agicquel.csvs.csvs.DoubleConstant;
 import com.agicquel.csvs.csvs.EqualityExpr;
 import com.agicquel.csvs.csvs.ExportCommand;
 import com.agicquel.csvs.csvs.FieldSelect;
 import com.agicquel.csvs.csvs.IfCommand;
 import com.agicquel.csvs.csvs.IntConstant;
+import com.agicquel.csvs.csvs.LastExpr;
 import com.agicquel.csvs.csvs.LoadCommand;
 import com.agicquel.csvs.csvs.Model;
 import com.agicquel.csvs.csvs.MulOrDivExpr;
@@ -30,11 +30,12 @@ import com.agicquel.csvs.csvs.NotExpr;
 import com.agicquel.csvs.csvs.OrExpr;
 import com.agicquel.csvs.csvs.PlusOrMinusExpr;
 import com.agicquel.csvs.csvs.PrintCommand;
-import com.agicquel.csvs.csvs.RowSelect;
+import com.agicquel.csvs.csvs.RenameCommand;
+import com.agicquel.csvs.csvs.Selector;
 import com.agicquel.csvs.csvs.SetCommand;
 import com.agicquel.csvs.csvs.StoreCommand;
 import com.agicquel.csvs.csvs.StringConstant;
-import com.agicquel.csvs.csvs.VariableSelect;
+import com.agicquel.csvs.csvs.VariableConstant;
 import com.agicquel.csvs.csvs.WhileCommand;
 import com.agicquel.csvs.services.CSVsGrammarAccess;
 import com.google.inject.Inject;
@@ -84,12 +85,6 @@ public class CSVsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case CsvsPackage.BOOL_CONSTANT:
 				sequence_AtomicExpr(context, (BoolConstant) semanticObject); 
 				return; 
-			case CsvsPackage.CELL_SELECT:
-				sequence_CellSelect(context, (CellSelect) semanticObject); 
-				return; 
-			case CsvsPackage.COL_SELECT:
-				sequence_ColSelect(context, (ColSelect) semanticObject); 
-				return; 
 			case CsvsPackage.COMMAND:
 				sequence_Command(context, (Command) semanticObject); 
 				return; 
@@ -105,6 +100,9 @@ public class CSVsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case CsvsPackage.DELETE_COMMAND:
 				sequence_DeleteCommand(context, (DeleteCommand) semanticObject); 
 				return; 
+			case CsvsPackage.DOUBLE_CONSTANT:
+				sequence_AtomicExpr(context, (DoubleConstant) semanticObject); 
+				return; 
 			case CsvsPackage.EQUALITY_EXPR:
 				sequence_EqualityExpr(context, (EqualityExpr) semanticObject); 
 				return; 
@@ -119,6 +117,9 @@ public class CSVsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case CsvsPackage.INT_CONSTANT:
 				sequence_AtomicExpr(context, (IntConstant) semanticObject); 
+				return; 
+			case CsvsPackage.LAST_EXPR:
+				sequence_LastExpr(context, (LastExpr) semanticObject); 
 				return; 
 			case CsvsPackage.LOAD_COMMAND:
 				sequence_LoadCommand(context, (LoadCommand) semanticObject); 
@@ -141,8 +142,11 @@ public class CSVsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case CsvsPackage.PRINT_COMMAND:
 				sequence_PrintCommand(context, (PrintCommand) semanticObject); 
 				return; 
-			case CsvsPackage.ROW_SELECT:
-				sequence_RowSelect(context, (RowSelect) semanticObject); 
+			case CsvsPackage.RENAME_COMMAND:
+				sequence_RenameCommand(context, (RenameCommand) semanticObject); 
+				return; 
+			case CsvsPackage.SELECTOR:
+				sequence_Selector(context, (Selector) semanticObject); 
 				return; 
 			case CsvsPackage.SET_COMMAND:
 				sequence_SetCommand(context, (SetCommand) semanticObject); 
@@ -153,8 +157,8 @@ public class CSVsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case CsvsPackage.STRING_CONSTANT:
 				sequence_AtomicExpr(context, (StringConstant) semanticObject); 
 				return; 
-			case CsvsPackage.VARIABLE_SELECT:
-				sequence_VariableSelect(context, (VariableSelect) semanticObject); 
+			case CsvsPackage.VARIABLE_CONSTANT:
+				sequence_AtomicExpr(context, (VariableConstant) semanticObject); 
 				return; 
 			case CsvsPackage.WHILE_COMMAND:
 				sequence_WhileCommand(context, (WhileCommand) semanticObject); 
@@ -171,7 +175,7 @@ public class CSVsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     AddCommand returns AddCommand
 	 *
 	 * Constraint:
-	 *     ((op='row' | op='col') expression=Expression)
+	 *     ((op='row' | op='col') expression=CsvsExpr)
 	 */
 	protected void sequence_AddCommand(ISerializationContext context, AddCommand semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -197,7 +201,7 @@ public class CSVsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     ApplyCommand returns ApplyCommand
 	 *
 	 * Constraint:
-	 *     (selection=Selector if=ApplyFilterCommand? exec=ApplyExecCommand)
+	 *     (selection=CsvsExpr if=ApplyFilterCommand? exec=ApplyExecCommand)
 	 */
 	protected void sequence_ApplyCommand(ISerializationContext context, ApplyCommand semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -249,6 +253,7 @@ public class CSVsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * Contexts:
 	 *     PrimaryExpr returns BoolConstant
+	 *     CsvsExpr returns BoolConstant
 	 *     AtomicExpr returns BoolConstant
 	 *
 	 * Constraint:
@@ -261,7 +266,28 @@ public class CSVsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
+	 *     PrimaryExpr returns DoubleConstant
+	 *     CsvsExpr returns DoubleConstant
+	 *     AtomicExpr returns DoubleConstant
+	 *
+	 * Constraint:
+	 *     value=DOUBLE
+	 */
+	protected void sequence_AtomicExpr(ISerializationContext context, DoubleConstant semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, CsvsPackage.Literals.DOUBLE_CONSTANT__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CsvsPackage.Literals.DOUBLE_CONSTANT__VALUE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getAtomicExprAccess().getValueDOUBLETerminalRuleCall_1_1_0(), semanticObject.getValue());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     PrimaryExpr returns IntConstant
+	 *     CsvsExpr returns IntConstant
 	 *     AtomicExpr returns IntConstant
 	 *
 	 * Constraint:
@@ -281,6 +307,7 @@ public class CSVsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * Contexts:
 	 *     PrimaryExpr returns StringConstant
+	 *     CsvsExpr returns StringConstant
 	 *     AtomicExpr returns StringConstant
 	 *
 	 * Constraint:
@@ -292,7 +319,27 @@ public class CSVsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CsvsPackage.Literals.STRING_CONSTANT__VALUE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getAtomicExprAccess().getValueSTRINGTerminalRuleCall_1_1_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getAtomicExprAccess().getValueSTRINGTerminalRuleCall_2_1_0(), semanticObject.getValue());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     PrimaryExpr returns VariableConstant
+	 *     CsvsExpr returns VariableConstant
+	 *     AtomicExpr returns VariableConstant
+	 *
+	 * Constraint:
+	 *     value=ID
+	 */
+	protected void sequence_AtomicExpr(ISerializationContext context, VariableConstant semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, CsvsPackage.Literals.VARIABLE_CONSTANT__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CsvsPackage.Literals.VARIABLE_CONSTANT__VALUE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getAtomicExprAccess().getValueIDTerminalRuleCall_4_1_0(), semanticObject.getValue());
 		feeder.finish();
 	}
 	
@@ -302,59 +349,10 @@ public class CSVsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Block returns Block
 	 *
 	 * Constraint:
-	 *     commands+=Command+
+	 *     commands+=Command*
 	 */
 	protected void sequence_Block(ISerializationContext context, Block semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Selector returns CellSelect
-	 *     CellSelect returns CellSelect
-	 *     PrimaryExpr returns CellSelect
-	 *
-	 * Constraint:
-	 *     (var=ID expressionRow=PrimaryExpr expressionCol=PrimaryExpr)
-	 */
-	protected void sequence_CellSelect(ISerializationContext context, CellSelect semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, CsvsPackage.Literals.CELL_SELECT__VAR) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CsvsPackage.Literals.CELL_SELECT__VAR));
-			if (transientValues.isValueTransient(semanticObject, CsvsPackage.Literals.CELL_SELECT__EXPRESSION_ROW) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CsvsPackage.Literals.CELL_SELECT__EXPRESSION_ROW));
-			if (transientValues.isValueTransient(semanticObject, CsvsPackage.Literals.CELL_SELECT__EXPRESSION_COL) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CsvsPackage.Literals.CELL_SELECT__EXPRESSION_COL));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getCellSelectAccess().getVarIDTerminalRuleCall_2_0(), semanticObject.getVar());
-		feeder.accept(grammarAccess.getCellSelectAccess().getExpressionRowPrimaryExprParserRuleCall_6_0(), semanticObject.getExpressionRow());
-		feeder.accept(grammarAccess.getCellSelectAccess().getExpressionColPrimaryExprParserRuleCall_10_0(), semanticObject.getExpressionCol());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Selector returns ColSelect
-	 *     ColSelect returns ColSelect
-	 *     PrimaryExpr returns ColSelect
-	 *
-	 * Constraint:
-	 *     (var=ID expression=PrimaryExpr)
-	 */
-	protected void sequence_ColSelect(ISerializationContext context, ColSelect semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, CsvsPackage.Literals.COL_SELECT__VAR) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CsvsPackage.Literals.COL_SELECT__VAR));
-			if (transientValues.isValueTransient(semanticObject, CsvsPackage.Literals.COL_SELECT__EXPRESSION) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CsvsPackage.Literals.COL_SELECT__EXPRESSION));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getColSelectAccess().getVarIDTerminalRuleCall_2_0(), semanticObject.getVar());
-		feeder.accept(grammarAccess.getColSelectAccess().getExpressionPrimaryExprParserRuleCall_6_0(), semanticObject.getExpression());
-		feeder.finish();
 	}
 	
 	
@@ -384,8 +382,9 @@ public class CSVsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     CountExpr returns CountExpr
 	 *     PrimaryExpr returns CountExpr
+	 *     CsvsExpr returns CountExpr
+	 *     CountExpr returns CountExpr
 	 *
 	 * Constraint:
 	 *     expression=PrimaryExpr
@@ -396,7 +395,7 @@ public class CSVsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CsvsPackage.Literals.COUNT_EXPR__EXPRESSION));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getCountExprAccess().getExpressionPrimaryExprParserRuleCall_4_0(), semanticObject.getExpression());
+		feeder.accept(grammarAccess.getCountExprAccess().getExpressionPrimaryExprParserRuleCall_2_0(), semanticObject.getExpression());
 		feeder.finish();
 	}
 	
@@ -428,7 +427,7 @@ public class CSVsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     DeleteCommand returns DeleteCommand
 	 *
 	 * Constraint:
-	 *     expression=Expression
+	 *     expression=CsvsExpr
 	 */
 	protected void sequence_DeleteCommand(ISerializationContext context, DeleteCommand semanticObject) {
 		if (errorAcceptor != null) {
@@ -436,7 +435,7 @@ public class CSVsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CsvsPackage.Literals.DELETE_COMMAND__EXPRESSION));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getDeleteCommandAccess().getExpressionExpressionParserRuleCall_2_0(), semanticObject.getExpression());
+		feeder.accept(grammarAccess.getDeleteCommandAccess().getExpressionCsvsExprParserRuleCall_2_0(), semanticObject.getExpression());
 		feeder.finish();
 	}
 	
@@ -478,9 +477,9 @@ public class CSVsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     Selector returns FieldSelect
-	 *     FieldSelect returns FieldSelect
 	 *     PrimaryExpr returns FieldSelect
+	 *     CsvsExpr returns FieldSelect
+	 *     FieldSelect returns FieldSelect
 	 *
 	 * Constraint:
 	 *     (var=ID expression=PrimaryExpr)
@@ -515,6 +514,20 @@ public class CSVsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
+	 *     PrimaryExpr returns LastExpr
+	 *     CsvsExpr returns LastExpr
+	 *     LastExpr returns LastExpr
+	 *
+	 * Constraint:
+	 *     ((op='row' | op='col') expression=CsvsExpr)
+	 */
+	protected void sequence_LastExpr(ISerializationContext context, LastExpr semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Command returns LoadCommand
 	 *     CsvCommand returns LoadCommand
 	 *     LoadCommand returns LoadCommand
@@ -541,7 +554,7 @@ public class CSVsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Model returns Model
 	 *
 	 * Constraint:
-	 *     commands+=Command+
+	 *     commands+=Command*
 	 */
 	protected void sequence_Model(ISerializationContext context, Model semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -562,8 +575,8 @@ public class CSVsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     PrimaryExpr returns NotExpr
 	 *     NotExpr returns NotExpr
+	 *     PrimaryExpr returns NotExpr
 	 *
 	 * Constraint:
 	 *     expr=PrimaryExpr
@@ -627,24 +640,41 @@ public class CSVsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     Selector returns RowSelect
-	 *     RowSelect returns RowSelect
-	 *     PrimaryExpr returns RowSelect
+	 *     Command returns RenameCommand
+	 *     CsvCommand returns RenameCommand
+	 *     RenameCommand returns RenameCommand
 	 *
 	 * Constraint:
-	 *     (var=ID expression=PrimaryExpr)
+	 *     (expr=CsvsExpr oldname=Expression newname=Expression)
 	 */
-	protected void sequence_RowSelect(ISerializationContext context, RowSelect semanticObject) {
+	protected void sequence_RenameCommand(ISerializationContext context, RenameCommand semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, CsvsPackage.Literals.ROW_SELECT__VAR) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CsvsPackage.Literals.ROW_SELECT__VAR));
-			if (transientValues.isValueTransient(semanticObject, CsvsPackage.Literals.ROW_SELECT__EXPRESSION) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CsvsPackage.Literals.ROW_SELECT__EXPRESSION));
+			if (transientValues.isValueTransient(semanticObject, CsvsPackage.Literals.RENAME_COMMAND__EXPR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CsvsPackage.Literals.RENAME_COMMAND__EXPR));
+			if (transientValues.isValueTransient(semanticObject, CsvsPackage.Literals.RENAME_COMMAND__OLDNAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CsvsPackage.Literals.RENAME_COMMAND__OLDNAME));
+			if (transientValues.isValueTransient(semanticObject, CsvsPackage.Literals.RENAME_COMMAND__NEWNAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CsvsPackage.Literals.RENAME_COMMAND__NEWNAME));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getRowSelectAccess().getVarIDTerminalRuleCall_2_0(), semanticObject.getVar());
-		feeder.accept(grammarAccess.getRowSelectAccess().getExpressionPrimaryExprParserRuleCall_6_0(), semanticObject.getExpression());
+		feeder.accept(grammarAccess.getRenameCommandAccess().getExprCsvsExprParserRuleCall_2_0(), semanticObject.getExpr());
+		feeder.accept(grammarAccess.getRenameCommandAccess().getOldnameExpressionParserRuleCall_4_0(), semanticObject.getOldname());
+		feeder.accept(grammarAccess.getRenameCommandAccess().getNewnameExpressionParserRuleCall_8_0(), semanticObject.getNewname());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     PrimaryExpr returns Selector
+	 *     CsvsExpr returns Selector
+	 *     Selector returns Selector
+	 *
+	 * Constraint:
+	 *     (var=ID expressionCol=CsvsExpr? expressionRow=CsvsExpr? (expressionSubCol=CsvsExpr? expressionSubRow=CsvsExpr)?)
+	 */
+	protected void sequence_Selector(ISerializationContext context, Selector semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -655,7 +685,7 @@ public class CSVsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     SetCommand returns SetCommand
 	 *
 	 * Constraint:
-	 *     (var=Selector expression=Expression)
+	 *     (var=CsvsExpr expression=Expression)
 	 */
 	protected void sequence_SetCommand(ISerializationContext context, SetCommand semanticObject) {
 		if (errorAcceptor != null) {
@@ -665,7 +695,7 @@ public class CSVsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CsvsPackage.Literals.SET_COMMAND__EXPRESSION));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getSetCommandAccess().getVarSelectorParserRuleCall_0_0(), semanticObject.getVar());
+		feeder.accept(grammarAccess.getSetCommandAccess().getVarCsvsExprParserRuleCall_0_0(), semanticObject.getVar());
 		feeder.accept(grammarAccess.getSetCommandAccess().getExpressionExpressionParserRuleCall_4_0(), semanticObject.getExpression());
 		feeder.finish();
 	}
@@ -696,26 +726,6 @@ public class CSVsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     Selector returns VariableSelect
-	 *     VariableSelect returns VariableSelect
-	 *     PrimaryExpr returns VariableSelect
-	 *
-	 * Constraint:
-	 *     term=ID
-	 */
-	protected void sequence_VariableSelect(ISerializationContext context, VariableSelect semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, CsvsPackage.Literals.VARIABLE_SELECT__TERM) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CsvsPackage.Literals.VARIABLE_SELECT__TERM));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getVariableSelectAccess().getTermIDTerminalRuleCall_0(), semanticObject.getTerm());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     Command returns WhileCommand
 	 *     ControlCommand returns WhileCommand
 	 *     WhileCommand returns WhileCommand
@@ -731,8 +741,8 @@ public class CSVsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CsvsPackage.Literals.WHILE_COMMAND__BODY));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getWhileCommandAccess().getCondExpressionParserRuleCall_4_0(), semanticObject.getCond());
-		feeder.accept(grammarAccess.getWhileCommandAccess().getBodyBlockParserRuleCall_8_0(), semanticObject.getBody());
+		feeder.accept(grammarAccess.getWhileCommandAccess().getCondExpressionParserRuleCall_2_0(), semanticObject.getCond());
+		feeder.accept(grammarAccess.getWhileCommandAccess().getBodyBlockParserRuleCall_4_0(), semanticObject.getBody());
 		feeder.finish();
 	}
 	

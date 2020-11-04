@@ -1,0 +1,68 @@
+grammar com.agicquel.csvs.CSVs with org.eclipse.xtext.common.Terminals
+generate csvs "http://www.agicquel.com/csvs/CSVs"
+
+
+
+
+///////// PROGRAM //////////
+Model: {Model} LC commands+=Command* LC;
+LC : (SP | CR | TAB | LF)*;	
+
+///////// COMMANDS /////////
+Command: (CsvCommand LC ';') | {Command} CommentCommand | ControlCommand; 
+
+Block: {Block} '{' LC commands+=Command* LC '}';
+ControlCommand: WhileCommand | IfCommand;
+WhileCommand: 'while' LC cond=Expression LC body=Block;
+IfCommand: 'if' LC cond=Expression LC thenBody=Block LC ('else' LC elseBody=Block LC)?;
+
+CsvCommand: LoadCommand | StoreCommand | CreateCommand | SetCommand | PrintCommand | ExportCommand | DeleteCommand | ApplyCommand | AddCommand | RenameCommand; 
+LoadCommand: 'load' LC var=ID LC path=STRING;
+StoreCommand: 'store' LC var=ID LC path=STRING;
+ExportCommand: 'export_json' LC var=ID LC path=STRING;
+CreateCommand: 'create' LC var=ID;
+SetCommand: var=CsvsExpr LC '=' LC expression=Expression;
+PrintCommand: 'print' LC expression=Expression;
+DeleteCommand: 'delete' LC expression=CsvsExpr;
+AddCommand: 'add' LC op=('row' | 'col') LC expression=CsvsExpr;
+RenameCommand: 'rename' LC col=CsvsExpr LC newname=Expression;
+
+ApplyCommand: 'on' LC selection=CsvsExpr LC if=ApplyFilterCommand? LC exec=ApplyExecCommand;
+ApplyFilterCommand: 'filter' LC '(' LC varName=ID LC ':' LC expr=Expression LC  ')';
+ApplyExecCommand: 'apply' LC '(' LC varName=ID LC ':' LC expr=Expression LC  ')';
+
+CommentCommand: ML_COMMENT | SL_COMMENT;
+
+
+/////// EXPRESSIONS ////////
+Expression: OrExpr;
+
+OrExpr: left=AddExpr (LC '||' LC right+=AddExpr)*;
+AddExpr: left=EqualityExpr (LC '&&' LC right+=EqualityExpr)*;
+EqualityExpr: left=ComparaisonExpr (LC op=("==" | "!=") LC right=ComparaisonExpr)?;
+ComparaisonExpr: left=PlusOrMinusExpr (LC op=(">=" | "<=" | ">" | "<") LC right=PlusOrMinusExpr)?;
+PlusOrMinusExpr: left=MulOrDivExpr (LC op+=("+" | "-") LC right+=MulOrDivExpr)*;
+MulOrDivExpr: left=PrimaryExpr (LC op+=('*' | '/' | '%') LC right+=PrimaryExpr)*;
+NotExpr: '!' LC expr=PrimaryExpr;
+PrimaryExpr: ('(' LC Expression LC ')') | NotExpr | CsvsExpr ;
+
+CsvsExpr: AtomicExpr | Selector | CountExpr | FieldSelect;
+Selector: var=ID LC '[' LC expressionCol=CsvsExpr? LC ':' LC expressionRow=CsvsExpr? LC ']' (LC '[' expressionSubCol=CsvsExpr? LC ':' LC expressionSubRow=CsvsExpr LC ']')?;
+FieldSelect: 'field' LC var=ID LC '[' LC expression=PrimaryExpr LC ']';
+CountExpr: 'count' LC expression=PrimaryExpr;
+
+AtomicExpr:
+	{IntConstant} value=INT |
+	{DoubleConstant} value=DOUBLE |
+	{StringConstant} value=STRING |
+	{BoolConstant} value=('true' | 'false') |
+	{VariableConstant} value=ID
+;
+
+
+//////// TERMINALS /////////
+terminal DOUBLE : INT'.'INT;
+terminal SP : ' ';
+terminal CR : '\n';
+terminal TAB : '\t';
+terminal LF : '\r';

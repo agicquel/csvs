@@ -1,47 +1,51 @@
 package com.agicquel.csvs.generator
 
-import com.agicquel.csvs.csvs.AddCommand
+import com.agicquel.csvs.csvs.AddExpr
 import com.agicquel.csvs.csvs.ApplyCommand
+import com.agicquel.csvs.csvs.AtomicExpr
+import com.agicquel.csvs.csvs.Block
+import com.agicquel.csvs.csvs.BoolConstant
 import com.agicquel.csvs.csvs.Command
+import com.agicquel.csvs.csvs.ComparaisonExpr
 import com.agicquel.csvs.csvs.ControlCommand
+import com.agicquel.csvs.csvs.CountExpr
 import com.agicquel.csvs.csvs.CreateCommand
 import com.agicquel.csvs.csvs.CsvCommand
 import com.agicquel.csvs.csvs.DeleteCommand
+import com.agicquel.csvs.csvs.EqualityExpr
 import com.agicquel.csvs.csvs.ExportCommand
+import com.agicquel.csvs.csvs.Expression
+import com.agicquel.csvs.csvs.FieldSelect
+import com.agicquel.csvs.csvs.IfCommand
+import com.agicquel.csvs.csvs.IntConstant
 import com.agicquel.csvs.csvs.LoadCommand
+import com.agicquel.csvs.csvs.Model
+import com.agicquel.csvs.csvs.MulOrDivExpr
+import com.agicquel.csvs.csvs.NotExpr
+import com.agicquel.csvs.csvs.OrExpr
+import com.agicquel.csvs.csvs.PlusOrMinusExpr
+import com.agicquel.csvs.csvs.PrimaryExpr
 import com.agicquel.csvs.csvs.PrintCommand
+import com.agicquel.csvs.csvs.Selector
 import com.agicquel.csvs.csvs.SetCommand
 import com.agicquel.csvs.csvs.StoreCommand
-import org.eclipse.emf.ecore.resource.Resource
-import com.agicquel.csvs.csvs.Selector
-import com.agicquel.csvs.csvs.Expression
-import com.agicquel.csvs.csvs.WhileCommand
-import com.agicquel.csvs.csvs.IfCommand
-import com.agicquel.csvs.csvs.Block
-import com.agicquel.csvs.csvs.OrExpr
-import com.agicquel.csvs.csvs.AddExpr
-import com.agicquel.csvs.csvs.ComparaisonExpr
-import com.agicquel.csvs.csvs.PlusOrMinusExpr
-import com.agicquel.csvs.csvs.MulOrDivExpr
-import com.agicquel.csvs.csvs.PrimaryExpr
-import com.agicquel.csvs.csvs.NotExpr
-import com.agicquel.csvs.csvs.AtomicExpr
-import com.agicquel.csvs.csvs.IntConstant
 import com.agicquel.csvs.csvs.StringConstant
-import com.agicquel.csvs.csvs.BoolConstant
-import com.agicquel.csvs.csvs.EqualityExpr
-import com.agicquel.csvs.csvs.RowSelect
-import com.agicquel.csvs.csvs.ColSelect
-import com.agicquel.csvs.csvs.CellSelect
-import com.agicquel.csvs.csvs.FieldSelect
-import com.agicquel.csvs.csvs.VariableSelect
-import com.agicquel.csvs.csvs.CountExpr
-import com.agicquel.csvs.csvs.Model
+import com.agicquel.csvs.csvs.WhileCommand
+import org.eclipse.emf.ecore.resource.Resource
+import com.agicquel.csvs.csvs.CsvsExpr
+import com.agicquel.csvs.csvs.VariableConstant
+import com.agicquel.csvs.csvs.AddCommand
+import com.agicquel.csvs.csvs.RenameCommand
+import com.agicquel.csvs.csvs.LastExpr
 
 class CSVSGeneratorPython {
 	
 	def String compileIR(Resource resource) {
 		var pythonCode = "import pandas as pd\n";
+		pythonCode += "pd.options.mode.chained_assignment = None\n"
+		pythonCode += "\n"
+		pythonCode += "def len_csvs(obj):\r\n\tif hasattr(obj, \'__len__\'):\r\n\t\treturn len(obj)\r\n\telse:\r\n\t\treturn 1\n"
+		pythonCode += "\n"
 		for(model : resource.allContents.toIterable.filter(Model)) {
 			for(command : model.commands) {
 				pythonCode += command.compileCommand() + "\n"	
@@ -72,7 +76,9 @@ class CSVSGeneratorPython {
 	}
 	
 	private def dispatch String compileCommand(SetCommand setCommand) {
-		setCommand.^var.compileExpr() + " = " + setCommand.expression.compileExpr()
+		var ret = setCommand.^var.compileExpr()
+		ret += " = " + setCommand.expression.compileExpr()
+		return ret
 	}
 	
 	private def dispatch String compileCommand(PrintCommand printCommand) {
@@ -88,21 +94,55 @@ class CSVSGeneratorPython {
 	}
 	
 	private def dispatch String compileCommand(AddCommand addCommand) {
-		/*if(addCommand.op.equals("row")) {
-			return ""
+		if(addCommand.op.equals("row")) {
+			return addCommand.expression.compileExpr() + ".iloc[-1] = None "
 		}
 		else if(addCommand.op.equals("col")) {
-			return ""
+			return addCommand.expression.compileExpr() + "[str(len(" + addCommand.expression.compileExpr() + ".columns)+1)] = None"
 		}
 		else {
-			return ""
-		}*/
-		return "" // TODO
+			throw new Exception("Wrong add command")
+		}
 	}
 	
-	
+	private def dispatch String compileCommand(RenameCommand renameCommand) {
+		renameCommand.expr.compileExpr() + ".rename(columns = {" + renameCommand.oldname.compileExpr() 
+			+ ":" + renameCommand.newname.compileExpr() + "}, inplace = True)"
+		
+	}
+		
 	private def dispatch String compileCommand(ApplyCommand applyCommand) {
-		"" // TODO
+		var name = applyCommand.selection.compileExpr().toString().split("\\[").get(0)
+		var ret = ""
+		
+		ret += "try:\n"
+		ret += "\tcsv_index = " + applyCommand.selection.compileExpr() + ".index\n"
+		ret += "\tcsv_columns = " + applyCommand.selection.compileExpr() + ".columns\n"
+		ret += "except:\n"
+		ret += "\tcsv_index = " + applyCommand.selection.compileExpr() + ".to_frame().index\n"
+		ret += "\tcsv_columns = " + applyCommand.selection.compileExpr() + ".to_frame().columns\n"
+		 
+		ret += "for csv_row_index in csv_index:\n"
+		ret += "\tfor csv_col_name in csv_columns:\n"
+		ret += "\t\t"
+		
+		if(applyCommand.^if !== null) {
+			ret += applyCommand.^if.varName + " = " + name + "[csv_col_name][csv_row_index]\n"
+			ret += "\t\t"	
+			ret += "if not (" + applyCommand.^if.expr.compileExpr() + "):\n"
+			ret += "\t\t\t"
+			ret += "continue\n"
+			ret += "\t\t"
+		}
+		
+		ret += applyCommand.exec.varName + " = " + name + "[csv_col_name][csv_row_index]\n"
+		ret += "\t\t"
+		// NOTE : to type checking, so we assume that the user know what he is doing
+		ret += applyCommand.exec.varName + " = " + applyCommand.exec.expr.compileExpr() + "\n"
+		ret += "\t\t"
+		ret += name + "[csv_col_name][csv_row_index] = " + applyCommand.exec.varName + "\n" 
+		
+		return ret
 	}
 
 	
@@ -196,32 +236,72 @@ class CSVSGeneratorPython {
 		boolConstant.value.substring(0, 1).toUpperCase() + boolConstant.value.substring(1)
 	}
 	
-	private	def dispatch String compileExpr(Selector selector) {
-		selector.compileExpr()
+	private	def dispatch String compileExpr(VariableConstant variableConstant) {
+		variableConstant.value.toString
+	}
+	
+	private	def dispatch String compileExpr(CsvsExpr csvsExpr) {
+		print("csv expr")
+		csvsExpr.compileExpr()
 	}
 	
 	private	def dispatch String compileExpr(CountExpr countExpr) {
-		"len(" + countExpr.expression.compileExpr() + ")" 
+		"len_csvs(" + countExpr.expression.compileExpr() + ")" 
 	}
 	
-	private	def dispatch String compileExpr(RowSelect rowSelect) {
-		rowSelect.^var + "[:" + rowSelect.expression.compileExpr() + "]"
-	}
+	private	def dispatch String compileExpr(Selector cellSelect) {
+		var ret = cellSelect.^var
+		var row = cellSelect.expressionRow !== null ? cellSelect.expressionRow.compileExpr() : null
+		var col = cellSelect.expressionCol !== null ? cellSelect.expressionCol.compileExpr() : null
+		var subrow = cellSelect.expressionSubRow !== null ? cellSelect.expressionSubRow.compileExpr() : null
+		var subcol = cellSelect.expressionSubCol !== null ? cellSelect.expressionSubCol.compileExpr() : null
+		
+		if(subrow !== null || subcol !== null) {
+			if(row === null || subrow === null || col === null || subcol === null) {
+				throw new Exception("Wrong subset selection")
+			}
+			ret += ".iloc[" + row + ":" + subrow + ", " + col + ":" + subcol+"]"
+		}
+		else if(row === null && col === null) {
+			throw new Exception("Wrong cell selection.")
+		}
+		else if (row !== null && col === null) {
+			ret += ".loc[" + row + "]"
+		}
+		else if (col !== null) {
+			// NOTE : no type checking so we assume that the variable contains string
+			if(cellSelect.expressionCol instanceof StringConstant || cellSelect.expressionCol instanceof VariableConstant) {
+				ret += "[" + col + "]"
+			}
+			else if(cellSelect.expressionCol instanceof IntConstant) {
+				ret += "[" +  cellSelect.^var + ".columns[" + col + "]]"
+			}
+			else {
+				throw new Exception("Wrong column type.")
+			}
+			
+			if(row !== null) {
+				ret += "[" + row + "]"
+			}
+		}
 	
-	private	def dispatch String compileExpr(ColSelect colSelect) {
-		colSelect.^var + "[" + colSelect.expression.compileExpr() + "]"
-	}
-	
-	private	def dispatch String compileExpr(CellSelect cellSelect) {
-		cellSelect.^var + ".at[" + cellSelect.expressionRow.compileExpr() + ", " + cellSelect.expressionCol.compileExpr() + "]"
+		return ret
 	}
 	
 	private	def dispatch String compileExpr(FieldSelect fieldSelect) {
-		fieldSelect.^var + ".columns[" + fieldSelect.expression + "]"
+		fieldSelect.^var + ".columns[" + fieldSelect.expression.compileExpr() + "]"
 	}
 	
-	private	def dispatch String compileExpr(VariableSelect variableSelect) {
-		variableSelect.term
+	private def dispatch String compileExpr(LastExpr lastExpr) {
+		if(lastExpr.op.equals("row")) {
+			return "(len_csvs(" + lastExpr.expression.compileExpr() + ".index) - 1)"
+		}
+		else if(lastExpr.op.equals("col")) {
+			return "(len_csvs(" + lastExpr.expression.compileExpr()+ ".columns) - 1)"
+		}
+		else {
+			throw new Exception("Wrong add command")
+		}
 	}
 	
 }

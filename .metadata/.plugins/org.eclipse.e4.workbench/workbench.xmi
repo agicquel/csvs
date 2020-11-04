@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="ASCII"?>
 <application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:advanced="http://www.eclipse.org/ui/2010/UIModel/application/ui/advanced" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_ZhDvYA_nEeuSK_n-jVQ5IQ" elementId="org.eclipse.e4.legacy.ide.application" contributorURI="platform:/plugin/org.eclipse.platform" selectedElement="_ZhDvYQ_nEeuSK_n-jVQ5IQ" bindingContexts="_ZhGy1A_nEeuSK_n-jVQ5IQ">
-  <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;workbench>&#xA;&lt;mruList>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.xtend.core.Xtend&quot; name=&quot;CSVsGenerator.xtend&quot; tooltip=&quot;com.agicquel.csvs/src/com/agicquel/csvs/generator/CSVsGenerator.xtend&quot;>&#xA;&lt;persistable path=&quot;/com.agicquel.csvs/src/com/agicquel/csvs/generator/CSVsGenerator.xtend&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.xtend.core.Xtend&quot; name=&quot;CSVSGeneratorPython.xtend&quot; tooltip=&quot;com.agicquel.csvs/src/com/agicquel/csvs/generator/CSVSGeneratorPython.xtend&quot;>&#xA;&lt;persistable path=&quot;/com.agicquel.csvs/src/com/agicquel/csvs/generator/CSVSGeneratorPython.xtend&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.xtext.Xtext&quot; name=&quot;CSVs.xtext&quot; tooltip=&quot;com.agicquel.csvs/src/com/agicquel/csvs/CSVs.xtext&quot;>&#xA;&lt;persistable path=&quot;/com.agicquel.csvs/src/com/agicquel/csvs/CSVs.xtext&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.xtend.core.Xtend&quot; name=&quot;IRGenerator.xtend&quot; tooltip=&quot;com.agicquel.csvs/src/com/agicquel/csvs/generator/IRGenerator.xtend&quot;>&#xA;&lt;persistable path=&quot;/com.agicquel.csvs/src/com/agicquel/csvs/generator/IRGenerator.xtend&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.xtend.core.Xtend&quot; name=&quot;Instr.xtend&quot; tooltip=&quot;com.agicquel.csvs/src/com/agicquel/csvs/generator/Instr.xtend&quot;>&#xA;&lt;persistable path=&quot;/com.agicquel.csvs/src/com/agicquel/csvs/generator/Instr.xtend&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.xtend.core.Xtend&quot; name=&quot;CommandImpl.xtend&quot; tooltip=&quot;com.agicquel.csvs/src/com/agicquel/csvs/generator/CommandImpl.xtend&quot;>&#xA;&lt;persistable path=&quot;/com.agicquel.csvs/src/com/agicquel/csvs/generator/CommandImpl.xtend&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.xtend.core.Xtend&quot; name=&quot;Env.xtend&quot; tooltip=&quot;com.agicquel.csvs/src/com/agicquel/csvs/generator/Env.xtend&quot;>&#xA;&lt;persistable path=&quot;/com.agicquel.csvs/src/com/agicquel/csvs/generator/Env.xtend&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.xtend.core.Xtend&quot; name=&quot;Quad.xtend&quot; tooltip=&quot;com.agicquel.csvs/src/com/agicquel/csvs/generator/Quad.xtend&quot;>&#xA;&lt;persistable path=&quot;/com.agicquel.csvs/src/com/agicquel/csvs/generator/Quad.xtend&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.emf.mwe2.language.Mwe2&quot; name=&quot;GenerateCSVs.mwe2&quot; tooltip=&quot;com.agicquel.csvs/src/com/agicquel/csvs/GenerateCSVs.mwe2&quot;>&#xA;&lt;persistable path=&quot;/com.agicquel.csvs/src/com/agicquel/csvs/GenerateCSVs.mwe2&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;CSVsRuntimeModule.java&quot; tooltip=&quot;com.agicquel.csvs/src/com/agicquel/csvs/CSVsRuntimeModule.java&quot;>&#xA;&lt;persistable path=&quot;/com.agicquel.csvs/src/com/agicquel/csvs/CSVsRuntimeModule.java&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.xtend.core.Xtend&quot; name=&quot;CSVsParsingTest.xtend&quot; tooltip=&quot;com.agicquel.csvs.tests/src/com/agicquel/csvs/tests/CSVsParsingTest.xtend&quot;>&#xA;&lt;persistable path=&quot;/com.agicquel.csvs.tests/src/com/agicquel/csvs/tests/CSVsParsingTest.xtend&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.emf.ecore.presentation.EcoreEditorID&quot; name=&quot;CSVs.ecore&quot; tooltip=&quot;com.agicquel.csvs/model/generated/CSVs.ecore&quot;>&#xA;&lt;persistable path=&quot;/com.agicquel.csvs/model/generated/CSVs.ecore&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;CSVsStandaloneSetup.java&quot; tooltip=&quot;com.agicquel.csvs/src/com/agicquel/csvs/CSVsStandaloneSetup.java&quot;>&#xA;&lt;persistable path=&quot;/com.agicquel.csvs/src/com/agicquel/csvs/CSVsStandaloneSetup.java&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.emf.ecore.presentation.ReflectiveEditorID&quot; name=&quot;CSVs.genmodel&quot; tooltip=&quot;com.agicquel.csvs/model/generated/CSVs.genmodel&quot;>&#xA;&lt;persistable path=&quot;/com.agicquel.csvs/model/generated/CSVs.genmodel&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.jdt.ui.internal.JarEntryEditorInputFactory&quot; id=&quot;org.eclipse.xtext.Xtext&quot; name=&quot;Terminals.xtext&quot; tooltip=&quot;/home/agicquel/.eclipse/org.eclipse.platform_155965261_linux_gtk_x86_64/plugins/org.eclipse.xtext_2.23.0.v20200831-0730.jar/org/eclipse/xtext/common/Terminals.xtext&quot;>&#xA;&lt;persistable element=&quot;=com.agicquel.csvs/\/home\/agicquel\/.eclipse\/org.eclipse.platform_155965261_linux_gtk_x86_64\/plugins\/org.eclipse.xtext_2.23.0.v20200831-0730.jar&amp;lt;org.eclipse.xtext.common&quot; path=&quot;Terminals.xtext&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.ui.DefaultTextEditor&quot; name=&quot;backup&quot; tooltip=&quot;com.agicquel.csvs/src/com/agicquel/csvs/backup&quot;>&#xA;&lt;persistable path=&quot;/com.agicquel.csvs/src/com/agicquel/csvs/backup&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.pde.ui.manifestEditor&quot; name=&quot;MANIFEST.MF&quot; tooltip=&quot;com.agicquel.csvs/META-INF/MANIFEST.MF&quot;>&#xA;&lt;persistable path=&quot;/com.agicquel.csvs/META-INF/MANIFEST.MF&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; id=&quot;org.eclipse.ui.DefaultTextEditor&quot; name=&quot;1601573329097.log&quot; tooltip=&quot;/home/agicquel/workspace/CsvDslProject/.metadata/.plugins/org.eclipse.pde.core/Launch Runtime Eclipse/1601573329097.log&quot;>&#xA;&lt;persistable uri=&quot;file:/home/agicquel/workspace/CsvDslProject/.metadata/.plugins/org.eclipse.pde.core/Launch%20Runtime%20Eclipse/1601573329097.log&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; id=&quot;org.eclipse.ui.DefaultTextEditor&quot; name=&quot;1601572978826.log&quot; tooltip=&quot;/home/agicquel/workspace/CsvDslProject/.metadata/.plugins/org.eclipse.pde.core/Launch Runtime Eclipse/1601572978826.log&quot;>&#xA;&lt;persistable uri=&quot;file:/home/agicquel/workspace/CsvDslProject/.metadata/.plugins/org.eclipse.pde.core/Launch%20Runtime%20Eclipse/1601572978826.log&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; id=&quot;org.eclipse.ui.DefaultTextEditor&quot; name=&quot;1601572870573.log&quot; tooltip=&quot;/home/agicquel/workspace/CsvDslProject/.metadata/.plugins/org.eclipse.pde.core/Launch Runtime Eclipse/1601572870573.log&quot;>&#xA;&lt;persistable uri=&quot;file:/home/agicquel/workspace/CsvDslProject/.metadata/.plugins/org.eclipse.pde.core/Launch%20Runtime%20Eclipse/1601572870573.log&quot;/>&#xA;&lt;/file>&#xA;&lt;/mruList>&#xA;&lt;/workbench>"/>
+  <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;workbench>&#xA;&lt;mruList>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.xtend.core.Xtend&quot; name=&quot;CSVSGeneratorPython.java&quot; tooltip=&quot;com.agicquel.csvs/xtend-gen/com/agicquel/csvs/generator/CSVSGeneratorPython.java&quot;>&#xA;&lt;persistable path=&quot;/com.agicquel.csvs/xtend-gen/com/agicquel/csvs/generator/CSVSGeneratorPython.java&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.xtend.core.Xtend&quot; name=&quot;CSVsGenerator.java&quot; tooltip=&quot;com.agicquel.csvs/xtend-gen/com/agicquel/csvs/generator/CSVsGenerator.java&quot;>&#xA;&lt;persistable path=&quot;/com.agicquel.csvs/xtend-gen/com/agicquel/csvs/generator/CSVsGenerator.java&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.xtend.core.Xtend&quot; name=&quot;CSVSGeneratorPython.xtend&quot; tooltip=&quot;com.agicquel.csvs/src/com/agicquel/csvs/generator/CSVSGeneratorPython.xtend&quot;>&#xA;&lt;persistable path=&quot;/com.agicquel.csvs/src/com/agicquel/csvs/generator/CSVSGeneratorPython.xtend&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.xtext.Xtext&quot; name=&quot;CSVs.xtext&quot; tooltip=&quot;com.agicquel.csvs/src/com/agicquel/csvs/CSVs.xtext&quot;>&#xA;&lt;persistable path=&quot;/com.agicquel.csvs/src/com/agicquel/csvs/CSVs.xtext&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.emf.mwe2.language.Mwe2&quot; name=&quot;GenerateCSVs.mwe2&quot; tooltip=&quot;com.agicquel.csvs/src/com/agicquel/csvs/GenerateCSVs.mwe2&quot;>&#xA;&lt;persistable path=&quot;/com.agicquel.csvs/src/com/agicquel/csvs/GenerateCSVs.mwe2&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.pde.ui.manifestEditor&quot; name=&quot;MANIFEST.MF&quot; tooltip=&quot;com.agicquel.csvs/META-INF/MANIFEST.MF&quot;>&#xA;&lt;persistable path=&quot;/com.agicquel.csvs/META-INF/MANIFEST.MF&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.emf.ecore.presentation.EcoreEditorID&quot; name=&quot;CSVs.ecore&quot; tooltip=&quot;com.agicquel.csvs/model/generated/CSVs.ecore&quot;>&#xA;&lt;persistable path=&quot;/com.agicquel.csvs/model/generated/CSVs.ecore&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.jdt.ui.ClassFileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.ClassFileEditorNoSource&quot; name=&quot;String.class&quot; tooltip=&quot;java.lang.String&quot;>&#xA;&lt;persistable org.eclipse.jdt.ui.ClassFileIdentifier=&quot;=com.agicquel.csvs/\/usr\/lib\/jvm\/java-11-openjdk-11.0.9.11-0.fc33.x86_64\/lib\/jrt-fs.jar`java.base=/javadoc_location=/https:\/\/docs.oracle.com\/en\/java\/javase\/11\/docs\/api\/=/&amp;lt;java.lang(String.class&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.xtend.core.Xtend&quot; name=&quot;CSVsGenerator.xtend&quot; tooltip=&quot;com.agicquel.csvs/src/com/agicquel/csvs/generator/CSVsGenerator.xtend&quot;>&#xA;&lt;persistable path=&quot;/com.agicquel.csvs/src/com/agicquel/csvs/generator/CSVsGenerator.xtend&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.xtend.core.Xtend&quot; name=&quot;CommandImpl.xtend&quot; tooltip=&quot;com.agicquel.csvs/src/com/agicquel/csvs/generator/CommandImpl.xtend&quot;>&#xA;&lt;persistable path=&quot;/com.agicquel.csvs/src/com/agicquel/csvs/generator/CommandImpl.xtend&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.xtend.core.Xtend&quot; name=&quot;IRGenerator.xtend&quot; tooltip=&quot;com.agicquel.csvs/src/com/agicquel/csvs/generator/IRGenerator.xtend&quot;>&#xA;&lt;persistable path=&quot;/com.agicquel.csvs/src/com/agicquel/csvs/generator/IRGenerator.xtend&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;CSVsStandaloneSetup.java&quot; tooltip=&quot;com.agicquel.csvs/src/com/agicquel/csvs/CSVsStandaloneSetup.java&quot;>&#xA;&lt;persistable path=&quot;/com.agicquel.csvs/src/com/agicquel/csvs/CSVsStandaloneSetup.java&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;CSVsRuntimeModule.java&quot; tooltip=&quot;com.agicquel.csvs/src/com/agicquel/csvs/CSVsRuntimeModule.java&quot;>&#xA;&lt;persistable path=&quot;/com.agicquel.csvs/src/com/agicquel/csvs/CSVsRuntimeModule.java&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.xtend.core.Xtend&quot; name=&quot;Instr.xtend&quot; tooltip=&quot;com.agicquel.csvs/src/com/agicquel/csvs/generator/Instr.xtend&quot;>&#xA;&lt;persistable path=&quot;/com.agicquel.csvs/src/com/agicquel/csvs/generator/Instr.xtend&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.xtend.core.Xtend&quot; name=&quot;Env.xtend&quot; tooltip=&quot;com.agicquel.csvs/src/com/agicquel/csvs/generator/Env.xtend&quot;>&#xA;&lt;persistable path=&quot;/com.agicquel.csvs/src/com/agicquel/csvs/generator/Env.xtend&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.xtend.core.Xtend&quot; name=&quot;Quad.xtend&quot; tooltip=&quot;com.agicquel.csvs/src/com/agicquel/csvs/generator/Quad.xtend&quot;>&#xA;&lt;persistable path=&quot;/com.agicquel.csvs/src/com/agicquel/csvs/generator/Quad.xtend&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.xtend.core.Xtend&quot; name=&quot;CSVsParsingTest.xtend&quot; tooltip=&quot;com.agicquel.csvs.tests/src/com/agicquel/csvs/tests/CSVsParsingTest.xtend&quot;>&#xA;&lt;persistable path=&quot;/com.agicquel.csvs.tests/src/com/agicquel/csvs/tests/CSVsParsingTest.xtend&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.emf.ecore.presentation.ReflectiveEditorID&quot; name=&quot;CSVs.genmodel&quot; tooltip=&quot;com.agicquel.csvs/model/generated/CSVs.genmodel&quot;>&#xA;&lt;persistable path=&quot;/com.agicquel.csvs/model/generated/CSVs.genmodel&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.jdt.ui.internal.JarEntryEditorInputFactory&quot; id=&quot;org.eclipse.xtext.Xtext&quot; name=&quot;Terminals.xtext&quot; tooltip=&quot;/home/agicquel/.eclipse/org.eclipse.platform_155965261_linux_gtk_x86_64/plugins/org.eclipse.xtext_2.23.0.v20200831-0730.jar/org/eclipse/xtext/common/Terminals.xtext&quot;>&#xA;&lt;persistable element=&quot;=com.agicquel.csvs/\/home\/agicquel\/.eclipse\/org.eclipse.platform_155965261_linux_gtk_x86_64\/plugins\/org.eclipse.xtext_2.23.0.v20200831-0730.jar&amp;lt;org.eclipse.xtext.common&quot; path=&quot;Terminals.xtext&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.ui.DefaultTextEditor&quot; name=&quot;backup&quot; tooltip=&quot;com.agicquel.csvs/src/com/agicquel/csvs/backup&quot;>&#xA;&lt;persistable path=&quot;/com.agicquel.csvs/src/com/agicquel/csvs/backup&quot;/>&#xA;&lt;/file>&#xA;&lt;/mruList>&#xA;&lt;/workbench>"/>
   <tags>activeSchemeId:org.eclipse.ui.defaultAcceleratorConfiguration</tags>
   <tags>ModelMigrationProcessor.001</tags>
-  <children xsi:type="basic:TrimmedWindow" xmi:id="_ZhDvYQ_nEeuSK_n-jVQ5IQ" elementId="IDEWindow" contributorURI="platform:/plugin/org.eclipse.platform" selectedElement="_ZhDvYg_nEeuSK_n-jVQ5IQ" label="%trimmedwindow.label.eclipseSDK" x="1302" y="234" width="2522" height="1425">
+  <children xsi:type="basic:TrimmedWindow" xmi:id="_ZhDvYQ_nEeuSK_n-jVQ5IQ" elementId="IDEWindow" contributorURI="platform:/plugin/org.eclipse.platform" selectedElement="_ZhDvYg_nEeuSK_n-jVQ5IQ" label="%trimmedwindow.label.eclipseSDK" x="0" y="190" width="1079" height="554">
     <persistedState key="coolBarVisible" value="true"/>
     <persistedState key="perspectiveBarVisible" value="true"/>
     <persistedState key="isRestored" value="true"/>
@@ -44,34 +44,27 @@
           <tags>persp.perspSC:org.eclipse.jdt.ui.JavaBrowsingPerspective</tags>
           <tags>persp.viewSC:org.eclipse.ant.ui.views.AntView</tags>
           <children xsi:type="basic:PartSashContainer" xmi:id="_ZhDvZQ_nEeuSK_n-jVQ5IQ" selectedElement="_ZhEWcg_nEeuSK_n-jVQ5IQ" horizontal="true">
-            <children xsi:type="basic:PartSashContainer" xmi:id="_ZhDvZg_nEeuSK_n-jVQ5IQ" containerData="1906" selectedElement="_ZhDvZw_nEeuSK_n-jVQ5IQ">
-              <children xsi:type="basic:PartStack" xmi:id="_ZhDvZw_nEeuSK_n-jVQ5IQ" elementId="PartStack@12890a4d" containerData="5000" selectedElement="_ZhDvaA_nEeuSK_n-jVQ5IQ">
-                <children xsi:type="advanced:Placeholder" xmi:id="_ZhDvaA_nEeuSK_n-jVQ5IQ" elementId="org.eclipse.ui.navigator.ProjectExplorer" ref="_ZhE-Gg_nEeuSK_n-jVQ5IQ" closeable="true">
-                  <tags>View</tags>
-                  <tags>categoryTag:General</tags>
-                </children>
+            <children xsi:type="basic:PartStack" xmi:id="_ZhDvaQ_nEeuSK_n-jVQ5IQ" elementId="bottomLeft" toBeRendered="false" containerData="1906">
+              <tags>org.eclipse.e4.secondaryNavigationStack</tags>
+              <tags>MinimizedByZoom</tags>
+              <children xsi:type="advanced:Placeholder" xmi:id="_ZhDvag_nEeuSK_n-jVQ5IQ" elementId="org.eclipse.ui.views.ContentOutline" toBeRendered="false" ref="_ZhFklg_nEeuSK_n-jVQ5IQ" closeable="true">
+                <tags>View</tags>
+                <tags>categoryTag:General</tags>
               </children>
-              <children xsi:type="basic:PartStack" xmi:id="_ZhDvaQ_nEeuSK_n-jVQ5IQ" elementId="bottomLeft" containerData="5000" selectedElement="_ZhDvag_nEeuSK_n-jVQ5IQ">
-                <tags>org.eclipse.e4.secondaryNavigationStack</tags>
-                <children xsi:type="advanced:Placeholder" xmi:id="_ZhDvag_nEeuSK_n-jVQ5IQ" elementId="org.eclipse.ui.views.ContentOutline" ref="_ZhFklg_nEeuSK_n-jVQ5IQ" closeable="true">
-                  <tags>View</tags>
-                  <tags>categoryTag:General</tags>
-                </children>
-                <children xsi:type="advanced:Placeholder" xmi:id="_ZhEWcA_nEeuSK_n-jVQ5IQ" elementId="org.eclipse.ui.views.minimap.MinimapView" toBeRendered="false" ref="_ZhFkoQ_nEeuSK_n-jVQ5IQ" closeable="true">
-                  <tags>View</tags>
-                  <tags>categoryTag:General</tags>
-                </children>
-                <children xsi:type="advanced:Placeholder" xmi:id="_ZhEWcQ_nEeuSK_n-jVQ5IQ" elementId="org.eclipse.ant.ui.views.AntView" toBeRendered="false" ref="_ZhFkog_nEeuSK_n-jVQ5IQ" closeable="true">
-                  <tags>View</tags>
-                  <tags>categoryTag:Ant</tags>
-                </children>
+              <children xsi:type="advanced:Placeholder" xmi:id="_ZhEWcA_nEeuSK_n-jVQ5IQ" elementId="org.eclipse.ui.views.minimap.MinimapView" toBeRendered="false" ref="_ZhFkoQ_nEeuSK_n-jVQ5IQ" closeable="true">
+                <tags>View</tags>
+                <tags>categoryTag:General</tags>
+              </children>
+              <children xsi:type="advanced:Placeholder" xmi:id="_ZhEWcQ_nEeuSK_n-jVQ5IQ" elementId="org.eclipse.ant.ui.views.AntView" toBeRendered="false" ref="_ZhFkog_nEeuSK_n-jVQ5IQ" closeable="true">
+                <tags>View</tags>
+                <tags>categoryTag:Ant</tags>
               </children>
             </children>
             <children xsi:type="basic:PartSashContainer" xmi:id="_ZhEWcg_nEeuSK_n-jVQ5IQ" containerData="8094" selectedElement="_ZhEWcw_nEeuSK_n-jVQ5IQ">
               <children xsi:type="basic:PartSashContainer" xmi:id="_ZhEWcw_nEeuSK_n-jVQ5IQ" containerData="5000" selectedElement="_ZhEWeA_nEeuSK_n-jVQ5IQ" horizontal="true">
-                <children xsi:type="basic:PartStack" xmi:id="_ZhEWdA_nEeuSK_n-jVQ5IQ" elementId="topLeft" visible="false" containerData="2768" selectedElement="_ZhEWdw_nEeuSK_n-jVQ5IQ">
+                <children xsi:type="basic:PartStack" xmi:id="_ZhEWdA_nEeuSK_n-jVQ5IQ" elementId="topLeft" toBeRendered="false" containerData="2768">
                   <tags>org.eclipse.e4.primaryNavigationStack</tags>
-                  <tags>Minimized</tags>
+                  <tags>noFocus</tags>
                   <children xsi:type="advanced:Placeholder" xmi:id="_ZhEWdQ_nEeuSK_n-jVQ5IQ" elementId="org.eclipse.ui.views.BookmarkView" toBeRendered="false" ref="_ZhFklA_nEeuSK_n-jVQ5IQ" closeable="true">
                     <tags>View</tags>
                     <tags>categoryTag:General</tags>
@@ -80,16 +73,20 @@
                     <tags>View</tags>
                     <tags>categoryTag:General</tags>
                   </children>
-                  <children xsi:type="basic:Part" xmi:id="_ZhEWdw_nEeuSK_n-jVQ5IQ" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="CSVs.ecore" iconURI="platform:/plugin/org.eclipse.emf.ecore.editor/icons/full/obj16/EcoreModelFile.gif" closeable="true">
-                    <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;editor id=&quot;org.eclipse.emf.ecore.presentation.EcoreEditorID&quot; name=&quot;CSVs.ecore&quot; partName=&quot;CSVs.ecore&quot; title=&quot;CSVs.ecore&quot; tooltip=&quot;com.agicquel.csvs/model/generated/CSVs.ecore&quot;>&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/com.agicquel.csvs/model/generated/CSVs.ecore&quot;/>&#xA;&lt;/editor>"/>
-                    <tags>Editor</tags>
-                    <tags>removeOnHide</tags>
-                    <tags>org.eclipse.emf.ecore.presentation.EcoreEditorID</tags>
-                  </children>
                 </children>
-                <children xsi:type="basic:PartSashContainer" xmi:id="_ZhEWeA_nEeuSK_n-jVQ5IQ" containerData="4012" selectedElement="_ZhEWeQ_nEeuSK_n-jVQ5IQ" horizontal="true">
-                  <children xsi:type="advanced:Placeholder" xmi:id="_ZhEWeQ_nEeuSK_n-jVQ5IQ" elementId="org.eclipse.ui.editorss" containerData="7908" ref="_ZhE-CQ_nEeuSK_n-jVQ5IQ"/>
-                  <children xsi:type="basic:PartStack" xmi:id="_ZhEWeg_nEeuSK_n-jVQ5IQ" elementId="PartStack@6022199" containerData="2092" selectedElement="_ZhEWew_nEeuSK_n-jVQ5IQ">
+                <children xsi:type="basic:PartSashContainer" xmi:id="_ZhEWeA_nEeuSK_n-jVQ5IQ" containerData="4012" selectedElement="_ZhEWeg_nEeuSK_n-jVQ5IQ" horizontal="true">
+                  <children xsi:type="basic:PartSashContainer" xmi:id="_cgrMgB4cEeuTbtDkmJ3xrg" containerData="5832" selectedElement="_ZhEWeQ_nEeuSK_n-jVQ5IQ" horizontal="true">
+                    <children xsi:type="basic:PartStack" xmi:id="_ltCIsRz7EeuvCL7PWPIy5A" elementId="PartStack@2a0a5865" containerData="2027" selectedElement="_lFDisBz7EeuvCL7PWPIy5A">
+                      <children xsi:type="advanced:Placeholder" xmi:id="_lFDisBz7EeuvCL7PWPIy5A" elementId="org.eclipse.ui.navigator.ProjectExplorer" ref="_ZhE-Gg_nEeuSK_n-jVQ5IQ" closeable="true">
+                        <tags>View</tags>
+                        <tags>categoryTag:General</tags>
+                        <tags>active</tags>
+                        <tags>activeOnClose</tags>
+                      </children>
+                    </children>
+                    <children xsi:type="advanced:Placeholder" xmi:id="_ZhEWeQ_nEeuSK_n-jVQ5IQ" elementId="org.eclipse.ui.editorss" containerData="7973" ref="_ZhE-CQ_nEeuSK_n-jVQ5IQ"/>
+                  </children>
+                  <children xsi:type="basic:PartStack" xmi:id="_ZhEWeg_nEeuSK_n-jVQ5IQ" elementId="PartStack@6022199" containerData="1260" selectedElement="_ZhEWew_nEeuSK_n-jVQ5IQ">
                     <children xsi:type="advanced:Placeholder" xmi:id="_ZhEWew_nEeuSK_n-jVQ5IQ" elementId="org.eclipse.ui.console.ConsoleView" ref="_ZhFkow_nEeuSK_n-jVQ5IQ" closeable="true">
                       <tags>View</tags>
                       <tags>categoryTag:General</tags>
@@ -158,21 +155,12 @@
       <tags>View</tags>
       <tags>categoryTag:Help</tags>
     </sharedElements>
-    <sharedElements xsi:type="advanced:Area" xmi:id="_ZhE-CQ_nEeuSK_n-jVQ5IQ" elementId="org.eclipse.ui.editorss" selectedElement="_ZhE-Cg_nEeuSK_n-jVQ5IQ">
-      <children xsi:type="basic:PartSashContainer" xmi:id="_ZhE-Cg_nEeuSK_n-jVQ5IQ" selectedElement="_ZhE-EA_nEeuSK_n-jVQ5IQ" horizontal="true">
-        <children xsi:type="basic:PartStack" xmi:id="_ZhE-Cw_nEeuSK_n-jVQ5IQ" elementId="PartStack@81e87bb" containerData="4685" selectedElement="_ZhE-DA_nEeuSK_n-jVQ5IQ">
-          <children xsi:type="basic:Part" xmi:id="_ZhE-DA_nEeuSK_n-jVQ5IQ" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="CSVs.xtext" iconURI="platform:/plugin/org.eclipse.xtext.xtext.ui/icons/editor.gif" closeable="true">
-            <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;editor id=&quot;org.eclipse.xtext.Xtext&quot; name=&quot;CSVs.xtext&quot; partName=&quot;CSVs.xtext&quot; title=&quot;CSVs.xtext&quot; tooltip=&quot;com.agicquel.csvs/src/com/agicquel/csvs/CSVs.xtext&quot;>&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/com.agicquel.csvs/src/com/agicquel/csvs/CSVs.xtext&quot;/>&#xA;&lt;editorState selectionHorizontalPixel=&quot;126&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;1157&quot; selectionTopPixel=&quot;132&quot;/>&#xA;&lt;/editor>"/>
-            <tags>Editor</tags>
-            <tags>removeOnHide</tags>
-            <tags>org.eclipse.xtext.Xtext</tags>
-          </children>
-        </children>
-        <children xsi:type="basic:PartStack" xmi:id="_ZhE-EA_nEeuSK_n-jVQ5IQ" elementId="org.eclipse.e4.primaryDataStack" containerData="5315" selectedElement="_ZhE-Fg_nEeuSK_n-jVQ5IQ">
+    <sharedElements xsi:type="advanced:Area" xmi:id="_ZhE-CQ_nEeuSK_n-jVQ5IQ" elementId="org.eclipse.ui.editorss" selectedElement="_T3hN0B6qEeuTbtDkmJ3xrg">
+      <children xsi:type="basic:PartSashContainer" xmi:id="_T3hN0B6qEeuTbtDkmJ3xrg" selectedElement="_ZhE-EA_nEeuSK_n-jVQ5IQ" horizontal="true">
+        <children xsi:type="basic:PartStack" xmi:id="_ZhE-EA_nEeuSK_n-jVQ5IQ" elementId="org.eclipse.e4.primaryDataStack" containerData="5000" selectedElement="_RgzEgB6eEeuTbtDkmJ3xrg">
           <tags>org.eclipse.e4.primaryDataStack</tags>
           <tags>EditorStack</tags>
           <tags>active</tags>
-          <tags>noFocus</tags>
           <children xsi:type="advanced:Placeholder" xmi:id="_ZhE-EQ_nEeuSK_n-jVQ5IQ" elementId="org.eclipse.xtext.xtext.ui.graph.view" toBeRendered="false" ref="_ZhFkrA_nEeuSK_n-jVQ5IQ" closeable="true">
             <tags>View</tags>
             <tags>categoryTag:Xtext</tags>
@@ -181,31 +169,27 @@
             <tags>View</tags>
             <tags>categoryTag:Xtext</tags>
           </children>
-          <children xsi:type="basic:Part" xmi:id="_ZhE-Ew_nEeuSK_n-jVQ5IQ" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="CSVsParsingTest.xtend" iconURI="platform:/plugin/org.eclipse.xtend.ide/icons/xtend_file.png" closeable="true">
-            <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;editor id=&quot;org.eclipse.xtend.core.Xtend&quot; name=&quot;CSVsParsingTest.xtend&quot; partName=&quot;CSVsParsingTest.xtend&quot; title=&quot;CSVsParsingTest.xtend&quot; tooltip=&quot;com.agicquel.csvs.tests/src/com/agicquel/csvs/tests/CSVsParsingTest.xtend&quot;>&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/com.agicquel.csvs.tests/src/com/agicquel/csvs/tests/CSVsParsingTest.xtend&quot;/>&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;95&quot; selectionTopPixel=&quot;0&quot;/>&#xA;&lt;/editor>"/>
-            <tags>Editor</tags>
-            <tags>removeOnHide</tags>
-            <tags>org.eclipse.xtend.core.Xtend</tags>
-          </children>
-          <children xsi:type="basic:Part" xmi:id="_ZhE-FA_nEeuSK_n-jVQ5IQ" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="CSVsRuntimeModule.java" iconURI="platform:/plugin/org.eclipse.jdt.ui/icons/full/obj16/jcu_obj.png" closeable="true">
-            <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;CSVsRuntimeModule.java&quot; partName=&quot;CSVsRuntimeModule.java&quot; title=&quot;CSVsRuntimeModule.java&quot; tooltip=&quot;com.agicquel.csvs/src/com/agicquel/csvs/CSVsRuntimeModule.java&quot;>&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/com.agicquel.csvs/src/com/agicquel/csvs/CSVsRuntimeModule.java&quot;/>&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;3&quot; selectionTopPixel=&quot;0&quot;/>&#xA;&lt;/editor>"/>
-            <tags>Editor</tags>
-            <tags>removeOnHide</tags>
-            <tags>org.eclipse.jdt.ui.CompilationUnitEditor</tags>
-          </children>
           <children xsi:type="basic:Part" xmi:id="_ZhE-FQ_nEeuSK_n-jVQ5IQ" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="CSVsGenerator.xtend" iconURI="platform:/plugin/org.eclipse.xtend.ide/icons/xtend_file.png" closeable="true">
-            <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;editor id=&quot;org.eclipse.xtend.core.Xtend&quot; name=&quot;CSVsGenerator.xtend&quot; partName=&quot;CSVsGenerator.xtend&quot; title=&quot;CSVsGenerator.xtend&quot; tooltip=&quot;com.agicquel.csvs/src/com/agicquel/csvs/generator/CSVsGenerator.xtend&quot;>&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/com.agicquel.csvs/src/com/agicquel/csvs/generator/CSVsGenerator.xtend&quot;/>&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;761&quot; selectionTopPixel=&quot;0&quot;/>&#xA;&lt;/editor>"/>
+            <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;editor id=&quot;org.eclipse.xtend.core.Xtend&quot; name=&quot;CSVsGenerator.xtend&quot; partName=&quot;CSVsGenerator.xtend&quot; title=&quot;CSVsGenerator.xtend&quot; tooltip=&quot;com.agicquel.csvs/src/com/agicquel/csvs/generator/CSVsGenerator.xtend&quot;>&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/com.agicquel.csvs/src/com/agicquel/csvs/generator/CSVsGenerator.xtend&quot;/>&#xA;&lt;editorState HANDLER_IDENTIFIER=&quot;=com.agicquel.csvs/xtend-gen&amp;lt;com.agicquel.csvs.generator{CSVsGenerator.java&quot; selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;48&quot; selectionOffset=&quot;661&quot; selectionTopPixel=&quot;0&quot;/>&#xA;&lt;/editor>"/>
             <tags>Editor</tags>
             <tags>removeOnHide</tags>
             <tags>org.eclipse.xtend.core.Xtend</tags>
           </children>
-          <children xsi:type="basic:Part" xmi:id="_ZhE-Fg_nEeuSK_n-jVQ5IQ" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="CSVSGeneratorPython.xtend" iconURI="platform:/plugin/org.eclipse.xtend.ide/icons/xtend_file.png" closeable="true">
-            <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;editor id=&quot;org.eclipse.xtend.core.Xtend&quot; name=&quot;CSVSGeneratorPython.xtend&quot; partName=&quot;CSVSGeneratorPython.xtend&quot; title=&quot;CSVSGeneratorPython.xtend&quot; tooltip=&quot;com.agicquel.csvs/src/com/agicquel/csvs/generator/CSVSGeneratorPython.xtend&quot;>&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/com.agicquel.csvs/src/com/agicquel/csvs/generator/CSVSGeneratorPython.xtend&quot;/>&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;4447&quot; selectionTopPixel=&quot;0&quot;/>&#xA;&lt;/editor>"/>
+          <children xsi:type="basic:Part" xmi:id="_RgzEgB6eEeuTbtDkmJ3xrg" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="CSVSGeneratorPython.xtend" iconURI="platform:/plugin/org.eclipse.xtend.ide/icons/xtend_file.png" closeable="true">
+            <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;editor id=&quot;org.eclipse.xtend.core.Xtend&quot; name=&quot;CSVSGeneratorPython.xtend&quot; partName=&quot;CSVSGeneratorPython.xtend&quot; title=&quot;CSVSGeneratorPython.xtend&quot; tooltip=&quot;com.agicquel.csvs/src/com/agicquel/csvs/generator/CSVSGeneratorPython.xtend&quot;>&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/com.agicquel.csvs/src/com/agicquel/csvs/generator/CSVSGeneratorPython.xtend&quot;/>&#xA;&lt;editorState HANDLER_IDENTIFIER=&quot;=com.agicquel.csvs/xtend-gen&amp;lt;com.agicquel.csvs.generator{CSVSGeneratorPython.java&quot; selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;9283&quot; selectionTopPixel=&quot;1693&quot;/>&#xA;&lt;/editor>"/>
             <tags>Editor</tags>
             <tags>removeOnHide</tags>
             <tags>org.eclipse.xtend.core.Xtend</tags>
             <tags>active</tags>
             <tags>activeOnClose</tags>
+          </children>
+        </children>
+        <children xsi:type="basic:PartStack" xmi:id="_T3hN0R6qEeuTbtDkmJ3xrg" elementId="PartStack@50e000c1" containerData="5000" selectedElement="_ArS3sB41EeuTbtDkmJ3xrg">
+          <children xsi:type="basic:Part" xmi:id="_ArS3sB41EeuTbtDkmJ3xrg" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="CSVs.xtext" iconURI="platform:/plugin/org.eclipse.xtext.xtext.ui/icons/editor.gif" closeable="true">
+            <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;editor id=&quot;org.eclipse.xtext.Xtext&quot; name=&quot;CSVs.xtext&quot; partName=&quot;CSVs.xtext&quot; title=&quot;CSVs.xtext&quot; tooltip=&quot;com.agicquel.csvs/src/com/agicquel/csvs/CSVs.xtext&quot;>&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/com.agicquel.csvs/src/com/agicquel/csvs/CSVs.xtext&quot;/>&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;1425&quot; selectionTopPixel=&quot;0&quot;/>&#xA;&lt;/editor>"/>
+            <tags>Editor</tags>
+            <tags>removeOnHide</tags>
+            <tags>org.eclipse.xtext.Xtext</tags>
           </children>
         </children>
       </children>
@@ -244,7 +228,7 @@
         <tags>ViewMenu</tags>
         <tags>menuContribution:menu</tags>
       </menus>
-      <toolbar xmi:id="_ZhFkmQ_nEeuSK_n-jVQ5IQ" elementId="org.eclipse.ui.views.ContentOutline"/>
+      <toolbar xmi:id="_ZhFkmQ_nEeuSK_n-jVQ5IQ" elementId="org.eclipse.ui.views.ContentOutline" visible="false"/>
     </sharedElements>
     <sharedElements xsi:type="basic:Part" xmi:id="_ZhFkng_nEeuSK_n-jVQ5IQ" elementId="org.eclipse.ui.views.TaskList" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Tasks" iconURI="platform:/plugin/org.eclipse.ui.ide/icons/full/eview16/tasks_tsk.png" tooltip="" closeable="true">
       <persistedState key="originalCompatibilityViewClass" value="org.eclipse.ui.internal.views.markers.TasksView"/>
@@ -337,7 +321,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_ZhFktQ_nEeuSK_n-jVQ5IQ" elementId="org.eclipse.ui.workbench.file">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_Et0MsBBlEeulUOZDmaTHYA" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_ZhIBrQ_nEeuSK_n-jVQ5IQ"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_eJIW4B4CEeuTbtDkmJ3xrg" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_ZhIBrQ_nEeuSK_n-jVQ5IQ"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_ZhFkwg_nEeuSK_n-jVQ5IQ" elementId="group.edit" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -365,7 +349,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_ZhFk4A_nEeuSK_n-jVQ5IQ" elementId="org.eclipse.ui.workbench.navigate">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_Et66YBBlEeulUOZDmaTHYA" elementId="org.eclipse.ui.window.pinEditor" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_ZhIBRA_nEeuSK_n-jVQ5IQ"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_eJN2cB4CEeuTbtDkmJ3xrg" elementId="org.eclipse.ui.window.pinEditor" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_ZhIBRA_nEeuSK_n-jVQ5IQ"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_ZhFk7w_nEeuSK_n-jVQ5IQ" elementId="group.editor" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -404,15 +388,24 @@
         <tags>TrimStack</tags>
         <tags>Draggable</tags>
       </children>
-      <children xsi:type="menu:ToolControl" xmi:id="_ZhFlAQ_nEeuSK_n-jVQ5IQ" elementId="topLeft(IDEWindow).(org.eclipse.ui.resourcePerspective)" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.minmax.TrimStack">
+      <children xsi:type="menu:ToolControl" xmi:id="_ZhFlAQ_nEeuSK_n-jVQ5IQ" elementId="topLeft(IDEWindow).(org.eclipse.ui.resourcePerspective)" toBeRendered="false" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.minmax.TrimStack">
         <tags>TrimStack</tags>
         <tags>Draggable</tags>
+        <tags>MinimizedAndShowing</tags>
       </children>
       <children xsi:type="menu:ToolControl" xmi:id="_ZhFlAg_nEeuSK_n-jVQ5IQ" elementId="bottomLeft(IDEWindow).(org.eclipse.ui.resourcePerspective)" toBeRendered="false" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.minmax.TrimStack">
         <tags>TrimStack</tags>
         <tags>Draggable</tags>
       </children>
       <children xsi:type="menu:ToolControl" xmi:id="_ZhFlAw_nEeuSK_n-jVQ5IQ" elementId="bottomRight(IDEWindow).(org.eclipse.ui.resourcePerspective)" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.minmax.TrimStack">
+        <tags>TrimStack</tags>
+        <tags>Draggable</tags>
+      </children>
+      <children xsi:type="menu:ToolControl" xmi:id="_hwgeMBz6EeugYY6PrMEDsA" elementId="PartStack@12890a4d(IDEWindow).(org.eclipse.ui.resourcePerspective)" toBeRendered="false" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.minmax.TrimStack">
+        <tags>TrimStack</tags>
+        <tags>Draggable</tags>
+      </children>
+      <children xsi:type="menu:ToolControl" xmi:id="_n0PFwBz7EeuvCL7PWPIy5A" elementId="PartStack@2a0a5865(IDEWindow).(org.eclipse.ui.resourcePerspective)" toBeRendered="false" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.minmax.TrimStack">
         <tags>TrimStack</tags>
         <tags>Draggable</tags>
       </children>
@@ -508,47 +501,45 @@
     <bindings xmi:id="_ZhGLsg_nEeuSK_n-jVQ5IQ" keySequence="SHIFT+CR" command="_ZhICAA_nEeuSK_n-jVQ5IQ"/>
   </bindingTables>
   <bindingTables xmi:id="_ZhGLsw_nEeuSK_n-jVQ5IQ" elementId="org.eclipse.xtext.ui.embeddedTextEditorScope" bindingContext="_ZhGy6g_nEeuSK_n-jVQ5IQ">
-    <bindings xmi:id="_ZhGLtA_nEeuSK_n-jVQ5IQ" keySequence="CTRL+SHIFT+CR" command="_ZhIBtg_nEeuSK_n-jVQ5IQ"/>
-    <bindings xmi:id="_ZhGLtQ_nEeuSK_n-jVQ5IQ" keySequence="CTRL+BS" command="_ZhHasg_nEeuSK_n-jVQ5IQ"/>
-    <bindings xmi:id="_ZhGLtg_nEeuSK_n-jVQ5IQ" keySequence="CTRL+SHIFT+J" command="_ZhIBGA_nEeuSK_n-jVQ5IQ"/>
-    <bindings xmi:id="_ZhGLtw_nEeuSK_n-jVQ5IQ" keySequence="CTRL+SHIFT+K" command="_ZhIA3w_nEeuSK_n-jVQ5IQ"/>
-    <bindings xmi:id="_ZhGLuA_nEeuSK_n-jVQ5IQ" keySequence="ALT+CTRL+J" command="_ZhIBMw_nEeuSK_n-jVQ5IQ"/>
-    <bindings xmi:id="_ZhGLuQ_nEeuSK_n-jVQ5IQ" keySequence="ALT+SHIFT+A" command="_ZhHa2w_nEeuSK_n-jVQ5IQ"/>
-    <bindings xmi:id="_ZhGLug_nEeuSK_n-jVQ5IQ" keySequence="CTRL+J" command="_ZhHbEg_nEeuSK_n-jVQ5IQ"/>
-    <bindings xmi:id="_ZhGLuw_nEeuSK_n-jVQ5IQ" keySequence="CTRL+K" command="_ZhIA9g_nEeuSK_n-jVQ5IQ"/>
-    <bindings xmi:id="_ZhGLvA_nEeuSK_n-jVQ5IQ" keySequence="CTRL+L" command="_ZhIBhg_nEeuSK_n-jVQ5IQ"/>
-    <bindings xmi:id="_ZhGLvQ_nEeuSK_n-jVQ5IQ" keySequence="CTRL+D" command="_ZhHbHw_nEeuSK_n-jVQ5IQ"/>
-    <bindings xmi:id="_ZhGLvg_nEeuSK_n-jVQ5IQ" keySequence="CTRL+SHIFT+DEL" command="_ZhIBdw_nEeuSK_n-jVQ5IQ"/>
-    <bindings xmi:id="_ZhGLvw_nEeuSK_n-jVQ5IQ" keySequence="CTRL+SHIFT+X" command="_ZhHaxg_nEeuSK_n-jVQ5IQ"/>
-    <bindings xmi:id="_ZhGLwA_nEeuSK_n-jVQ5IQ" keySequence="CTRL+SHIFT+Y" command="_ZhIB9A_nEeuSK_n-jVQ5IQ"/>
-    <bindings xmi:id="_ZhGLwQ_nEeuSK_n-jVQ5IQ" keySequence="CTRL+DEL" command="_ZhIBiA_nEeuSK_n-jVQ5IQ"/>
-    <bindings xmi:id="_ZhGLwg_nEeuSK_n-jVQ5IQ" keySequence="ALT+ARROW_UP" command="_ZhICXw_nEeuSK_n-jVQ5IQ"/>
-    <bindings xmi:id="_ZhGLww_nEeuSK_n-jVQ5IQ" keySequence="ALT+ARROW_DOWN" command="_ZhIBDA_nEeuSK_n-jVQ5IQ"/>
-    <bindings xmi:id="_ZhGLxA_nEeuSK_n-jVQ5IQ" keySequence="SHIFT+END" command="_ZhIB_g_nEeuSK_n-jVQ5IQ"/>
-    <bindings xmi:id="_ZhGLxQ_nEeuSK_n-jVQ5IQ" keySequence="SHIFT+HOME" command="_ZhIB3w_nEeuSK_n-jVQ5IQ"/>
-    <bindings xmi:id="_ZhGLxg_nEeuSK_n-jVQ5IQ" keySequence="END" command="_ZhIB1Q_nEeuSK_n-jVQ5IQ"/>
-    <bindings xmi:id="_ZhGLxw_nEeuSK_n-jVQ5IQ" keySequence="INSERT" command="_ZhHbBA_nEeuSK_n-jVQ5IQ"/>
-    <bindings xmi:id="_ZhGLyA_nEeuSK_n-jVQ5IQ" keySequence="F2" command="_ZhIBRw_nEeuSK_n-jVQ5IQ"/>
-    <bindings xmi:id="_ZhGLyQ_nEeuSK_n-jVQ5IQ" keySequence="HOME" command="_ZhICAQ_nEeuSK_n-jVQ5IQ"/>
-    <bindings xmi:id="_ZhGLyg_nEeuSK_n-jVQ5IQ" keySequence="ALT+CTRL+ARROW_UP" command="_ZhICMg_nEeuSK_n-jVQ5IQ"/>
-    <bindings xmi:id="_ZhGLyw_nEeuSK_n-jVQ5IQ" keySequence="ALT+CTRL+ARROW_DOWN" command="_ZhICJw_nEeuSK_n-jVQ5IQ"/>
-    <bindings xmi:id="_ZhGLzA_nEeuSK_n-jVQ5IQ" keySequence="CTRL+SHIFT+INSERT" command="_ZhIBBg_nEeuSK_n-jVQ5IQ"/>
-    <bindings xmi:id="_ZhGLzQ_nEeuSK_n-jVQ5IQ" keySequence="CTRL+SHIFT+ARROW_LEFT" command="_ZhICAw_nEeuSK_n-jVQ5IQ"/>
-    <bindings xmi:id="_ZhGLzg_nEeuSK_n-jVQ5IQ" keySequence="CTRL+SHIFT+ARROW_RIGHT" command="_ZhIBDg_nEeuSK_n-jVQ5IQ"/>
-    <bindings xmi:id="_ZhGLzw_nEeuSK_n-jVQ5IQ" keySequence="CTRL+F10" command="_ZhIBsQ_nEeuSK_n-jVQ5IQ"/>
-    <bindings xmi:id="_ZhGL0A_nEeuSK_n-jVQ5IQ" keySequence="CTRL+END" command="_ZhIBFA_nEeuSK_n-jVQ5IQ"/>
-    <bindings xmi:id="_ZhGL0Q_nEeuSK_n-jVQ5IQ" keySequence="CTRL+ARROW_UP" command="_ZhIA5g_nEeuSK_n-jVQ5IQ"/>
-    <bindings xmi:id="_ZhGL0g_nEeuSK_n-jVQ5IQ" keySequence="CTRL+ARROW_DOWN" command="_ZhICdg_nEeuSK_n-jVQ5IQ"/>
-    <bindings xmi:id="_ZhGL0w_nEeuSK_n-jVQ5IQ" keySequence="CTRL+ARROW_LEFT" command="_ZhHasw_nEeuSK_n-jVQ5IQ"/>
-    <bindings xmi:id="_ZhGL1A_nEeuSK_n-jVQ5IQ" keySequence="CTRL+ARROW_RIGHT" command="_ZhIBIQ_nEeuSK_n-jVQ5IQ"/>
-    <bindings xmi:id="_ZhGL1Q_nEeuSK_n-jVQ5IQ" keySequence="CTRL+HOME" command="_ZhHa5w_nEeuSK_n-jVQ5IQ"/>
-    <bindings xmi:id="_ZhGL1g_nEeuSK_n-jVQ5IQ" keySequence="ALT+/" command="_ZhICBQ_nEeuSK_n-jVQ5IQ"/>
-    <bindings xmi:id="_ZhGL1w_nEeuSK_n-jVQ5IQ" keySequence="SHIFT+CR" command="_ZhICAA_nEeuSK_n-jVQ5IQ"/>
+    <bindings xmi:id="_M0YNEBz7EeuDh9DrK8PxkA" keySequence="CTRL+SHIFT+CR" command="_ZhIBtg_nEeuSK_n-jVQ5IQ"/>
+    <bindings xmi:id="_M0Y0IBz7EeuDh9DrK8PxkA" keySequence="CTRL+BS" command="_ZhHasg_nEeuSK_n-jVQ5IQ"/>
+    <bindings xmi:id="_M0ZbMhz7EeuDh9DrK8PxkA" keySequence="CTRL+SHIFT+J" command="_ZhIBGA_nEeuSK_n-jVQ5IQ"/>
+    <bindings xmi:id="_M0ZbMxz7EeuDh9DrK8PxkA" keySequence="CTRL+SHIFT+K" command="_ZhIA3w_nEeuSK_n-jVQ5IQ"/>
+    <bindings xmi:id="_M0bQYBz7EeuDh9DrK8PxkA" keySequence="ALT+CTRL+J" command="_ZhIBMw_nEeuSK_n-jVQ5IQ"/>
+    <bindings xmi:id="_M0bQYRz7EeuDh9DrK8PxkA" keySequence="ALT+SHIFT+A" command="_ZhHa2w_nEeuSK_n-jVQ5IQ"/>
+    <bindings xmi:id="_M0b3cRz7EeuDh9DrK8PxkA" keySequence="CTRL+J" command="_ZhHbEg_nEeuSK_n-jVQ5IQ"/>
+    <bindings xmi:id="_M0b3chz7EeuDh9DrK8PxkA" keySequence="CTRL+K" command="_ZhIA9g_nEeuSK_n-jVQ5IQ"/>
+    <bindings xmi:id="_M0b3cxz7EeuDh9DrK8PxkA" keySequence="CTRL+L" command="_ZhIBhg_nEeuSK_n-jVQ5IQ"/>
+    <bindings xmi:id="_M0cegxz7EeuDh9DrK8PxkA" keySequence="CTRL+D" command="_ZhHbHw_nEeuSK_n-jVQ5IQ"/>
+    <bindings xmi:id="_M0dsohz7EeuDh9DrK8PxkA" keySequence="CTRL+SHIFT+DEL" command="_ZhIBdw_nEeuSK_n-jVQ5IQ"/>
+    <bindings xmi:id="_M0dsoxz7EeuDh9DrK8PxkA" keySequence="CTRL+SHIFT+X" command="_ZhHaxg_nEeuSK_n-jVQ5IQ"/>
+    <bindings xmi:id="_M0dspBz7EeuDh9DrK8PxkA" keySequence="CTRL+SHIFT+Y" command="_ZhIB9A_nEeuSK_n-jVQ5IQ"/>
+    <bindings xmi:id="_M0dspRz7EeuDh9DrK8PxkA" keySequence="CTRL+DEL" command="_ZhIBiA_nEeuSK_n-jVQ5IQ"/>
+    <bindings xmi:id="_M0eTsBz7EeuDh9DrK8PxkA" keySequence="ALT+ARROW_UP" command="_ZhICXw_nEeuSK_n-jVQ5IQ"/>
+    <bindings xmi:id="_M0eTsRz7EeuDh9DrK8PxkA" keySequence="ALT+ARROW_DOWN" command="_ZhIBDA_nEeuSK_n-jVQ5IQ"/>
+    <bindings xmi:id="_M0eTshz7EeuDh9DrK8PxkA" keySequence="SHIFT+END" command="_ZhIB_g_nEeuSK_n-jVQ5IQ"/>
+    <bindings xmi:id="_M0eTsxz7EeuDh9DrK8PxkA" keySequence="SHIFT+HOME" command="_ZhIB3w_nEeuSK_n-jVQ5IQ"/>
+    <bindings xmi:id="_M0e6wBz7EeuDh9DrK8PxkA" keySequence="END" command="_ZhIB1Q_nEeuSK_n-jVQ5IQ"/>
+    <bindings xmi:id="_M0e6wRz7EeuDh9DrK8PxkA" keySequence="INSERT" command="_ZhHbBA_nEeuSK_n-jVQ5IQ"/>
+    <bindings xmi:id="_M0e6whz7EeuDh9DrK8PxkA" keySequence="F2" command="_ZhIBRw_nEeuSK_n-jVQ5IQ"/>
+    <bindings xmi:id="_M0e6xRz7EeuDh9DrK8PxkA" keySequence="HOME" command="_ZhICAQ_nEeuSK_n-jVQ5IQ"/>
+    <bindings xmi:id="_M0e6xhz7EeuDh9DrK8PxkA" keySequence="ALT+CTRL+ARROW_UP" command="_ZhICMg_nEeuSK_n-jVQ5IQ"/>
+    <bindings xmi:id="_M0e6xxz7EeuDh9DrK8PxkA" keySequence="ALT+CTRL+ARROW_DOWN" command="_ZhICJw_nEeuSK_n-jVQ5IQ"/>
+    <bindings xmi:id="_M0e6yBz7EeuDh9DrK8PxkA" keySequence="CTRL+SHIFT+INSERT" command="_ZhIBBg_nEeuSK_n-jVQ5IQ"/>
+    <bindings xmi:id="_M0fh0Bz7EeuDh9DrK8PxkA" keySequence="CTRL+SHIFT+ARROW_LEFT" command="_ZhICAw_nEeuSK_n-jVQ5IQ"/>
+    <bindings xmi:id="_M0fh0hz7EeuDh9DrK8PxkA" keySequence="CTRL+SHIFT+ARROW_RIGHT" command="_ZhIBDg_nEeuSK_n-jVQ5IQ"/>
+    <bindings xmi:id="_M0fh1hz7EeuDh9DrK8PxkA" keySequence="CTRL+F10" command="_ZhIBsQ_nEeuSK_n-jVQ5IQ"/>
+    <bindings xmi:id="_M0gI4Rz7EeuDh9DrK8PxkA" keySequence="CTRL+END" command="_ZhIBFA_nEeuSK_n-jVQ5IQ"/>
+    <bindings xmi:id="_M0gI4hz7EeuDh9DrK8PxkA" keySequence="CTRL+ARROW_UP" command="_ZhIA5g_nEeuSK_n-jVQ5IQ"/>
+    <bindings xmi:id="_M0gI4xz7EeuDh9DrK8PxkA" keySequence="CTRL+ARROW_DOWN" command="_ZhICdg_nEeuSK_n-jVQ5IQ"/>
+    <bindings xmi:id="_M0gI5Bz7EeuDh9DrK8PxkA" keySequence="CTRL+ARROW_LEFT" command="_ZhHasw_nEeuSK_n-jVQ5IQ"/>
+    <bindings xmi:id="_M0gv8Bz7EeuDh9DrK8PxkA" keySequence="CTRL+ARROW_RIGHT" command="_ZhIBIQ_nEeuSK_n-jVQ5IQ"/>
+    <bindings xmi:id="_M0gv8Rz7EeuDh9DrK8PxkA" keySequence="CTRL+HOME" command="_ZhHa5w_nEeuSK_n-jVQ5IQ"/>
+    <bindings xmi:id="_M0h-Exz7EeuDh9DrK8PxkA" keySequence="ALT+/" command="_ZhICBQ_nEeuSK_n-jVQ5IQ"/>
+    <bindings xmi:id="_M0h-FBz7EeuDh9DrK8PxkA" keySequence="SHIFT+CR" command="_ZhICAA_nEeuSK_n-jVQ5IQ"/>
   </bindingTables>
   <bindingTables xmi:id="_ZhGL2A_nEeuSK_n-jVQ5IQ" elementId="org.eclipse.ui.contexts.window" bindingContext="_ZhGy1Q_nEeuSK_n-jVQ5IQ">
-    <bindings xmi:id="_ZhGL2Q_nEeuSK_n-jVQ5IQ" keySequence="ALT+CTRL+SHIFT+A" command="_ZhIBEQ_nEeuSK_n-jVQ5IQ"/>
     <bindings xmi:id="_ZhGL2g_nEeuSK_n-jVQ5IQ" keySequence="ALT+CTRL+SHIFT+L" command="_ZhHa9g_nEeuSK_n-jVQ5IQ"/>
-    <bindings xmi:id="_ZhGL2w_nEeuSK_n-jVQ5IQ" keySequence="ALT+CTRL+SHIFT+M" command="_ZhICEg_nEeuSK_n-jVQ5IQ"/>
     <bindings xmi:id="_ZhGL3A_nEeuSK_n-jVQ5IQ" keySequence="ALT+SHIFT+Q O" command="_ZhIA7g_nEeuSK_n-jVQ5IQ">
       <parameters xmi:id="_ZhGL3Q_nEeuSK_n-jVQ5IQ" elementId="org.eclipse.ui.views.showView.viewId" name="org.eclipse.ui.views.showView.viewId" value="org.eclipse.ui.views.ContentOutline"/>
     </bindings>
@@ -587,7 +578,6 @@
     <bindings xmi:id="_ZhGL9w_nEeuSK_n-jVQ5IQ" keySequence="CTRL+SHIFT+N" command="_ZhHazw_nEeuSK_n-jVQ5IQ"/>
     <bindings xmi:id="_ZhGL-A_nEeuSK_n-jVQ5IQ" keySequence="CTRL+." command="_ZhICOA_nEeuSK_n-jVQ5IQ"/>
     <bindings xmi:id="_ZhGL-Q_nEeuSK_n-jVQ5IQ" keySequence="CTRL+SHIFT+O" command="_ZhICGA_nEeuSK_n-jVQ5IQ"/>
-    <bindings xmi:id="_ZhGL-g_nEeuSK_n-jVQ5IQ" keySequence="CTRL+SHIFT+A" command="_ZhIA-w_nEeuSK_n-jVQ5IQ"/>
     <bindings xmi:id="_ZhGL-w_nEeuSK_n-jVQ5IQ" keySequence="CTRL+SHIFT+B" command="_ZhIA4A_nEeuSK_n-jVQ5IQ"/>
     <bindings xmi:id="_ZhGL_A_nEeuSK_n-jVQ5IQ" keySequence="ALT+CTRL+U" command="_ZhIBBA_nEeuSK_n-jVQ5IQ">
       <tags>platform:gtk</tags>
@@ -661,49 +651,52 @@
     <bindings xmi:id="_ZhGMNQ_nEeuSK_n-jVQ5IQ" keySequence="F5" command="_ZhIB1g_nEeuSK_n-jVQ5IQ"/>
     <bindings xmi:id="_ZhGMNg_nEeuSK_n-jVQ5IQ" keySequence="CTRL+SHIFT+F7" command="_ZhICEw_nEeuSK_n-jVQ5IQ"/>
     <bindings xmi:id="_ZhGMNw_nEeuSK_n-jVQ5IQ" keySequence="CTRL+SHIFT+F8" command="_ZhIBYg_nEeuSK_n-jVQ5IQ"/>
-    <bindings xmi:id="_ZhGMOA_nEeuSK_n-jVQ5IQ" keySequence="CTRL+SHIFT+F3" command="_ZhIBoQ_nEeuSK_n-jVQ5IQ"/>
     <bindings xmi:id="_ZhGMOQ_nEeuSK_n-jVQ5IQ" keySequence="CTRL+SHIFT+F4" command="_ZhIBmA_nEeuSK_n-jVQ5IQ"/>
     <bindings xmi:id="_ZhGMOg_nEeuSK_n-jVQ5IQ" keySequence="CTRL+SHIFT+F6" command="_ZhHbMw_nEeuSK_n-jVQ5IQ"/>
     <bindings xmi:id="_ZhGMOw_nEeuSK_n-jVQ5IQ" keySequence="ALT+SHIFT+X J" command="_ZhIBAg_nEeuSK_n-jVQ5IQ"/>
     <bindings xmi:id="_ZhGMPA_nEeuSK_n-jVQ5IQ" keySequence="ALT+SHIFT+X A" command="_ZhHa6w_nEeuSK_n-jVQ5IQ"/>
-    <bindings xmi:id="_ZhGMPQ_nEeuSK_n-jVQ5IQ" keySequence="ALT+SHIFT+X E" command="_ZhIA2w_nEeuSK_n-jVQ5IQ"/>
     <bindings xmi:id="_ZhGMPg_nEeuSK_n-jVQ5IQ" keySequence="CTRL+F7" command="_ZhHaug_nEeuSK_n-jVQ5IQ"/>
     <bindings xmi:id="_ZhGMPw_nEeuSK_n-jVQ5IQ" keySequence="CTRL+F8" command="_ZhIBQQ_nEeuSK_n-jVQ5IQ"/>
     <bindings xmi:id="_ZhGMQA_nEeuSK_n-jVQ5IQ" keySequence="CTRL+F11" command="_ZhIB2A_nEeuSK_n-jVQ5IQ"/>
     <bindings xmi:id="_ZhGMQQ_nEeuSK_n-jVQ5IQ" keySequence="CTRL+F4" command="_ZhICVw_nEeuSK_n-jVQ5IQ"/>
     <bindings xmi:id="_ZhGMQg_nEeuSK_n-jVQ5IQ" keySequence="CTRL+F6" command="_ZhIA1Q_nEeuSK_n-jVQ5IQ"/>
     <bindings xmi:id="_ZhGMQw_nEeuSK_n-jVQ5IQ" keySequence="ALT+SHIFT+F7" command="_ZhIBFg_nEeuSK_n-jVQ5IQ"/>
-    <bindings xmi:id="_ZhGMRA_nEeuSK_n-jVQ5IQ" keySequence="ALT+SHIFT+X O" command="_ZhHbGg_nEeuSK_n-jVQ5IQ"/>
     <bindings xmi:id="_ZhGMRQ_nEeuSK_n-jVQ5IQ" keySequence="CTRL+SHIFT+NUMPAD_MULTIPLY" command="_ZhHbJQ_nEeuSK_n-jVQ5IQ"/>
-    <bindings xmi:id="_ZhGMRg_nEeuSK_n-jVQ5IQ" keySequence="ALT+SHIFT+X P" command="_ZhICKA_nEeuSK_n-jVQ5IQ"/>
     <bindings xmi:id="_ZhGMRw_nEeuSK_n-jVQ5IQ" keySequence="ALT+SHIFT+X Q" command="_ZhIBGg_nEeuSK_n-jVQ5IQ"/>
     <bindings xmi:id="_ZhGMSA_nEeuSK_n-jVQ5IQ" keySequence="ALT+SHIFT+X T" command="_ZhICFg_nEeuSK_n-jVQ5IQ"/>
     <bindings xmi:id="_ZhGMSQ_nEeuSK_n-jVQ5IQ" keySequence="CTRL+SHIFT+NUMPAD_DIVIDE" command="_ZhIBZQ_nEeuSK_n-jVQ5IQ"/>
     <bindings xmi:id="_ZhGMSg_nEeuSK_n-jVQ5IQ" keySequence="DEL" command="_ZhIA2g_nEeuSK_n-jVQ5IQ"/>
     <bindings xmi:id="_ZhGMSw_nEeuSK_n-jVQ5IQ" keySequence="ALT+-" command="_ZhHazg_nEeuSK_n-jVQ5IQ"/>
     <bindings xmi:id="_ZhGMTA_nEeuSK_n-jVQ5IQ" keySequence="ALT+CR" command="_ZhIBUw_nEeuSK_n-jVQ5IQ"/>
-    <bindings xmi:id="_ZhGMTQ_nEeuSK_n-jVQ5IQ" keySequence="ALT+SHIFT+D E" command="_ZhICYQ_nEeuSK_n-jVQ5IQ"/>
     <bindings xmi:id="_ZhGMTg_nEeuSK_n-jVQ5IQ" keySequence="ALT+SHIFT+D A" command="_ZhIBiQ_nEeuSK_n-jVQ5IQ"/>
     <bindings xmi:id="_ZhGMTw_nEeuSK_n-jVQ5IQ" keySequence="ALT+SHIFT+D T" command="_ZhHawQ_nEeuSK_n-jVQ5IQ"/>
     <bindings xmi:id="_ZhGMUA_nEeuSK_n-jVQ5IQ" keySequence="ALT+SHIFT+D J" command="_ZhIBOg_nEeuSK_n-jVQ5IQ"/>
-    <bindings xmi:id="_ZhGMUQ_nEeuSK_n-jVQ5IQ" keySequence="ALT+SHIFT+D O" command="_ZhHawA_nEeuSK_n-jVQ5IQ"/>
-    <bindings xmi:id="_ZhGMUg_nEeuSK_n-jVQ5IQ" keySequence="ALT+SHIFT+D P" command="_ZhIBpA_nEeuSK_n-jVQ5IQ"/>
     <bindings xmi:id="_ZhGMUw_nEeuSK_n-jVQ5IQ" keySequence="ALT+SHIFT+D Q" command="_ZhICNw_nEeuSK_n-jVQ5IQ"/>
+    <bindings xmi:id="_M0YNERz7EeuDh9DrK8PxkA" keySequence="ALT+CTRL+SHIFT+A" command="_ZhIBEQ_nEeuSK_n-jVQ5IQ"/>
+    <bindings xmi:id="_M0Y0IRz7EeuDh9DrK8PxkA" keySequence="ALT+CTRL+SHIFT+M" command="_ZhICEg_nEeuSK_n-jVQ5IQ"/>
+    <bindings xmi:id="_M0aCQxz7EeuDh9DrK8PxkA" keySequence="CTRL+SHIFT+A" command="_ZhIA-w_nEeuSK_n-jVQ5IQ"/>
+    <bindings xmi:id="_M0e6yRz7EeuDh9DrK8PxkA" keySequence="CTRL+SHIFT+F3" command="_ZhIBoQ_nEeuSK_n-jVQ5IQ"/>
+    <bindings xmi:id="_M0fh0xz7EeuDh9DrK8PxkA" keySequence="ALT+SHIFT+X E" command="_ZhIA2w_nEeuSK_n-jVQ5IQ"/>
+    <bindings xmi:id="_M0gv8hz7EeuDh9DrK8PxkA" keySequence="ALT+SHIFT+X O" command="_ZhHbGg_nEeuSK_n-jVQ5IQ"/>
+    <bindings xmi:id="_M0hXABz7EeuDh9DrK8PxkA" keySequence="ALT+SHIFT+X P" command="_ZhICKA_nEeuSK_n-jVQ5IQ"/>
+    <bindings xmi:id="_M0h-FRz7EeuDh9DrK8PxkA" keySequence="ALT+SHIFT+D E" command="_ZhICYQ_nEeuSK_n-jVQ5IQ"/>
+    <bindings xmi:id="_M0ilIBz7EeuDh9DrK8PxkA" keySequence="ALT+SHIFT+D O" command="_ZhHawA_nEeuSK_n-jVQ5IQ"/>
+    <bindings xmi:id="_M0ilIRz7EeuDh9DrK8PxkA" keySequence="ALT+SHIFT+D P" command="_ZhIBpA_nEeuSK_n-jVQ5IQ"/>
   </bindingTables>
   <bindingTables xmi:id="_ZhGMVA_nEeuSK_n-jVQ5IQ" elementId="org.eclipse.xtend.ide.XtendEditorScope" bindingContext="_ZhGy3g_nEeuSK_n-jVQ5IQ">
-    <bindings xmi:id="_ZhGMVQ_nEeuSK_n-jVQ5IQ" keySequence="ALT+CTRL+SHIFT+M" command="_ZhICOw_nEeuSK_n-jVQ5IQ"/>
-    <bindings xmi:id="_ZhGMVg_nEeuSK_n-jVQ5IQ" keySequence="CTRL+SHIFT+V" command="_ZhICaw_nEeuSK_n-jVQ5IQ"/>
-    <bindings xmi:id="_ZhGMVw_nEeuSK_n-jVQ5IQ" keySequence="CTRL+SHIFT+M" command="_ZhIBBQ_nEeuSK_n-jVQ5IQ"/>
-    <bindings xmi:id="_ZhGMWA_nEeuSK_n-jVQ5IQ" keySequence="CTRL+&lt;" command="_ZhIBag_nEeuSK_n-jVQ5IQ"/>
-    <bindings xmi:id="_ZhGMWQ_nEeuSK_n-jVQ5IQ" keySequence="CTRL+>" command="_ZhIB4w_nEeuSK_n-jVQ5IQ"/>
-    <bindings xmi:id="_ZhGMWg_nEeuSK_n-jVQ5IQ" keySequence="ALT+SHIFT+X J" command="_ZhIA4Q_nEeuSK_n-jVQ5IQ"/>
-    <bindings xmi:id="_ZhGMWw_nEeuSK_n-jVQ5IQ" keySequence="ALT+SHIFT+X P" command="_ZhIBJA_nEeuSK_n-jVQ5IQ"/>
-    <bindings xmi:id="_ZhGMXA_nEeuSK_n-jVQ5IQ" keySequence="ALT+SHIFT+X T" command="_ZhIBxg_nEeuSK_n-jVQ5IQ"/>
-    <bindings xmi:id="_ZhGMXQ_nEeuSK_n-jVQ5IQ" keySequence="ALT+COMMAND+D J" command="_ZhIBqQ_nEeuSK_n-jVQ5IQ"/>
-    <bindings xmi:id="_ZhGMXg_nEeuSK_n-jVQ5IQ" keySequence="COMMAND+&lt;" command="_ZhIBag_nEeuSK_n-jVQ5IQ"/>
-    <bindings xmi:id="_ZhGMXw_nEeuSK_n-jVQ5IQ" keySequence="COMMAND+>" command="_ZhIB4w_nEeuSK_n-jVQ5IQ"/>
-    <bindings xmi:id="_ZhGMYA_nEeuSK_n-jVQ5IQ" keySequence="ALT+SHIFT+D T" command="_ZhIBTw_nEeuSK_n-jVQ5IQ"/>
-    <bindings xmi:id="_ZhGMYQ_nEeuSK_n-jVQ5IQ" keySequence="ALT+SHIFT+D P" command="_ZhIBkA_nEeuSK_n-jVQ5IQ"/>
+    <bindings xmi:id="_M0Y0Ihz7EeuDh9DrK8PxkA" keySequence="ALT+CTRL+SHIFT+M" command="_ZhICOw_nEeuSK_n-jVQ5IQ"/>
+    <bindings xmi:id="_M0ZbMBz7EeuDh9DrK8PxkA" keySequence="CTRL+SHIFT+V" command="_ZhICaw_nEeuSK_n-jVQ5IQ"/>
+    <bindings xmi:id="_M0aCQBz7EeuDh9DrK8PxkA" keySequence="CTRL+SHIFT+M" command="_ZhIBBQ_nEeuSK_n-jVQ5IQ"/>
+    <bindings xmi:id="_M0dFkBz7EeuDh9DrK8PxkA" keySequence="CTRL+&lt;" command="_ZhIBag_nEeuSK_n-jVQ5IQ"/>
+    <bindings xmi:id="_M0dsoRz7EeuDh9DrK8PxkA" keySequence="CTRL+>" command="_ZhIB4w_nEeuSK_n-jVQ5IQ"/>
+    <bindings xmi:id="_M0fh0Rz7EeuDh9DrK8PxkA" keySequence="ALT+SHIFT+X J" command="_ZhIA4Q_nEeuSK_n-jVQ5IQ"/>
+    <bindings xmi:id="_M0hXARz7EeuDh9DrK8PxkA" keySequence="ALT+SHIFT+X P" command="_ZhIBJA_nEeuSK_n-jVQ5IQ"/>
+    <bindings xmi:id="_M0hXAhz7EeuDh9DrK8PxkA" keySequence="ALT+SHIFT+X T" command="_ZhIBxg_nEeuSK_n-jVQ5IQ"/>
+    <bindings xmi:id="_M0h-EBz7EeuDh9DrK8PxkA" keySequence="ALT+COMMAND+D J" command="_ZhIBqQ_nEeuSK_n-jVQ5IQ"/>
+    <bindings xmi:id="_M0h-ERz7EeuDh9DrK8PxkA" keySequence="COMMAND+&lt;" command="_ZhIBag_nEeuSK_n-jVQ5IQ"/>
+    <bindings xmi:id="_M0h-Ehz7EeuDh9DrK8PxkA" keySequence="COMMAND+>" command="_ZhIB4w_nEeuSK_n-jVQ5IQ"/>
+    <bindings xmi:id="_M0h-Fhz7EeuDh9DrK8PxkA" keySequence="ALT+SHIFT+D T" command="_ZhIBTw_nEeuSK_n-jVQ5IQ"/>
+    <bindings xmi:id="_M0ilIhz7EeuDh9DrK8PxkA" keySequence="ALT+SHIFT+D P" command="_ZhIBkA_nEeuSK_n-jVQ5IQ"/>
   </bindingTables>
   <bindingTables xmi:id="_ZhGMYg_nEeuSK_n-jVQ5IQ" elementId="org.eclipse.jdt.ui.javaEditorScope" bindingContext="_ZhGy3A_nEeuSK_n-jVQ5IQ">
     <bindings xmi:id="_ZhGMYw_nEeuSK_n-jVQ5IQ" keySequence="CTRL+SHIFT+P" command="_ZhIBFQ_nEeuSK_n-jVQ5IQ"/>
@@ -734,31 +727,31 @@
     <bindings xmi:id="_ZhGMfA_nEeuSK_n-jVQ5IQ" keySequence="CTRL+2 M" command="_ZhIB1w_nEeuSK_n-jVQ5IQ"/>
   </bindingTables>
   <bindingTables xmi:id="_ZhGMfQ_nEeuSK_n-jVQ5IQ" elementId="org.eclipse.xtext.ui.XtextEditorScope" bindingContext="_ZhGy3Q_nEeuSK_n-jVQ5IQ">
-    <bindings xmi:id="_ZhGMfg_nEeuSK_n-jVQ5IQ" keySequence="CTRL+SHIFT+P" command="_ZhICEQ_nEeuSK_n-jVQ5IQ"/>
-    <bindings xmi:id="_ZhGMfw_nEeuSK_n-jVQ5IQ" keySequence="CTRL+7" command="_ZhIB6w_nEeuSK_n-jVQ5IQ"/>
-    <bindings xmi:id="_ZhGMgA_nEeuSK_n-jVQ5IQ" keySequence="CTRL+/" command="_ZhIB6w_nEeuSK_n-jVQ5IQ"/>
-    <bindings xmi:id="_ZhGMgQ_nEeuSK_n-jVQ5IQ" keySequence="CTRL+SHIFT+O" command="_ZhIB2w_nEeuSK_n-jVQ5IQ"/>
-    <bindings xmi:id="_ZhGMgg_nEeuSK_n-jVQ5IQ" keySequence="CTRL+SHIFT+C" command="_ZhIB6w_nEeuSK_n-jVQ5IQ"/>
-    <bindings xmi:id="_ZhGMgw_nEeuSK_n-jVQ5IQ" keySequence="CTRL+SHIFT+F" command="_ZhIBqw_nEeuSK_n-jVQ5IQ"/>
-    <bindings xmi:id="_ZhGMhA_nEeuSK_n-jVQ5IQ" keySequence="CTRL+SHIFT+G" command="_ZhIBAQ_nEeuSK_n-jVQ5IQ"/>
-    <bindings xmi:id="_ZhGMhQ_nEeuSK_n-jVQ5IQ" keySequence="ALT+CTRL+H" command="_ZhHayA_nEeuSK_n-jVQ5IQ"/>
-    <bindings xmi:id="_ZhGMhg_nEeuSK_n-jVQ5IQ" keySequence="CTRL+T" command="_ZhHa2Q_nEeuSK_n-jVQ5IQ"/>
-    <bindings xmi:id="_ZhGMhw_nEeuSK_n-jVQ5IQ" keySequence="CTRL+O" command="_ZhIB6g_nEeuSK_n-jVQ5IQ"/>
-    <bindings xmi:id="_ZhGMiA_nEeuSK_n-jVQ5IQ" keySequence="ALT+SHIFT+R" command="_ZhIBYQ_nEeuSK_n-jVQ5IQ">
+    <bindings xmi:id="_M0Y0Ixz7EeuDh9DrK8PxkA" keySequence="CTRL+SHIFT+P" command="_ZhICEQ_nEeuSK_n-jVQ5IQ"/>
+    <bindings xmi:id="_M0ZbMRz7EeuDh9DrK8PxkA" keySequence="CTRL+7" command="_ZhIB6w_nEeuSK_n-jVQ5IQ"/>
+    <bindings xmi:id="_M0aCQRz7EeuDh9DrK8PxkA" keySequence="CTRL+/" command="_ZhIB6w_nEeuSK_n-jVQ5IQ"/>
+    <bindings xmi:id="_M0aCQhz7EeuDh9DrK8PxkA" keySequence="CTRL+SHIFT+O" command="_ZhIB2w_nEeuSK_n-jVQ5IQ"/>
+    <bindings xmi:id="_M0apUBz7EeuDh9DrK8PxkA" keySequence="CTRL+SHIFT+C" command="_ZhIB6w_nEeuSK_n-jVQ5IQ"/>
+    <bindings xmi:id="_M0apUhz7EeuDh9DrK8PxkA" keySequence="CTRL+SHIFT+F" command="_ZhIBqw_nEeuSK_n-jVQ5IQ"/>
+    <bindings xmi:id="_M0apUxz7EeuDh9DrK8PxkA" keySequence="CTRL+SHIFT+G" command="_ZhIBAQ_nEeuSK_n-jVQ5IQ"/>
+    <bindings xmi:id="_M0apVBz7EeuDh9DrK8PxkA" keySequence="ALT+CTRL+H" command="_ZhHayA_nEeuSK_n-jVQ5IQ"/>
+    <bindings xmi:id="_M0b3cBz7EeuDh9DrK8PxkA" keySequence="CTRL+T" command="_ZhHa2Q_nEeuSK_n-jVQ5IQ"/>
+    <bindings xmi:id="_M0cegRz7EeuDh9DrK8PxkA" keySequence="CTRL+O" command="_ZhIB6g_nEeuSK_n-jVQ5IQ"/>
+    <bindings xmi:id="_M0ceghz7EeuDh9DrK8PxkA" keySequence="ALT+SHIFT+R" command="_ZhIBYQ_nEeuSK_n-jVQ5IQ">
       <tags>platform:gtk</tags>
     </bindings>
-    <bindings xmi:id="_ZhGMiQ_nEeuSK_n-jVQ5IQ" keySequence="ALT+SHIFT+L" command="_ZhICXA_nEeuSK_n-jVQ5IQ">
+    <bindings xmi:id="_M0dFkRz7EeuDh9DrK8PxkA" keySequence="ALT+SHIFT+L" command="_ZhICXA_nEeuSK_n-jVQ5IQ">
       <tags>platform:gtk</tags>
     </bindings>
-    <bindings xmi:id="_ZhGMig_nEeuSK_n-jVQ5IQ" keySequence="ALT+SHIFT+M" command="_ZhICDw_nEeuSK_n-jVQ5IQ">
+    <bindings xmi:id="_M0dsoBz7EeuDh9DrK8PxkA" keySequence="ALT+SHIFT+M" command="_ZhICDw_nEeuSK_n-jVQ5IQ">
       <tags>platform:gtk</tags>
     </bindings>
-    <bindings xmi:id="_ZhGMiw_nEeuSK_n-jVQ5IQ" keySequence="F3" command="_ZhICSg_nEeuSK_n-jVQ5IQ"/>
-    <bindings xmi:id="_ZhGMjA_nEeuSK_n-jVQ5IQ" keySequence="F4" command="_ZhICNg_nEeuSK_n-jVQ5IQ"/>
-    <bindings xmi:id="_ZhGMjQ_nEeuSK_n-jVQ5IQ" keySequence="ALT+SHIFT+ARROW_UP" command="_ZhHa5g_nEeuSK_n-jVQ5IQ"/>
-    <bindings xmi:id="_ZhGMjg_nEeuSK_n-jVQ5IQ" keySequence="ALT+SHIFT+ARROW_DOWN" command="_ZhIBJw_nEeuSK_n-jVQ5IQ"/>
-    <bindings xmi:id="_ZhGMjw_nEeuSK_n-jVQ5IQ" keySequence="ALT+SHIFT+ARROW_LEFT" command="_ZhHa5A_nEeuSK_n-jVQ5IQ"/>
-    <bindings xmi:id="_ZhGMkA_nEeuSK_n-jVQ5IQ" keySequence="ALT+SHIFT+ARROW_RIGHT" command="_ZhIBeQ_nEeuSK_n-jVQ5IQ"/>
+    <bindings xmi:id="_M0e6wxz7EeuDh9DrK8PxkA" keySequence="F3" command="_ZhICSg_nEeuSK_n-jVQ5IQ"/>
+    <bindings xmi:id="_M0e6xBz7EeuDh9DrK8PxkA" keySequence="F4" command="_ZhICNg_nEeuSK_n-jVQ5IQ"/>
+    <bindings xmi:id="_M0fh1Bz7EeuDh9DrK8PxkA" keySequence="ALT+SHIFT+ARROW_UP" command="_ZhHa5g_nEeuSK_n-jVQ5IQ"/>
+    <bindings xmi:id="_M0fh1Rz7EeuDh9DrK8PxkA" keySequence="ALT+SHIFT+ARROW_DOWN" command="_ZhIBJw_nEeuSK_n-jVQ5IQ"/>
+    <bindings xmi:id="_M0fh1xz7EeuDh9DrK8PxkA" keySequence="ALT+SHIFT+ARROW_LEFT" command="_ZhHa5A_nEeuSK_n-jVQ5IQ"/>
+    <bindings xmi:id="_M0gI4Bz7EeuDh9DrK8PxkA" keySequence="ALT+SHIFT+ARROW_RIGHT" command="_ZhIBeQ_nEeuSK_n-jVQ5IQ"/>
   </bindingTables>
   <bindingTables xmi:id="_ZhGMkQ_nEeuSK_n-jVQ5IQ" elementId="org.eclipse.jdt.ui.classFileEditorScope" bindingContext="_ZhGy2w_nEeuSK_n-jVQ5IQ">
     <bindings xmi:id="_ZhGMkg_nEeuSK_n-jVQ5IQ" keySequence="CTRL+1" command="_ZhICRw_nEeuSK_n-jVQ5IQ"/>
@@ -776,15 +769,15 @@
     <bindings xmi:id="_ZhGMnA_nEeuSK_n-jVQ5IQ" keySequence="F3" command="_ZhHaxA_nEeuSK_n-jVQ5IQ"/>
   </bindingTables>
   <bindingTables xmi:id="_ZhGMnQ_nEeuSK_n-jVQ5IQ" elementId="org.eclipse.pde.ui.pdeEditorContext" bindingContext="_ZhGy2Q_nEeuSK_n-jVQ5IQ">
-    <bindings xmi:id="_ZhGMng_nEeuSK_n-jVQ5IQ" keySequence="CTRL+SHIFT+F" command="_ZhHbGA_nEeuSK_n-jVQ5IQ"/>
-    <bindings xmi:id="_ZhGMnw_nEeuSK_n-jVQ5IQ" keySequence="CTRL+O" command="_ZhHbOw_nEeuSK_n-jVQ5IQ"/>
+    <bindings xmi:id="_M0apURz7EeuDh9DrK8PxkA" keySequence="CTRL+SHIFT+F" command="_ZhHbGA_nEeuSK_n-jVQ5IQ"/>
+    <bindings xmi:id="_M0cegBz7EeuDh9DrK8PxkA" keySequence="CTRL+O" command="_ZhHbOw_nEeuSK_n-jVQ5IQ"/>
   </bindingTables>
   <bindingTables xmi:id="_ZhGMoA_nEeuSK_n-jVQ5IQ" elementId="org.eclipse.ui.genericeditor.genericEditorContext" bindingContext="_ZhGy2g_nEeuSK_n-jVQ5IQ">
     <bindings xmi:id="_ZhGMoQ_nEeuSK_n-jVQ5IQ" keySequence="CTRL+SHIFT+G" command="_ZhIB1A_nEeuSK_n-jVQ5IQ"/>
     <bindings xmi:id="_ZhGMog_nEeuSK_n-jVQ5IQ" keySequence="F3" command="_ZhIBwQ_nEeuSK_n-jVQ5IQ"/>
   </bindingTables>
   <bindingTables xmi:id="_ZhGMow_nEeuSK_n-jVQ5IQ" elementId="org.eclipse.xtext.xtext.ui.XtextEditorScope" bindingContext="_ZhGy3w_nEeuSK_n-jVQ5IQ">
-    <bindings xmi:id="_ZhGMpA_nEeuSK_n-jVQ5IQ" keySequence="ALT+CTRL+H" command="_ZhHa7Q_nEeuSK_n-jVQ5IQ"/>
+    <bindings xmi:id="_M0apVRz7EeuDh9DrK8PxkA" keySequence="ALT+CTRL+H" command="_ZhHa7Q_nEeuSK_n-jVQ5IQ"/>
   </bindingTables>
   <bindingTables xmi:id="_ZhGMpQ_nEeuSK_n-jVQ5IQ" elementId="org.eclipse.debug.ui.memoryview" bindingContext="_ZhGy5Q_nEeuSK_n-jVQ5IQ">
     <bindings xmi:id="_ZhGMpg_nEeuSK_n-jVQ5IQ" keySequence="ALT+CTRL+M" command="_ZhICFA_nEeuSK_n-jVQ5IQ"/>
@@ -1033,36 +1026,6 @@
     <tags>View</tags>
     <tags>categoryTag:Java</tags>
   </descriptors>
-  <descriptors xmi:id="_ZhGzIA_nEeuSK_n-jVQ5IQ" elementId="org.eclipse.pde.ui.PluginsView" label="Plug-ins" iconURI="platform:/plugin/org.eclipse.pde.ui/icons/eview16/plugin_depend.png" tooltip="" category="Plug-in Development" closeable="true" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView">
-    <persistedState key="originalCompatibilityViewClass" value="org.eclipse.pde.internal.ui.views.plugins.PluginsView"/>
-    <persistedState key="originalCompatibilityViewBundle" value="org.eclipse.pde.ui"/>
-    <tags>View</tags>
-    <tags>categoryTag:Plug-in Development</tags>
-  </descriptors>
-  <descriptors xmi:id="_ZhGzIQ_nEeuSK_n-jVQ5IQ" elementId="org.eclipse.pde.ui.FeaturesView" label="Features" iconURI="platform:/plugin/org.eclipse.pde.ui/icons/obj16/feature_obj.png" tooltip="" category="Plug-in Development" closeable="true" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView">
-    <persistedState key="originalCompatibilityViewClass" value="org.eclipse.pde.internal.ui.views.features.FeaturesView"/>
-    <persistedState key="originalCompatibilityViewBundle" value="org.eclipse.pde.ui"/>
-    <tags>View</tags>
-    <tags>categoryTag:Plug-in Development</tags>
-  </descriptors>
-  <descriptors xmi:id="_ZhGzIg_nEeuSK_n-jVQ5IQ" elementId="org.eclipse.pde.ui.DependenciesView" label="Plug-in Dependencies" iconURI="platform:/plugin/org.eclipse.pde.ui/icons/obj16/req_plugins_obj.png" tooltip="" category="Plug-in Development" closeable="true" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView">
-    <persistedState key="originalCompatibilityViewClass" value="org.eclipse.pde.internal.ui.views.dependencies.DependenciesView"/>
-    <persistedState key="originalCompatibilityViewBundle" value="org.eclipse.pde.ui"/>
-    <tags>View</tags>
-    <tags>categoryTag:Plug-in Development</tags>
-  </descriptors>
-  <descriptors xmi:id="_ZhGzIw_nEeuSK_n-jVQ5IQ" elementId="org.eclipse.pde.ui.TargetPlatformState" label="Target Platform State" iconURI="platform:/plugin/org.eclipse.pde.ui/icons/obj16/target_profile_xml_obj.png" tooltip="" category="Plug-in Development" closeable="true" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView">
-    <persistedState key="originalCompatibilityViewClass" value="org.eclipse.pde.internal.ui.views.target.TargetStateView"/>
-    <persistedState key="originalCompatibilityViewBundle" value="org.eclipse.pde.ui"/>
-    <tags>View</tags>
-    <tags>categoryTag:Plug-in Development</tags>
-  </descriptors>
-  <descriptors xmi:id="_ZhGzJA_nEeuSK_n-jVQ5IQ" elementId="org.eclipse.pde.ui.ImageBrowserView" label="Plug-in Image Browser" iconURI="platform:/plugin/org.eclipse.pde.ui/icons/obj16/psearch_obj.png" tooltip="" category="Plug-in Development" closeable="true" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView">
-    <persistedState key="originalCompatibilityViewClass" value="org.eclipse.pde.internal.ui.views.imagebrowser.ImageBrowserView"/>
-    <persistedState key="originalCompatibilityViewBundle" value="org.eclipse.pde.ui"/>
-    <tags>View</tags>
-    <tags>categoryTag:Plug-in Development</tags>
-  </descriptors>
   <descriptors xmi:id="_ZhGzJQ_nEeuSK_n-jVQ5IQ" elementId="org.eclipse.search.SearchResultView" label="Classic Search" iconURI="platform:/plugin/org.eclipse.search/icons/full/eview16/searchres.png" tooltip="" category="General" closeable="true" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView">
     <persistedState key="originalCompatibilityViewClass" value="org.eclipse.search.internal.ui.SearchResultView"/>
     <persistedState key="originalCompatibilityViewBundle" value="org.eclipse.search"/>
@@ -1177,19 +1140,49 @@
     <tags>View</tags>
     <tags>categoryTag:General</tags>
   </descriptors>
-  <descriptors xmi:id="_ZhGzOA_nEeuSK_n-jVQ5IQ" elementId="org.eclipse.xtend.ide.view.DerivedSourceView" label="Generated Code" iconURI="platform:/plugin/org.eclipse.xtend.ide/icons/generated_code_view.png" tooltip="" category="Xtend" closeable="true" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView">
+  <descriptors xmi:id="_M-LCQBz7EeuDh9DrK8PxkA" elementId="org.eclipse.pde.ui.PluginsView" label="Plug-ins" iconURI="platform:/plugin/org.eclipse.pde.ui/icons/eview16/plugin_depend.png" tooltip="" category="Plug-in Development" closeable="true" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView">
+    <persistedState key="originalCompatibilityViewClass" value="org.eclipse.pde.internal.ui.views.plugins.PluginsView"/>
+    <persistedState key="originalCompatibilityViewBundle" value="org.eclipse.pde.ui"/>
+    <tags>View</tags>
+    <tags>categoryTag:Plug-in Development</tags>
+  </descriptors>
+  <descriptors xmi:id="_M-MQYBz7EeuDh9DrK8PxkA" elementId="org.eclipse.pde.ui.FeaturesView" label="Features" iconURI="platform:/plugin/org.eclipse.pde.ui/icons/obj16/feature_obj.png" tooltip="" category="Plug-in Development" closeable="true" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView">
+    <persistedState key="originalCompatibilityViewClass" value="org.eclipse.pde.internal.ui.views.features.FeaturesView"/>
+    <persistedState key="originalCompatibilityViewBundle" value="org.eclipse.pde.ui"/>
+    <tags>View</tags>
+    <tags>categoryTag:Plug-in Development</tags>
+  </descriptors>
+  <descriptors xmi:id="_M-M3cBz7EeuDh9DrK8PxkA" elementId="org.eclipse.pde.ui.DependenciesView" label="Plug-in Dependencies" iconURI="platform:/plugin/org.eclipse.pde.ui/icons/obj16/req_plugins_obj.png" tooltip="" category="Plug-in Development" closeable="true" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView">
+    <persistedState key="originalCompatibilityViewClass" value="org.eclipse.pde.internal.ui.views.dependencies.DependenciesView"/>
+    <persistedState key="originalCompatibilityViewBundle" value="org.eclipse.pde.ui"/>
+    <tags>View</tags>
+    <tags>categoryTag:Plug-in Development</tags>
+  </descriptors>
+  <descriptors xmi:id="_M-NegBz7EeuDh9DrK8PxkA" elementId="org.eclipse.pde.ui.TargetPlatformState" label="Target Platform State" iconURI="platform:/plugin/org.eclipse.pde.ui/icons/obj16/target_profile_xml_obj.png" tooltip="" category="Plug-in Development" closeable="true" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView">
+    <persistedState key="originalCompatibilityViewClass" value="org.eclipse.pde.internal.ui.views.target.TargetStateView"/>
+    <persistedState key="originalCompatibilityViewBundle" value="org.eclipse.pde.ui"/>
+    <tags>View</tags>
+    <tags>categoryTag:Plug-in Development</tags>
+  </descriptors>
+  <descriptors xmi:id="_M-NegRz7EeuDh9DrK8PxkA" elementId="org.eclipse.pde.ui.ImageBrowserView" label="Plug-in Image Browser" iconURI="platform:/plugin/org.eclipse.pde.ui/icons/obj16/psearch_obj.png" tooltip="" category="Plug-in Development" closeable="true" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView">
+    <persistedState key="originalCompatibilityViewClass" value="org.eclipse.pde.internal.ui.views.imagebrowser.ImageBrowserView"/>
+    <persistedState key="originalCompatibilityViewBundle" value="org.eclipse.pde.ui"/>
+    <tags>View</tags>
+    <tags>categoryTag:Plug-in Development</tags>
+  </descriptors>
+  <descriptors xmi:id="_M-RI4Bz7EeuDh9DrK8PxkA" elementId="org.eclipse.xtend.ide.view.DerivedSourceView" label="Generated Code" iconURI="platform:/plugin/org.eclipse.xtend.ide/icons/generated_code_view.png" tooltip="" category="Xtend" closeable="true" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView">
     <persistedState key="originalCompatibilityViewClass" value="org.eclipse.xtend.ide.XtendExecutableExtensionFactory"/>
     <persistedState key="originalCompatibilityViewBundle" value="org.eclipse.xtend.ide"/>
     <tags>View</tags>
     <tags>categoryTag:Xtend</tags>
   </descriptors>
-  <descriptors xmi:id="_ZhGzOQ_nEeuSK_n-jVQ5IQ" elementId="org.eclipse.xtext.ui.XtextCallHierarchy" label="Call Hierarchy" iconURI="platform:/plugin/org.eclipse.xtext.xtext.ui/icons/editor.gif" tooltip="" category="Xtext" closeable="true" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView">
+  <descriptors xmi:id="_M-S-EBz7EeuDh9DrK8PxkA" elementId="org.eclipse.xtext.ui.XtextCallHierarchy" label="Call Hierarchy" iconURI="platform:/plugin/org.eclipse.xtext.xtext.ui/icons/editor.gif" tooltip="" category="Xtext" closeable="true" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView">
     <persistedState key="originalCompatibilityViewClass" value="org.eclipse.xtext.xtext.ui.XtextExecutableExtensionFactory"/>
     <persistedState key="originalCompatibilityViewBundle" value="org.eclipse.xtext.xtext.ui"/>
     <tags>View</tags>
     <tags>categoryTag:Xtext</tags>
   </descriptors>
-  <descriptors xmi:id="_ZhGzOg_nEeuSK_n-jVQ5IQ" elementId="org.eclipse.xtext.xtext.ui.graph.view" label="Xtext Syntax Graph" iconURI="platform:/plugin/org.eclipse.xtext.xtext.ui.graph/icons/railroad.png" tooltip="" category="Xtext" closeable="true" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView">
+  <descriptors xmi:id="_M-TlIBz7EeuDh9DrK8PxkA" elementId="org.eclipse.xtext.xtext.ui.graph.view" label="Xtext Syntax Graph" iconURI="platform:/plugin/org.eclipse.xtext.xtext.ui.graph/icons/railroad.png" tooltip="" category="Xtext" closeable="true" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView">
     <persistedState key="originalCompatibilityViewClass" value="org.eclipse.xtext.xtext.ui.graph.bundle.RailroadViewExecutableExtensionRegistry"/>
     <persistedState key="originalCompatibilityViewBundle" value="org.eclipse.xtext.xtext.ui.graph"/>
     <tags>View</tags>

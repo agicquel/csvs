@@ -4,8 +4,8 @@
 package com.agicquel.csvs.csvs.impl;
 
 import com.agicquel.csvs.csvs.AddCommand;
+import com.agicquel.csvs.csvs.CsvsExpr;
 import com.agicquel.csvs.csvs.CsvsPackage;
-import com.agicquel.csvs.csvs.Expression;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -59,7 +59,7 @@ public class AddCommandImpl extends CsvCommandImpl implements AddCommand
    * @generated
    * @ordered
    */
-  protected Expression expression;
+  protected CsvsExpr expression;
 
   /**
    * <!-- begin-user-doc -->
@@ -113,7 +113,7 @@ public class AddCommandImpl extends CsvCommandImpl implements AddCommand
    * @generated
    */
   @Override
-  public Expression getExpression()
+  public CsvsExpr getExpression()
   {
     return expression;
   }
@@ -123,9 +123,9 @@ public class AddCommandImpl extends CsvCommandImpl implements AddCommand
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetExpression(Expression newExpression, NotificationChain msgs)
+  public NotificationChain basicSetExpression(CsvsExpr newExpression, NotificationChain msgs)
   {
-    Expression oldExpression = expression;
+    CsvsExpr oldExpression = expression;
     expression = newExpression;
     if (eNotificationRequired())
     {
@@ -141,7 +141,7 @@ public class AddCommandImpl extends CsvCommandImpl implements AddCommand
    * @generated
    */
   @Override
-  public void setExpression(Expression newExpression)
+  public void setExpression(CsvsExpr newExpression)
   {
     if (newExpression != expression)
     {
@@ -205,7 +205,7 @@ public class AddCommandImpl extends CsvCommandImpl implements AddCommand
         setOp((String)newValue);
         return;
       case CsvsPackage.ADD_COMMAND__EXPRESSION:
-        setExpression((Expression)newValue);
+        setExpression((CsvsExpr)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -225,7 +225,7 @@ public class AddCommandImpl extends CsvCommandImpl implements AddCommand
         setOp(OP_EDEFAULT);
         return;
       case CsvsPackage.ADD_COMMAND__EXPRESSION:
-        setExpression((Expression)null);
+        setExpression((CsvsExpr)null);
         return;
     }
     super.eUnset(featureID);

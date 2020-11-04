@@ -3,9 +3,9 @@
  */
 package com.agicquel.csvs.csvs.impl;
 
+import com.agicquel.csvs.csvs.CsvsExpr;
 import com.agicquel.csvs.csvs.CsvsPackage;
 import com.agicquel.csvs.csvs.DeleteCommand;
-import com.agicquel.csvs.csvs.Expression;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -38,7 +38,7 @@ public class DeleteCommandImpl extends CsvCommandImpl implements DeleteCommand
    * @generated
    * @ordered
    */
-  protected Expression expression;
+  protected CsvsExpr expression;
 
   /**
    * <!-- begin-user-doc -->
@@ -67,7 +67,7 @@ public class DeleteCommandImpl extends CsvCommandImpl implements DeleteCommand
    * @generated
    */
   @Override
-  public Expression getExpression()
+  public CsvsExpr getExpression()
   {
     return expression;
   }
@@ -77,9 +77,9 @@ public class DeleteCommandImpl extends CsvCommandImpl implements DeleteCommand
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetExpression(Expression newExpression, NotificationChain msgs)
+  public NotificationChain basicSetExpression(CsvsExpr newExpression, NotificationChain msgs)
   {
-    Expression oldExpression = expression;
+    CsvsExpr oldExpression = expression;
     expression = newExpression;
     if (eNotificationRequired())
     {
@@ -95,7 +95,7 @@ public class DeleteCommandImpl extends CsvCommandImpl implements DeleteCommand
    * @generated
    */
   @Override
-  public void setExpression(Expression newExpression)
+  public void setExpression(CsvsExpr newExpression)
   {
     if (newExpression != expression)
     {
@@ -154,7 +154,7 @@ public class DeleteCommandImpl extends CsvCommandImpl implements DeleteCommand
     switch (featureID)
     {
       case CsvsPackage.DELETE_COMMAND__EXPRESSION:
-        setExpression((Expression)newValue);
+        setExpression((CsvsExpr)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -171,7 +171,7 @@ public class DeleteCommandImpl extends CsvCommandImpl implements DeleteCommand
     switch (featureID)
     {
       case CsvsPackage.DELETE_COMMAND__EXPRESSION:
-        setExpression((Expression)null);
+        setExpression((CsvsExpr)null);
         return;
     }
     super.eUnset(featureID);

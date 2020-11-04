@@ -200,6 +200,15 @@ public class CsvsSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case CsvsPackage.RENAME_COMMAND:
+      {
+        RenameCommand renameCommand = (RenameCommand)theEObject;
+        T result = caseRenameCommand(renameCommand);
+        if (result == null) result = caseCsvCommand(renameCommand);
+        if (result == null) result = caseCommand(renameCommand);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case CsvsPackage.APPLY_COMMAND:
       {
         ApplyCommand applyCommand = (ApplyCommand)theEObject;
@@ -228,67 +237,6 @@ public class CsvsSwitch<T> extends Switch<T>
         Expression expression = (Expression)theEObject;
         T result = caseExpression(expression);
         if (result == null) result = casePrimaryExpr(expression);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case CsvsPackage.SELECTOR:
-      {
-        Selector selector = (Selector)theEObject;
-        T result = caseSelector(selector);
-        if (result == null) result = casePrimaryExpr(selector);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case CsvsPackage.ROW_SELECT:
-      {
-        RowSelect rowSelect = (RowSelect)theEObject;
-        T result = caseRowSelect(rowSelect);
-        if (result == null) result = caseSelector(rowSelect);
-        if (result == null) result = casePrimaryExpr(rowSelect);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case CsvsPackage.COL_SELECT:
-      {
-        ColSelect colSelect = (ColSelect)theEObject;
-        T result = caseColSelect(colSelect);
-        if (result == null) result = caseSelector(colSelect);
-        if (result == null) result = casePrimaryExpr(colSelect);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case CsvsPackage.CELL_SELECT:
-      {
-        CellSelect cellSelect = (CellSelect)theEObject;
-        T result = caseCellSelect(cellSelect);
-        if (result == null) result = caseSelector(cellSelect);
-        if (result == null) result = casePrimaryExpr(cellSelect);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case CsvsPackage.FIELD_SELECT:
-      {
-        FieldSelect fieldSelect = (FieldSelect)theEObject;
-        T result = caseFieldSelect(fieldSelect);
-        if (result == null) result = caseSelector(fieldSelect);
-        if (result == null) result = casePrimaryExpr(fieldSelect);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case CsvsPackage.VARIABLE_SELECT:
-      {
-        VariableSelect variableSelect = (VariableSelect)theEObject;
-        T result = caseVariableSelect(variableSelect);
-        if (result == null) result = caseSelector(variableSelect);
-        if (result == null) result = casePrimaryExpr(variableSelect);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case CsvsPackage.COUNT_EXPR:
-      {
-        CountExpr countExpr = (CountExpr)theEObject;
-        T result = caseCountExpr(countExpr);
-        if (result == null) result = casePrimaryExpr(countExpr);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -336,13 +284,6 @@ public class CsvsSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case CsvsPackage.PRIMARY_EXPR:
-      {
-        PrimaryExpr primaryExpr = (PrimaryExpr)theEObject;
-        T result = casePrimaryExpr(primaryExpr);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case CsvsPackage.NOT_EXPR:
       {
         NotExpr notExpr = (NotExpr)theEObject;
@@ -351,10 +292,62 @@ public class CsvsSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case CsvsPackage.PRIMARY_EXPR:
+      {
+        PrimaryExpr primaryExpr = (PrimaryExpr)theEObject;
+        T result = casePrimaryExpr(primaryExpr);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case CsvsPackage.CSVS_EXPR:
+      {
+        CsvsExpr csvsExpr = (CsvsExpr)theEObject;
+        T result = caseCsvsExpr(csvsExpr);
+        if (result == null) result = casePrimaryExpr(csvsExpr);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case CsvsPackage.SELECTOR:
+      {
+        Selector selector = (Selector)theEObject;
+        T result = caseSelector(selector);
+        if (result == null) result = caseCsvsExpr(selector);
+        if (result == null) result = casePrimaryExpr(selector);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case CsvsPackage.FIELD_SELECT:
+      {
+        FieldSelect fieldSelect = (FieldSelect)theEObject;
+        T result = caseFieldSelect(fieldSelect);
+        if (result == null) result = caseCsvsExpr(fieldSelect);
+        if (result == null) result = casePrimaryExpr(fieldSelect);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case CsvsPackage.COUNT_EXPR:
+      {
+        CountExpr countExpr = (CountExpr)theEObject;
+        T result = caseCountExpr(countExpr);
+        if (result == null) result = caseCsvsExpr(countExpr);
+        if (result == null) result = casePrimaryExpr(countExpr);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case CsvsPackage.LAST_EXPR:
+      {
+        LastExpr lastExpr = (LastExpr)theEObject;
+        T result = caseLastExpr(lastExpr);
+        if (result == null) result = caseCsvsExpr(lastExpr);
+        if (result == null) result = casePrimaryExpr(lastExpr);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case CsvsPackage.ATOMIC_EXPR:
       {
         AtomicExpr atomicExpr = (AtomicExpr)theEObject;
         T result = caseAtomicExpr(atomicExpr);
+        if (result == null) result = caseCsvsExpr(atomicExpr);
         if (result == null) result = casePrimaryExpr(atomicExpr);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -364,7 +357,18 @@ public class CsvsSwitch<T> extends Switch<T>
         IntConstant intConstant = (IntConstant)theEObject;
         T result = caseIntConstant(intConstant);
         if (result == null) result = caseAtomicExpr(intConstant);
+        if (result == null) result = caseCsvsExpr(intConstant);
         if (result == null) result = casePrimaryExpr(intConstant);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case CsvsPackage.DOUBLE_CONSTANT:
+      {
+        DoubleConstant doubleConstant = (DoubleConstant)theEObject;
+        T result = caseDoubleConstant(doubleConstant);
+        if (result == null) result = caseAtomicExpr(doubleConstant);
+        if (result == null) result = caseCsvsExpr(doubleConstant);
+        if (result == null) result = casePrimaryExpr(doubleConstant);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -373,6 +377,7 @@ public class CsvsSwitch<T> extends Switch<T>
         StringConstant stringConstant = (StringConstant)theEObject;
         T result = caseStringConstant(stringConstant);
         if (result == null) result = caseAtomicExpr(stringConstant);
+        if (result == null) result = caseCsvsExpr(stringConstant);
         if (result == null) result = casePrimaryExpr(stringConstant);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -382,7 +387,18 @@ public class CsvsSwitch<T> extends Switch<T>
         BoolConstant boolConstant = (BoolConstant)theEObject;
         T result = caseBoolConstant(boolConstant);
         if (result == null) result = caseAtomicExpr(boolConstant);
+        if (result == null) result = caseCsvsExpr(boolConstant);
         if (result == null) result = casePrimaryExpr(boolConstant);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case CsvsPackage.VARIABLE_CONSTANT:
+      {
+        VariableConstant variableConstant = (VariableConstant)theEObject;
+        T result = caseVariableConstant(variableConstant);
+        if (result == null) result = caseAtomicExpr(variableConstant);
+        if (result == null) result = caseCsvsExpr(variableConstant);
+        if (result == null) result = casePrimaryExpr(variableConstant);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -631,6 +647,22 @@ public class CsvsSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Rename Command</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Rename Command</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRenameCommand(RenameCommand object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Apply Command</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -690,118 +722,6 @@ public class CsvsSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseExpression(Expression object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Selector</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Selector</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseSelector(Selector object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Row Select</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Row Select</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseRowSelect(RowSelect object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Col Select</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Col Select</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseColSelect(ColSelect object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Cell Select</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Cell Select</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseCellSelect(CellSelect object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Field Select</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Field Select</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseFieldSelect(FieldSelect object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Variable Select</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Variable Select</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseVariableSelect(VariableSelect object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Count Expr</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Count Expr</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseCountExpr(CountExpr object)
   {
     return null;
   }
@@ -903,6 +823,22 @@ public class CsvsSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Not Expr</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Not Expr</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseNotExpr(NotExpr object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Primary Expr</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -919,17 +855,81 @@ public class CsvsSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Not Expr</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Expr</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Not Expr</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Expr</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseNotExpr(NotExpr object)
+  public T caseCsvsExpr(CsvsExpr object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Selector</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Selector</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSelector(Selector object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Field Select</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Field Select</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseFieldSelect(FieldSelect object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Count Expr</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Count Expr</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseCountExpr(CountExpr object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Last Expr</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Last Expr</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseLastExpr(LastExpr object)
   {
     return null;
   }
@@ -967,6 +967,22 @@ public class CsvsSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Double Constant</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Double Constant</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDoubleConstant(DoubleConstant object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>String Constant</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -994,6 +1010,22 @@ public class CsvsSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseBoolConstant(BoolConstant object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Variable Constant</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Variable Constant</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseVariableConstant(VariableConstant object)
   {
     return null;
   }

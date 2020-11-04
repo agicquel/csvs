@@ -29,12 +29,12 @@ public interface ApplyCommand extends CsvCommand
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Selection</em>' containment reference.
-   * @see #setSelection(Selector)
+   * @see #setSelection(CsvsExpr)
    * @see com.agicquel.csvs.csvs.CsvsPackage#getApplyCommand_Selection()
    * @model containment="true"
    * @generated
    */
-  Selector getSelection();
+  CsvsExpr getSelection();
 
   /**
    * Sets the value of the '{@link com.agicquel.csvs.csvs.ApplyCommand#getSelection <em>Selection</em>}' containment reference.
@@ -44,7 +44,7 @@ public interface ApplyCommand extends CsvCommand
    * @see #getSelection()
    * @generated
    */
-  void setSelection(Selector value);
+  void setSelection(CsvsExpr value);
 
   /**
    * Returns the value of the '<em><b>If</b></em>' containment reference.

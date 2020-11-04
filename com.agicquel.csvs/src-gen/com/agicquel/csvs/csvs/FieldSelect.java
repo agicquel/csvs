@@ -21,7 +21,7 @@ package com.agicquel.csvs.csvs;
  * @model
  * @generated
  */
-public interface FieldSelect extends Selector
+public interface FieldSelect extends CsvsExpr
 {
   /**
    * Returns the value of the '<em><b>Var</b></em>' attribute.

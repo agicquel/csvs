@@ -41,7 +41,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="var" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SetCommand" eSuperTypes="#//CsvCommand">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="var" eType="#//Selector"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="var" eType="#//CsvsExpr"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="#//Expression"
         containment="true"/>
@@ -51,16 +51,24 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DeleteCommand" eSuperTypes="#//CsvCommand">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="#//Expression"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="#//CsvsExpr"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AddCommand" eSuperTypes="#//CsvCommand">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="op" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="#//Expression"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="#//CsvsExpr"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RenameCommand" eSuperTypes="#//CsvCommand">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expr" eType="#//CsvsExpr"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="oldname" eType="#//Expression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="newname" eType="#//Expression"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ApplyCommand" eSuperTypes="#//CsvCommand">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="selection" eType="#//Selector"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="selection" eType="#//CsvsExpr"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="if" eType="#//ApplyFilterCommand"
         containment="true"/>
@@ -78,36 +86,6 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Expression" eSuperTypes="#//PrimaryExpr"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Selector" eSuperTypes="#//PrimaryExpr"/>
-  <eClassifiers xsi:type="ecore:EClass" name="RowSelect" eSuperTypes="#//Selector">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="var" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="#//PrimaryExpr"
-        containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ColSelect" eSuperTypes="#//Selector">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="var" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="#//PrimaryExpr"
-        containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="CellSelect" eSuperTypes="#//Selector">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="var" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="expressionRow" eType="#//PrimaryExpr"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="expressionCol" eType="#//PrimaryExpr"
-        containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="FieldSelect" eSuperTypes="#//Selector">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="var" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="#//PrimaryExpr"
-        containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="VariableSelect" eSuperTypes="#//Selector">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="term" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="CountExpr" eSuperTypes="#//PrimaryExpr">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="#//PrimaryExpr"
-        containment="true"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="OrExpr" eSuperTypes="#//Expression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//AddExpr"
         containment="true"/>
@@ -150,19 +128,51 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="right" upperBound="-1"
         eType="#//PrimaryExpr" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="PrimaryExpr"/>
   <eClassifiers xsi:type="ecore:EClass" name="NotExpr" eSuperTypes="#//PrimaryExpr">
     <eStructuralFeatures xsi:type="ecore:EReference" name="expr" eType="#//PrimaryExpr"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="AtomicExpr" eSuperTypes="#//PrimaryExpr"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PrimaryExpr"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CsvsExpr" eSuperTypes="#//PrimaryExpr"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Selector" eSuperTypes="#//CsvsExpr">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="var" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expressionCol" eType="#//CsvsExpr"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expressionRow" eType="#//CsvsExpr"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expressionSubCol" eType="#//CsvsExpr"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expressionSubRow" eType="#//CsvsExpr"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FieldSelect" eSuperTypes="#//CsvsExpr">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="var" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="#//PrimaryExpr"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CountExpr" eSuperTypes="#//CsvsExpr">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="#//PrimaryExpr"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LastExpr" eSuperTypes="#//CsvsExpr">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="op" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="#//CsvsExpr"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AtomicExpr" eSuperTypes="#//CsvsExpr"/>
   <eClassifiers xsi:type="ecore:EClass" name="IntConstant" eSuperTypes="#//AtomicExpr">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DoubleConstant" eSuperTypes="#//AtomicExpr">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StringConstant" eSuperTypes="#//AtomicExpr">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BoolConstant" eSuperTypes="#//AtomicExpr">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="VariableConstant" eSuperTypes="#//AtomicExpr">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
 </ecore:EPackage>

@@ -1,3 +1,37 @@
-load csv1 "./path.csv";
+load csv "./deniro.csv";
 
-var = (3 < 4) && (5 < 6);
+csv = csv[1:1][5:5];
+print csv;
+
+
+col1 = field csv[1];
+
+i = 0;
+size = count(csv[:1]);
+add row csv;
+next = last row csv;
+print next;
+while i < size {
+	col1 = field csv[i];
+	print col1;
+	csv[col1 : next] = "test";
+	i = i + 1;
+}
+
+add col csv;
+lastCol = "toto";
+rename csv field csv[last col csv] : lastCol;
+i = 0;
+while i < last row csv {
+	csv[lastCol : i] = "test2";
+	i = i + 1;
+}
+
+//print csv;
+store csv "./deniro2.csv";
+//export_json csv "./test.json";
+
+
+
+//on csv["Year":] filter (x : x > 0) apply (x : x*3);
+//store csv "./deniro2.csv";

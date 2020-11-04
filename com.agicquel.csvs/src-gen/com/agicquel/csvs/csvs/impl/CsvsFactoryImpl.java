@@ -80,29 +80,30 @@ public class CsvsFactoryImpl extends EFactoryImpl implements CsvsFactory
       case CsvsPackage.PRINT_COMMAND: return createPrintCommand();
       case CsvsPackage.DELETE_COMMAND: return createDeleteCommand();
       case CsvsPackage.ADD_COMMAND: return createAddCommand();
+      case CsvsPackage.RENAME_COMMAND: return createRenameCommand();
       case CsvsPackage.APPLY_COMMAND: return createApplyCommand();
       case CsvsPackage.APPLY_FILTER_COMMAND: return createApplyFilterCommand();
       case CsvsPackage.APPLY_EXEC_COMMAND: return createApplyExecCommand();
       case CsvsPackage.EXPRESSION: return createExpression();
-      case CsvsPackage.SELECTOR: return createSelector();
-      case CsvsPackage.ROW_SELECT: return createRowSelect();
-      case CsvsPackage.COL_SELECT: return createColSelect();
-      case CsvsPackage.CELL_SELECT: return createCellSelect();
-      case CsvsPackage.FIELD_SELECT: return createFieldSelect();
-      case CsvsPackage.VARIABLE_SELECT: return createVariableSelect();
-      case CsvsPackage.COUNT_EXPR: return createCountExpr();
       case CsvsPackage.OR_EXPR: return createOrExpr();
       case CsvsPackage.ADD_EXPR: return createAddExpr();
       case CsvsPackage.EQUALITY_EXPR: return createEqualityExpr();
       case CsvsPackage.COMPARAISON_EXPR: return createComparaisonExpr();
       case CsvsPackage.PLUS_OR_MINUS_EXPR: return createPlusOrMinusExpr();
       case CsvsPackage.MUL_OR_DIV_EXPR: return createMulOrDivExpr();
-      case CsvsPackage.PRIMARY_EXPR: return createPrimaryExpr();
       case CsvsPackage.NOT_EXPR: return createNotExpr();
+      case CsvsPackage.PRIMARY_EXPR: return createPrimaryExpr();
+      case CsvsPackage.CSVS_EXPR: return createCsvsExpr();
+      case CsvsPackage.SELECTOR: return createSelector();
+      case CsvsPackage.FIELD_SELECT: return createFieldSelect();
+      case CsvsPackage.COUNT_EXPR: return createCountExpr();
+      case CsvsPackage.LAST_EXPR: return createLastExpr();
       case CsvsPackage.ATOMIC_EXPR: return createAtomicExpr();
       case CsvsPackage.INT_CONSTANT: return createIntConstant();
+      case CsvsPackage.DOUBLE_CONSTANT: return createDoubleConstant();
       case CsvsPackage.STRING_CONSTANT: return createStringConstant();
       case CsvsPackage.BOOL_CONSTANT: return createBoolConstant();
+      case CsvsPackage.VARIABLE_CONSTANT: return createVariableConstant();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -294,6 +295,18 @@ public class CsvsFactoryImpl extends EFactoryImpl implements CsvsFactory
    * @generated
    */
   @Override
+  public RenameCommand createRenameCommand()
+  {
+    RenameCommandImpl renameCommand = new RenameCommandImpl();
+    return renameCommand;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public ApplyCommand createApplyCommand()
   {
     ApplyCommandImpl applyCommand = new ApplyCommandImpl();
@@ -334,90 +347,6 @@ public class CsvsFactoryImpl extends EFactoryImpl implements CsvsFactory
   {
     ExpressionImpl expression = new ExpressionImpl();
     return expression;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Selector createSelector()
-  {
-    SelectorImpl selector = new SelectorImpl();
-    return selector;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public RowSelect createRowSelect()
-  {
-    RowSelectImpl rowSelect = new RowSelectImpl();
-    return rowSelect;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public ColSelect createColSelect()
-  {
-    ColSelectImpl colSelect = new ColSelectImpl();
-    return colSelect;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public CellSelect createCellSelect()
-  {
-    CellSelectImpl cellSelect = new CellSelectImpl();
-    return cellSelect;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public FieldSelect createFieldSelect()
-  {
-    FieldSelectImpl fieldSelect = new FieldSelectImpl();
-    return fieldSelect;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public VariableSelect createVariableSelect()
-  {
-    VariableSelectImpl variableSelect = new VariableSelectImpl();
-    return variableSelect;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public CountExpr createCountExpr()
-  {
-    CountExprImpl countExpr = new CountExprImpl();
-    return countExpr;
   }
 
   /**
@@ -498,6 +427,18 @@ public class CsvsFactoryImpl extends EFactoryImpl implements CsvsFactory
    * @generated
    */
   @Override
+  public NotExpr createNotExpr()
+  {
+    NotExprImpl notExpr = new NotExprImpl();
+    return notExpr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public PrimaryExpr createPrimaryExpr()
   {
     PrimaryExprImpl primaryExpr = new PrimaryExprImpl();
@@ -510,10 +451,58 @@ public class CsvsFactoryImpl extends EFactoryImpl implements CsvsFactory
    * @generated
    */
   @Override
-  public NotExpr createNotExpr()
+  public CsvsExpr createCsvsExpr()
   {
-    NotExprImpl notExpr = new NotExprImpl();
-    return notExpr;
+    CsvsExprImpl csvsExpr = new CsvsExprImpl();
+    return csvsExpr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Selector createSelector()
+  {
+    SelectorImpl selector = new SelectorImpl();
+    return selector;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public FieldSelect createFieldSelect()
+  {
+    FieldSelectImpl fieldSelect = new FieldSelectImpl();
+    return fieldSelect;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public CountExpr createCountExpr()
+  {
+    CountExprImpl countExpr = new CountExprImpl();
+    return countExpr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public LastExpr createLastExpr()
+  {
+    LastExprImpl lastExpr = new LastExprImpl();
+    return lastExpr;
   }
 
   /**
@@ -546,6 +535,18 @@ public class CsvsFactoryImpl extends EFactoryImpl implements CsvsFactory
    * @generated
    */
   @Override
+  public DoubleConstant createDoubleConstant()
+  {
+    DoubleConstantImpl doubleConstant = new DoubleConstantImpl();
+    return doubleConstant;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public StringConstant createStringConstant()
   {
     StringConstantImpl stringConstant = new StringConstantImpl();
@@ -562,6 +563,18 @@ public class CsvsFactoryImpl extends EFactoryImpl implements CsvsFactory
   {
     BoolConstantImpl boolConstant = new BoolConstantImpl();
     return boolConstant;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public VariableConstant createVariableConstant()
+  {
+    VariableConstantImpl variableConstant = new VariableConstantImpl();
+    return variableConstant;
   }
 
   /**

@@ -532,6 +532,52 @@ public interface CsvsPackage extends EPackage
   int ADD_COMMAND_FEATURE_COUNT = CSV_COMMAND_FEATURE_COUNT + 2;
 
   /**
+   * The meta object id for the '{@link com.agicquel.csvs.csvs.impl.RenameCommandImpl <em>Rename Command</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.agicquel.csvs.csvs.impl.RenameCommandImpl
+   * @see com.agicquel.csvs.csvs.impl.CsvsPackageImpl#getRenameCommand()
+   * @generated
+   */
+  int RENAME_COMMAND = 15;
+
+  /**
+   * The feature id for the '<em><b>Expr</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RENAME_COMMAND__EXPR = CSV_COMMAND_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Oldname</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RENAME_COMMAND__OLDNAME = CSV_COMMAND_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Newname</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RENAME_COMMAND__NEWNAME = CSV_COMMAND_FEATURE_COUNT + 2;
+
+  /**
+   * The number of structural features of the '<em>Rename Command</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RENAME_COMMAND_FEATURE_COUNT = CSV_COMMAND_FEATURE_COUNT + 3;
+
+  /**
    * The meta object id for the '{@link com.agicquel.csvs.csvs.impl.ApplyCommandImpl <em>Apply Command</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -539,7 +585,7 @@ public interface CsvsPackage extends EPackage
    * @see com.agicquel.csvs.csvs.impl.CsvsPackageImpl#getApplyCommand()
    * @generated
    */
-  int APPLY_COMMAND = 15;
+  int APPLY_COMMAND = 16;
 
   /**
    * The feature id for the '<em><b>Selection</b></em>' containment reference.
@@ -585,7 +631,7 @@ public interface CsvsPackage extends EPackage
    * @see com.agicquel.csvs.csvs.impl.CsvsPackageImpl#getApplyFilterCommand()
    * @generated
    */
-  int APPLY_FILTER_COMMAND = 16;
+  int APPLY_FILTER_COMMAND = 17;
 
   /**
    * The feature id for the '<em><b>Var Name</b></em>' attribute.
@@ -622,7 +668,7 @@ public interface CsvsPackage extends EPackage
    * @see com.agicquel.csvs.csvs.impl.CsvsPackageImpl#getApplyExecCommand()
    * @generated
    */
-  int APPLY_EXEC_COMMAND = 17;
+  int APPLY_EXEC_COMMAND = 18;
 
   /**
    * The feature id for the '<em><b>Var Name</b></em>' attribute.
@@ -659,7 +705,7 @@ public interface CsvsPackage extends EPackage
    * @see com.agicquel.csvs.csvs.impl.CsvsPackageImpl#getPrimaryExpr()
    * @generated
    */
-  int PRIMARY_EXPR = 32;
+  int PRIMARY_EXPR = 27;
 
   /**
    * The number of structural features of the '<em>Primary Expr</em>' class.
@@ -678,7 +724,7 @@ public interface CsvsPackage extends EPackage
    * @see com.agicquel.csvs.csvs.impl.CsvsPackageImpl#getExpression()
    * @generated
    */
-  int EXPRESSION = 18;
+  int EXPRESSION = 19;
 
   /**
    * The number of structural features of the '<em>Expression</em>' class.
@@ -690,238 +736,6 @@ public interface CsvsPackage extends EPackage
   int EXPRESSION_FEATURE_COUNT = PRIMARY_EXPR_FEATURE_COUNT + 0;
 
   /**
-   * The meta object id for the '{@link com.agicquel.csvs.csvs.impl.SelectorImpl <em>Selector</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see com.agicquel.csvs.csvs.impl.SelectorImpl
-   * @see com.agicquel.csvs.csvs.impl.CsvsPackageImpl#getSelector()
-   * @generated
-   */
-  int SELECTOR = 19;
-
-  /**
-   * The number of structural features of the '<em>Selector</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SELECTOR_FEATURE_COUNT = PRIMARY_EXPR_FEATURE_COUNT + 0;
-
-  /**
-   * The meta object id for the '{@link com.agicquel.csvs.csvs.impl.RowSelectImpl <em>Row Select</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see com.agicquel.csvs.csvs.impl.RowSelectImpl
-   * @see com.agicquel.csvs.csvs.impl.CsvsPackageImpl#getRowSelect()
-   * @generated
-   */
-  int ROW_SELECT = 20;
-
-  /**
-   * The feature id for the '<em><b>Var</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ROW_SELECT__VAR = SELECTOR_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Expression</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ROW_SELECT__EXPRESSION = SELECTOR_FEATURE_COUNT + 1;
-
-  /**
-   * The number of structural features of the '<em>Row Select</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ROW_SELECT_FEATURE_COUNT = SELECTOR_FEATURE_COUNT + 2;
-
-  /**
-   * The meta object id for the '{@link com.agicquel.csvs.csvs.impl.ColSelectImpl <em>Col Select</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see com.agicquel.csvs.csvs.impl.ColSelectImpl
-   * @see com.agicquel.csvs.csvs.impl.CsvsPackageImpl#getColSelect()
-   * @generated
-   */
-  int COL_SELECT = 21;
-
-  /**
-   * The feature id for the '<em><b>Var</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int COL_SELECT__VAR = SELECTOR_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Expression</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int COL_SELECT__EXPRESSION = SELECTOR_FEATURE_COUNT + 1;
-
-  /**
-   * The number of structural features of the '<em>Col Select</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int COL_SELECT_FEATURE_COUNT = SELECTOR_FEATURE_COUNT + 2;
-
-  /**
-   * The meta object id for the '{@link com.agicquel.csvs.csvs.impl.CellSelectImpl <em>Cell Select</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see com.agicquel.csvs.csvs.impl.CellSelectImpl
-   * @see com.agicquel.csvs.csvs.impl.CsvsPackageImpl#getCellSelect()
-   * @generated
-   */
-  int CELL_SELECT = 22;
-
-  /**
-   * The feature id for the '<em><b>Var</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CELL_SELECT__VAR = SELECTOR_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Expression Row</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CELL_SELECT__EXPRESSION_ROW = SELECTOR_FEATURE_COUNT + 1;
-
-  /**
-   * The feature id for the '<em><b>Expression Col</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CELL_SELECT__EXPRESSION_COL = SELECTOR_FEATURE_COUNT + 2;
-
-  /**
-   * The number of structural features of the '<em>Cell Select</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CELL_SELECT_FEATURE_COUNT = SELECTOR_FEATURE_COUNT + 3;
-
-  /**
-   * The meta object id for the '{@link com.agicquel.csvs.csvs.impl.FieldSelectImpl <em>Field Select</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see com.agicquel.csvs.csvs.impl.FieldSelectImpl
-   * @see com.agicquel.csvs.csvs.impl.CsvsPackageImpl#getFieldSelect()
-   * @generated
-   */
-  int FIELD_SELECT = 23;
-
-  /**
-   * The feature id for the '<em><b>Var</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FIELD_SELECT__VAR = SELECTOR_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Expression</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FIELD_SELECT__EXPRESSION = SELECTOR_FEATURE_COUNT + 1;
-
-  /**
-   * The number of structural features of the '<em>Field Select</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FIELD_SELECT_FEATURE_COUNT = SELECTOR_FEATURE_COUNT + 2;
-
-  /**
-   * The meta object id for the '{@link com.agicquel.csvs.csvs.impl.VariableSelectImpl <em>Variable Select</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see com.agicquel.csvs.csvs.impl.VariableSelectImpl
-   * @see com.agicquel.csvs.csvs.impl.CsvsPackageImpl#getVariableSelect()
-   * @generated
-   */
-  int VARIABLE_SELECT = 24;
-
-  /**
-   * The feature id for the '<em><b>Term</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VARIABLE_SELECT__TERM = SELECTOR_FEATURE_COUNT + 0;
-
-  /**
-   * The number of structural features of the '<em>Variable Select</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VARIABLE_SELECT_FEATURE_COUNT = SELECTOR_FEATURE_COUNT + 1;
-
-  /**
-   * The meta object id for the '{@link com.agicquel.csvs.csvs.impl.CountExprImpl <em>Count Expr</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see com.agicquel.csvs.csvs.impl.CountExprImpl
-   * @see com.agicquel.csvs.csvs.impl.CsvsPackageImpl#getCountExpr()
-   * @generated
-   */
-  int COUNT_EXPR = 25;
-
-  /**
-   * The feature id for the '<em><b>Expression</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int COUNT_EXPR__EXPRESSION = PRIMARY_EXPR_FEATURE_COUNT + 0;
-
-  /**
-   * The number of structural features of the '<em>Count Expr</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int COUNT_EXPR_FEATURE_COUNT = PRIMARY_EXPR_FEATURE_COUNT + 1;
-
-  /**
    * The meta object id for the '{@link com.agicquel.csvs.csvs.impl.OrExprImpl <em>Or Expr</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -929,7 +743,7 @@ public interface CsvsPackage extends EPackage
    * @see com.agicquel.csvs.csvs.impl.CsvsPackageImpl#getOrExpr()
    * @generated
    */
-  int OR_EXPR = 26;
+  int OR_EXPR = 20;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -966,7 +780,7 @@ public interface CsvsPackage extends EPackage
    * @see com.agicquel.csvs.csvs.impl.CsvsPackageImpl#getAddExpr()
    * @generated
    */
-  int ADD_EXPR = 27;
+  int ADD_EXPR = 21;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1003,7 +817,7 @@ public interface CsvsPackage extends EPackage
    * @see com.agicquel.csvs.csvs.impl.CsvsPackageImpl#getEqualityExpr()
    * @generated
    */
-  int EQUALITY_EXPR = 28;
+  int EQUALITY_EXPR = 22;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1049,7 +863,7 @@ public interface CsvsPackage extends EPackage
    * @see com.agicquel.csvs.csvs.impl.CsvsPackageImpl#getComparaisonExpr()
    * @generated
    */
-  int COMPARAISON_EXPR = 29;
+  int COMPARAISON_EXPR = 23;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1095,7 +909,7 @@ public interface CsvsPackage extends EPackage
    * @see com.agicquel.csvs.csvs.impl.CsvsPackageImpl#getPlusOrMinusExpr()
    * @generated
    */
-  int PLUS_OR_MINUS_EXPR = 30;
+  int PLUS_OR_MINUS_EXPR = 24;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1141,7 +955,7 @@ public interface CsvsPackage extends EPackage
    * @see com.agicquel.csvs.csvs.impl.CsvsPackageImpl#getMulOrDivExpr()
    * @generated
    */
-  int MUL_OR_DIV_EXPR = 31;
+  int MUL_OR_DIV_EXPR = 25;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1187,7 +1001,7 @@ public interface CsvsPackage extends EPackage
    * @see com.agicquel.csvs.csvs.impl.CsvsPackageImpl#getNotExpr()
    * @generated
    */
-  int NOT_EXPR = 33;
+  int NOT_EXPR = 26;
 
   /**
    * The feature id for the '<em><b>Expr</b></em>' containment reference.
@@ -1208,6 +1022,191 @@ public interface CsvsPackage extends EPackage
   int NOT_EXPR_FEATURE_COUNT = PRIMARY_EXPR_FEATURE_COUNT + 1;
 
   /**
+   * The meta object id for the '{@link com.agicquel.csvs.csvs.impl.CsvsExprImpl <em>Expr</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.agicquel.csvs.csvs.impl.CsvsExprImpl
+   * @see com.agicquel.csvs.csvs.impl.CsvsPackageImpl#getCsvsExpr()
+   * @generated
+   */
+  int CSVS_EXPR = 28;
+
+  /**
+   * The number of structural features of the '<em>Expr</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CSVS_EXPR_FEATURE_COUNT = PRIMARY_EXPR_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link com.agicquel.csvs.csvs.impl.SelectorImpl <em>Selector</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.agicquel.csvs.csvs.impl.SelectorImpl
+   * @see com.agicquel.csvs.csvs.impl.CsvsPackageImpl#getSelector()
+   * @generated
+   */
+  int SELECTOR = 29;
+
+  /**
+   * The feature id for the '<em><b>Var</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SELECTOR__VAR = CSVS_EXPR_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Expression Col</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SELECTOR__EXPRESSION_COL = CSVS_EXPR_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Expression Row</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SELECTOR__EXPRESSION_ROW = CSVS_EXPR_FEATURE_COUNT + 2;
+
+  /**
+   * The feature id for the '<em><b>Expression Sub Col</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SELECTOR__EXPRESSION_SUB_COL = CSVS_EXPR_FEATURE_COUNT + 3;
+
+  /**
+   * The feature id for the '<em><b>Expression Sub Row</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SELECTOR__EXPRESSION_SUB_ROW = CSVS_EXPR_FEATURE_COUNT + 4;
+
+  /**
+   * The number of structural features of the '<em>Selector</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SELECTOR_FEATURE_COUNT = CSVS_EXPR_FEATURE_COUNT + 5;
+
+  /**
+   * The meta object id for the '{@link com.agicquel.csvs.csvs.impl.FieldSelectImpl <em>Field Select</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.agicquel.csvs.csvs.impl.FieldSelectImpl
+   * @see com.agicquel.csvs.csvs.impl.CsvsPackageImpl#getFieldSelect()
+   * @generated
+   */
+  int FIELD_SELECT = 30;
+
+  /**
+   * The feature id for the '<em><b>Var</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FIELD_SELECT__VAR = CSVS_EXPR_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Expression</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FIELD_SELECT__EXPRESSION = CSVS_EXPR_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Field Select</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FIELD_SELECT_FEATURE_COUNT = CSVS_EXPR_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link com.agicquel.csvs.csvs.impl.CountExprImpl <em>Count Expr</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.agicquel.csvs.csvs.impl.CountExprImpl
+   * @see com.agicquel.csvs.csvs.impl.CsvsPackageImpl#getCountExpr()
+   * @generated
+   */
+  int COUNT_EXPR = 31;
+
+  /**
+   * The feature id for the '<em><b>Expression</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COUNT_EXPR__EXPRESSION = CSVS_EXPR_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Count Expr</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COUNT_EXPR_FEATURE_COUNT = CSVS_EXPR_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link com.agicquel.csvs.csvs.impl.LastExprImpl <em>Last Expr</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.agicquel.csvs.csvs.impl.LastExprImpl
+   * @see com.agicquel.csvs.csvs.impl.CsvsPackageImpl#getLastExpr()
+   * @generated
+   */
+  int LAST_EXPR = 32;
+
+  /**
+   * The feature id for the '<em><b>Op</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LAST_EXPR__OP = CSVS_EXPR_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Expression</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LAST_EXPR__EXPRESSION = CSVS_EXPR_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Last Expr</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LAST_EXPR_FEATURE_COUNT = CSVS_EXPR_FEATURE_COUNT + 2;
+
+  /**
    * The meta object id for the '{@link com.agicquel.csvs.csvs.impl.AtomicExprImpl <em>Atomic Expr</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1215,7 +1214,7 @@ public interface CsvsPackage extends EPackage
    * @see com.agicquel.csvs.csvs.impl.CsvsPackageImpl#getAtomicExpr()
    * @generated
    */
-  int ATOMIC_EXPR = 34;
+  int ATOMIC_EXPR = 33;
 
   /**
    * The number of structural features of the '<em>Atomic Expr</em>' class.
@@ -1224,7 +1223,7 @@ public interface CsvsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ATOMIC_EXPR_FEATURE_COUNT = PRIMARY_EXPR_FEATURE_COUNT + 0;
+  int ATOMIC_EXPR_FEATURE_COUNT = CSVS_EXPR_FEATURE_COUNT + 0;
 
   /**
    * The meta object id for the '{@link com.agicquel.csvs.csvs.impl.IntConstantImpl <em>Int Constant</em>}' class.
@@ -1234,7 +1233,7 @@ public interface CsvsPackage extends EPackage
    * @see com.agicquel.csvs.csvs.impl.CsvsPackageImpl#getIntConstant()
    * @generated
    */
-  int INT_CONSTANT = 35;
+  int INT_CONSTANT = 34;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1253,6 +1252,34 @@ public interface CsvsPackage extends EPackage
    * @ordered
    */
   int INT_CONSTANT_FEATURE_COUNT = ATOMIC_EXPR_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link com.agicquel.csvs.csvs.impl.DoubleConstantImpl <em>Double Constant</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.agicquel.csvs.csvs.impl.DoubleConstantImpl
+   * @see com.agicquel.csvs.csvs.impl.CsvsPackageImpl#getDoubleConstant()
+   * @generated
+   */
+  int DOUBLE_CONSTANT = 35;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DOUBLE_CONSTANT__VALUE = ATOMIC_EXPR_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Double Constant</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DOUBLE_CONSTANT_FEATURE_COUNT = ATOMIC_EXPR_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link com.agicquel.csvs.csvs.impl.StringConstantImpl <em>String Constant</em>}' class.
@@ -1309,6 +1336,34 @@ public interface CsvsPackage extends EPackage
    * @ordered
    */
   int BOOL_CONSTANT_FEATURE_COUNT = ATOMIC_EXPR_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link com.agicquel.csvs.csvs.impl.VariableConstantImpl <em>Variable Constant</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.agicquel.csvs.csvs.impl.VariableConstantImpl
+   * @see com.agicquel.csvs.csvs.impl.CsvsPackageImpl#getVariableConstant()
+   * @generated
+   */
+  int VARIABLE_CONSTANT = 38;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VARIABLE_CONSTANT__VALUE = ATOMIC_EXPR_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Variable Constant</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VARIABLE_CONSTANT_FEATURE_COUNT = ATOMIC_EXPR_FEATURE_COUNT + 1;
 
 
   /**
@@ -1671,6 +1726,49 @@ public interface CsvsPackage extends EPackage
   EReference getAddCommand_Expression();
 
   /**
+   * Returns the meta object for class '{@link com.agicquel.csvs.csvs.RenameCommand <em>Rename Command</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Rename Command</em>'.
+   * @see com.agicquel.csvs.csvs.RenameCommand
+   * @generated
+   */
+  EClass getRenameCommand();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.agicquel.csvs.csvs.RenameCommand#getExpr <em>Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expr</em>'.
+   * @see com.agicquel.csvs.csvs.RenameCommand#getExpr()
+   * @see #getRenameCommand()
+   * @generated
+   */
+  EReference getRenameCommand_Expr();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.agicquel.csvs.csvs.RenameCommand#getOldname <em>Oldname</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Oldname</em>'.
+   * @see com.agicquel.csvs.csvs.RenameCommand#getOldname()
+   * @see #getRenameCommand()
+   * @generated
+   */
+  EReference getRenameCommand_Oldname();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.agicquel.csvs.csvs.RenameCommand#getNewname <em>Newname</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Newname</em>'.
+   * @see com.agicquel.csvs.csvs.RenameCommand#getNewname()
+   * @see #getRenameCommand()
+   * @generated
+   */
+  EReference getRenameCommand_Newname();
+
+  /**
    * Returns the meta object for class '{@link com.agicquel.csvs.csvs.ApplyCommand <em>Apply Command</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1786,197 +1884,6 @@ public interface CsvsPackage extends EPackage
    * @generated
    */
   EClass getExpression();
-
-  /**
-   * Returns the meta object for class '{@link com.agicquel.csvs.csvs.Selector <em>Selector</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Selector</em>'.
-   * @see com.agicquel.csvs.csvs.Selector
-   * @generated
-   */
-  EClass getSelector();
-
-  /**
-   * Returns the meta object for class '{@link com.agicquel.csvs.csvs.RowSelect <em>Row Select</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Row Select</em>'.
-   * @see com.agicquel.csvs.csvs.RowSelect
-   * @generated
-   */
-  EClass getRowSelect();
-
-  /**
-   * Returns the meta object for the attribute '{@link com.agicquel.csvs.csvs.RowSelect#getVar <em>Var</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Var</em>'.
-   * @see com.agicquel.csvs.csvs.RowSelect#getVar()
-   * @see #getRowSelect()
-   * @generated
-   */
-  EAttribute getRowSelect_Var();
-
-  /**
-   * Returns the meta object for the containment reference '{@link com.agicquel.csvs.csvs.RowSelect#getExpression <em>Expression</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Expression</em>'.
-   * @see com.agicquel.csvs.csvs.RowSelect#getExpression()
-   * @see #getRowSelect()
-   * @generated
-   */
-  EReference getRowSelect_Expression();
-
-  /**
-   * Returns the meta object for class '{@link com.agicquel.csvs.csvs.ColSelect <em>Col Select</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Col Select</em>'.
-   * @see com.agicquel.csvs.csvs.ColSelect
-   * @generated
-   */
-  EClass getColSelect();
-
-  /**
-   * Returns the meta object for the attribute '{@link com.agicquel.csvs.csvs.ColSelect#getVar <em>Var</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Var</em>'.
-   * @see com.agicquel.csvs.csvs.ColSelect#getVar()
-   * @see #getColSelect()
-   * @generated
-   */
-  EAttribute getColSelect_Var();
-
-  /**
-   * Returns the meta object for the containment reference '{@link com.agicquel.csvs.csvs.ColSelect#getExpression <em>Expression</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Expression</em>'.
-   * @see com.agicquel.csvs.csvs.ColSelect#getExpression()
-   * @see #getColSelect()
-   * @generated
-   */
-  EReference getColSelect_Expression();
-
-  /**
-   * Returns the meta object for class '{@link com.agicquel.csvs.csvs.CellSelect <em>Cell Select</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Cell Select</em>'.
-   * @see com.agicquel.csvs.csvs.CellSelect
-   * @generated
-   */
-  EClass getCellSelect();
-
-  /**
-   * Returns the meta object for the attribute '{@link com.agicquel.csvs.csvs.CellSelect#getVar <em>Var</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Var</em>'.
-   * @see com.agicquel.csvs.csvs.CellSelect#getVar()
-   * @see #getCellSelect()
-   * @generated
-   */
-  EAttribute getCellSelect_Var();
-
-  /**
-   * Returns the meta object for the containment reference '{@link com.agicquel.csvs.csvs.CellSelect#getExpressionRow <em>Expression Row</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Expression Row</em>'.
-   * @see com.agicquel.csvs.csvs.CellSelect#getExpressionRow()
-   * @see #getCellSelect()
-   * @generated
-   */
-  EReference getCellSelect_ExpressionRow();
-
-  /**
-   * Returns the meta object for the containment reference '{@link com.agicquel.csvs.csvs.CellSelect#getExpressionCol <em>Expression Col</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Expression Col</em>'.
-   * @see com.agicquel.csvs.csvs.CellSelect#getExpressionCol()
-   * @see #getCellSelect()
-   * @generated
-   */
-  EReference getCellSelect_ExpressionCol();
-
-  /**
-   * Returns the meta object for class '{@link com.agicquel.csvs.csvs.FieldSelect <em>Field Select</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Field Select</em>'.
-   * @see com.agicquel.csvs.csvs.FieldSelect
-   * @generated
-   */
-  EClass getFieldSelect();
-
-  /**
-   * Returns the meta object for the attribute '{@link com.agicquel.csvs.csvs.FieldSelect#getVar <em>Var</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Var</em>'.
-   * @see com.agicquel.csvs.csvs.FieldSelect#getVar()
-   * @see #getFieldSelect()
-   * @generated
-   */
-  EAttribute getFieldSelect_Var();
-
-  /**
-   * Returns the meta object for the containment reference '{@link com.agicquel.csvs.csvs.FieldSelect#getExpression <em>Expression</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Expression</em>'.
-   * @see com.agicquel.csvs.csvs.FieldSelect#getExpression()
-   * @see #getFieldSelect()
-   * @generated
-   */
-  EReference getFieldSelect_Expression();
-
-  /**
-   * Returns the meta object for class '{@link com.agicquel.csvs.csvs.VariableSelect <em>Variable Select</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Variable Select</em>'.
-   * @see com.agicquel.csvs.csvs.VariableSelect
-   * @generated
-   */
-  EClass getVariableSelect();
-
-  /**
-   * Returns the meta object for the attribute '{@link com.agicquel.csvs.csvs.VariableSelect#getTerm <em>Term</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Term</em>'.
-   * @see com.agicquel.csvs.csvs.VariableSelect#getTerm()
-   * @see #getVariableSelect()
-   * @generated
-   */
-  EAttribute getVariableSelect_Term();
-
-  /**
-   * Returns the meta object for class '{@link com.agicquel.csvs.csvs.CountExpr <em>Count Expr</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Count Expr</em>'.
-   * @see com.agicquel.csvs.csvs.CountExpr
-   * @generated
-   */
-  EClass getCountExpr();
-
-  /**
-   * Returns the meta object for the containment reference '{@link com.agicquel.csvs.csvs.CountExpr#getExpression <em>Expression</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Expression</em>'.
-   * @see com.agicquel.csvs.csvs.CountExpr#getExpression()
-   * @see #getCountExpr()
-   * @generated
-   */
-  EReference getCountExpr_Expression();
 
   /**
    * Returns the meta object for class '{@link com.agicquel.csvs.csvs.OrExpr <em>Or Expr</em>}'.
@@ -2215,16 +2122,6 @@ public interface CsvsPackage extends EPackage
   EReference getMulOrDivExpr_Right();
 
   /**
-   * Returns the meta object for class '{@link com.agicquel.csvs.csvs.PrimaryExpr <em>Primary Expr</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Primary Expr</em>'.
-   * @see com.agicquel.csvs.csvs.PrimaryExpr
-   * @generated
-   */
-  EClass getPrimaryExpr();
-
-  /**
    * Returns the meta object for class '{@link com.agicquel.csvs.csvs.NotExpr <em>Not Expr</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2244,6 +2141,176 @@ public interface CsvsPackage extends EPackage
    * @generated
    */
   EReference getNotExpr_Expr();
+
+  /**
+   * Returns the meta object for class '{@link com.agicquel.csvs.csvs.PrimaryExpr <em>Primary Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Primary Expr</em>'.
+   * @see com.agicquel.csvs.csvs.PrimaryExpr
+   * @generated
+   */
+  EClass getPrimaryExpr();
+
+  /**
+   * Returns the meta object for class '{@link com.agicquel.csvs.csvs.CsvsExpr <em>Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Expr</em>'.
+   * @see com.agicquel.csvs.csvs.CsvsExpr
+   * @generated
+   */
+  EClass getCsvsExpr();
+
+  /**
+   * Returns the meta object for class '{@link com.agicquel.csvs.csvs.Selector <em>Selector</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Selector</em>'.
+   * @see com.agicquel.csvs.csvs.Selector
+   * @generated
+   */
+  EClass getSelector();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.agicquel.csvs.csvs.Selector#getVar <em>Var</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Var</em>'.
+   * @see com.agicquel.csvs.csvs.Selector#getVar()
+   * @see #getSelector()
+   * @generated
+   */
+  EAttribute getSelector_Var();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.agicquel.csvs.csvs.Selector#getExpressionCol <em>Expression Col</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expression Col</em>'.
+   * @see com.agicquel.csvs.csvs.Selector#getExpressionCol()
+   * @see #getSelector()
+   * @generated
+   */
+  EReference getSelector_ExpressionCol();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.agicquel.csvs.csvs.Selector#getExpressionRow <em>Expression Row</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expression Row</em>'.
+   * @see com.agicquel.csvs.csvs.Selector#getExpressionRow()
+   * @see #getSelector()
+   * @generated
+   */
+  EReference getSelector_ExpressionRow();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.agicquel.csvs.csvs.Selector#getExpressionSubCol <em>Expression Sub Col</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expression Sub Col</em>'.
+   * @see com.agicquel.csvs.csvs.Selector#getExpressionSubCol()
+   * @see #getSelector()
+   * @generated
+   */
+  EReference getSelector_ExpressionSubCol();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.agicquel.csvs.csvs.Selector#getExpressionSubRow <em>Expression Sub Row</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expression Sub Row</em>'.
+   * @see com.agicquel.csvs.csvs.Selector#getExpressionSubRow()
+   * @see #getSelector()
+   * @generated
+   */
+  EReference getSelector_ExpressionSubRow();
+
+  /**
+   * Returns the meta object for class '{@link com.agicquel.csvs.csvs.FieldSelect <em>Field Select</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Field Select</em>'.
+   * @see com.agicquel.csvs.csvs.FieldSelect
+   * @generated
+   */
+  EClass getFieldSelect();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.agicquel.csvs.csvs.FieldSelect#getVar <em>Var</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Var</em>'.
+   * @see com.agicquel.csvs.csvs.FieldSelect#getVar()
+   * @see #getFieldSelect()
+   * @generated
+   */
+  EAttribute getFieldSelect_Var();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.agicquel.csvs.csvs.FieldSelect#getExpression <em>Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expression</em>'.
+   * @see com.agicquel.csvs.csvs.FieldSelect#getExpression()
+   * @see #getFieldSelect()
+   * @generated
+   */
+  EReference getFieldSelect_Expression();
+
+  /**
+   * Returns the meta object for class '{@link com.agicquel.csvs.csvs.CountExpr <em>Count Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Count Expr</em>'.
+   * @see com.agicquel.csvs.csvs.CountExpr
+   * @generated
+   */
+  EClass getCountExpr();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.agicquel.csvs.csvs.CountExpr#getExpression <em>Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expression</em>'.
+   * @see com.agicquel.csvs.csvs.CountExpr#getExpression()
+   * @see #getCountExpr()
+   * @generated
+   */
+  EReference getCountExpr_Expression();
+
+  /**
+   * Returns the meta object for class '{@link com.agicquel.csvs.csvs.LastExpr <em>Last Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Last Expr</em>'.
+   * @see com.agicquel.csvs.csvs.LastExpr
+   * @generated
+   */
+  EClass getLastExpr();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.agicquel.csvs.csvs.LastExpr#getOp <em>Op</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Op</em>'.
+   * @see com.agicquel.csvs.csvs.LastExpr#getOp()
+   * @see #getLastExpr()
+   * @generated
+   */
+  EAttribute getLastExpr_Op();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.agicquel.csvs.csvs.LastExpr#getExpression <em>Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expression</em>'.
+   * @see com.agicquel.csvs.csvs.LastExpr#getExpression()
+   * @see #getLastExpr()
+   * @generated
+   */
+  EReference getLastExpr_Expression();
 
   /**
    * Returns the meta object for class '{@link com.agicquel.csvs.csvs.AtomicExpr <em>Atomic Expr</em>}'.
@@ -2275,6 +2342,27 @@ public interface CsvsPackage extends EPackage
    * @generated
    */
   EAttribute getIntConstant_Value();
+
+  /**
+   * Returns the meta object for class '{@link com.agicquel.csvs.csvs.DoubleConstant <em>Double Constant</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Double Constant</em>'.
+   * @see com.agicquel.csvs.csvs.DoubleConstant
+   * @generated
+   */
+  EClass getDoubleConstant();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.agicquel.csvs.csvs.DoubleConstant#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see com.agicquel.csvs.csvs.DoubleConstant#getValue()
+   * @see #getDoubleConstant()
+   * @generated
+   */
+  EAttribute getDoubleConstant_Value();
 
   /**
    * Returns the meta object for class '{@link com.agicquel.csvs.csvs.StringConstant <em>String Constant</em>}'.
@@ -2317,6 +2405,27 @@ public interface CsvsPackage extends EPackage
    * @generated
    */
   EAttribute getBoolConstant_Value();
+
+  /**
+   * Returns the meta object for class '{@link com.agicquel.csvs.csvs.VariableConstant <em>Variable Constant</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Variable Constant</em>'.
+   * @see com.agicquel.csvs.csvs.VariableConstant
+   * @generated
+   */
+  EClass getVariableConstant();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.agicquel.csvs.csvs.VariableConstant#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see com.agicquel.csvs.csvs.VariableConstant#getValue()
+   * @see #getVariableConstant()
+   * @generated
+   */
+  EAttribute getVariableConstant_Value();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -2644,6 +2753,40 @@ public interface CsvsPackage extends EPackage
     EReference ADD_COMMAND__EXPRESSION = eINSTANCE.getAddCommand_Expression();
 
     /**
+     * The meta object literal for the '{@link com.agicquel.csvs.csvs.impl.RenameCommandImpl <em>Rename Command</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.agicquel.csvs.csvs.impl.RenameCommandImpl
+     * @see com.agicquel.csvs.csvs.impl.CsvsPackageImpl#getRenameCommand()
+     * @generated
+     */
+    EClass RENAME_COMMAND = eINSTANCE.getRenameCommand();
+
+    /**
+     * The meta object literal for the '<em><b>Expr</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference RENAME_COMMAND__EXPR = eINSTANCE.getRenameCommand_Expr();
+
+    /**
+     * The meta object literal for the '<em><b>Oldname</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference RENAME_COMMAND__OLDNAME = eINSTANCE.getRenameCommand_Oldname();
+
+    /**
+     * The meta object literal for the '<em><b>Newname</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference RENAME_COMMAND__NEWNAME = eINSTANCE.getRenameCommand_Newname();
+
+    /**
      * The meta object literal for the '{@link com.agicquel.csvs.csvs.impl.ApplyCommandImpl <em>Apply Command</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2738,164 +2881,6 @@ public interface CsvsPackage extends EPackage
      * @generated
      */
     EClass EXPRESSION = eINSTANCE.getExpression();
-
-    /**
-     * The meta object literal for the '{@link com.agicquel.csvs.csvs.impl.SelectorImpl <em>Selector</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see com.agicquel.csvs.csvs.impl.SelectorImpl
-     * @see com.agicquel.csvs.csvs.impl.CsvsPackageImpl#getSelector()
-     * @generated
-     */
-    EClass SELECTOR = eINSTANCE.getSelector();
-
-    /**
-     * The meta object literal for the '{@link com.agicquel.csvs.csvs.impl.RowSelectImpl <em>Row Select</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see com.agicquel.csvs.csvs.impl.RowSelectImpl
-     * @see com.agicquel.csvs.csvs.impl.CsvsPackageImpl#getRowSelect()
-     * @generated
-     */
-    EClass ROW_SELECT = eINSTANCE.getRowSelect();
-
-    /**
-     * The meta object literal for the '<em><b>Var</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute ROW_SELECT__VAR = eINSTANCE.getRowSelect_Var();
-
-    /**
-     * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference ROW_SELECT__EXPRESSION = eINSTANCE.getRowSelect_Expression();
-
-    /**
-     * The meta object literal for the '{@link com.agicquel.csvs.csvs.impl.ColSelectImpl <em>Col Select</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see com.agicquel.csvs.csvs.impl.ColSelectImpl
-     * @see com.agicquel.csvs.csvs.impl.CsvsPackageImpl#getColSelect()
-     * @generated
-     */
-    EClass COL_SELECT = eINSTANCE.getColSelect();
-
-    /**
-     * The meta object literal for the '<em><b>Var</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute COL_SELECT__VAR = eINSTANCE.getColSelect_Var();
-
-    /**
-     * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference COL_SELECT__EXPRESSION = eINSTANCE.getColSelect_Expression();
-
-    /**
-     * The meta object literal for the '{@link com.agicquel.csvs.csvs.impl.CellSelectImpl <em>Cell Select</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see com.agicquel.csvs.csvs.impl.CellSelectImpl
-     * @see com.agicquel.csvs.csvs.impl.CsvsPackageImpl#getCellSelect()
-     * @generated
-     */
-    EClass CELL_SELECT = eINSTANCE.getCellSelect();
-
-    /**
-     * The meta object literal for the '<em><b>Var</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute CELL_SELECT__VAR = eINSTANCE.getCellSelect_Var();
-
-    /**
-     * The meta object literal for the '<em><b>Expression Row</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference CELL_SELECT__EXPRESSION_ROW = eINSTANCE.getCellSelect_ExpressionRow();
-
-    /**
-     * The meta object literal for the '<em><b>Expression Col</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference CELL_SELECT__EXPRESSION_COL = eINSTANCE.getCellSelect_ExpressionCol();
-
-    /**
-     * The meta object literal for the '{@link com.agicquel.csvs.csvs.impl.FieldSelectImpl <em>Field Select</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see com.agicquel.csvs.csvs.impl.FieldSelectImpl
-     * @see com.agicquel.csvs.csvs.impl.CsvsPackageImpl#getFieldSelect()
-     * @generated
-     */
-    EClass FIELD_SELECT = eINSTANCE.getFieldSelect();
-
-    /**
-     * The meta object literal for the '<em><b>Var</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute FIELD_SELECT__VAR = eINSTANCE.getFieldSelect_Var();
-
-    /**
-     * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference FIELD_SELECT__EXPRESSION = eINSTANCE.getFieldSelect_Expression();
-
-    /**
-     * The meta object literal for the '{@link com.agicquel.csvs.csvs.impl.VariableSelectImpl <em>Variable Select</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see com.agicquel.csvs.csvs.impl.VariableSelectImpl
-     * @see com.agicquel.csvs.csvs.impl.CsvsPackageImpl#getVariableSelect()
-     * @generated
-     */
-    EClass VARIABLE_SELECT = eINSTANCE.getVariableSelect();
-
-    /**
-     * The meta object literal for the '<em><b>Term</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute VARIABLE_SELECT__TERM = eINSTANCE.getVariableSelect_Term();
-
-    /**
-     * The meta object literal for the '{@link com.agicquel.csvs.csvs.impl.CountExprImpl <em>Count Expr</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see com.agicquel.csvs.csvs.impl.CountExprImpl
-     * @see com.agicquel.csvs.csvs.impl.CsvsPackageImpl#getCountExpr()
-     * @generated
-     */
-    EClass COUNT_EXPR = eINSTANCE.getCountExpr();
-
-    /**
-     * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference COUNT_EXPR__EXPRESSION = eINSTANCE.getCountExpr_Expression();
 
     /**
      * The meta object literal for the '{@link com.agicquel.csvs.csvs.impl.OrExprImpl <em>Or Expr</em>}' class.
@@ -3086,16 +3071,6 @@ public interface CsvsPackage extends EPackage
     EReference MUL_OR_DIV_EXPR__RIGHT = eINSTANCE.getMulOrDivExpr_Right();
 
     /**
-     * The meta object literal for the '{@link com.agicquel.csvs.csvs.impl.PrimaryExprImpl <em>Primary Expr</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see com.agicquel.csvs.csvs.impl.PrimaryExprImpl
-     * @see com.agicquel.csvs.csvs.impl.CsvsPackageImpl#getPrimaryExpr()
-     * @generated
-     */
-    EClass PRIMARY_EXPR = eINSTANCE.getPrimaryExpr();
-
-    /**
      * The meta object literal for the '{@link com.agicquel.csvs.csvs.impl.NotExprImpl <em>Not Expr</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3112,6 +3087,146 @@ public interface CsvsPackage extends EPackage
      * @generated
      */
     EReference NOT_EXPR__EXPR = eINSTANCE.getNotExpr_Expr();
+
+    /**
+     * The meta object literal for the '{@link com.agicquel.csvs.csvs.impl.PrimaryExprImpl <em>Primary Expr</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.agicquel.csvs.csvs.impl.PrimaryExprImpl
+     * @see com.agicquel.csvs.csvs.impl.CsvsPackageImpl#getPrimaryExpr()
+     * @generated
+     */
+    EClass PRIMARY_EXPR = eINSTANCE.getPrimaryExpr();
+
+    /**
+     * The meta object literal for the '{@link com.agicquel.csvs.csvs.impl.CsvsExprImpl <em>Expr</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.agicquel.csvs.csvs.impl.CsvsExprImpl
+     * @see com.agicquel.csvs.csvs.impl.CsvsPackageImpl#getCsvsExpr()
+     * @generated
+     */
+    EClass CSVS_EXPR = eINSTANCE.getCsvsExpr();
+
+    /**
+     * The meta object literal for the '{@link com.agicquel.csvs.csvs.impl.SelectorImpl <em>Selector</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.agicquel.csvs.csvs.impl.SelectorImpl
+     * @see com.agicquel.csvs.csvs.impl.CsvsPackageImpl#getSelector()
+     * @generated
+     */
+    EClass SELECTOR = eINSTANCE.getSelector();
+
+    /**
+     * The meta object literal for the '<em><b>Var</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SELECTOR__VAR = eINSTANCE.getSelector_Var();
+
+    /**
+     * The meta object literal for the '<em><b>Expression Col</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SELECTOR__EXPRESSION_COL = eINSTANCE.getSelector_ExpressionCol();
+
+    /**
+     * The meta object literal for the '<em><b>Expression Row</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SELECTOR__EXPRESSION_ROW = eINSTANCE.getSelector_ExpressionRow();
+
+    /**
+     * The meta object literal for the '<em><b>Expression Sub Col</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SELECTOR__EXPRESSION_SUB_COL = eINSTANCE.getSelector_ExpressionSubCol();
+
+    /**
+     * The meta object literal for the '<em><b>Expression Sub Row</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SELECTOR__EXPRESSION_SUB_ROW = eINSTANCE.getSelector_ExpressionSubRow();
+
+    /**
+     * The meta object literal for the '{@link com.agicquel.csvs.csvs.impl.FieldSelectImpl <em>Field Select</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.agicquel.csvs.csvs.impl.FieldSelectImpl
+     * @see com.agicquel.csvs.csvs.impl.CsvsPackageImpl#getFieldSelect()
+     * @generated
+     */
+    EClass FIELD_SELECT = eINSTANCE.getFieldSelect();
+
+    /**
+     * The meta object literal for the '<em><b>Var</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute FIELD_SELECT__VAR = eINSTANCE.getFieldSelect_Var();
+
+    /**
+     * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FIELD_SELECT__EXPRESSION = eINSTANCE.getFieldSelect_Expression();
+
+    /**
+     * The meta object literal for the '{@link com.agicquel.csvs.csvs.impl.CountExprImpl <em>Count Expr</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.agicquel.csvs.csvs.impl.CountExprImpl
+     * @see com.agicquel.csvs.csvs.impl.CsvsPackageImpl#getCountExpr()
+     * @generated
+     */
+    EClass COUNT_EXPR = eINSTANCE.getCountExpr();
+
+    /**
+     * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference COUNT_EXPR__EXPRESSION = eINSTANCE.getCountExpr_Expression();
+
+    /**
+     * The meta object literal for the '{@link com.agicquel.csvs.csvs.impl.LastExprImpl <em>Last Expr</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.agicquel.csvs.csvs.impl.LastExprImpl
+     * @see com.agicquel.csvs.csvs.impl.CsvsPackageImpl#getLastExpr()
+     * @generated
+     */
+    EClass LAST_EXPR = eINSTANCE.getLastExpr();
+
+    /**
+     * The meta object literal for the '<em><b>Op</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute LAST_EXPR__OP = eINSTANCE.getLastExpr_Op();
+
+    /**
+     * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LAST_EXPR__EXPRESSION = eINSTANCE.getLastExpr_Expression();
 
     /**
      * The meta object literal for the '{@link com.agicquel.csvs.csvs.impl.AtomicExprImpl <em>Atomic Expr</em>}' class.
@@ -3140,6 +3255,24 @@ public interface CsvsPackage extends EPackage
      * @generated
      */
     EAttribute INT_CONSTANT__VALUE = eINSTANCE.getIntConstant_Value();
+
+    /**
+     * The meta object literal for the '{@link com.agicquel.csvs.csvs.impl.DoubleConstantImpl <em>Double Constant</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.agicquel.csvs.csvs.impl.DoubleConstantImpl
+     * @see com.agicquel.csvs.csvs.impl.CsvsPackageImpl#getDoubleConstant()
+     * @generated
+     */
+    EClass DOUBLE_CONSTANT = eINSTANCE.getDoubleConstant();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DOUBLE_CONSTANT__VALUE = eINSTANCE.getDoubleConstant_Value();
 
     /**
      * The meta object literal for the '{@link com.agicquel.csvs.csvs.impl.StringConstantImpl <em>String Constant</em>}' class.
@@ -3176,6 +3309,24 @@ public interface CsvsPackage extends EPackage
      * @generated
      */
     EAttribute BOOL_CONSTANT__VALUE = eINSTANCE.getBoolConstant_Value();
+
+    /**
+     * The meta object literal for the '{@link com.agicquel.csvs.csvs.impl.VariableConstantImpl <em>Variable Constant</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.agicquel.csvs.csvs.impl.VariableConstantImpl
+     * @see com.agicquel.csvs.csvs.impl.CsvsPackageImpl#getVariableConstant()
+     * @generated
+     */
+    EClass VARIABLE_CONSTANT = eINSTANCE.getVariableConstant();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute VARIABLE_CONSTANT__VALUE = eINSTANCE.getVariableConstant_Value();
 
   }
 

@@ -9,11 +9,131 @@ package com.agicquel.csvs.csvs;
  * A representation of the model object '<em><b>Selector</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link com.agicquel.csvs.csvs.Selector#getVar <em>Var</em>}</li>
+ *   <li>{@link com.agicquel.csvs.csvs.Selector#getExpressionCol <em>Expression Col</em>}</li>
+ *   <li>{@link com.agicquel.csvs.csvs.Selector#getExpressionRow <em>Expression Row</em>}</li>
+ *   <li>{@link com.agicquel.csvs.csvs.Selector#getExpressionSubCol <em>Expression Sub Col</em>}</li>
+ *   <li>{@link com.agicquel.csvs.csvs.Selector#getExpressionSubRow <em>Expression Sub Row</em>}</li>
+ * </ul>
  *
  * @see com.agicquel.csvs.csvs.CsvsPackage#getSelector()
  * @model
  * @generated
  */
-public interface Selector extends PrimaryExpr
+public interface Selector extends CsvsExpr
 {
+  /**
+   * Returns the value of the '<em><b>Var</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Var</em>' attribute.
+   * @see #setVar(String)
+   * @see com.agicquel.csvs.csvs.CsvsPackage#getSelector_Var()
+   * @model
+   * @generated
+   */
+  String getVar();
+
+  /**
+   * Sets the value of the '{@link com.agicquel.csvs.csvs.Selector#getVar <em>Var</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Var</em>' attribute.
+   * @see #getVar()
+   * @generated
+   */
+  void setVar(String value);
+
+  /**
+   * Returns the value of the '<em><b>Expression Col</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Expression Col</em>' containment reference.
+   * @see #setExpressionCol(CsvsExpr)
+   * @see com.agicquel.csvs.csvs.CsvsPackage#getSelector_ExpressionCol()
+   * @model containment="true"
+   * @generated
+   */
+  CsvsExpr getExpressionCol();
+
+  /**
+   * Sets the value of the '{@link com.agicquel.csvs.csvs.Selector#getExpressionCol <em>Expression Col</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Expression Col</em>' containment reference.
+   * @see #getExpressionCol()
+   * @generated
+   */
+  void setExpressionCol(CsvsExpr value);
+
+  /**
+   * Returns the value of the '<em><b>Expression Row</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Expression Row</em>' containment reference.
+   * @see #setExpressionRow(CsvsExpr)
+   * @see com.agicquel.csvs.csvs.CsvsPackage#getSelector_ExpressionRow()
+   * @model containment="true"
+   * @generated
+   */
+  CsvsExpr getExpressionRow();
+
+  /**
+   * Sets the value of the '{@link com.agicquel.csvs.csvs.Selector#getExpressionRow <em>Expression Row</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Expression Row</em>' containment reference.
+   * @see #getExpressionRow()
+   * @generated
+   */
+  void setExpressionRow(CsvsExpr value);
+
+  /**
+   * Returns the value of the '<em><b>Expression Sub Col</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Expression Sub Col</em>' containment reference.
+   * @see #setExpressionSubCol(CsvsExpr)
+   * @see com.agicquel.csvs.csvs.CsvsPackage#getSelector_ExpressionSubCol()
+   * @model containment="true"
+   * @generated
+   */
+  CsvsExpr getExpressionSubCol();
+
+  /**
+   * Sets the value of the '{@link com.agicquel.csvs.csvs.Selector#getExpressionSubCol <em>Expression Sub Col</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Expression Sub Col</em>' containment reference.
+   * @see #getExpressionSubCol()
+   * @generated
+   */
+  void setExpressionSubCol(CsvsExpr value);
+
+  /**
+   * Returns the value of the '<em><b>Expression Sub Row</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Expression Sub Row</em>' containment reference.
+   * @see #setExpressionSubRow(CsvsExpr)
+   * @see com.agicquel.csvs.csvs.CsvsPackage#getSelector_ExpressionSubRow()
+   * @model containment="true"
+   * @generated
+   */
+  CsvsExpr getExpressionSubRow();
+
+  /**
+   * Sets the value of the '{@link com.agicquel.csvs.csvs.Selector#getExpressionSubRow <em>Expression Sub Row</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Expression Sub Row</em>' containment reference.
+   * @see #getExpressionSubRow()
+   * @generated
+   */
+  void setExpressionSubRow(CsvsExpr value);
+
 } // Selector

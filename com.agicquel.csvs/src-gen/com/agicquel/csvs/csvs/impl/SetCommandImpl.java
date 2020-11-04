@@ -3,9 +3,9 @@
  */
 package com.agicquel.csvs.csvs.impl;
 
+import com.agicquel.csvs.csvs.CsvsExpr;
 import com.agicquel.csvs.csvs.CsvsPackage;
 import com.agicquel.csvs.csvs.Expression;
-import com.agicquel.csvs.csvs.Selector;
 import com.agicquel.csvs.csvs.SetCommand;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -40,7 +40,7 @@ public class SetCommandImpl extends CsvCommandImpl implements SetCommand
    * @generated
    * @ordered
    */
-  protected Selector var;
+  protected CsvsExpr var;
 
   /**
    * The cached value of the '{@link #getExpression() <em>Expression</em>}' containment reference.
@@ -79,7 +79,7 @@ public class SetCommandImpl extends CsvCommandImpl implements SetCommand
    * @generated
    */
   @Override
-  public Selector getVar()
+  public CsvsExpr getVar()
   {
     return var;
   }
@@ -89,9 +89,9 @@ public class SetCommandImpl extends CsvCommandImpl implements SetCommand
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetVar(Selector newVar, NotificationChain msgs)
+  public NotificationChain basicSetVar(CsvsExpr newVar, NotificationChain msgs)
   {
-    Selector oldVar = var;
+    CsvsExpr oldVar = var;
     var = newVar;
     if (eNotificationRequired())
     {
@@ -107,7 +107,7 @@ public class SetCommandImpl extends CsvCommandImpl implements SetCommand
    * @generated
    */
   @Override
-  public void setVar(Selector newVar)
+  public void setVar(CsvsExpr newVar)
   {
     if (newVar != var)
     {
@@ -220,7 +220,7 @@ public class SetCommandImpl extends CsvCommandImpl implements SetCommand
     switch (featureID)
     {
       case CsvsPackage.SET_COMMAND__VAR:
-        setVar((Selector)newValue);
+        setVar((CsvsExpr)newValue);
         return;
       case CsvsPackage.SET_COMMAND__EXPRESSION:
         setExpression((Expression)newValue);
@@ -240,7 +240,7 @@ public class SetCommandImpl extends CsvCommandImpl implements SetCommand
     switch (featureID)
     {
       case CsvsPackage.SET_COMMAND__VAR:
-        setVar((Selector)null);
+        setVar((CsvsExpr)null);
         return;
       case CsvsPackage.SET_COMMAND__EXPRESSION:
         setExpression((Expression)null);

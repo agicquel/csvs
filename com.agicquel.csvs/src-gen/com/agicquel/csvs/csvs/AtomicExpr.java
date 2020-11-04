@@ -14,6 +14,6 @@ package com.agicquel.csvs.csvs;
  * @model
  * @generated
  */
-public interface AtomicExpr extends PrimaryExpr
+public interface AtomicExpr extends CsvsExpr
 {
 } // AtomicExpr

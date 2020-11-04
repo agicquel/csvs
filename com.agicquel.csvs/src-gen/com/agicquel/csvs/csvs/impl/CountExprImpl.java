@@ -28,7 +28,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class CountExprImpl extends PrimaryExprImpl implements CountExpr
+public class CountExprImpl extends CsvsExprImpl implements CountExpr
 {
   /**
    * The cached value of the '{@link #getExpression() <em>Expression</em>}' containment reference.

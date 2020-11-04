@@ -20,7 +20,7 @@ package com.agicquel.csvs.csvs;
  * @model
  * @generated
  */
-public interface CountExpr extends PrimaryExpr
+public interface CountExpr extends CsvsExpr
 {
   /**
    * Returns the value of the '<em><b>Expression</b></em>' containment reference.

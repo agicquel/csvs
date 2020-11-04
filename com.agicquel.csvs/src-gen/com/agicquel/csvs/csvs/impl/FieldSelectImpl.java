@@ -29,7 +29,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class FieldSelectImpl extends SelectorImpl implements FieldSelect
+public class FieldSelectImpl extends CsvsExprImpl implements FieldSelect
 {
   /**
    * The default value of the '{@link #getVar() <em>Var</em>}' attribute.

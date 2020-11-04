@@ -6,8 +6,8 @@ package com.agicquel.csvs.csvs.impl;
 import com.agicquel.csvs.csvs.ApplyCommand;
 import com.agicquel.csvs.csvs.ApplyExecCommand;
 import com.agicquel.csvs.csvs.ApplyFilterCommand;
+import com.agicquel.csvs.csvs.CsvsExpr;
 import com.agicquel.csvs.csvs.CsvsPackage;
-import com.agicquel.csvs.csvs.Selector;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -42,7 +42,7 @@ public class ApplyCommandImpl extends CsvCommandImpl implements ApplyCommand
    * @generated
    * @ordered
    */
-  protected Selector selection;
+  protected CsvsExpr selection;
 
   /**
    * The cached value of the '{@link #getIf() <em>If</em>}' containment reference.
@@ -91,7 +91,7 @@ public class ApplyCommandImpl extends CsvCommandImpl implements ApplyCommand
    * @generated
    */
   @Override
-  public Selector getSelection()
+  public CsvsExpr getSelection()
   {
     return selection;
   }
@@ -101,9 +101,9 @@ public class ApplyCommandImpl extends CsvCommandImpl implements ApplyCommand
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetSelection(Selector newSelection, NotificationChain msgs)
+  public NotificationChain basicSetSelection(CsvsExpr newSelection, NotificationChain msgs)
   {
-    Selector oldSelection = selection;
+    CsvsExpr oldSelection = selection;
     selection = newSelection;
     if (eNotificationRequired())
     {
@@ -119,7 +119,7 @@ public class ApplyCommandImpl extends CsvCommandImpl implements ApplyCommand
    * @generated
    */
   @Override
-  public void setSelection(Selector newSelection)
+  public void setSelection(CsvsExpr newSelection)
   {
     if (newSelection != selection)
     {
@@ -286,7 +286,7 @@ public class ApplyCommandImpl extends CsvCommandImpl implements ApplyCommand
     switch (featureID)
     {
       case CsvsPackage.APPLY_COMMAND__SELECTION:
-        setSelection((Selector)newValue);
+        setSelection((CsvsExpr)newValue);
         return;
       case CsvsPackage.APPLY_COMMAND__IF:
         setIf((ApplyFilterCommand)newValue);
@@ -309,7 +309,7 @@ public class ApplyCommandImpl extends CsvCommandImpl implements ApplyCommand
     switch (featureID)
     {
       case CsvsPackage.APPLY_COMMAND__SELECTION:
-        setSelection((Selector)null);
+        setSelection((CsvsExpr)null);
         return;
       case CsvsPackage.APPLY_COMMAND__IF:
         setIf((ApplyFilterCommand)null);

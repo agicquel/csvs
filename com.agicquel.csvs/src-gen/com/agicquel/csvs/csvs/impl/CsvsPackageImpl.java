@@ -11,23 +11,24 @@ import com.agicquel.csvs.csvs.ApplyFilterCommand;
 import com.agicquel.csvs.csvs.AtomicExpr;
 import com.agicquel.csvs.csvs.Block;
 import com.agicquel.csvs.csvs.BoolConstant;
-import com.agicquel.csvs.csvs.CellSelect;
-import com.agicquel.csvs.csvs.ColSelect;
 import com.agicquel.csvs.csvs.Command;
 import com.agicquel.csvs.csvs.ComparaisonExpr;
 import com.agicquel.csvs.csvs.ControlCommand;
 import com.agicquel.csvs.csvs.CountExpr;
 import com.agicquel.csvs.csvs.CreateCommand;
 import com.agicquel.csvs.csvs.CsvCommand;
+import com.agicquel.csvs.csvs.CsvsExpr;
 import com.agicquel.csvs.csvs.CsvsFactory;
 import com.agicquel.csvs.csvs.CsvsPackage;
 import com.agicquel.csvs.csvs.DeleteCommand;
+import com.agicquel.csvs.csvs.DoubleConstant;
 import com.agicquel.csvs.csvs.EqualityExpr;
 import com.agicquel.csvs.csvs.ExportCommand;
 import com.agicquel.csvs.csvs.Expression;
 import com.agicquel.csvs.csvs.FieldSelect;
 import com.agicquel.csvs.csvs.IfCommand;
 import com.agicquel.csvs.csvs.IntConstant;
+import com.agicquel.csvs.csvs.LastExpr;
 import com.agicquel.csvs.csvs.LoadCommand;
 import com.agicquel.csvs.csvs.Model;
 import com.agicquel.csvs.csvs.MulOrDivExpr;
@@ -36,12 +37,12 @@ import com.agicquel.csvs.csvs.OrExpr;
 import com.agicquel.csvs.csvs.PlusOrMinusExpr;
 import com.agicquel.csvs.csvs.PrimaryExpr;
 import com.agicquel.csvs.csvs.PrintCommand;
-import com.agicquel.csvs.csvs.RowSelect;
+import com.agicquel.csvs.csvs.RenameCommand;
 import com.agicquel.csvs.csvs.Selector;
 import com.agicquel.csvs.csvs.SetCommand;
 import com.agicquel.csvs.csvs.StoreCommand;
 import com.agicquel.csvs.csvs.StringConstant;
-import com.agicquel.csvs.csvs.VariableSelect;
+import com.agicquel.csvs.csvs.VariableConstant;
 import com.agicquel.csvs.csvs.WhileCommand;
 
 import org.eclipse.emf.ecore.EAttribute;
@@ -169,6 +170,13 @@ public class CsvsPackageImpl extends EPackageImpl implements CsvsPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass renameCommandEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass applyCommandEClass = null;
 
   /**
@@ -191,55 +199,6 @@ public class CsvsPackageImpl extends EPackageImpl implements CsvsPackage
    * @generated
    */
   private EClass expressionEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass selectorEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass rowSelectEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass colSelectEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass cellSelectEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass fieldSelectEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass variableSelectEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass countExprEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -288,6 +247,13 @@ public class CsvsPackageImpl extends EPackageImpl implements CsvsPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass notExprEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass primaryExprEClass = null;
 
   /**
@@ -295,7 +261,35 @@ public class CsvsPackageImpl extends EPackageImpl implements CsvsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass notExprEClass = null;
+  private EClass csvsExprEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass selectorEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass fieldSelectEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass countExprEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass lastExprEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -316,6 +310,13 @@ public class CsvsPackageImpl extends EPackageImpl implements CsvsPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass doubleConstantEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass stringConstantEClass = null;
 
   /**
@@ -324,6 +325,13 @@ public class CsvsPackageImpl extends EPackageImpl implements CsvsPackage
    * @generated
    */
   private EClass boolConstantEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass variableConstantEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -768,6 +776,50 @@ public class CsvsPackageImpl extends EPackageImpl implements CsvsPackage
    * @generated
    */
   @Override
+  public EClass getRenameCommand()
+  {
+    return renameCommandEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getRenameCommand_Expr()
+  {
+    return (EReference)renameCommandEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getRenameCommand_Oldname()
+  {
+    return (EReference)renameCommandEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getRenameCommand_Newname()
+  {
+    return (EReference)renameCommandEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getApplyCommand()
   {
     return applyCommandEClass;
@@ -881,204 +933,6 @@ public class CsvsPackageImpl extends EPackageImpl implements CsvsPackage
   public EClass getExpression()
   {
     return expressionEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EClass getSelector()
-  {
-    return selectorEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EClass getRowSelect()
-  {
-    return rowSelectEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getRowSelect_Var()
-  {
-    return (EAttribute)rowSelectEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getRowSelect_Expression()
-  {
-    return (EReference)rowSelectEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EClass getColSelect()
-  {
-    return colSelectEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getColSelect_Var()
-  {
-    return (EAttribute)colSelectEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getColSelect_Expression()
-  {
-    return (EReference)colSelectEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EClass getCellSelect()
-  {
-    return cellSelectEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getCellSelect_Var()
-  {
-    return (EAttribute)cellSelectEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getCellSelect_ExpressionRow()
-  {
-    return (EReference)cellSelectEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getCellSelect_ExpressionCol()
-  {
-    return (EReference)cellSelectEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EClass getFieldSelect()
-  {
-    return fieldSelectEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getFieldSelect_Var()
-  {
-    return (EAttribute)fieldSelectEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getFieldSelect_Expression()
-  {
-    return (EReference)fieldSelectEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EClass getVariableSelect()
-  {
-    return variableSelectEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getVariableSelect_Term()
-  {
-    return (EAttribute)variableSelectEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EClass getCountExpr()
-  {
-    return countExprEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getCountExpr_Expression()
-  {
-    return (EReference)countExprEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1329,17 +1183,6 @@ public class CsvsPackageImpl extends EPackageImpl implements CsvsPackage
    * @generated
    */
   @Override
-  public EClass getPrimaryExpr()
-  {
-    return primaryExprEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public EClass getNotExpr()
   {
     return notExprEClass;
@@ -1354,6 +1197,182 @@ public class CsvsPackageImpl extends EPackageImpl implements CsvsPackage
   public EReference getNotExpr_Expr()
   {
     return (EReference)notExprEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getPrimaryExpr()
+  {
+    return primaryExprEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getCsvsExpr()
+  {
+    return csvsExprEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getSelector()
+  {
+    return selectorEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getSelector_Var()
+  {
+    return (EAttribute)selectorEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getSelector_ExpressionCol()
+  {
+    return (EReference)selectorEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getSelector_ExpressionRow()
+  {
+    return (EReference)selectorEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getSelector_ExpressionSubCol()
+  {
+    return (EReference)selectorEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getSelector_ExpressionSubRow()
+  {
+    return (EReference)selectorEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getFieldSelect()
+  {
+    return fieldSelectEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getFieldSelect_Var()
+  {
+    return (EAttribute)fieldSelectEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getFieldSelect_Expression()
+  {
+    return (EReference)fieldSelectEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getCountExpr()
+  {
+    return countExprEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getCountExpr_Expression()
+  {
+    return (EReference)countExprEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getLastExpr()
+  {
+    return lastExprEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getLastExpr_Op()
+  {
+    return (EAttribute)lastExprEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getLastExpr_Expression()
+  {
+    return (EReference)lastExprEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1387,6 +1406,28 @@ public class CsvsPackageImpl extends EPackageImpl implements CsvsPackage
   public EAttribute getIntConstant_Value()
   {
     return (EAttribute)intConstantEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getDoubleConstant()
+  {
+    return doubleConstantEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getDoubleConstant_Value()
+  {
+    return (EAttribute)doubleConstantEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1431,6 +1472,28 @@ public class CsvsPackageImpl extends EPackageImpl implements CsvsPackage
   public EAttribute getBoolConstant_Value()
   {
     return (EAttribute)boolConstantEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getVariableConstant()
+  {
+    return variableConstantEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getVariableConstant_Value()
+  {
+    return (EAttribute)variableConstantEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1513,6 +1576,11 @@ public class CsvsPackageImpl extends EPackageImpl implements CsvsPackage
     createEAttribute(addCommandEClass, ADD_COMMAND__OP);
     createEReference(addCommandEClass, ADD_COMMAND__EXPRESSION);
 
+    renameCommandEClass = createEClass(RENAME_COMMAND);
+    createEReference(renameCommandEClass, RENAME_COMMAND__EXPR);
+    createEReference(renameCommandEClass, RENAME_COMMAND__OLDNAME);
+    createEReference(renameCommandEClass, RENAME_COMMAND__NEWNAME);
+
     applyCommandEClass = createEClass(APPLY_COMMAND);
     createEReference(applyCommandEClass, APPLY_COMMAND__SELECTION);
     createEReference(applyCommandEClass, APPLY_COMMAND__IF);
@@ -1527,31 +1595,6 @@ public class CsvsPackageImpl extends EPackageImpl implements CsvsPackage
     createEReference(applyExecCommandEClass, APPLY_EXEC_COMMAND__EXPR);
 
     expressionEClass = createEClass(EXPRESSION);
-
-    selectorEClass = createEClass(SELECTOR);
-
-    rowSelectEClass = createEClass(ROW_SELECT);
-    createEAttribute(rowSelectEClass, ROW_SELECT__VAR);
-    createEReference(rowSelectEClass, ROW_SELECT__EXPRESSION);
-
-    colSelectEClass = createEClass(COL_SELECT);
-    createEAttribute(colSelectEClass, COL_SELECT__VAR);
-    createEReference(colSelectEClass, COL_SELECT__EXPRESSION);
-
-    cellSelectEClass = createEClass(CELL_SELECT);
-    createEAttribute(cellSelectEClass, CELL_SELECT__VAR);
-    createEReference(cellSelectEClass, CELL_SELECT__EXPRESSION_ROW);
-    createEReference(cellSelectEClass, CELL_SELECT__EXPRESSION_COL);
-
-    fieldSelectEClass = createEClass(FIELD_SELECT);
-    createEAttribute(fieldSelectEClass, FIELD_SELECT__VAR);
-    createEReference(fieldSelectEClass, FIELD_SELECT__EXPRESSION);
-
-    variableSelectEClass = createEClass(VARIABLE_SELECT);
-    createEAttribute(variableSelectEClass, VARIABLE_SELECT__TERM);
-
-    countExprEClass = createEClass(COUNT_EXPR);
-    createEReference(countExprEClass, COUNT_EXPR__EXPRESSION);
 
     orExprEClass = createEClass(OR_EXPR);
     createEReference(orExprEClass, OR_EXPR__LEFT);
@@ -1581,21 +1624,47 @@ public class CsvsPackageImpl extends EPackageImpl implements CsvsPackage
     createEAttribute(mulOrDivExprEClass, MUL_OR_DIV_EXPR__OP);
     createEReference(mulOrDivExprEClass, MUL_OR_DIV_EXPR__RIGHT);
 
-    primaryExprEClass = createEClass(PRIMARY_EXPR);
-
     notExprEClass = createEClass(NOT_EXPR);
     createEReference(notExprEClass, NOT_EXPR__EXPR);
+
+    primaryExprEClass = createEClass(PRIMARY_EXPR);
+
+    csvsExprEClass = createEClass(CSVS_EXPR);
+
+    selectorEClass = createEClass(SELECTOR);
+    createEAttribute(selectorEClass, SELECTOR__VAR);
+    createEReference(selectorEClass, SELECTOR__EXPRESSION_COL);
+    createEReference(selectorEClass, SELECTOR__EXPRESSION_ROW);
+    createEReference(selectorEClass, SELECTOR__EXPRESSION_SUB_COL);
+    createEReference(selectorEClass, SELECTOR__EXPRESSION_SUB_ROW);
+
+    fieldSelectEClass = createEClass(FIELD_SELECT);
+    createEAttribute(fieldSelectEClass, FIELD_SELECT__VAR);
+    createEReference(fieldSelectEClass, FIELD_SELECT__EXPRESSION);
+
+    countExprEClass = createEClass(COUNT_EXPR);
+    createEReference(countExprEClass, COUNT_EXPR__EXPRESSION);
+
+    lastExprEClass = createEClass(LAST_EXPR);
+    createEAttribute(lastExprEClass, LAST_EXPR__OP);
+    createEReference(lastExprEClass, LAST_EXPR__EXPRESSION);
 
     atomicExprEClass = createEClass(ATOMIC_EXPR);
 
     intConstantEClass = createEClass(INT_CONSTANT);
     createEAttribute(intConstantEClass, INT_CONSTANT__VALUE);
 
+    doubleConstantEClass = createEClass(DOUBLE_CONSTANT);
+    createEAttribute(doubleConstantEClass, DOUBLE_CONSTANT__VALUE);
+
     stringConstantEClass = createEClass(STRING_CONSTANT);
     createEAttribute(stringConstantEClass, STRING_CONSTANT__VALUE);
 
     boolConstantEClass = createEClass(BOOL_CONSTANT);
     createEAttribute(boolConstantEClass, BOOL_CONSTANT__VALUE);
+
+    variableConstantEClass = createEClass(VARIABLE_CONSTANT);
+    createEAttribute(variableConstantEClass, VARIABLE_CONSTANT__VALUE);
   }
 
   /**
@@ -1639,21 +1708,22 @@ public class CsvsPackageImpl extends EPackageImpl implements CsvsPackage
     printCommandEClass.getESuperTypes().add(this.getCsvCommand());
     deleteCommandEClass.getESuperTypes().add(this.getCsvCommand());
     addCommandEClass.getESuperTypes().add(this.getCsvCommand());
+    renameCommandEClass.getESuperTypes().add(this.getCsvCommand());
     applyCommandEClass.getESuperTypes().add(this.getCsvCommand());
     expressionEClass.getESuperTypes().add(this.getPrimaryExpr());
-    selectorEClass.getESuperTypes().add(this.getPrimaryExpr());
-    rowSelectEClass.getESuperTypes().add(this.getSelector());
-    colSelectEClass.getESuperTypes().add(this.getSelector());
-    cellSelectEClass.getESuperTypes().add(this.getSelector());
-    fieldSelectEClass.getESuperTypes().add(this.getSelector());
-    variableSelectEClass.getESuperTypes().add(this.getSelector());
-    countExprEClass.getESuperTypes().add(this.getPrimaryExpr());
     orExprEClass.getESuperTypes().add(this.getExpression());
     notExprEClass.getESuperTypes().add(this.getPrimaryExpr());
-    atomicExprEClass.getESuperTypes().add(this.getPrimaryExpr());
+    csvsExprEClass.getESuperTypes().add(this.getPrimaryExpr());
+    selectorEClass.getESuperTypes().add(this.getCsvsExpr());
+    fieldSelectEClass.getESuperTypes().add(this.getCsvsExpr());
+    countExprEClass.getESuperTypes().add(this.getCsvsExpr());
+    lastExprEClass.getESuperTypes().add(this.getCsvsExpr());
+    atomicExprEClass.getESuperTypes().add(this.getCsvsExpr());
     intConstantEClass.getESuperTypes().add(this.getAtomicExpr());
+    doubleConstantEClass.getESuperTypes().add(this.getAtomicExpr());
     stringConstantEClass.getESuperTypes().add(this.getAtomicExpr());
     boolConstantEClass.getESuperTypes().add(this.getAtomicExpr());
+    variableConstantEClass.getESuperTypes().add(this.getAtomicExpr());
 
     // Initialize classes and features; add operations and parameters
     initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1692,21 +1762,26 @@ public class CsvsPackageImpl extends EPackageImpl implements CsvsPackage
     initEAttribute(getCreateCommand_Var(), ecorePackage.getEString(), "var", null, 0, 1, CreateCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(setCommandEClass, SetCommand.class, "SetCommand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getSetCommand_Var(), this.getSelector(), null, "var", null, 0, 1, SetCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSetCommand_Var(), this.getCsvsExpr(), null, "var", null, 0, 1, SetCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSetCommand_Expression(), this.getExpression(), null, "expression", null, 0, 1, SetCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(printCommandEClass, PrintCommand.class, "PrintCommand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getPrintCommand_Expression(), this.getExpression(), null, "expression", null, 0, 1, PrintCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(deleteCommandEClass, DeleteCommand.class, "DeleteCommand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getDeleteCommand_Expression(), this.getExpression(), null, "expression", null, 0, 1, DeleteCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDeleteCommand_Expression(), this.getCsvsExpr(), null, "expression", null, 0, 1, DeleteCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(addCommandEClass, AddCommand.class, "AddCommand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getAddCommand_Op(), ecorePackage.getEString(), "op", null, 0, 1, AddCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getAddCommand_Expression(), this.getExpression(), null, "expression", null, 0, 1, AddCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAddCommand_Expression(), this.getCsvsExpr(), null, "expression", null, 0, 1, AddCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(renameCommandEClass, RenameCommand.class, "RenameCommand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getRenameCommand_Expr(), this.getCsvsExpr(), null, "expr", null, 0, 1, RenameCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRenameCommand_Oldname(), this.getExpression(), null, "oldname", null, 0, 1, RenameCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRenameCommand_Newname(), this.getExpression(), null, "newname", null, 0, 1, RenameCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(applyCommandEClass, ApplyCommand.class, "ApplyCommand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getApplyCommand_Selection(), this.getSelector(), null, "selection", null, 0, 1, ApplyCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getApplyCommand_Selection(), this.getCsvsExpr(), null, "selection", null, 0, 1, ApplyCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getApplyCommand_If(), this.getApplyFilterCommand(), null, "if", null, 0, 1, ApplyCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getApplyCommand_Exec(), this.getApplyExecCommand(), null, "exec", null, 0, 1, ApplyCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -1719,31 +1794,6 @@ public class CsvsPackageImpl extends EPackageImpl implements CsvsPackage
     initEReference(getApplyExecCommand_Expr(), this.getExpression(), null, "expr", null, 0, 1, ApplyExecCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(expressionEClass, Expression.class, "Expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-    initEClass(selectorEClass, Selector.class, "Selector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-    initEClass(rowSelectEClass, RowSelect.class, "RowSelect", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getRowSelect_Var(), ecorePackage.getEString(), "var", null, 0, 1, RowSelect.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getRowSelect_Expression(), this.getPrimaryExpr(), null, "expression", null, 0, 1, RowSelect.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(colSelectEClass, ColSelect.class, "ColSelect", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getColSelect_Var(), ecorePackage.getEString(), "var", null, 0, 1, ColSelect.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getColSelect_Expression(), this.getPrimaryExpr(), null, "expression", null, 0, 1, ColSelect.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(cellSelectEClass, CellSelect.class, "CellSelect", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getCellSelect_Var(), ecorePackage.getEString(), "var", null, 0, 1, CellSelect.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getCellSelect_ExpressionRow(), this.getPrimaryExpr(), null, "expressionRow", null, 0, 1, CellSelect.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getCellSelect_ExpressionCol(), this.getPrimaryExpr(), null, "expressionCol", null, 0, 1, CellSelect.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(fieldSelectEClass, FieldSelect.class, "FieldSelect", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getFieldSelect_Var(), ecorePackage.getEString(), "var", null, 0, 1, FieldSelect.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getFieldSelect_Expression(), this.getPrimaryExpr(), null, "expression", null, 0, 1, FieldSelect.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(variableSelectEClass, VariableSelect.class, "VariableSelect", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getVariableSelect_Term(), ecorePackage.getEString(), "term", null, 0, 1, VariableSelect.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(countExprEClass, CountExpr.class, "CountExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getCountExpr_Expression(), this.getPrimaryExpr(), null, "expression", null, 0, 1, CountExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(orExprEClass, OrExpr.class, "OrExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getOrExpr_Left(), this.getAddExpr(), null, "left", null, 0, 1, OrExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1773,21 +1823,47 @@ public class CsvsPackageImpl extends EPackageImpl implements CsvsPackage
     initEAttribute(getMulOrDivExpr_Op(), ecorePackage.getEString(), "op", null, 0, -1, MulOrDivExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getMulOrDivExpr_Right(), this.getPrimaryExpr(), null, "right", null, 0, -1, MulOrDivExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(primaryExprEClass, PrimaryExpr.class, "PrimaryExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
     initEClass(notExprEClass, NotExpr.class, "NotExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getNotExpr_Expr(), this.getPrimaryExpr(), null, "expr", null, 0, 1, NotExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(primaryExprEClass, PrimaryExpr.class, "PrimaryExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(csvsExprEClass, CsvsExpr.class, "CsvsExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(selectorEClass, Selector.class, "Selector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getSelector_Var(), ecorePackage.getEString(), "var", null, 0, 1, Selector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSelector_ExpressionCol(), this.getCsvsExpr(), null, "expressionCol", null, 0, 1, Selector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSelector_ExpressionRow(), this.getCsvsExpr(), null, "expressionRow", null, 0, 1, Selector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSelector_ExpressionSubCol(), this.getCsvsExpr(), null, "expressionSubCol", null, 0, 1, Selector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSelector_ExpressionSubRow(), this.getCsvsExpr(), null, "expressionSubRow", null, 0, 1, Selector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(fieldSelectEClass, FieldSelect.class, "FieldSelect", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getFieldSelect_Var(), ecorePackage.getEString(), "var", null, 0, 1, FieldSelect.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFieldSelect_Expression(), this.getPrimaryExpr(), null, "expression", null, 0, 1, FieldSelect.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(countExprEClass, CountExpr.class, "CountExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getCountExpr_Expression(), this.getPrimaryExpr(), null, "expression", null, 0, 1, CountExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(lastExprEClass, LastExpr.class, "LastExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getLastExpr_Op(), ecorePackage.getEString(), "op", null, 0, 1, LastExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getLastExpr_Expression(), this.getCsvsExpr(), null, "expression", null, 0, 1, LastExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(atomicExprEClass, AtomicExpr.class, "AtomicExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(intConstantEClass, IntConstant.class, "IntConstant", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getIntConstant_Value(), ecorePackage.getEInt(), "value", null, 0, 1, IntConstant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(doubleConstantEClass, DoubleConstant.class, "DoubleConstant", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getDoubleConstant_Value(), ecorePackage.getEString(), "value", null, 0, 1, DoubleConstant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(stringConstantEClass, StringConstant.class, "StringConstant", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getStringConstant_Value(), ecorePackage.getEString(), "value", null, 0, 1, StringConstant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(boolConstantEClass, BoolConstant.class, "BoolConstant", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getBoolConstant_Value(), ecorePackage.getEString(), "value", null, 0, 1, BoolConstant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(variableConstantEClass, VariableConstant.class, "VariableConstant", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getVariableConstant_Value(), ecorePackage.getEString(), "value", null, 0, 1, VariableConstant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

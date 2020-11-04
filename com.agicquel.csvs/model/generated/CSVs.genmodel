@@ -53,6 +53,11 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CSVs.ecore#//AddCommand/op"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CSVs.ecore#//AddCommand/expression"/>
     </genClasses>
+    <genClasses ecoreClass="CSVs.ecore#//RenameCommand">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CSVs.ecore#//RenameCommand/expr"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CSVs.ecore#//RenameCommand/oldname"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CSVs.ecore#//RenameCommand/newname"/>
+    </genClasses>
     <genClasses ecoreClass="CSVs.ecore#//ApplyCommand">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CSVs.ecore#//ApplyCommand/selection"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CSVs.ecore#//ApplyCommand/if"/>
@@ -67,30 +72,6 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CSVs.ecore#//ApplyExecCommand/expr"/>
     </genClasses>
     <genClasses ecoreClass="CSVs.ecore#//Expression"/>
-    <genClasses ecoreClass="CSVs.ecore#//Selector"/>
-    <genClasses ecoreClass="CSVs.ecore#//RowSelect">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CSVs.ecore#//RowSelect/var"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CSVs.ecore#//RowSelect/expression"/>
-    </genClasses>
-    <genClasses ecoreClass="CSVs.ecore#//ColSelect">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CSVs.ecore#//ColSelect/var"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CSVs.ecore#//ColSelect/expression"/>
-    </genClasses>
-    <genClasses ecoreClass="CSVs.ecore#//CellSelect">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CSVs.ecore#//CellSelect/var"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CSVs.ecore#//CellSelect/expressionRow"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CSVs.ecore#//CellSelect/expressionCol"/>
-    </genClasses>
-    <genClasses ecoreClass="CSVs.ecore#//FieldSelect">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CSVs.ecore#//FieldSelect/var"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CSVs.ecore#//FieldSelect/expression"/>
-    </genClasses>
-    <genClasses ecoreClass="CSVs.ecore#//VariableSelect">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CSVs.ecore#//VariableSelect/term"/>
-    </genClasses>
-    <genClasses ecoreClass="CSVs.ecore#//CountExpr">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CSVs.ecore#//CountExpr/expression"/>
-    </genClasses>
     <genClasses ecoreClass="CSVs.ecore#//OrExpr">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CSVs.ecore#//OrExpr/left"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CSVs.ecore#//OrExpr/right"/>
@@ -119,19 +100,44 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CSVs.ecore#//MulOrDivExpr/op"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CSVs.ecore#//MulOrDivExpr/right"/>
     </genClasses>
-    <genClasses ecoreClass="CSVs.ecore#//PrimaryExpr"/>
     <genClasses ecoreClass="CSVs.ecore#//NotExpr">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CSVs.ecore#//NotExpr/expr"/>
+    </genClasses>
+    <genClasses ecoreClass="CSVs.ecore#//PrimaryExpr"/>
+    <genClasses ecoreClass="CSVs.ecore#//CsvsExpr"/>
+    <genClasses ecoreClass="CSVs.ecore#//Selector">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CSVs.ecore#//Selector/var"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CSVs.ecore#//Selector/expressionCol"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CSVs.ecore#//Selector/expressionRow"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CSVs.ecore#//Selector/expressionSubCol"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CSVs.ecore#//Selector/expressionSubRow"/>
+    </genClasses>
+    <genClasses ecoreClass="CSVs.ecore#//FieldSelect">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CSVs.ecore#//FieldSelect/var"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CSVs.ecore#//FieldSelect/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="CSVs.ecore#//CountExpr">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CSVs.ecore#//CountExpr/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="CSVs.ecore#//LastExpr">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CSVs.ecore#//LastExpr/op"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CSVs.ecore#//LastExpr/expression"/>
     </genClasses>
     <genClasses ecoreClass="CSVs.ecore#//AtomicExpr"/>
     <genClasses ecoreClass="CSVs.ecore#//IntConstant">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CSVs.ecore#//IntConstant/value"/>
+    </genClasses>
+    <genClasses ecoreClass="CSVs.ecore#//DoubleConstant">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CSVs.ecore#//DoubleConstant/value"/>
     </genClasses>
     <genClasses ecoreClass="CSVs.ecore#//StringConstant">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CSVs.ecore#//StringConstant/value"/>
     </genClasses>
     <genClasses ecoreClass="CSVs.ecore#//BoolConstant">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CSVs.ecore#//BoolConstant/value"/>
+    </genClasses>
+    <genClasses ecoreClass="CSVs.ecore#//VariableConstant">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CSVs.ecore#//VariableConstant/value"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

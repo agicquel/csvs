@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring accessors="true" comment="Delete 5 elements from project &apos;com.agicquel.csvs&apos;&#x0A;- Original project: &apos;com.agicquel.csvs&apos;&#x0A;- Original elements:&#x0A;     CommandImpl.xtend&#x0A;     Env.xtend&#x0A;     Instr.xtend&#x0A;     IRGenerator.xtend&#x0A;     Quad.xtend" description="Delete elements" element1="src/com/agicquel/csvs/generator/Env.xtend" element2="src/com/agicquel/csvs/generator/IRGenerator.xtend" element3="src/com/agicquel/csvs/generator/Instr.xtend" element4="src/com/agicquel/csvs/generator/Quad.xtend" element5="src/com/agicquel/csvs/generator/CommandImpl.xtend" elements="0" flags="589830" id="org.eclipse.jdt.ui.delete" resources="5" stamp="1604442414400" subPackages="false" version="1.0"/>
+</session>

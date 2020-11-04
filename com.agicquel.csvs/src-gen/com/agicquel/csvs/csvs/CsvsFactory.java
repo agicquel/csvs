@@ -159,6 +159,15 @@ public interface CsvsFactory extends EFactory
   AddCommand createAddCommand();
 
   /**
+   * Returns a new object of class '<em>Rename Command</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Rename Command</em>'.
+   * @generated
+   */
+  RenameCommand createRenameCommand();
+
+  /**
    * Returns a new object of class '<em>Apply Command</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -193,69 +202,6 @@ public interface CsvsFactory extends EFactory
    * @generated
    */
   Expression createExpression();
-
-  /**
-   * Returns a new object of class '<em>Selector</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Selector</em>'.
-   * @generated
-   */
-  Selector createSelector();
-
-  /**
-   * Returns a new object of class '<em>Row Select</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Row Select</em>'.
-   * @generated
-   */
-  RowSelect createRowSelect();
-
-  /**
-   * Returns a new object of class '<em>Col Select</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Col Select</em>'.
-   * @generated
-   */
-  ColSelect createColSelect();
-
-  /**
-   * Returns a new object of class '<em>Cell Select</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Cell Select</em>'.
-   * @generated
-   */
-  CellSelect createCellSelect();
-
-  /**
-   * Returns a new object of class '<em>Field Select</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Field Select</em>'.
-   * @generated
-   */
-  FieldSelect createFieldSelect();
-
-  /**
-   * Returns a new object of class '<em>Variable Select</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Variable Select</em>'.
-   * @generated
-   */
-  VariableSelect createVariableSelect();
-
-  /**
-   * Returns a new object of class '<em>Count Expr</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Count Expr</em>'.
-   * @generated
-   */
-  CountExpr createCountExpr();
 
   /**
    * Returns a new object of class '<em>Or Expr</em>'.
@@ -312,6 +258,15 @@ public interface CsvsFactory extends EFactory
   MulOrDivExpr createMulOrDivExpr();
 
   /**
+   * Returns a new object of class '<em>Not Expr</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Not Expr</em>'.
+   * @generated
+   */
+  NotExpr createNotExpr();
+
+  /**
    * Returns a new object of class '<em>Primary Expr</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -321,13 +276,49 @@ public interface CsvsFactory extends EFactory
   PrimaryExpr createPrimaryExpr();
 
   /**
-   * Returns a new object of class '<em>Not Expr</em>'.
+   * Returns a new object of class '<em>Expr</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Not Expr</em>'.
+   * @return a new object of class '<em>Expr</em>'.
    * @generated
    */
-  NotExpr createNotExpr();
+  CsvsExpr createCsvsExpr();
+
+  /**
+   * Returns a new object of class '<em>Selector</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Selector</em>'.
+   * @generated
+   */
+  Selector createSelector();
+
+  /**
+   * Returns a new object of class '<em>Field Select</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Field Select</em>'.
+   * @generated
+   */
+  FieldSelect createFieldSelect();
+
+  /**
+   * Returns a new object of class '<em>Count Expr</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Count Expr</em>'.
+   * @generated
+   */
+  CountExpr createCountExpr();
+
+  /**
+   * Returns a new object of class '<em>Last Expr</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Last Expr</em>'.
+   * @generated
+   */
+  LastExpr createLastExpr();
 
   /**
    * Returns a new object of class '<em>Atomic Expr</em>'.
@@ -348,6 +339,15 @@ public interface CsvsFactory extends EFactory
   IntConstant createIntConstant();
 
   /**
+   * Returns a new object of class '<em>Double Constant</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Double Constant</em>'.
+   * @generated
+   */
+  DoubleConstant createDoubleConstant();
+
+  /**
    * Returns a new object of class '<em>String Constant</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -364,6 +364,15 @@ public interface CsvsFactory extends EFactory
    * @generated
    */
   BoolConstant createBoolConstant();
+
+  /**
+   * Returns a new object of class '<em>Variable Constant</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Variable Constant</em>'.
+   * @generated
+   */
+  VariableConstant createVariableConstant();
 
   /**
    * Returns the package supported by this factory.
