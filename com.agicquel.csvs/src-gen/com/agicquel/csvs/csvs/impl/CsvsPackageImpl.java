@@ -13,6 +13,7 @@ import com.agicquel.csvs.csvs.Block;
 import com.agicquel.csvs.csvs.BoolConstant;
 import com.agicquel.csvs.csvs.Command;
 import com.agicquel.csvs.csvs.ComparaisonExpr;
+import com.agicquel.csvs.csvs.ConcatCommand;
 import com.agicquel.csvs.csvs.ControlCommand;
 import com.agicquel.csvs.csvs.CountExpr;
 import com.agicquel.csvs.csvs.CreateCommand;
@@ -30,6 +31,7 @@ import com.agicquel.csvs.csvs.IfCommand;
 import com.agicquel.csvs.csvs.IntConstant;
 import com.agicquel.csvs.csvs.LastExpr;
 import com.agicquel.csvs.csvs.LoadCommand;
+import com.agicquel.csvs.csvs.MergeCommand;
 import com.agicquel.csvs.csvs.Model;
 import com.agicquel.csvs.csvs.MulOrDivExpr;
 import com.agicquel.csvs.csvs.NotExpr;
@@ -192,6 +194,20 @@ public class CsvsPackageImpl extends EPackageImpl implements CsvsPackage
    * @generated
    */
   private EClass applyExecCommandEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass mergeCommandEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass concatCommandEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -930,6 +946,72 @@ public class CsvsPackageImpl extends EPackageImpl implements CsvsPackage
    * @generated
    */
   @Override
+  public EClass getMergeCommand()
+  {
+    return mergeCommandEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getMergeCommand_Selection1()
+  {
+    return (EReference)mergeCommandEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getMergeCommand_Selection2()
+  {
+    return (EReference)mergeCommandEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getConcatCommand()
+  {
+    return concatCommandEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getConcatCommand_Selection1()
+  {
+    return (EReference)concatCommandEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getConcatCommand_Selection2()
+  {
+    return (EReference)concatCommandEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getExpression()
   {
     return expressionEClass;
@@ -1594,6 +1676,14 @@ public class CsvsPackageImpl extends EPackageImpl implements CsvsPackage
     createEAttribute(applyExecCommandEClass, APPLY_EXEC_COMMAND__VAR_NAME);
     createEReference(applyExecCommandEClass, APPLY_EXEC_COMMAND__EXPR);
 
+    mergeCommandEClass = createEClass(MERGE_COMMAND);
+    createEReference(mergeCommandEClass, MERGE_COMMAND__SELECTION1);
+    createEReference(mergeCommandEClass, MERGE_COMMAND__SELECTION2);
+
+    concatCommandEClass = createEClass(CONCAT_COMMAND);
+    createEReference(concatCommandEClass, CONCAT_COMMAND__SELECTION1);
+    createEReference(concatCommandEClass, CONCAT_COMMAND__SELECTION2);
+
     expressionEClass = createEClass(EXPRESSION);
 
     orExprEClass = createEClass(OR_EXPR);
@@ -1710,6 +1800,8 @@ public class CsvsPackageImpl extends EPackageImpl implements CsvsPackage
     addCommandEClass.getESuperTypes().add(this.getCsvCommand());
     renameCommandEClass.getESuperTypes().add(this.getCsvCommand());
     applyCommandEClass.getESuperTypes().add(this.getCsvCommand());
+    mergeCommandEClass.getESuperTypes().add(this.getCsvCommand());
+    concatCommandEClass.getESuperTypes().add(this.getCsvCommand());
     expressionEClass.getESuperTypes().add(this.getPrimaryExpr());
     orExprEClass.getESuperTypes().add(this.getExpression());
     notExprEClass.getESuperTypes().add(this.getPrimaryExpr());
@@ -1792,6 +1884,14 @@ public class CsvsPackageImpl extends EPackageImpl implements CsvsPackage
     initEClass(applyExecCommandEClass, ApplyExecCommand.class, "ApplyExecCommand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getApplyExecCommand_VarName(), ecorePackage.getEString(), "varName", null, 0, 1, ApplyExecCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getApplyExecCommand_Expr(), this.getExpression(), null, "expr", null, 0, 1, ApplyExecCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(mergeCommandEClass, MergeCommand.class, "MergeCommand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getMergeCommand_Selection1(), this.getCsvsExpr(), null, "selection1", null, 0, 1, MergeCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMergeCommand_Selection2(), this.getCsvsExpr(), null, "selection2", null, 0, 1, MergeCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(concatCommandEClass, ConcatCommand.class, "ConcatCommand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getConcatCommand_Selection1(), this.getCsvsExpr(), null, "selection1", null, 0, 1, ConcatCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getConcatCommand_Selection2(), this.getCsvsExpr(), null, "selection2", null, 0, 1, ConcatCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(expressionEClass, Expression.class, "Expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

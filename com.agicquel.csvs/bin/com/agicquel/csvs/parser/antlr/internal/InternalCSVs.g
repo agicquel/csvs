@@ -615,6 +615,24 @@ ruleCsvCommand returns [EObject current=null]
 			$current = $this_RenameCommand_9.current;
 			afterParserOrEnumRuleCall();
 		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getCsvCommandAccess().getMergeCommandParserRuleCall_10());
+		}
+		this_MergeCommand_10=ruleMergeCommand
+		{
+			$current = $this_MergeCommand_10.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getCsvCommandAccess().getConcatCommandParserRuleCall_11());
+		}
+		this_ConcatCommand_11=ruleConcatCommand
+		{
+			$current = $this_ConcatCommand_11.current;
+			afterParserOrEnumRuleCall();
+		}
 	)
 ;
 
@@ -1565,6 +1583,178 @@ ruleApplyExecCommand returns [EObject current=null]
 		{
 			newLeafNode(otherlv_10, grammarAccess.getApplyExecCommandAccess().getRightParenthesisKeyword_10());
 		}
+	)
+;
+
+// Entry rule entryRuleMergeCommand
+entryRuleMergeCommand returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getMergeCommandRule()); }
+	iv_ruleMergeCommand=ruleMergeCommand
+	{ $current=$iv_ruleMergeCommand.current; }
+	EOF;
+
+// Rule MergeCommand
+ruleMergeCommand returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='merge'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getMergeCommandAccess().getMergeKeyword_0());
+		}
+		{
+			newCompositeNode(grammarAccess.getMergeCommandAccess().getLCParserRuleCall_1());
+		}
+		ruleLC
+		{
+			afterParserOrEnumRuleCall();
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getMergeCommandAccess().getSelection1CsvsExprParserRuleCall_2_0());
+				}
+				lv_selection1_2_0=ruleCsvsExpr
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getMergeCommandRule());
+					}
+					set(
+						$current,
+						"selection1",
+						lv_selection1_2_0,
+						"com.agicquel.csvs.CSVs.CsvsExpr");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		{
+			newCompositeNode(grammarAccess.getMergeCommandAccess().getLCParserRuleCall_3());
+		}
+		ruleLC
+		{
+			afterParserOrEnumRuleCall();
+		}
+		otherlv_4='with'
+		{
+			newLeafNode(otherlv_4, grammarAccess.getMergeCommandAccess().getWithKeyword_4());
+		}
+		{
+			newCompositeNode(grammarAccess.getMergeCommandAccess().getLCParserRuleCall_5());
+		}
+		ruleLC
+		{
+			afterParserOrEnumRuleCall();
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getMergeCommandAccess().getSelection2CsvsExprParserRuleCall_6_0());
+				}
+				lv_selection2_6_0=ruleCsvsExpr
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getMergeCommandRule());
+					}
+					set(
+						$current,
+						"selection2",
+						lv_selection2_6_0,
+						"com.agicquel.csvs.CSVs.CsvsExpr");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+	)
+;
+
+// Entry rule entryRuleConcatCommand
+entryRuleConcatCommand returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getConcatCommandRule()); }
+	iv_ruleConcatCommand=ruleConcatCommand
+	{ $current=$iv_ruleConcatCommand.current; }
+	EOF;
+
+// Rule ConcatCommand
+ruleConcatCommand returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='concat'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getConcatCommandAccess().getConcatKeyword_0());
+		}
+		{
+			newCompositeNode(grammarAccess.getConcatCommandAccess().getLCParserRuleCall_1());
+		}
+		ruleLC
+		{
+			afterParserOrEnumRuleCall();
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getConcatCommandAccess().getSelection1CsvsExprParserRuleCall_2_0());
+				}
+				lv_selection1_2_0=ruleCsvsExpr
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getConcatCommandRule());
+					}
+					set(
+						$current,
+						"selection1",
+						lv_selection1_2_0,
+						"com.agicquel.csvs.CSVs.CsvsExpr");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		{
+			newCompositeNode(grammarAccess.getConcatCommandAccess().getLCParserRuleCall_3());
+		}
+		ruleLC
+		{
+			afterParserOrEnumRuleCall();
+		}
+		otherlv_4='with'
+		{
+			newLeafNode(otherlv_4, grammarAccess.getConcatCommandAccess().getWithKeyword_4());
+		}
+		{
+			newCompositeNode(grammarAccess.getConcatCommandAccess().getLCParserRuleCall_5());
+		}
+		ruleLC
+		{
+			afterParserOrEnumRuleCall();
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getConcatCommandAccess().getSelection2CsvsExprParserRuleCall_6_0());
+				}
+				lv_selection2_6_0=ruleCsvsExpr
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getConcatCommandRule());
+					}
+					set(
+						$current,
+						"selection2",
+						lv_selection2_6_0,
+						"com.agicquel.csvs.CSVs.CsvsExpr");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
 	)
 ;
 

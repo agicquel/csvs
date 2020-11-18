@@ -698,6 +698,80 @@ public interface CsvsPackage extends EPackage
   int APPLY_EXEC_COMMAND_FEATURE_COUNT = 2;
 
   /**
+   * The meta object id for the '{@link com.agicquel.csvs.csvs.impl.MergeCommandImpl <em>Merge Command</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.agicquel.csvs.csvs.impl.MergeCommandImpl
+   * @see com.agicquel.csvs.csvs.impl.CsvsPackageImpl#getMergeCommand()
+   * @generated
+   */
+  int MERGE_COMMAND = 19;
+
+  /**
+   * The feature id for the '<em><b>Selection1</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MERGE_COMMAND__SELECTION1 = CSV_COMMAND_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Selection2</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MERGE_COMMAND__SELECTION2 = CSV_COMMAND_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Merge Command</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MERGE_COMMAND_FEATURE_COUNT = CSV_COMMAND_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link com.agicquel.csvs.csvs.impl.ConcatCommandImpl <em>Concat Command</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.agicquel.csvs.csvs.impl.ConcatCommandImpl
+   * @see com.agicquel.csvs.csvs.impl.CsvsPackageImpl#getConcatCommand()
+   * @generated
+   */
+  int CONCAT_COMMAND = 20;
+
+  /**
+   * The feature id for the '<em><b>Selection1</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONCAT_COMMAND__SELECTION1 = CSV_COMMAND_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Selection2</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONCAT_COMMAND__SELECTION2 = CSV_COMMAND_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Concat Command</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONCAT_COMMAND_FEATURE_COUNT = CSV_COMMAND_FEATURE_COUNT + 2;
+
+  /**
    * The meta object id for the '{@link com.agicquel.csvs.csvs.impl.PrimaryExprImpl <em>Primary Expr</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -705,7 +779,7 @@ public interface CsvsPackage extends EPackage
    * @see com.agicquel.csvs.csvs.impl.CsvsPackageImpl#getPrimaryExpr()
    * @generated
    */
-  int PRIMARY_EXPR = 27;
+  int PRIMARY_EXPR = 29;
 
   /**
    * The number of structural features of the '<em>Primary Expr</em>' class.
@@ -724,7 +798,7 @@ public interface CsvsPackage extends EPackage
    * @see com.agicquel.csvs.csvs.impl.CsvsPackageImpl#getExpression()
    * @generated
    */
-  int EXPRESSION = 19;
+  int EXPRESSION = 21;
 
   /**
    * The number of structural features of the '<em>Expression</em>' class.
@@ -743,7 +817,7 @@ public interface CsvsPackage extends EPackage
    * @see com.agicquel.csvs.csvs.impl.CsvsPackageImpl#getOrExpr()
    * @generated
    */
-  int OR_EXPR = 20;
+  int OR_EXPR = 22;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -780,7 +854,7 @@ public interface CsvsPackage extends EPackage
    * @see com.agicquel.csvs.csvs.impl.CsvsPackageImpl#getAddExpr()
    * @generated
    */
-  int ADD_EXPR = 21;
+  int ADD_EXPR = 23;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -817,7 +891,7 @@ public interface CsvsPackage extends EPackage
    * @see com.agicquel.csvs.csvs.impl.CsvsPackageImpl#getEqualityExpr()
    * @generated
    */
-  int EQUALITY_EXPR = 22;
+  int EQUALITY_EXPR = 24;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -863,7 +937,7 @@ public interface CsvsPackage extends EPackage
    * @see com.agicquel.csvs.csvs.impl.CsvsPackageImpl#getComparaisonExpr()
    * @generated
    */
-  int COMPARAISON_EXPR = 23;
+  int COMPARAISON_EXPR = 25;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -909,7 +983,7 @@ public interface CsvsPackage extends EPackage
    * @see com.agicquel.csvs.csvs.impl.CsvsPackageImpl#getPlusOrMinusExpr()
    * @generated
    */
-  int PLUS_OR_MINUS_EXPR = 24;
+  int PLUS_OR_MINUS_EXPR = 26;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -955,7 +1029,7 @@ public interface CsvsPackage extends EPackage
    * @see com.agicquel.csvs.csvs.impl.CsvsPackageImpl#getMulOrDivExpr()
    * @generated
    */
-  int MUL_OR_DIV_EXPR = 25;
+  int MUL_OR_DIV_EXPR = 27;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1001,7 +1075,7 @@ public interface CsvsPackage extends EPackage
    * @see com.agicquel.csvs.csvs.impl.CsvsPackageImpl#getNotExpr()
    * @generated
    */
-  int NOT_EXPR = 26;
+  int NOT_EXPR = 28;
 
   /**
    * The feature id for the '<em><b>Expr</b></em>' containment reference.
@@ -1029,7 +1103,7 @@ public interface CsvsPackage extends EPackage
    * @see com.agicquel.csvs.csvs.impl.CsvsPackageImpl#getCsvsExpr()
    * @generated
    */
-  int CSVS_EXPR = 28;
+  int CSVS_EXPR = 30;
 
   /**
    * The number of structural features of the '<em>Expr</em>' class.
@@ -1048,7 +1122,7 @@ public interface CsvsPackage extends EPackage
    * @see com.agicquel.csvs.csvs.impl.CsvsPackageImpl#getSelector()
    * @generated
    */
-  int SELECTOR = 29;
+  int SELECTOR = 31;
 
   /**
    * The feature id for the '<em><b>Var</b></em>' attribute.
@@ -1112,7 +1186,7 @@ public interface CsvsPackage extends EPackage
    * @see com.agicquel.csvs.csvs.impl.CsvsPackageImpl#getFieldSelect()
    * @generated
    */
-  int FIELD_SELECT = 30;
+  int FIELD_SELECT = 32;
 
   /**
    * The feature id for the '<em><b>Var</b></em>' attribute.
@@ -1149,7 +1223,7 @@ public interface CsvsPackage extends EPackage
    * @see com.agicquel.csvs.csvs.impl.CsvsPackageImpl#getCountExpr()
    * @generated
    */
-  int COUNT_EXPR = 31;
+  int COUNT_EXPR = 33;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -1177,7 +1251,7 @@ public interface CsvsPackage extends EPackage
    * @see com.agicquel.csvs.csvs.impl.CsvsPackageImpl#getLastExpr()
    * @generated
    */
-  int LAST_EXPR = 32;
+  int LAST_EXPR = 34;
 
   /**
    * The feature id for the '<em><b>Op</b></em>' attribute.
@@ -1214,7 +1288,7 @@ public interface CsvsPackage extends EPackage
    * @see com.agicquel.csvs.csvs.impl.CsvsPackageImpl#getAtomicExpr()
    * @generated
    */
-  int ATOMIC_EXPR = 33;
+  int ATOMIC_EXPR = 35;
 
   /**
    * The number of structural features of the '<em>Atomic Expr</em>' class.
@@ -1233,7 +1307,7 @@ public interface CsvsPackage extends EPackage
    * @see com.agicquel.csvs.csvs.impl.CsvsPackageImpl#getIntConstant()
    * @generated
    */
-  int INT_CONSTANT = 34;
+  int INT_CONSTANT = 36;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1261,7 +1335,7 @@ public interface CsvsPackage extends EPackage
    * @see com.agicquel.csvs.csvs.impl.CsvsPackageImpl#getDoubleConstant()
    * @generated
    */
-  int DOUBLE_CONSTANT = 35;
+  int DOUBLE_CONSTANT = 37;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1289,7 +1363,7 @@ public interface CsvsPackage extends EPackage
    * @see com.agicquel.csvs.csvs.impl.CsvsPackageImpl#getStringConstant()
    * @generated
    */
-  int STRING_CONSTANT = 36;
+  int STRING_CONSTANT = 38;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1317,7 +1391,7 @@ public interface CsvsPackage extends EPackage
    * @see com.agicquel.csvs.csvs.impl.CsvsPackageImpl#getBoolConstant()
    * @generated
    */
-  int BOOL_CONSTANT = 37;
+  int BOOL_CONSTANT = 39;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1345,7 +1419,7 @@ public interface CsvsPackage extends EPackage
    * @see com.agicquel.csvs.csvs.impl.CsvsPackageImpl#getVariableConstant()
    * @generated
    */
-  int VARIABLE_CONSTANT = 38;
+  int VARIABLE_CONSTANT = 40;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1874,6 +1948,70 @@ public interface CsvsPackage extends EPackage
    * @generated
    */
   EReference getApplyExecCommand_Expr();
+
+  /**
+   * Returns the meta object for class '{@link com.agicquel.csvs.csvs.MergeCommand <em>Merge Command</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Merge Command</em>'.
+   * @see com.agicquel.csvs.csvs.MergeCommand
+   * @generated
+   */
+  EClass getMergeCommand();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.agicquel.csvs.csvs.MergeCommand#getSelection1 <em>Selection1</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Selection1</em>'.
+   * @see com.agicquel.csvs.csvs.MergeCommand#getSelection1()
+   * @see #getMergeCommand()
+   * @generated
+   */
+  EReference getMergeCommand_Selection1();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.agicquel.csvs.csvs.MergeCommand#getSelection2 <em>Selection2</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Selection2</em>'.
+   * @see com.agicquel.csvs.csvs.MergeCommand#getSelection2()
+   * @see #getMergeCommand()
+   * @generated
+   */
+  EReference getMergeCommand_Selection2();
+
+  /**
+   * Returns the meta object for class '{@link com.agicquel.csvs.csvs.ConcatCommand <em>Concat Command</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Concat Command</em>'.
+   * @see com.agicquel.csvs.csvs.ConcatCommand
+   * @generated
+   */
+  EClass getConcatCommand();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.agicquel.csvs.csvs.ConcatCommand#getSelection1 <em>Selection1</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Selection1</em>'.
+   * @see com.agicquel.csvs.csvs.ConcatCommand#getSelection1()
+   * @see #getConcatCommand()
+   * @generated
+   */
+  EReference getConcatCommand_Selection1();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.agicquel.csvs.csvs.ConcatCommand#getSelection2 <em>Selection2</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Selection2</em>'.
+   * @see com.agicquel.csvs.csvs.ConcatCommand#getSelection2()
+   * @see #getConcatCommand()
+   * @generated
+   */
+  EReference getConcatCommand_Selection2();
 
   /**
    * Returns the meta object for class '{@link com.agicquel.csvs.csvs.Expression <em>Expression</em>}'.
@@ -2871,6 +3009,58 @@ public interface CsvsPackage extends EPackage
      * @generated
      */
     EReference APPLY_EXEC_COMMAND__EXPR = eINSTANCE.getApplyExecCommand_Expr();
+
+    /**
+     * The meta object literal for the '{@link com.agicquel.csvs.csvs.impl.MergeCommandImpl <em>Merge Command</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.agicquel.csvs.csvs.impl.MergeCommandImpl
+     * @see com.agicquel.csvs.csvs.impl.CsvsPackageImpl#getMergeCommand()
+     * @generated
+     */
+    EClass MERGE_COMMAND = eINSTANCE.getMergeCommand();
+
+    /**
+     * The meta object literal for the '<em><b>Selection1</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MERGE_COMMAND__SELECTION1 = eINSTANCE.getMergeCommand_Selection1();
+
+    /**
+     * The meta object literal for the '<em><b>Selection2</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MERGE_COMMAND__SELECTION2 = eINSTANCE.getMergeCommand_Selection2();
+
+    /**
+     * The meta object literal for the '{@link com.agicquel.csvs.csvs.impl.ConcatCommandImpl <em>Concat Command</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.agicquel.csvs.csvs.impl.ConcatCommandImpl
+     * @see com.agicquel.csvs.csvs.impl.CsvsPackageImpl#getConcatCommand()
+     * @generated
+     */
+    EClass CONCAT_COMMAND = eINSTANCE.getConcatCommand();
+
+    /**
+     * The meta object literal for the '<em><b>Selection1</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CONCAT_COMMAND__SELECTION1 = eINSTANCE.getConcatCommand_Selection1();
+
+    /**
+     * The meta object literal for the '<em><b>Selection2</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CONCAT_COMMAND__SELECTION2 = eINSTANCE.getConcatCommand_Selection2();
 
     /**
      * The meta object literal for the '{@link com.agicquel.csvs.csvs.impl.ExpressionImpl <em>Expression</em>}' class.

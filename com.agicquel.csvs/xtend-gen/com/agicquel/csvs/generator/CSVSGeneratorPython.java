@@ -9,6 +9,7 @@ import com.agicquel.csvs.csvs.Block;
 import com.agicquel.csvs.csvs.BoolConstant;
 import com.agicquel.csvs.csvs.Command;
 import com.agicquel.csvs.csvs.ComparaisonExpr;
+import com.agicquel.csvs.csvs.ConcatCommand;
 import com.agicquel.csvs.csvs.ControlCommand;
 import com.agicquel.csvs.csvs.CountExpr;
 import com.agicquel.csvs.csvs.CreateCommand;
@@ -23,6 +24,7 @@ import com.agicquel.csvs.csvs.IfCommand;
 import com.agicquel.csvs.csvs.IntConstant;
 import com.agicquel.csvs.csvs.LastExpr;
 import com.agicquel.csvs.csvs.LoadCommand;
+import com.agicquel.csvs.csvs.MergeCommand;
 import com.agicquel.csvs.csvs.Model;
 import com.agicquel.csvs.csvs.MulOrDivExpr;
 import com.agicquel.csvs.csvs.NotExpr;
@@ -44,7 +46,6 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.ExclusiveRange;
-import org.eclipse.xtext.xbase.lib.InputOutput;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 
 @SuppressWarnings("all")
@@ -244,6 +245,29 @@ public class CSVSGeneratorPython {
     return ret;
   }
   
+  private String _compileCommand(final MergeCommand mergeCommand) {
+    String _compileExpr = this.compileExpr(mergeCommand.getSelection1());
+    String _plus = (_compileExpr + " = ");
+    String _compileExpr_1 = this.compileExpr(mergeCommand.getSelection1());
+    String _plus_1 = (_plus + _compileExpr_1);
+    String _plus_2 = (_plus_1 + 
+      ".merge(");
+    String _compileExpr_2 = this.compileExpr(mergeCommand.getSelection2());
+    String _plus_3 = (_plus_2 + _compileExpr_2);
+    return (_plus_3 + ")");
+  }
+  
+  private String _compileCommand(final ConcatCommand concatCommand) {
+    String _compileExpr = this.compileExpr(concatCommand.getSelection1());
+    String _plus = (_compileExpr + " = pd.concat([");
+    String _compileExpr_1 = this.compileExpr(concatCommand.getSelection1());
+    String _plus_1 = (_plus + _compileExpr_1);
+    String _plus_2 = (_plus_1 + ", ");
+    String _compileExpr_2 = this.compileExpr(concatCommand.getSelection2());
+    String _plus_3 = (_plus_2 + _compileExpr_2);
+    return (_plus_3 + "])");
+  }
+  
   private String compileBlock(final Block block) {
     String blockString = "";
     EList<Command> _commands = block.getCommands();
@@ -414,12 +438,7 @@ public class CSVSGeneratorPython {
   }
   
   private String _compileExpr(final CsvsExpr csvsExpr) {
-    String _xblockexpression = null;
-    {
-      InputOutput.<String>print("csv expr");
-      _xblockexpression = this.compileExpr(csvsExpr);
-    }
-    return _xblockexpression;
+    return this.compileExpr(csvsExpr);
   }
   
   private String _compileExpr(final CountExpr countExpr) {
@@ -548,6 +567,8 @@ public class CSVSGeneratorPython {
       return _compileCommand((AddCommand)addCommand);
     } else if (addCommand instanceof ApplyCommand) {
       return _compileCommand((ApplyCommand)addCommand);
+    } else if (addCommand instanceof ConcatCommand) {
+      return _compileCommand((ConcatCommand)addCommand);
     } else if (addCommand instanceof CreateCommand) {
       return _compileCommand((CreateCommand)addCommand);
     } else if (addCommand instanceof DeleteCommand) {
@@ -558,6 +579,8 @@ public class CSVSGeneratorPython {
       return _compileCommand((IfCommand)addCommand);
     } else if (addCommand instanceof LoadCommand) {
       return _compileCommand((LoadCommand)addCommand);
+    } else if (addCommand instanceof MergeCommand) {
+      return _compileCommand((MergeCommand)addCommand);
     } else if (addCommand instanceof PrintCommand) {
       return _compileCommand((PrintCommand)addCommand);
     } else if (addCommand instanceof RenameCommand) {

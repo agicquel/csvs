@@ -64,6 +64,8 @@ public class CSVsParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getApplyCommandAccess().getGroup(), "rule__ApplyCommand__Group__0");
 			builder.put(grammarAccess.getApplyFilterCommandAccess().getGroup(), "rule__ApplyFilterCommand__Group__0");
 			builder.put(grammarAccess.getApplyExecCommandAccess().getGroup(), "rule__ApplyExecCommand__Group__0");
+			builder.put(grammarAccess.getMergeCommandAccess().getGroup(), "rule__MergeCommand__Group__0");
+			builder.put(grammarAccess.getConcatCommandAccess().getGroup(), "rule__ConcatCommand__Group__0");
 			builder.put(grammarAccess.getOrExprAccess().getGroup(), "rule__OrExpr__Group__0");
 			builder.put(grammarAccess.getOrExprAccess().getGroup_1(), "rule__OrExpr__Group_1__0");
 			builder.put(grammarAccess.getAddExprAccess().getGroup(), "rule__AddExpr__Group__0");
@@ -118,6 +120,10 @@ public class CSVsParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getApplyFilterCommandAccess().getExprAssignment_8(), "rule__ApplyFilterCommand__ExprAssignment_8");
 			builder.put(grammarAccess.getApplyExecCommandAccess().getVarNameAssignment_4(), "rule__ApplyExecCommand__VarNameAssignment_4");
 			builder.put(grammarAccess.getApplyExecCommandAccess().getExprAssignment_8(), "rule__ApplyExecCommand__ExprAssignment_8");
+			builder.put(grammarAccess.getMergeCommandAccess().getSelection1Assignment_2(), "rule__MergeCommand__Selection1Assignment_2");
+			builder.put(grammarAccess.getMergeCommandAccess().getSelection2Assignment_6(), "rule__MergeCommand__Selection2Assignment_6");
+			builder.put(grammarAccess.getConcatCommandAccess().getSelection1Assignment_2(), "rule__ConcatCommand__Selection1Assignment_2");
+			builder.put(grammarAccess.getConcatCommandAccess().getSelection2Assignment_6(), "rule__ConcatCommand__Selection2Assignment_6");
 			builder.put(grammarAccess.getOrExprAccess().getLeftAssignment_0(), "rule__OrExpr__LeftAssignment_0");
 			builder.put(grammarAccess.getOrExprAccess().getRightAssignment_1_3(), "rule__OrExpr__RightAssignment_1_3");
 			builder.put(grammarAccess.getAddExprAccess().getLeftAssignment_0(), "rule__AddExpr__LeftAssignment_0");

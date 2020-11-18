@@ -84,6 +84,8 @@ public class CsvsFactoryImpl extends EFactoryImpl implements CsvsFactory
       case CsvsPackage.APPLY_COMMAND: return createApplyCommand();
       case CsvsPackage.APPLY_FILTER_COMMAND: return createApplyFilterCommand();
       case CsvsPackage.APPLY_EXEC_COMMAND: return createApplyExecCommand();
+      case CsvsPackage.MERGE_COMMAND: return createMergeCommand();
+      case CsvsPackage.CONCAT_COMMAND: return createConcatCommand();
       case CsvsPackage.EXPRESSION: return createExpression();
       case CsvsPackage.OR_EXPR: return createOrExpr();
       case CsvsPackage.ADD_EXPR: return createAddExpr();
@@ -335,6 +337,30 @@ public class CsvsFactoryImpl extends EFactoryImpl implements CsvsFactory
   {
     ApplyExecCommandImpl applyExecCommand = new ApplyExecCommandImpl();
     return applyExecCommand;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public MergeCommand createMergeCommand()
+  {
+    MergeCommandImpl mergeCommand = new MergeCommandImpl();
+    return mergeCommand;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ConcatCommand createConcatCommand()
+  {
+    ConcatCommandImpl concatCommand = new ConcatCommandImpl();
+    return concatCommand;
   }
 
   /**

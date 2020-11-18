@@ -195,6 +195,24 @@ public interface CsvsFactory extends EFactory
   ApplyExecCommand createApplyExecCommand();
 
   /**
+   * Returns a new object of class '<em>Merge Command</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Merge Command</em>'.
+   * @generated
+   */
+  MergeCommand createMergeCommand();
+
+  /**
+   * Returns a new object of class '<em>Concat Command</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Concat Command</em>'.
+   * @generated
+   */
+  ConcatCommand createConcatCommand();
+
+  /**
    * Returns a new object of class '<em>Expression</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

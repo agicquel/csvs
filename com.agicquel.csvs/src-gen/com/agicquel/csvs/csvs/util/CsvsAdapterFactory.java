@@ -171,6 +171,16 @@ public class CsvsAdapterFactory extends AdapterFactoryImpl
         return createApplyExecCommandAdapter();
       }
       @Override
+      public Adapter caseMergeCommand(MergeCommand object)
+      {
+        return createMergeCommandAdapter();
+      }
+      @Override
+      public Adapter caseConcatCommand(ConcatCommand object)
+      {
+        return createConcatCommandAdapter();
+      }
+      @Override
       public Adapter caseExpression(Expression object)
       {
         return createExpressionAdapter();
@@ -573,6 +583,36 @@ public class CsvsAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createApplyExecCommandAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.agicquel.csvs.csvs.MergeCommand <em>Merge Command</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.agicquel.csvs.csvs.MergeCommand
+   * @generated
+   */
+  public Adapter createMergeCommandAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.agicquel.csvs.csvs.ConcatCommand <em>Concat Command</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.agicquel.csvs.csvs.ConcatCommand
+   * @generated
+   */
+  public Adapter createConcatCommandAdapter()
   {
     return null;
   }

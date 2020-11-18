@@ -12,6 +12,7 @@ import com.agicquel.csvs.csvs.Block;
 import com.agicquel.csvs.csvs.BoolConstant;
 import com.agicquel.csvs.csvs.Command;
 import com.agicquel.csvs.csvs.ComparaisonExpr;
+import com.agicquel.csvs.csvs.ConcatCommand;
 import com.agicquel.csvs.csvs.CountExpr;
 import com.agicquel.csvs.csvs.CreateCommand;
 import com.agicquel.csvs.csvs.CsvsPackage;
@@ -24,6 +25,7 @@ import com.agicquel.csvs.csvs.IfCommand;
 import com.agicquel.csvs.csvs.IntConstant;
 import com.agicquel.csvs.csvs.LastExpr;
 import com.agicquel.csvs.csvs.LoadCommand;
+import com.agicquel.csvs.csvs.MergeCommand;
 import com.agicquel.csvs.csvs.Model;
 import com.agicquel.csvs.csvs.MulOrDivExpr;
 import com.agicquel.csvs.csvs.NotExpr;
@@ -91,6 +93,9 @@ public class CSVsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case CsvsPackage.COMPARAISON_EXPR:
 				sequence_ComparaisonExpr(context, (ComparaisonExpr) semanticObject); 
 				return; 
+			case CsvsPackage.CONCAT_COMMAND:
+				sequence_ConcatCommand(context, (ConcatCommand) semanticObject); 
+				return; 
 			case CsvsPackage.COUNT_EXPR:
 				sequence_CountExpr(context, (CountExpr) semanticObject); 
 				return; 
@@ -123,6 +128,9 @@ public class CSVsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case CsvsPackage.LOAD_COMMAND:
 				sequence_LoadCommand(context, (LoadCommand) semanticObject); 
+				return; 
+			case CsvsPackage.MERGE_COMMAND:
+				sequence_MergeCommand(context, (MergeCommand) semanticObject); 
 				return; 
 			case CsvsPackage.MODEL:
 				sequence_Model(context, (Model) semanticObject); 
@@ -382,6 +390,29 @@ public class CSVsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
+	 *     Command returns ConcatCommand
+	 *     CsvCommand returns ConcatCommand
+	 *     ConcatCommand returns ConcatCommand
+	 *
+	 * Constraint:
+	 *     (selection1=CsvsExpr selection2=CsvsExpr)
+	 */
+	protected void sequence_ConcatCommand(ISerializationContext context, ConcatCommand semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, CsvsPackage.Literals.CONCAT_COMMAND__SELECTION1) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CsvsPackage.Literals.CONCAT_COMMAND__SELECTION1));
+			if (transientValues.isValueTransient(semanticObject, CsvsPackage.Literals.CONCAT_COMMAND__SELECTION2) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CsvsPackage.Literals.CONCAT_COMMAND__SELECTION2));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getConcatCommandAccess().getSelection1CsvsExprParserRuleCall_2_0(), semanticObject.getSelection1());
+		feeder.accept(grammarAccess.getConcatCommandAccess().getSelection2CsvsExprParserRuleCall_6_0(), semanticObject.getSelection2());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     PrimaryExpr returns CountExpr
 	 *     CsvsExpr returns CountExpr
 	 *     CountExpr returns CountExpr
@@ -545,6 +576,29 @@ public class CSVsSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getLoadCommandAccess().getVarIDTerminalRuleCall_2_0(), semanticObject.getVar());
 		feeder.accept(grammarAccess.getLoadCommandAccess().getPathSTRINGTerminalRuleCall_4_0(), semanticObject.getPath());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Command returns MergeCommand
+	 *     CsvCommand returns MergeCommand
+	 *     MergeCommand returns MergeCommand
+	 *
+	 * Constraint:
+	 *     (selection1=CsvsExpr selection2=CsvsExpr)
+	 */
+	protected void sequence_MergeCommand(ISerializationContext context, MergeCommand semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, CsvsPackage.Literals.MERGE_COMMAND__SELECTION1) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CsvsPackage.Literals.MERGE_COMMAND__SELECTION1));
+			if (transientValues.isValueTransient(semanticObject, CsvsPackage.Literals.MERGE_COMMAND__SELECTION2) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CsvsPackage.Literals.MERGE_COMMAND__SELECTION2));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getMergeCommandAccess().getSelection1CsvsExprParserRuleCall_2_0(), semanticObject.getSelection1());
+		feeder.accept(grammarAccess.getMergeCommandAccess().getSelection2CsvsExprParserRuleCall_6_0(), semanticObject.getSelection2());
 		feeder.finish();
 	}
 	

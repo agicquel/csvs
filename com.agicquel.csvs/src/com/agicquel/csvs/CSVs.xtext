@@ -13,7 +13,7 @@ ControlCommand: WhileCommand | IfCommand;
 WhileCommand: 'while' LC cond=Expression LC body=Block;
 IfCommand: 'if' LC cond=Expression LC thenBody=Block LC ('else' LC elseBody=Block LC)?;
 
-CsvCommand: LoadCommand | StoreCommand | CreateCommand | SetCommand | PrintCommand | ExportCommand | DeleteCommand | ApplyCommand | AddCommand | RenameCommand; 
+CsvCommand: LoadCommand | StoreCommand | CreateCommand | SetCommand | PrintCommand | ExportCommand | DeleteCommand | ApplyCommand | AddCommand | RenameCommand | MergeCommand | ConcatCommand; 
 LoadCommand: 'load' LC var=ID LC path=STRING;
 StoreCommand: 'store' LC var=ID LC path=STRING;
 ExportCommand: 'export_json' LC var=ID LC path=STRING;
@@ -27,6 +27,8 @@ RenameCommand: 'rename' LC expr=CsvsExpr LC oldname=Expression LC ':' LC newname
 ApplyCommand: 'on' LC selection=CsvsExpr LC if=ApplyFilterCommand? LC exec=ApplyExecCommand;
 ApplyFilterCommand: 'filter' LC '(' LC varName=ID LC ':' LC expr=Expression LC  ')';
 ApplyExecCommand: 'apply' LC '(' LC varName=ID LC ':' LC expr=Expression LC  ')';
+MergeCommand: 'merge' LC selection1=CsvsExpr LC 'with' LC selection2=CsvsExpr;
+ConcatCommand: 'concat' LC selection1=CsvsExpr LC 'with' LC selection2=CsvsExpr;
 
 CommentCommand: ML_COMMENT | SL_COMMENT;
 

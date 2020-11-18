@@ -232,6 +232,24 @@ public class CsvsSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case CsvsPackage.MERGE_COMMAND:
+      {
+        MergeCommand mergeCommand = (MergeCommand)theEObject;
+        T result = caseMergeCommand(mergeCommand);
+        if (result == null) result = caseCsvCommand(mergeCommand);
+        if (result == null) result = caseCommand(mergeCommand);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case CsvsPackage.CONCAT_COMMAND:
+      {
+        ConcatCommand concatCommand = (ConcatCommand)theEObject;
+        T result = caseConcatCommand(concatCommand);
+        if (result == null) result = caseCsvCommand(concatCommand);
+        if (result == null) result = caseCommand(concatCommand);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case CsvsPackage.EXPRESSION:
       {
         Expression expression = (Expression)theEObject;
@@ -706,6 +724,38 @@ public class CsvsSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseApplyExecCommand(ApplyExecCommand object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Merge Command</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Merge Command</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseMergeCommand(MergeCommand object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Concat Command</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Concat Command</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseConcatCommand(ConcatCommand object)
   {
     return null;
   }

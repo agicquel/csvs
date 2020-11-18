@@ -37,6 +37,8 @@ import com.agicquel.csvs.csvs.VariableConstant
 import com.agicquel.csvs.csvs.AddCommand
 import com.agicquel.csvs.csvs.RenameCommand
 import com.agicquel.csvs.csvs.LastExpr
+import com.agicquel.csvs.csvs.MergeCommand
+import com.agicquel.csvs.csvs.ConcatCommand
 
 class CSVSGeneratorPython {
 	
@@ -144,7 +146,16 @@ class CSVSGeneratorPython {
 		
 		return ret
 	}
-
+	
+	private def dispatch String compileCommand(MergeCommand mergeCommand) {
+		return mergeCommand.selection1.compileExpr() + " = " + mergeCommand.selection1.compileExpr() +
+			".merge(" + mergeCommand.selection2.compileExpr() + ")" 
+	}
+	
+	private def dispatch String compileCommand(ConcatCommand concatCommand) {
+		return concatCommand.selection1.compileExpr() + " = pd.concat([" + 
+			concatCommand.selection1.compileExpr() + ", " + concatCommand.selection2.compileExpr() + "])" 
+	}
 	
 	private def String compileBlock(Block block) {
 		var blockString = ""
@@ -241,7 +252,6 @@ class CSVSGeneratorPython {
 	}
 	
 	private	def dispatch String compileExpr(CsvsExpr csvsExpr) {
-		print("csv expr")
 		csvsExpr.compileExpr()
 	}
 	

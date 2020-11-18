@@ -71,6 +71,14 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CSVs.ecore#//ApplyExecCommand/varName"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CSVs.ecore#//ApplyExecCommand/expr"/>
     </genClasses>
+    <genClasses ecoreClass="CSVs.ecore#//MergeCommand">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CSVs.ecore#//MergeCommand/selection1"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CSVs.ecore#//MergeCommand/selection2"/>
+    </genClasses>
+    <genClasses ecoreClass="CSVs.ecore#//ConcatCommand">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CSVs.ecore#//ConcatCommand/selection1"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CSVs.ecore#//ConcatCommand/selection2"/>
+    </genClasses>
     <genClasses ecoreClass="CSVs.ecore#//Expression"/>
     <genClasses ecoreClass="CSVs.ecore#//OrExpr">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CSVs.ecore#//OrExpr/left"/>

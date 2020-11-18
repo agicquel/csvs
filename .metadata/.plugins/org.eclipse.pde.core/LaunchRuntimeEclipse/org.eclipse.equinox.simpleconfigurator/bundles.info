@@ -38,7 +38,7 @@ org.apache.log4j,1.2.15.v201012070815,file:/home/agicquel/.eclipse/org.eclipse.p
 org.apache.lucene.analyzers-common,8.4.1,file:/usr/lib/eclipse/plugins/org.apache.lucene.analyzers-common_8.4.1.jar,4,false
 org.apache.lucene.analyzers-smartcn,8.4.1,file:/usr/lib/eclipse/plugins/org.apache.lucene.analyzers-smartcn_8.4.1.jar,4,false
 org.apache.lucene.core,8.4.1,file:/usr/lib/eclipse/plugins/org.apache.lucene.core_8.4.1.jar,4,false
-org.apache.xmlgraphics,2.3.0,file:/usr/lib/eclipse/plugins/org.apache.xmlgraphics_2.3.0.jar,4,false
+org.apache.xmlgraphics,2.4.0,file:/usr/lib/eclipse/plugins/org.apache.xmlgraphics_2.3.0.jar,4,false
 org.apiguardian,1.1.0,file:/usr/share/eclipse/droplets/eclipse-jdt/plugins/org.apiguardian_1.1.0.jar,4,false
 org.eclipse.ant.core,3.5.700.v20200612-0706,file:/usr/lib/eclipse/plugins/org.eclipse.ant.core_3.5.700.v20200612-0706.jar,4,false
 org.eclipse.ant.launching,1.2.900.v20200612-0706,file:/usr/share/eclipse/droplets/eclipse-jdt/plugins/org.eclipse.ant.launching_1.2.900.v20200612-0706.jar,4,false

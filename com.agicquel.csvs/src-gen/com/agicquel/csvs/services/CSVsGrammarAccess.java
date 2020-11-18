@@ -287,14 +287,16 @@ public class CSVsGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		private final RuleCall cApplyCommandParserRuleCall_7 = (RuleCall)cAlternatives.eContents().get(7);
 		private final RuleCall cAddCommandParserRuleCall_8 = (RuleCall)cAlternatives.eContents().get(8);
 		private final RuleCall cRenameCommandParserRuleCall_9 = (RuleCall)cAlternatives.eContents().get(9);
+		private final RuleCall cMergeCommandParserRuleCall_10 = (RuleCall)cAlternatives.eContents().get(10);
+		private final RuleCall cConcatCommandParserRuleCall_11 = (RuleCall)cAlternatives.eContents().get(11);
 		
 		//CsvCommand:
 		//	LoadCommand | StoreCommand | CreateCommand | SetCommand | PrintCommand | ExportCommand | DeleteCommand | ApplyCommand
-		//	| AddCommand | RenameCommand;
+		//	| AddCommand | RenameCommand | MergeCommand | ConcatCommand;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//LoadCommand | StoreCommand | CreateCommand | SetCommand | PrintCommand | ExportCommand | DeleteCommand | ApplyCommand |
-		//AddCommand | RenameCommand
+		//AddCommand | RenameCommand | MergeCommand | ConcatCommand
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//LoadCommand
@@ -326,6 +328,12 @@ public class CSVsGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		
 		//RenameCommand
 		public RuleCall getRenameCommandParserRuleCall_9() { return cRenameCommandParserRuleCall_9; }
+		
+		//MergeCommand
+		public RuleCall getMergeCommandParserRuleCall_10() { return cMergeCommandParserRuleCall_10; }
+		
+		//ConcatCommand
+		public RuleCall getConcatCommandParserRuleCall_11() { return cConcatCommandParserRuleCall_11; }
 	}
 	public class LoadCommandElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.agicquel.csvs.CSVs.LoadCommand");
@@ -846,6 +854,100 @@ public class CSVsGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		
 		//')'
 		public Keyword getRightParenthesisKeyword_10() { return cRightParenthesisKeyword_10; }
+	}
+	public class MergeCommandElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.agicquel.csvs.CSVs.MergeCommand");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cMergeKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final RuleCall cLCParserRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final Assignment cSelection1Assignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cSelection1CsvsExprParserRuleCall_2_0 = (RuleCall)cSelection1Assignment_2.eContents().get(0);
+		private final RuleCall cLCParserRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
+		private final Keyword cWithKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final RuleCall cLCParserRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
+		private final Assignment cSelection2Assignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cSelection2CsvsExprParserRuleCall_6_0 = (RuleCall)cSelection2Assignment_6.eContents().get(0);
+		
+		//MergeCommand:
+		//	'merge' LC selection1=CsvsExpr LC 'with' LC selection2=CsvsExpr;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'merge' LC selection1=CsvsExpr LC 'with' LC selection2=CsvsExpr
+		public Group getGroup() { return cGroup; }
+		
+		//'merge'
+		public Keyword getMergeKeyword_0() { return cMergeKeyword_0; }
+		
+		//LC
+		public RuleCall getLCParserRuleCall_1() { return cLCParserRuleCall_1; }
+		
+		//selection1=CsvsExpr
+		public Assignment getSelection1Assignment_2() { return cSelection1Assignment_2; }
+		
+		//CsvsExpr
+		public RuleCall getSelection1CsvsExprParserRuleCall_2_0() { return cSelection1CsvsExprParserRuleCall_2_0; }
+		
+		//LC
+		public RuleCall getLCParserRuleCall_3() { return cLCParserRuleCall_3; }
+		
+		//'with'
+		public Keyword getWithKeyword_4() { return cWithKeyword_4; }
+		
+		//LC
+		public RuleCall getLCParserRuleCall_5() { return cLCParserRuleCall_5; }
+		
+		//selection2=CsvsExpr
+		public Assignment getSelection2Assignment_6() { return cSelection2Assignment_6; }
+		
+		//CsvsExpr
+		public RuleCall getSelection2CsvsExprParserRuleCall_6_0() { return cSelection2CsvsExprParserRuleCall_6_0; }
+	}
+	public class ConcatCommandElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.agicquel.csvs.CSVs.ConcatCommand");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cConcatKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final RuleCall cLCParserRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final Assignment cSelection1Assignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cSelection1CsvsExprParserRuleCall_2_0 = (RuleCall)cSelection1Assignment_2.eContents().get(0);
+		private final RuleCall cLCParserRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
+		private final Keyword cWithKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final RuleCall cLCParserRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
+		private final Assignment cSelection2Assignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cSelection2CsvsExprParserRuleCall_6_0 = (RuleCall)cSelection2Assignment_6.eContents().get(0);
+		
+		//ConcatCommand:
+		//	'concat' LC selection1=CsvsExpr LC 'with' LC selection2=CsvsExpr;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'concat' LC selection1=CsvsExpr LC 'with' LC selection2=CsvsExpr
+		public Group getGroup() { return cGroup; }
+		
+		//'concat'
+		public Keyword getConcatKeyword_0() { return cConcatKeyword_0; }
+		
+		//LC
+		public RuleCall getLCParserRuleCall_1() { return cLCParserRuleCall_1; }
+		
+		//selection1=CsvsExpr
+		public Assignment getSelection1Assignment_2() { return cSelection1Assignment_2; }
+		
+		//CsvsExpr
+		public RuleCall getSelection1CsvsExprParserRuleCall_2_0() { return cSelection1CsvsExprParserRuleCall_2_0; }
+		
+		//LC
+		public RuleCall getLCParserRuleCall_3() { return cLCParserRuleCall_3; }
+		
+		//'with'
+		public Keyword getWithKeyword_4() { return cWithKeyword_4; }
+		
+		//LC
+		public RuleCall getLCParserRuleCall_5() { return cLCParserRuleCall_5; }
+		
+		//selection2=CsvsExpr
+		public Assignment getSelection2Assignment_6() { return cSelection2Assignment_6; }
+		
+		//CsvsExpr
+		public RuleCall getSelection2CsvsExprParserRuleCall_6_0() { return cSelection2CsvsExprParserRuleCall_6_0; }
 	}
 	public class CommentCommandElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.agicquel.csvs.CSVs.CommentCommand");
@@ -1666,6 +1768,8 @@ public class CSVsGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	private final ApplyCommandElements pApplyCommand;
 	private final ApplyFilterCommandElements pApplyFilterCommand;
 	private final ApplyExecCommandElements pApplyExecCommand;
+	private final MergeCommandElements pMergeCommand;
+	private final ConcatCommandElements pConcatCommand;
 	private final CommentCommandElements pCommentCommand;
 	private final ExpressionElements pExpression;
 	private final OrExprElements pOrExpr;
@@ -1713,6 +1817,8 @@ public class CSVsGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		this.pApplyCommand = new ApplyCommandElements();
 		this.pApplyFilterCommand = new ApplyFilterCommandElements();
 		this.pApplyExecCommand = new ApplyExecCommandElements();
+		this.pMergeCommand = new MergeCommandElements();
+		this.pConcatCommand = new ConcatCommandElements();
 		this.pCommentCommand = new CommentCommandElements();
 		this.pExpression = new ExpressionElements();
 		this.pOrExpr = new OrExprElements();
@@ -1833,7 +1939,7 @@ public class CSVsGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	
 	//CsvCommand:
 	//	LoadCommand | StoreCommand | CreateCommand | SetCommand | PrintCommand | ExportCommand | DeleteCommand | ApplyCommand
-	//	| AddCommand | RenameCommand;
+	//	| AddCommand | RenameCommand | MergeCommand | ConcatCommand;
 	public CsvCommandElements getCsvCommandAccess() {
 		return pCsvCommand;
 	}
@@ -1960,6 +2066,26 @@ public class CSVsGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	
 	public ParserRule getApplyExecCommandRule() {
 		return getApplyExecCommandAccess().getRule();
+	}
+	
+	//MergeCommand:
+	//	'merge' LC selection1=CsvsExpr LC 'with' LC selection2=CsvsExpr;
+	public MergeCommandElements getMergeCommandAccess() {
+		return pMergeCommand;
+	}
+	
+	public ParserRule getMergeCommandRule() {
+		return getMergeCommandAccess().getRule();
+	}
+	
+	//ConcatCommand:
+	//	'concat' LC selection1=CsvsExpr LC 'with' LC selection2=CsvsExpr;
+	public ConcatCommandElements getConcatCommandAccess() {
+		return pConcatCommand;
+	}
+	
+	public ParserRule getConcatCommandRule() {
+		return getConcatCommandAccess().getRule();
 	}
 	
 	//CommentCommand:

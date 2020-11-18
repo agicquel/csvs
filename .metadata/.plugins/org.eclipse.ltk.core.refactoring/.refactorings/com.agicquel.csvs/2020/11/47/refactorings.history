@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;CSVSGeneratorPython.xtend&apos; to &apos;CSVSGeneratorPython.xtend&apos;&#x0A;- Original project: &apos;com.agicquel.csvs&apos;&#x0A;- Destination element: &apos;CSVSGeneratorPython.xtend&apos;&#x0A;- Original element: &apos;CSVSGeneratorPython.xtend&apos;" description="Copy file" element1="src/com/agicquel/csvs/generator/CSVSGeneratorPython.xtend" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1605737814644" target="/com.agicquel.csvs/src/com/agicquel/csvs/generator/CSVSGeneratorPython.xtend" units="0" version="1.0"/>
+</session>
