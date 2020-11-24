@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-#!/usr/bin/env bash
 
 read_csv_array() {
     local -n csv_var=$1
@@ -239,4 +238,6 @@ print_all "Hello"
 let "calcul = 1+2"
 print_all calcul
 let "i = 0"
-
+if [[ i -ge 0 ]]; then 
+	print_all "yes"
+fi

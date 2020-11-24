@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ASCII"?>
 <application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:advanced="http://www.eclipse.org/ui/2010/UIModel/application/ui/advanced" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_NgvH8C2-EeugWoJiNDLlTw" elementId="org.eclipse.e4.legacy.ide.application" contributorURI="platform:/plugin/org.eclipse.platform" selectedElement="_NgvH8S2-EeugWoJiNDLlTw" bindingContexts="_Ngw-ni2-EeugWoJiNDLlTw">
-  <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;workbench>&#xA;&lt;mruList>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.xtext.Xtext&quot; name=&quot;CSVs.xtext&quot; tooltip=&quot;com.agicquel.csvs/src/com/agicquel/csvs/CSVs.xtext&quot;>&#xA;&lt;persistable path=&quot;/com.agicquel.csvs/src/com/agicquel/csvs/CSVs.xtext&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.ui.DefaultTextEditor&quot; name=&quot;bash_lib&quot; tooltip=&quot;com.agicquel.csvs/src/com/agicquel/csvs/generator/bash_lib&quot;>&#xA;&lt;persistable path=&quot;/com.agicquel.csvs/src/com/agicquel/csvs/generator/bash_lib&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.ui.DefaultTextEditor&quot; name=&quot;array_test&quot; tooltip=&quot;com.agicquel.csvs/src/com/agicquel/csvs/generator/bash_functions/array_test&quot;>&#xA;&lt;persistable path=&quot;/com.agicquel.csvs/src/com/agicquel/csvs/generator/bash_functions/array_test&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.ui.DefaultTextEditor&quot; name=&quot;print_all&quot; tooltip=&quot;com.agicquel.csvs/src/com/agicquel/csvs/generator/bash_functions/print_all&quot;>&#xA;&lt;persistable path=&quot;/com.agicquel.csvs/src/com/agicquel/csvs/generator/bash_functions/print_all&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.ui.DefaultTextEditor&quot; name=&quot;read_csv_array&quot; tooltip=&quot;com.agicquel.csvs/src/com/agicquel/csvs/generator/bash_functions/read_csv_array&quot;>&#xA;&lt;persistable path=&quot;/com.agicquel.csvs/src/com/agicquel/csvs/generator/bash_functions/read_csv_array&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.ui.DefaultTextEditor&quot; name=&quot;get_array_shape&quot; tooltip=&quot;com.agicquel.csvs/src/com/agicquel/csvs/generator/bash_functions/get_array_shape&quot;>&#xA;&lt;persistable path=&quot;/com.agicquel.csvs/src/com/agicquel/csvs/generator/bash_functions/get_array_shape&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.xtend.core.Xtend&quot; name=&quot;CSVSGeneratorBash.xtend&quot; tooltip=&quot;com.agicquel.csvs/src/com/agicquel/csvs/generator/CSVSGeneratorBash.xtend&quot;>&#xA;&lt;persistable path=&quot;/com.agicquel.csvs/src/com/agicquel/csvs/generator/CSVSGeneratorBash.xtend&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.xtend.core.Xtend&quot; name=&quot;CSVSGeneratorPython.xtend&quot; tooltip=&quot;com.agicquel.csvs/src/com/agicquel/csvs/generator/CSVSGeneratorPython.xtend&quot;>&#xA;&lt;persistable path=&quot;/com.agicquel.csvs/src/com/agicquel/csvs/generator/CSVSGeneratorPython.xtend&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.xtend.core.Xtend&quot; name=&quot;CSVSGeneratorPython.java&quot; tooltip=&quot;com.agicquel.csvs/xtend-gen/com/agicquel/csvs/generator/CSVSGeneratorPython.java&quot;>&#xA;&lt;persistable path=&quot;/com.agicquel.csvs/xtend-gen/com/agicquel/csvs/generator/CSVSGeneratorPython.java&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.xtend.core.Xtend&quot; name=&quot;CSVsGenerator.java&quot; tooltip=&quot;com.agicquel.csvs/xtend-gen/com/agicquel/csvs/generator/CSVsGenerator.java&quot;>&#xA;&lt;persistable path=&quot;/com.agicquel.csvs/xtend-gen/com/agicquel/csvs/generator/CSVsGenerator.java&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.emf.mwe2.language.Mwe2&quot; name=&quot;GenerateCSVs.mwe2&quot; tooltip=&quot;com.agicquel.csvs/src/com/agicquel/csvs/GenerateCSVs.mwe2&quot;>&#xA;&lt;persistable path=&quot;/com.agicquel.csvs/src/com/agicquel/csvs/GenerateCSVs.mwe2&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.pde.ui.manifestEditor&quot; name=&quot;MANIFEST.MF&quot; tooltip=&quot;com.agicquel.csvs/META-INF/MANIFEST.MF&quot;>&#xA;&lt;persistable path=&quot;/com.agicquel.csvs/META-INF/MANIFEST.MF&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.emf.ecore.presentation.EcoreEditorID&quot; name=&quot;CSVs.ecore&quot; tooltip=&quot;com.agicquel.csvs/model/generated/CSVs.ecore&quot;>&#xA;&lt;persistable path=&quot;/com.agicquel.csvs/model/generated/CSVs.ecore&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.jdt.ui.ClassFileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.ClassFileEditorNoSource&quot; name=&quot;String.class&quot; tooltip=&quot;java.lang.String&quot;>&#xA;&lt;persistable org.eclipse.jdt.ui.ClassFileIdentifier=&quot;=com.agicquel.csvs/\/usr\/lib\/jvm\/java-11-openjdk-11.0.9.11-0.fc33.x86_64\/lib\/jrt-fs.jar`java.base=/javadoc_location=/https:\/\/docs.oracle.com\/en\/java\/javase\/11\/docs\/api\/=/&amp;lt;java.lang(String.class&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.xtend.core.Xtend&quot; name=&quot;CSVsGenerator.xtend&quot; tooltip=&quot;com.agicquel.csvs/src/com/agicquel/csvs/generator/CSVsGenerator.xtend&quot;>&#xA;&lt;persistable path=&quot;/com.agicquel.csvs/src/com/agicquel/csvs/generator/CSVsGenerator.xtend&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.xtend.core.Xtend&quot; name=&quot;CommandImpl.xtend&quot; tooltip=&quot;com.agicquel.csvs/src/com/agicquel/csvs/generator/CommandImpl.xtend&quot;>&#xA;&lt;persistable path=&quot;/com.agicquel.csvs/src/com/agicquel/csvs/generator/CommandImpl.xtend&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.xtend.core.Xtend&quot; name=&quot;IRGenerator.xtend&quot; tooltip=&quot;com.agicquel.csvs/src/com/agicquel/csvs/generator/IRGenerator.xtend&quot;>&#xA;&lt;persistable path=&quot;/com.agicquel.csvs/src/com/agicquel/csvs/generator/IRGenerator.xtend&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;CSVsStandaloneSetup.java&quot; tooltip=&quot;com.agicquel.csvs/src/com/agicquel/csvs/CSVsStandaloneSetup.java&quot;>&#xA;&lt;persistable path=&quot;/com.agicquel.csvs/src/com/agicquel/csvs/CSVsStandaloneSetup.java&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;CSVsRuntimeModule.java&quot; tooltip=&quot;com.agicquel.csvs/src/com/agicquel/csvs/CSVsRuntimeModule.java&quot;>&#xA;&lt;persistable path=&quot;/com.agicquel.csvs/src/com/agicquel/csvs/CSVsRuntimeModule.java&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.xtend.core.Xtend&quot; name=&quot;Instr.xtend&quot; tooltip=&quot;com.agicquel.csvs/src/com/agicquel/csvs/generator/Instr.xtend&quot;>&#xA;&lt;persistable path=&quot;/com.agicquel.csvs/src/com/agicquel/csvs/generator/Instr.xtend&quot;/>&#xA;&lt;/file>&#xA;&lt;/mruList>&#xA;&lt;/workbench>"/>
+  <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;workbench>&#xA;&lt;mruList>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.xtend.core.Xtend&quot; name=&quot;CSVSGeneratorBash.xtend&quot; tooltip=&quot;com.agicquel.csvs/src/com/agicquel/csvs/generator/CSVSGeneratorBash.xtend&quot;>&#xA;&lt;persistable path=&quot;/com.agicquel.csvs/src/com/agicquel/csvs/generator/CSVSGeneratorBash.xtend&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.emf.mwe2.language.Mwe2&quot; name=&quot;GenerateCSVs.mwe2&quot; tooltip=&quot;com.agicquel.csvs/src/com/agicquel/csvs/GenerateCSVs.mwe2&quot;>&#xA;&lt;persistable path=&quot;/com.agicquel.csvs/src/com/agicquel/csvs/GenerateCSVs.mwe2&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;CSVsExecutableExtensionFactory.java&quot; tooltip=&quot;com.agicquel.csvs.ui/src-gen/com/agicquel/csvs/ui/CSVsExecutableExtensionFactory.java&quot;>&#xA;&lt;persistable path=&quot;/com.agicquel.csvs.ui/src-gen/com/agicquel/csvs/ui/CSVsExecutableExtensionFactory.java&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.xtext.Xtext&quot; name=&quot;CSVs.xtext&quot; tooltip=&quot;com.agicquel.csvs/src/com/agicquel/csvs/CSVs.xtext&quot;>&#xA;&lt;persistable path=&quot;/com.agicquel.csvs/src/com/agicquel/csvs/CSVs.xtext&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.ui.DefaultTextEditor&quot; name=&quot;bash_lib&quot; tooltip=&quot;com.agicquel.csvs/src/com/agicquel/csvs/generator/bash_lib&quot;>&#xA;&lt;persistable path=&quot;/com.agicquel.csvs/src/com/agicquel/csvs/generator/bash_lib&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.ui.DefaultTextEditor&quot; name=&quot;array_test&quot; tooltip=&quot;com.agicquel.csvs/src/com/agicquel/csvs/generator/bash_functions/array_test&quot;>&#xA;&lt;persistable path=&quot;/com.agicquel.csvs/src/com/agicquel/csvs/generator/bash_functions/array_test&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.ui.DefaultTextEditor&quot; name=&quot;print_all&quot; tooltip=&quot;com.agicquel.csvs/src/com/agicquel/csvs/generator/bash_functions/print_all&quot;>&#xA;&lt;persistable path=&quot;/com.agicquel.csvs/src/com/agicquel/csvs/generator/bash_functions/print_all&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.ui.DefaultTextEditor&quot; name=&quot;read_csv_array&quot; tooltip=&quot;com.agicquel.csvs/src/com/agicquel/csvs/generator/bash_functions/read_csv_array&quot;>&#xA;&lt;persistable path=&quot;/com.agicquel.csvs/src/com/agicquel/csvs/generator/bash_functions/read_csv_array&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.ui.DefaultTextEditor&quot; name=&quot;get_array_shape&quot; tooltip=&quot;com.agicquel.csvs/src/com/agicquel/csvs/generator/bash_functions/get_array_shape&quot;>&#xA;&lt;persistable path=&quot;/com.agicquel.csvs/src/com/agicquel/csvs/generator/bash_functions/get_array_shape&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.xtend.core.Xtend&quot; name=&quot;CSVSGeneratorPython.xtend&quot; tooltip=&quot;com.agicquel.csvs/src/com/agicquel/csvs/generator/CSVSGeneratorPython.xtend&quot;>&#xA;&lt;persistable path=&quot;/com.agicquel.csvs/src/com/agicquel/csvs/generator/CSVSGeneratorPython.xtend&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.xtend.core.Xtend&quot; name=&quot;CSVSGeneratorPython.java&quot; tooltip=&quot;com.agicquel.csvs/xtend-gen/com/agicquel/csvs/generator/CSVSGeneratorPython.java&quot;>&#xA;&lt;persistable path=&quot;/com.agicquel.csvs/xtend-gen/com/agicquel/csvs/generator/CSVSGeneratorPython.java&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.xtend.core.Xtend&quot; name=&quot;CSVsGenerator.java&quot; tooltip=&quot;com.agicquel.csvs/xtend-gen/com/agicquel/csvs/generator/CSVsGenerator.java&quot;>&#xA;&lt;persistable path=&quot;/com.agicquel.csvs/xtend-gen/com/agicquel/csvs/generator/CSVsGenerator.java&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.pde.ui.manifestEditor&quot; name=&quot;MANIFEST.MF&quot; tooltip=&quot;com.agicquel.csvs/META-INF/MANIFEST.MF&quot;>&#xA;&lt;persistable path=&quot;/com.agicquel.csvs/META-INF/MANIFEST.MF&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.emf.ecore.presentation.EcoreEditorID&quot; name=&quot;CSVs.ecore&quot; tooltip=&quot;com.agicquel.csvs/model/generated/CSVs.ecore&quot;>&#xA;&lt;persistable path=&quot;/com.agicquel.csvs/model/generated/CSVs.ecore&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.jdt.ui.ClassFileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.ClassFileEditorNoSource&quot; name=&quot;String.class&quot; tooltip=&quot;java.lang.String&quot;>&#xA;&lt;persistable org.eclipse.jdt.ui.ClassFileIdentifier=&quot;=com.agicquel.csvs/\/usr\/lib\/jvm\/java-11-openjdk-11.0.9.11-0.fc33.x86_64\/lib\/jrt-fs.jar`java.base=/javadoc_location=/https:\/\/docs.oracle.com\/en\/java\/javase\/11\/docs\/api\/=/&amp;lt;java.lang(String.class&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.xtend.core.Xtend&quot; name=&quot;CSVsGenerator.xtend&quot; tooltip=&quot;com.agicquel.csvs/src/com/agicquel/csvs/generator/CSVsGenerator.xtend&quot;>&#xA;&lt;persistable path=&quot;/com.agicquel.csvs/src/com/agicquel/csvs/generator/CSVsGenerator.xtend&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.xtend.core.Xtend&quot; name=&quot;CommandImpl.xtend&quot; tooltip=&quot;com.agicquel.csvs/src/com/agicquel/csvs/generator/CommandImpl.xtend&quot;>&#xA;&lt;persistable path=&quot;/com.agicquel.csvs/src/com/agicquel/csvs/generator/CommandImpl.xtend&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.xtend.core.Xtend&quot; name=&quot;IRGenerator.xtend&quot; tooltip=&quot;com.agicquel.csvs/src/com/agicquel/csvs/generator/IRGenerator.xtend&quot;>&#xA;&lt;persistable path=&quot;/com.agicquel.csvs/src/com/agicquel/csvs/generator/IRGenerator.xtend&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;CSVsStandaloneSetup.java&quot; tooltip=&quot;com.agicquel.csvs/src/com/agicquel/csvs/CSVsStandaloneSetup.java&quot;>&#xA;&lt;persistable path=&quot;/com.agicquel.csvs/src/com/agicquel/csvs/CSVsStandaloneSetup.java&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;CSVsRuntimeModule.java&quot; tooltip=&quot;com.agicquel.csvs/src/com/agicquel/csvs/CSVsRuntimeModule.java&quot;>&#xA;&lt;persistable path=&quot;/com.agicquel.csvs/src/com/agicquel/csvs/CSVsRuntimeModule.java&quot;/>&#xA;&lt;/file>&#xA;&lt;/mruList>&#xA;&lt;/workbench>"/>
   <tags>activeSchemeId:org.eclipse.ui.defaultAcceleratorConfiguration</tags>
   <tags>ModelMigrationProcessor.001</tags>
   <children xsi:type="basic:TrimmedWindow" xmi:id="_NgvH8S2-EeugWoJiNDLlTw" elementId="IDEWindow" contributorURI="platform:/plugin/org.eclipse.platform" selectedElement="_NgvH8i2-EeugWoJiNDLlTw" label="%trimmedwindow.label.eclipseSDK" x="0" y="190" width="1079" height="554">
@@ -60,8 +60,8 @@
                 <tags>categoryTag:Ant</tags>
               </children>
             </children>
-            <children xsi:type="basic:PartSashContainer" xmi:id="_NgvH-i2-EeugWoJiNDLlTw" containerData="8094" selectedElement="_NgvvBS2-EeugWoJiNDLlTw">
-              <children xsi:type="basic:PartSashContainer" xmi:id="_NgvH-y2-EeugWoJiNDLlTw" visible="false" containerData="5000" selectedElement="_NgvH_y2-EeugWoJiNDLlTw" horizontal="true">
+            <children xsi:type="basic:PartSashContainer" xmi:id="_NgvH-i2-EeugWoJiNDLlTw" containerData="8094" selectedElement="_NgvH-y2-EeugWoJiNDLlTw">
+              <children xsi:type="basic:PartSashContainer" xmi:id="_NgvH-y2-EeugWoJiNDLlTw" containerData="3507" selectedElement="_NgvH_y2-EeugWoJiNDLlTw" horizontal="true">
                 <children xsi:type="basic:PartStack" xmi:id="_NgvH_C2-EeugWoJiNDLlTw" elementId="topLeft" toBeRendered="false" containerData="2768">
                   <tags>org.eclipse.e4.primaryNavigationStack</tags>
                   <tags>noFocus</tags>
@@ -74,11 +74,9 @@
                     <tags>categoryTag:General</tags>
                   </children>
                 </children>
-                <children xsi:type="basic:PartSashContainer" xmi:id="_NgvH_y2-EeugWoJiNDLlTw" visible="false" containerData="4012" selectedElement="_oItIMC6GEeusQJYhW0pD2w" horizontal="true">
-                  <children xsi:type="basic:PartSashContainer" xmi:id="_NgvIAC2-EeugWoJiNDLlTw" visible="false" containerData="5695" selectedElement="_NgvvAC2-EeugWoJiNDLlTw" horizontal="true">
-                    <children xsi:type="basic:PartStack" xmi:id="_NgvvAC2-EeugWoJiNDLlTw" elementId="PartStack@2a0a5865" visible="false" containerData="2027" selectedElement="_NgvvAS2-EeugWoJiNDLlTw">
-                      <tags>Minimized</tags>
-                      <tags>MinimizedByZoom</tags>
+                <children xsi:type="basic:PartSashContainer" xmi:id="_NgvH_y2-EeugWoJiNDLlTw" containerData="4012" selectedElement="_NgvIAC2-EeugWoJiNDLlTw" horizontal="true">
+                  <children xsi:type="basic:PartSashContainer" xmi:id="_NgvIAC2-EeugWoJiNDLlTw" containerData="5695" selectedElement="_NgvvAi2-EeugWoJiNDLlTw" horizontal="true">
+                    <children xsi:type="basic:PartStack" xmi:id="_NgvvAC2-EeugWoJiNDLlTw" elementId="PartStack@2a0a5865" containerData="2027" selectedElement="_NgvvAS2-EeugWoJiNDLlTw">
                       <children xsi:type="advanced:Placeholder" xmi:id="_NgvvAS2-EeugWoJiNDLlTw" elementId="org.eclipse.ui.navigator.ProjectExplorer" ref="_NgwWfC2-EeugWoJiNDLlTw" closeable="true">
                         <tags>View</tags>
                         <tags>categoryTag:General</tags>
@@ -86,21 +84,16 @@
                         <tags>activeOnClose</tags>
                       </children>
                     </children>
-                    <children xsi:type="advanced:Placeholder" xmi:id="_NgvvAi2-EeugWoJiNDLlTw" elementId="org.eclipse.ui.editorss" visible="false" containerData="7973" ref="_NgwWay2-EeugWoJiNDLlTw">
-                      <tags>Minimized</tags>
-                      <tags>MinimizedByZoom</tags>
-                    </children>
+                    <children xsi:type="advanced:Placeholder" xmi:id="_NgvvAi2-EeugWoJiNDLlTw" elementId="org.eclipse.ui.editorss" containerData="7973" ref="_NgwWay2-EeugWoJiNDLlTw"/>
                   </children>
-                  <children xsi:type="basic:PartSashContainer" xmi:id="_oItIMC6GEeusQJYhW0pD2w" visible="false" containerData="1397" selectedElement="_NgvvAy2-EeugWoJiNDLlTw">
+                  <children xsi:type="basic:PartSashContainer" xmi:id="_oItIMC6GEeusQJYhW0pD2w" containerData="1397" selectedElement="_NgvvAy2-EeugWoJiNDLlTw">
                     <children xsi:type="basic:PartStack" xmi:id="_oItIMS6GEeusQJYhW0pD2w" elementId="PartStack@4cdedf52" toBeRendered="false" containerData="5000">
                       <children xsi:type="advanced:Placeholder" xmi:id="_NgvvCS2-EeugWoJiNDLlTw" elementId="org.eclipse.ui.views.ProgressView" toBeRendered="false" ref="_NgwWtS2-EeugWoJiNDLlTw" closeable="true">
                         <tags>View</tags>
                         <tags>categoryTag:General</tags>
                       </children>
                     </children>
-                    <children xsi:type="basic:PartStack" xmi:id="_NgvvAy2-EeugWoJiNDLlTw" elementId="PartStack@6022199" visible="false" containerData="5000" selectedElement="_NgvvBC2-EeugWoJiNDLlTw">
-                      <tags>Minimized</tags>
-                      <tags>MinimizedByZoom</tags>
+                    <children xsi:type="basic:PartStack" xmi:id="_NgvvAy2-EeugWoJiNDLlTw" elementId="PartStack@6022199" containerData="5000" selectedElement="_NgvvBC2-EeugWoJiNDLlTw">
                       <children xsi:type="advanced:Placeholder" xmi:id="_NgvvBC2-EeugWoJiNDLlTw" elementId="org.eclipse.ui.console.ConsoleView" ref="_NgwWoC2-EeugWoJiNDLlTw" closeable="true">
                         <tags>View</tags>
                         <tags>categoryTag:General</tags>
@@ -109,17 +102,16 @@
                   </children>
                 </children>
               </children>
-              <children xsi:type="basic:PartStack" xmi:id="_NgvvBS2-EeugWoJiNDLlTw" elementId="bottomRight" containerData="3400" selectedElement="_NgvvBi2-EeugWoJiNDLlTw">
+              <children xsi:type="basic:PartStack" xmi:id="_NgvvBS2-EeugWoJiNDLlTw" elementId="bottomRight" visible="false" containerData="4893" selectedElement="_NgvvBy2-EeugWoJiNDLlTw">
                 <tags>org.eclipse.e4.secondaryDataStack</tags>
                 <tags>General</tags>
                 <tags>Xtext</tags>
-                <tags>active</tags>
-                <tags>Maximized</tags>
-                <children xsi:type="advanced:Placeholder" xmi:id="_NgvvBi2-EeugWoJiNDLlTw" elementId="org.eclipse.ui.views.TaskList" ref="_NgwWmy2-EeugWoJiNDLlTw" closeable="true">
+                <tags>Minimized</tags>
+                <children xsi:type="advanced:Placeholder" xmi:id="_NgvvBi2-EeugWoJiNDLlTw" elementId="org.eclipse.ui.views.TaskList" toBeRendered="false" ref="_NgwWmy2-EeugWoJiNDLlTw" closeable="true">
                   <tags>View</tags>
                   <tags>categoryTag:General</tags>
                 </children>
-                <children xsi:type="advanced:Placeholder" xmi:id="_NgvvBy2-EeugWoJiNDLlTw" elementId="org.eclipse.pde.runtime.LogView" toBeRendered="false" ref="_NgwWqS2-EeugWoJiNDLlTw" closeable="true">
+                <children xsi:type="advanced:Placeholder" xmi:id="_NgvvBy2-EeugWoJiNDLlTw" elementId="org.eclipse.pde.runtime.LogView" ref="_NgwWqS2-EeugWoJiNDLlTw" closeable="true">
                   <tags>View</tags>
                   <tags>categoryTag:General</tags>
                 </children>
@@ -173,8 +165,8 @@
       <tags>categoryTag:Help</tags>
     </sharedElements>
     <sharedElements xsi:type="advanced:Area" xmi:id="_NgwWay2-EeugWoJiNDLlTw" elementId="org.eclipse.ui.editorss" selectedElement="_NgwWbC2-EeugWoJiNDLlTw">
-      <children xsi:type="basic:PartSashContainer" xmi:id="_NgwWbC2-EeugWoJiNDLlTw" selectedElement="_NgwWbS2-EeugWoJiNDLlTw" horizontal="true">
-        <children xsi:type="basic:PartStack" xmi:id="_NgwWbS2-EeugWoJiNDLlTw" elementId="org.eclipse.e4.primaryDataStack" containerData="5000" selectedElement="_NgwWci2-EeugWoJiNDLlTw">
+      <children xsi:type="basic:PartSashContainer" xmi:id="_NgwWbC2-EeugWoJiNDLlTw" selectedElement="_NgwWdy2-EeugWoJiNDLlTw" horizontal="true">
+        <children xsi:type="basic:PartStack" xmi:id="_NgwWbS2-EeugWoJiNDLlTw" elementId="org.eclipse.e4.primaryDataStack" toBeRendered="false" containerData="5000">
           <tags>org.eclipse.e4.primaryDataStack</tags>
           <tags>EditorStack</tags>
           <children xsi:type="advanced:Placeholder" xmi:id="_NgwWbi2-EeugWoJiNDLlTw" elementId="org.eclipse.xtext.xtext.ui.graph.view" toBeRendered="false" ref="_NgwWry2-EeugWoJiNDLlTw" closeable="true">
@@ -185,37 +177,22 @@
             <tags>View</tags>
             <tags>categoryTag:Xtext</tags>
           </children>
-          <children xsi:type="basic:Part" xmi:id="_NgwWcC2-EeugWoJiNDLlTw" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="CSVsGenerator.xtend" iconURI="platform:/plugin/org.eclipse.xtend.ide/icons/xtend_file.png" closeable="true">
-            <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;editor id=&quot;org.eclipse.xtend.core.Xtend&quot; name=&quot;CSVsGenerator.xtend&quot; partName=&quot;CSVsGenerator.xtend&quot; title=&quot;CSVsGenerator.xtend&quot; tooltip=&quot;com.agicquel.csvs/src/com/agicquel/csvs/generator/CSVsGenerator.xtend&quot;>&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/com.agicquel.csvs/src/com/agicquel/csvs/generator/CSVsGenerator.xtend&quot;/>&#xA;&lt;editorState HANDLER_IDENTIFIER=&quot;=com.agicquel.csvs/xtend-gen&amp;lt;com.agicquel.csvs.generator{CSVsGenerator.java&quot; selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;721&quot; selectionTopPixel=&quot;0&quot;/>&#xA;&lt;/editor>"/>
-            <tags>Editor</tags>
-            <tags>removeOnHide</tags>
-            <tags>org.eclipse.xtend.core.Xtend</tags>
-          </children>
-          <children xsi:type="basic:Part" xmi:id="_NgwWcS2-EeugWoJiNDLlTw" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="CSVSGeneratorPython.xtend" iconURI="platform:/plugin/org.eclipse.xtend.ide/icons/xtend_file.png" closeable="true">
-            <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;editor id=&quot;org.eclipse.xtend.core.Xtend&quot; name=&quot;CSVSGeneratorPython.xtend&quot; partName=&quot;CSVSGeneratorPython.xtend&quot; title=&quot;CSVSGeneratorPython.xtend&quot; tooltip=&quot;com.agicquel.csvs/src/com/agicquel/csvs/generator/CSVSGeneratorPython.xtend&quot;>&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/com.agicquel.csvs/src/com/agicquel/csvs/generator/CSVSGeneratorPython.xtend&quot;/>&#xA;&lt;editorState HANDLER_IDENTIFIER=&quot;=com.agicquel.csvs/xtend-gen&amp;lt;com.agicquel.csvs.generator{CSVSGeneratorPython.java&quot; selectionHorizontalPixel=&quot;45&quot; selectionLength=&quot;173&quot; selectionOffset=&quot;6470&quot; selectionTopPixel=&quot;2437&quot;/>&#xA;&lt;/editor>"/>
-            <tags>Editor</tags>
-            <tags>removeOnHide</tags>
-            <tags>org.eclipse.xtend.core.Xtend</tags>
-          </children>
-          <children xsi:type="basic:Part" xmi:id="_NgwWci2-EeugWoJiNDLlTw" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="CSVSGeneratorBash.xtend" iconURI="platform:/plugin/org.eclipse.xtend.ide/icons/xtend_file.png" closeable="true">
-            <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;editor id=&quot;org.eclipse.xtend.core.Xtend&quot; name=&quot;CSVSGeneratorBash.xtend&quot; partName=&quot;CSVSGeneratorBash.xtend&quot; title=&quot;CSVSGeneratorBash.xtend&quot; tooltip=&quot;com.agicquel.csvs/src/com/agicquel/csvs/generator/CSVSGeneratorBash.xtend&quot;>&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/com.agicquel.csvs/src/com/agicquel/csvs/generator/CSVSGeneratorBash.xtend&quot;/>&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;5094&quot; selectionTopPixel=&quot;2071&quot;/>&#xA;&lt;/editor>"/>
-            <tags>Editor</tags>
-            <tags>removeOnHide</tags>
-            <tags>org.eclipse.xtend.core.Xtend</tags>
-          </children>
-          <children xsi:type="basic:Part" xmi:id="_NgwWdi2-EeugWoJiNDLlTw" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="bash_lib" iconURI="platform:/plugin/org.eclipse.ui.editors/icons/full/obj16/file_obj.png" closeable="true">
-            <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;editor id=&quot;org.eclipse.ui.DefaultTextEditor&quot; name=&quot;bash_lib&quot; partName=&quot;bash_lib&quot; title=&quot;bash_lib&quot; tooltip=&quot;com.agicquel.csvs/src/com/agicquel/csvs/generator/bash_lib&quot;>&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/com.agicquel.csvs/src/com/agicquel/csvs/generator/bash_lib&quot;/>&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;3776&quot; selectionTopPixel=&quot;2720&quot;/>&#xA;&lt;/editor>"/>
-            <tags>Editor</tags>
-            <tags>removeOnHide</tags>
-            <tags>org.eclipse.ui.DefaultTextEditor</tags>
-          </children>
         </children>
-        <children xsi:type="basic:PartStack" xmi:id="_NgwWdy2-EeugWoJiNDLlTw" elementId="PartStack@50e000c1" containerData="5000" selectedElement="_NgwWeC2-EeugWoJiNDLlTw">
-          <children xsi:type="basic:Part" xmi:id="_NgwWeC2-EeugWoJiNDLlTw" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="CSVs.xtext" iconURI="platform:/plugin/org.eclipse.xtext.xtext.ui/icons/editor.gif" closeable="true">
-            <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;editor id=&quot;org.eclipse.xtext.Xtext&quot; name=&quot;CSVs.xtext&quot; partName=&quot;CSVs.xtext&quot; title=&quot;CSVs.xtext&quot; tooltip=&quot;com.agicquel.csvs/src/com/agicquel/csvs/CSVs.xtext&quot;>&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/com.agicquel.csvs/src/com/agicquel/csvs/CSVs.xtext&quot;/>&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;6&quot; selectionOffset=&quot;1746&quot; selectionTopPixel=&quot;0&quot;/>&#xA;&lt;/editor>"/>
+        <children xsi:type="basic:PartStack" xmi:id="_NgwWdy2-EeugWoJiNDLlTw" elementId="PartStack@50e000c1" containerData="5000" selectedElement="_kOZuoC6uEeurspA8pJ5onQ">
+          <tags>active</tags>
+          <children xsi:type="basic:Part" xmi:id="_hz8eYC6uEeurspA8pJ5onQ" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="GenerateCSVs.mwe2" iconURI="platform:/plugin/org.eclipse.emf.mwe2.language.ui/icons/workflowfile.gif" closeable="true">
+            <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;editor id=&quot;org.eclipse.emf.mwe2.language.Mwe2&quot; name=&quot;GenerateCSVs.mwe2&quot; partName=&quot;GenerateCSVs.mwe2&quot; title=&quot;GenerateCSVs.mwe2&quot; tooltip=&quot;com.agicquel.csvs/src/com/agicquel/csvs/GenerateCSVs.mwe2&quot;>&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/com.agicquel.csvs/src/com/agicquel/csvs/GenerateCSVs.mwe2&quot;/>&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;0&quot; selectionTopPixel=&quot;0&quot;/>&#xA;&lt;/editor>"/>
             <tags>Editor</tags>
             <tags>removeOnHide</tags>
-            <tags>org.eclipse.xtext.Xtext</tags>
+            <tags>org.eclipse.emf.mwe2.language.Mwe2</tags>
+          </children>
+          <children xsi:type="basic:Part" xmi:id="_kOZuoC6uEeurspA8pJ5onQ" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="CSVSGeneratorBash.xtend" iconURI="platform:/plugin/org.eclipse.xtend.ide/icons/xtend_file.png" closeable="true">
+            <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;editor id=&quot;org.eclipse.xtend.core.Xtend&quot; name=&quot;CSVSGeneratorBash.xtend&quot; partName=&quot;CSVSGeneratorBash.xtend&quot; title=&quot;CSVSGeneratorBash.xtend&quot; tooltip=&quot;com.agicquel.csvs/src/com/agicquel/csvs/generator/CSVSGeneratorBash.xtend&quot;>&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/com.agicquel.csvs/src/com/agicquel/csvs/generator/CSVSGeneratorBash.xtend&quot;/>&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;5102&quot; selectionTopPixel=&quot;2418&quot;/>&#xA;&lt;/editor>"/>
+            <tags>Editor</tags>
+            <tags>removeOnHide</tags>
+            <tags>org.eclipse.xtend.core.Xtend</tags>
+            <tags>active</tags>
+            <tags>activeOnClose</tags>
           </children>
         </children>
       </children>
@@ -262,13 +239,11 @@
       <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;view PRIMARY_SORT_FIELD=&quot;org.eclipse.ui.ide.completionField&quot; categoryGroup=&quot;none&quot; markerContentGenerator=&quot;org.eclipse.ui.ide.tasksGenerator&quot; partName=&quot;Tasks&quot;>&#xA;&lt;columnWidths org.eclipse.ui.ide.completionField=&quot;40&quot; org.eclipse.ui.ide.descriptionField=&quot;300&quot; org.eclipse.ui.ide.locationField=&quot;90&quot; org.eclipse.ui.ide.markerType=&quot;1804&quot; org.eclipse.ui.ide.pathField=&quot;120&quot; org.eclipse.ui.ide.priorityField=&quot;30&quot; org.eclipse.ui.ide.resourceField=&quot;90&quot;/>&#xA;&lt;visible IMemento.internal.id=&quot;org.eclipse.ui.ide.completionField&quot;/>&#xA;&lt;visible IMemento.internal.id=&quot;org.eclipse.ui.ide.priorityField&quot;/>&#xA;&lt;visible IMemento.internal.id=&quot;org.eclipse.ui.ide.descriptionField&quot;/>&#xA;&lt;visible IMemento.internal.id=&quot;org.eclipse.ui.ide.resourceField&quot;/>&#xA;&lt;visible IMemento.internal.id=&quot;org.eclipse.ui.ide.pathField&quot;/>&#xA;&lt;visible IMemento.internal.id=&quot;org.eclipse.ui.ide.locationField&quot;/>&#xA;&lt;visible IMemento.internal.id=&quot;org.eclipse.ui.ide.markerType&quot;/>&#xA;&lt;/view>"/>
       <tags>View</tags>
       <tags>categoryTag:General</tags>
-      <tags>active</tags>
-      <tags>activeOnClose</tags>
       <menus xmi:id="_NgwWnC2-EeugWoJiNDLlTw" elementId="org.eclipse.ui.views.TaskList">
         <tags>ViewMenu</tags>
         <tags>menuContribution:menu</tags>
       </menus>
-      <toolbar xmi:id="_NgwWnS2-EeugWoJiNDLlTw" elementId="org.eclipse.ui.views.TaskList"/>
+      <toolbar xmi:id="_NgwWnS2-EeugWoJiNDLlTw" elementId="org.eclipse.ui.views.TaskList" visible="false"/>
     </sharedElements>
     <sharedElements xsi:type="basic:Part" xmi:id="_NgwWni2-EeugWoJiNDLlTw" elementId="org.eclipse.ui.views.minimap.MinimapView" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Minimap" iconURI="platform:/plugin/org.eclipse.ui.workbench.texteditor/icons/full/eview16/minimap.png" tooltip="" closeable="true">
       <persistedState key="originalCompatibilityViewClass" value="org.eclipse.ui.internal.views.minimap.MinimapView"/>
@@ -297,14 +272,14 @@
     <sharedElements xsi:type="basic:Part" xmi:id="_NgwWqS2-EeugWoJiNDLlTw" elementId="org.eclipse.pde.runtime.LogView" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Error Log" iconURI="platform:/plugin/org.eclipse.ui.views.log/icons/eview16/error_log.png" tooltip="" closeable="true">
       <persistedState key="originalCompatibilityViewClass" value="org.eclipse.ui.internal.views.log.LogView"/>
       <persistedState key="originalCompatibilityViewBundle" value="org.eclipse.ui.views.log"/>
-      <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;view activate=&quot;true&quot; allSessions=&quot;true&quot; column2=&quot;839&quot; column3=&quot;150&quot; column4=&quot;1485&quot; error=&quot;true&quot; groupBy=&quot;0&quot; info=&quot;true&quot; limit=&quot;50&quot; maxLogTailSize=&quot;1&quot; ok=&quot;true&quot; orderType=&quot;2&quot; orderValue=&quot;-1&quot; show_filter_text=&quot;true&quot; useLimit=&quot;true&quot; warning=&quot;true&quot;/>"/>
+      <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;view activate=&quot;true&quot; allSessions=&quot;true&quot; column2=&quot;839&quot; column3=&quot;150&quot; column4=&quot;1527&quot; error=&quot;true&quot; groupBy=&quot;0&quot; info=&quot;true&quot; limit=&quot;50&quot; maxLogTailSize=&quot;1&quot; ok=&quot;true&quot; orderType=&quot;0&quot; orderValue=&quot;-1&quot; show_filter_text=&quot;true&quot; useLimit=&quot;true&quot; warning=&quot;true&quot;/>"/>
       <tags>View</tags>
       <tags>categoryTag:General</tags>
       <menus xmi:id="_NgwWqi2-EeugWoJiNDLlTw" elementId="org.eclipse.pde.runtime.LogView">
         <tags>ViewMenu</tags>
         <tags>menuContribution:menu</tags>
       </menus>
-      <toolbar xmi:id="_NgwWqy2-EeugWoJiNDLlTw" elementId="org.eclipse.pde.runtime.LogView" visible="false"/>
+      <toolbar xmi:id="_NgwWqy2-EeugWoJiNDLlTw" elementId="org.eclipse.pde.runtime.LogView"/>
     </sharedElements>
     <sharedElements xsi:type="basic:Part" xmi:id="_NgwWrC2-EeugWoJiNDLlTw" elementId="org.eclipse.ui.views.PropertySheet" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Properties" iconURI="platform:/plugin/org.eclipse.ui.views/icons/full/eview16/prop_ps.png" tooltip="" closeable="true">
       <persistedState key="originalCompatibilityViewClass" value="org.eclipse.ui.views.properties.PropertySheet"/>
@@ -361,7 +336,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_NgwWuy2-EeugWoJiNDLlTw" elementId="org.eclipse.ui.workbench.file">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_4boZkC6FEeusQJYhW0pD2w" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_NgzaAy2-EeugWoJiNDLlTw"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_V9migC6uEeurspA8pJ5onQ" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_NgzaAy2-EeugWoJiNDLlTw"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_NgwWyC2-EeugWoJiNDLlTw" elementId="group.edit" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -389,7 +364,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_NgwW5y2-EeugWoJiNDLlTw" elementId="org.eclipse.ui.workbench.navigate">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_4bsD8C6FEeusQJYhW0pD2w" elementId="org.eclipse.ui.window.pinEditor" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" enabled="false" type="Check" command="_NgzZmi2-EeugWoJiNDLlTw"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_V9pl0C6uEeurspA8pJ5onQ" elementId="org.eclipse.ui.window.pinEditor" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_NgzZmi2-EeugWoJiNDLlTw"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_NgwW9y2-EeugWoJiNDLlTw" elementId="group.editor" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -437,7 +412,7 @@
         <tags>TrimStack</tags>
         <tags>Draggable</tags>
       </children>
-      <children xsi:type="menu:ToolControl" xmi:id="_Ngw9KS2-EeugWoJiNDLlTw" elementId="bottomRight(IDEWindow).(org.eclipse.ui.resourcePerspective)" toBeRendered="false" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.minmax.TrimStack">
+      <children xsi:type="menu:ToolControl" xmi:id="_Ngw9KS2-EeugWoJiNDLlTw" elementId="bottomRight(IDEWindow).(org.eclipse.ui.resourcePerspective)" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.minmax.TrimStack">
         <tags>TrimStack</tags>
         <tags>Draggable</tags>
       </children>
@@ -445,19 +420,19 @@
         <tags>TrimStack</tags>
         <tags>Draggable</tags>
       </children>
-      <children xsi:type="menu:ToolControl" xmi:id="_Ngw9Ky2-EeugWoJiNDLlTw" elementId="PartStack@2a0a5865(IDEWindow).(org.eclipse.ui.resourcePerspective)" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.minmax.TrimStack">
+      <children xsi:type="menu:ToolControl" xmi:id="_Ngw9Ky2-EeugWoJiNDLlTw" elementId="PartStack@2a0a5865(IDEWindow).(org.eclipse.ui.resourcePerspective)" toBeRendered="false" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.minmax.TrimStack">
         <tags>TrimStack</tags>
         <tags>Draggable</tags>
       </children>
     </trimBars>
     <trimBars xmi:id="_Ngw9LC2-EeugWoJiNDLlTw" elementId="org.eclipse.ui.trim.vertical2" contributorURI="platform:/plugin/org.eclipse.platform" side="Right">
-      <children xsi:type="menu:ToolControl" xmi:id="_Ngw9LS2-EeugWoJiNDLlTw" elementId="PartStack@6022199(IDEWindow).(org.eclipse.ui.resourcePerspective)" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.minmax.TrimStack">
+      <children xsi:type="menu:ToolControl" xmi:id="_Ngw9LS2-EeugWoJiNDLlTw" elementId="PartStack@6022199(IDEWindow).(org.eclipse.ui.resourcePerspective)" toBeRendered="false" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.minmax.TrimStack">
         <persistedState key="XSize" value="1264"/>
         <persistedState key="YSize" value="398"/>
         <tags>TrimStack</tags>
         <tags>Draggable</tags>
       </children>
-      <children xsi:type="menu:ToolControl" xmi:id="_Ngw9Li2-EeugWoJiNDLlTw" elementId="org.eclipse.ui.editorss(IDEWindow).(org.eclipse.ui.resourcePerspective)" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.minmax.TrimStack">
+      <children xsi:type="menu:ToolControl" xmi:id="_Ngw9Li2-EeugWoJiNDLlTw" elementId="org.eclipse.ui.editorss(IDEWindow).(org.eclipse.ui.resourcePerspective)" toBeRendered="false" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.minmax.TrimStack">
         <tags>TrimStack</tags>
         <tags>Draggable</tags>
       </children>

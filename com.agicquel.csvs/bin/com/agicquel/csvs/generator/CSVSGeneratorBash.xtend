@@ -45,8 +45,7 @@ import java.nio.file.Path
 class CSVSGeneratorBash {
 	
 	def String compileIR(Resource resource) {
-		var bashCode = "#!/usr/bin/env bash\n"
-		bashCode += Files.readString(Path.of("/home/agicquel/workspace/CsvDslProject/com.agicquel.csvs/src/com/agicquel/csvs/generator/bash_lib"))
+		var bashCode = Files.readString(Path.of("/home/agicquel/workspace/CsvDslProject/com.agicquel.csvs/src/com/agicquel/csvs/generator/bash_lib"))
 		bashCode += "\n"
 		
 		for(model : resource.allContents.toIterable.filter(Model)) {
@@ -95,7 +94,7 @@ class CSVSGeneratorBash {
 	}
 	
 	private def dispatch String compileCommand(ExportCommand exportCommand) {
-		"" // TODO
+		"export_json_csv " + exportCommand.^var + " " + exportCommand.path
 	}
 	
 	private def dispatch String compileCommand(DeleteCommand deleteCommand) {
@@ -103,11 +102,12 @@ class CSVSGeneratorBash {
 	}
 	
 	private def dispatch String compileCommand(AddCommand addCommand) {
-		"" // TODO
+		return "add_" + addCommand.op + "_csv " + addCommand.expression.compileExpr()
 	}
 	
 	private def dispatch String compileCommand(RenameCommand renameCommand) {
-		"" // TODO
+		"rename_csv " + renameCommand.expr.compileExpr() + " " + 
+			renameCommand.oldname.compileExpr() + " " + renameCommand.newname.compileExpr()  
 	}
 		
 	private def dispatch String compileCommand(ApplyCommand applyCommand) {
@@ -119,7 +119,7 @@ class CSVSGeneratorBash {
 	}
 	
 	private def dispatch String compileCommand(ConcatCommand concatCommand) {
-		"" // TODO 
+		"concat_two_csv " + concatCommand.selection1.compileExpr() + " " + concatCommand.selection2.compileExpr() 
 	}
 	
 	private def String compileBlock(Block block) {
@@ -135,11 +135,13 @@ class CSVSGeneratorBash {
 	
 	
 	private def dispatch String compileCommand(WhileCommand whileCommand) {
-		"" // TODO
+		"while [[ " + whileCommand.cond.compileExpr() + " ]]; do\n" 
+			+ whileCommand.body.compileBlock() + "done"
 	}
 	
 	private def dispatch String compileCommand(IfCommand ifCommand) {
-		"" // TODO
+		"if [[ " + ifCommand.cond.compileExpr() + " ]]; then \n" + ifCommand.thenBody.compileBlock() 
+			+ (ifCommand.elseBody === null ? "" : ("\nelse\n" + ifCommand.elseBody.compileBlock())) + "fi"
 	}
 
 	
@@ -168,7 +170,20 @@ class CSVSGeneratorBash {
 	}
 	
 	private	def dispatch String compileExpr(ComparaisonExpr comparaisonExpr) {
-		comparaisonExpr.left.compileExpr() + (comparaisonExpr.right === null ? "" : (comparaisonExpr.op + comparaisonExpr.right.compileExpr()))
+		if(comparaisonExpr.right === null) {
+			return comparaisonExpr.left.compileExpr() 
+		}
+		else {
+			var ret = comparaisonExpr.left.compileExpr();
+			var op = "";
+			switch(comparaisonExpr.op) {
+				case ">=": op = "-ge"
+				case "<=": op = "-le"
+				case ">": op = "-gt"
+				case "<": op = "-lt"
+			}
+			return ret + " " + op + " " + comparaisonExpr.right.compileExpr();
+		}
 	}
 	
 	private	def dispatch String compileExpr(PlusOrMinusExpr comparaisonExpr) {
@@ -220,19 +235,21 @@ class CSVSGeneratorBash {
 	}
 	
 	private	def dispatch String compileExpr(CountExpr countExpr) {
-		"" // TODO 
+		"$(count_csv " + countExpr.expression.compileExpr() + ")"
 	}
 	
 	private	def dispatch String compileExpr(Selector cellSelect) {
-		"" // TODO
+		"$(get_val_csv_simple " + cellSelect.^var + " " + 
+			cellSelect.expressionRow.compileExpr() + " " + 
+			cellSelect.expressionCol.compileExpr() + ")"
 	}
 	
 	private	def dispatch String compileExpr(FieldSelect fieldSelect) {
-		"" // TODO
+		"" // TODO ok
 	}
 	
 	private def dispatch String compileExpr(LastExpr lastExpr) {
-		"" // TODO
+		"" // TODO ok
 	}
 	
 }

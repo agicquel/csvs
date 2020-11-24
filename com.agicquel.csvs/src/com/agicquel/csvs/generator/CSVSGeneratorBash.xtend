@@ -135,11 +135,13 @@ class CSVSGeneratorBash {
 	
 	
 	private def dispatch String compileCommand(WhileCommand whileCommand) {
-		"while [[ " + whileCommand.cond.compileExpr() + " ]]; do\n" + whileCommand.body.compileBlock() + "done"
+		"while [[ " + whileCommand.cond.compileExpr() + " ]]; do\n" 
+			+ whileCommand.body.compileBlock() + "done"
 	}
 	
 	private def dispatch String compileCommand(IfCommand ifCommand) {
-		"if [[ " + ifCommand.cond.compileExpr() + " ]]; then \n" + ifCommand.thenBody.compileBlock() + (ifCommand.elseBody === null ? "" : ("\nelse\n" + ifCommand.elseBody.compileBlock())) + "fi"
+		"if [[ " + ifCommand.cond.compileExpr() + " ]]; then \n" + ifCommand.thenBody.compileBlock() 
+			+ (ifCommand.elseBody === null ? "" : ("\nelse\n" + ifCommand.elseBody.compileBlock())) + "fi"
 	}
 
 	
