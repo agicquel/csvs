@@ -1,0 +1,12 @@
+get_array_shape() {
+    local -n csv_var_shape=$1
+    echo "${!csv_var_shape[@]}" | tr " " "\n" | sort -n | tail -n1
+}
+get_array_col() {
+    local -n csv_var_col=$1
+    get_array_shape csv_var_col | cut -d"," -f2
+}
+get_array_row() {
+    local -n csv_var_row=$1
+    get_array_shape csv_var_row | cut -d"," -f1
+}

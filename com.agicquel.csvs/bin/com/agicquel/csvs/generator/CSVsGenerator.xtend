@@ -14,13 +14,13 @@ import org.eclipse.xtext.generator.IGeneratorContext
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#code-generation
  */
 class CSVsGenerator extends AbstractGenerator {
-	CSVSGeneratorPython generator;
+	CSVSGeneratorBash generator;
 
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
-		this.generator =  new CSVSGeneratorPython();
+		this.generator =  new CSVSGeneratorBash();
 		var code = this.generator.compileIR(resource);
 		println(code)
-		fsa.generateFile("test.py", code)
+		fsa.generateFile("test.sh", code)
 //		fsa.generateFile('greetings.txt', 'People to greet: ' + 
 //			resource.allContents
 //				.filter(Greeting)

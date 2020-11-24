@@ -1,0 +1,243 @@
+package com.agicquel.csvs.generator
+
+import com.agicquel.csvs.csvs.AddExpr
+import com.agicquel.csvs.csvs.ApplyCommand
+import com.agicquel.csvs.csvs.AtomicExpr
+import com.agicquel.csvs.csvs.Block
+import com.agicquel.csvs.csvs.BoolConstant
+import com.agicquel.csvs.csvs.Command
+import com.agicquel.csvs.csvs.ComparaisonExpr
+import com.agicquel.csvs.csvs.ControlCommand
+import com.agicquel.csvs.csvs.CountExpr
+import com.agicquel.csvs.csvs.CreateCommand
+import com.agicquel.csvs.csvs.CsvCommand
+import com.agicquel.csvs.csvs.DeleteCommand
+import com.agicquel.csvs.csvs.EqualityExpr
+import com.agicquel.csvs.csvs.ExportCommand
+import com.agicquel.csvs.csvs.Expression
+import com.agicquel.csvs.csvs.FieldSelect
+import com.agicquel.csvs.csvs.IfCommand
+import com.agicquel.csvs.csvs.IntConstant
+import com.agicquel.csvs.csvs.LoadCommand
+import com.agicquel.csvs.csvs.Model
+import com.agicquel.csvs.csvs.MulOrDivExpr
+import com.agicquel.csvs.csvs.NotExpr
+import com.agicquel.csvs.csvs.OrExpr
+import com.agicquel.csvs.csvs.PlusOrMinusExpr
+import com.agicquel.csvs.csvs.PrimaryExpr
+import com.agicquel.csvs.csvs.PrintCommand
+import com.agicquel.csvs.csvs.Selector
+import com.agicquel.csvs.csvs.SetCommand
+import com.agicquel.csvs.csvs.StoreCommand
+import com.agicquel.csvs.csvs.StringConstant
+import com.agicquel.csvs.csvs.WhileCommand
+import org.eclipse.emf.ecore.resource.Resource
+import com.agicquel.csvs.csvs.CsvsExpr
+import com.agicquel.csvs.csvs.VariableConstant
+import com.agicquel.csvs.csvs.AddCommand
+import com.agicquel.csvs.csvs.RenameCommand
+import com.agicquel.csvs.csvs.LastExpr
+import com.agicquel.csvs.csvs.MergeCommand
+import com.agicquel.csvs.csvs.ConcatCommand
+import java.nio.file.Files
+import java.nio.file.Path
+
+class CSVSGeneratorBash {
+	
+	def String compileIR(Resource resource) {
+		var bashCode = "#!/usr/bin/env bash\n"
+		bashCode += Files.readString(Path.of("/home/agicquel/workspace/CsvDslProject/com.agicquel.csvs/src/com/agicquel/csvs/generator/bash_lib"))
+		bashCode += "\n"
+		
+		for(model : resource.allContents.toIterable.filter(Model)) {
+			for(command : model.commands) {
+				bashCode += command.compileCommand() + "\n"	
+			}
+		}	
+		
+		return bashCode;
+	}
+	
+	private def dispatch String compileCommand(CsvCommand csvCommand) {
+		return csvCommand.compileCommand()
+	}
+	
+	private def dispatch String compileCommand(ControlCommand controlCommand) {
+		return controlCommand.compileCommand()
+	}
+	
+	private def dispatch String compileCommand(LoadCommand loadCommand) {
+		return "declare -A " + loadCommand.^var + "\n" + "read_csv_array " + 
+			loadCommand.^var + " " + loadCommand.path
+	}
+	
+	private def dispatch String compileCommand(StoreCommand storeCommand) {
+		return "print_all "+ storeCommand.^var + " > " + storeCommand.path
+	}
+	
+	private def dispatch String compileCommand(CreateCommand createCommand) {
+		return "declare -A " + createCommand.^var
+	}
+	
+	private def dispatch String compileCommand(SetCommand setCommand) {
+		var expr = setCommand.expression.compileExpr()
+		println(setCommand.expression.class.typeName)
+		if(expr.contains("\"")) { // Pattern.matches(".*[a-zA-Z]+.*", expr)
+			return setCommand.^var.compileExpr() + "=" + expr
+		}
+		else {
+			return "let \"" + setCommand.^var.compileExpr() + " = " + expr + "\""
+		}
+	}
+	
+	private def dispatch String compileCommand(PrintCommand printCommand) {
+		return "print_all "+ printCommand.expression.compileExpr()
+	}
+	
+	private def dispatch String compileCommand(ExportCommand exportCommand) {
+		"export_json_csv " + exportCommand.^var + " " + exportCommand.path
+	}
+	
+	private def dispatch String compileCommand(DeleteCommand deleteCommand) {
+		"unset " + deleteCommand.expression.compileExpr()
+	}
+	
+	private def dispatch String compileCommand(AddCommand addCommand) {
+		return "add_" + addCommand.op + "_csv " + addCommand.expression.compileExpr()
+	}
+	
+	private def dispatch String compileCommand(RenameCommand renameCommand) {
+		"rename_csv " + renameCommand.expr.compileExpr() + " " + 
+			renameCommand.oldname.compileExpr() + " " + renameCommand.newname.compileExpr()  
+	}
+		
+	private def dispatch String compileCommand(ApplyCommand applyCommand) {
+		"# Apply is not implemented yet"
+	}
+	
+	private def dispatch String compileCommand(MergeCommand mergeCommand) {
+		"# Merge is not implemented yet"
+	}
+	
+	private def dispatch String compileCommand(ConcatCommand concatCommand) {
+		"concat_two_csv " + concatCommand.selection1.compileExpr() + " " + concatCommand.selection2.compileExpr() 
+	}
+	
+	private def String compileBlock(Block block) {
+		var blockString = ""
+		for(Command com : block.commands) {
+			var comString = com.compileCommand()
+			for(String s : comString.toString.split(System.getProperty("line.separator"))) {
+				blockString += "\t" + s + "\n";
+			}
+		}
+		return blockString
+	}
+	
+	
+	private def dispatch String compileCommand(WhileCommand whileCommand) {
+		var cond = ""
+		return "while [[ " + cond + " ]]; do\n" + whileCommand.body.compileBlock() + "done"
+	}
+	
+	private def dispatch String compileCommand(IfCommand ifCommand) {
+		"if [[ " + ifCommand.cond.compileExpr() + " ]]; then \n" + ifCommand.thenBody.compileBlock() 
+			+ (ifCommand.elseBody === null ? "" : ("\nelse\n" + ifCommand.elseBody.compileBlock())) + "fi"
+	}
+
+	
+	private	def dispatch String compileExpr(Expression expression) {
+		expression.compileExpr()
+	}
+	
+	private	def dispatch String compileExpr(OrExpr orExpr) {
+		var code = orExpr.left.compileExpr()
+		for(AddExpr right : orExpr.right) {
+			code += "||" + right.compileExpr()
+		}
+		return code
+	}
+	
+	private	def dispatch String compileExpr(AddExpr addExpr) {
+		var code = addExpr.left.compileExpr()
+		for(EqualityExpr right : addExpr.right) {
+			code += "&&" + right.compileExpr()
+		}
+		return code
+	}
+	
+	private	def dispatch String compileExpr(EqualityExpr equalityExpr) {
+		equalityExpr.left.compileExpr() + (equalityExpr.right === null ? "" : (equalityExpr.op + equalityExpr.right.compileExpr()))
+	}
+	
+	private	def dispatch String compileExpr(ComparaisonExpr comparaisonExpr) {
+		comparaisonExpr.left.compileExpr() + (comparaisonExpr.right === null ? "" : (comparaisonExpr.op + comparaisonExpr.right.compileExpr()))
+	}
+	
+	private	def dispatch String compileExpr(PlusOrMinusExpr comparaisonExpr) {
+		var code = comparaisonExpr.left.compileExpr()
+		for(i : 0 ..< comparaisonExpr.right.size) {
+			code += comparaisonExpr.op.get(i) + comparaisonExpr.right.get(i).compileExpr()
+		}
+		return code
+	}
+	
+	private	def dispatch String compileExpr(MulOrDivExpr mulOrDivExpr) {
+		var code = mulOrDivExpr.left.compileExpr()
+		for(i : 0 ..< mulOrDivExpr.right.size) {
+			code += mulOrDivExpr.op.get(i) + mulOrDivExpr.right.get(i).compileExpr()
+		}
+		return code
+	}
+	
+	private	def dispatch String compileExpr(PrimaryExpr primaryExpr) {
+		primaryExpr.compileExpr()
+	}
+	
+	private	def dispatch String compileExpr(NotExpr notExpr) {
+		"!" + notExpr.expr.compileExpr()
+	}
+	
+	private	def dispatch String compileExpr(AtomicExpr atomicExpr) {
+		atomicExpr.compileExpr()
+	}
+	
+	private	def dispatch String compileExpr(IntConstant intConstant) {
+		intConstant.value.toString
+	}
+	
+	private	def dispatch String compileExpr(StringConstant stringConstant) {
+		"\"" + stringConstant.value + "\""
+	}
+	
+	private	def dispatch String compileExpr(BoolConstant boolConstant) {
+		boolConstant.value
+	}
+	
+	private	def dispatch String compileExpr(VariableConstant variableConstant) {
+		variableConstant.value.toString
+	}
+	
+	private	def dispatch String compileExpr(CsvsExpr csvsExpr) {
+		csvsExpr.compileExpr()
+	}
+	
+	private	def dispatch String compileExpr(CountExpr countExpr) {
+		"$(count_csv " + countExpr.expression.compileExpr() + ")"
+	}
+	
+	private	def dispatch String compileExpr(Selector cellSelect) {
+		"$(get_val_csv_simple " + cellSelect.^var + " " + 
+			cellSelect.expressionRow.compileExpr() + " " + 
+			cellSelect.expressionCol.compileExpr() + ")"
+	}
+	
+	private	def dispatch String compileExpr(FieldSelect fieldSelect) {
+		"" // TODO ok
+	}
+	
+	private def dispatch String compileExpr(LastExpr lastExpr) {
+		"" // TODO ok
+	}
+	
+}

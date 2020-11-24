@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="ret"/>
+		<item key="selection" value=""/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="true"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="OrExprImpl"/>
+			<item value="ComparaisonExpr"/>
+			<item value="compileBlock"/>
+			<item value="get_val_csv_simple"/>
+			<item value="compileBlock(Block block) {"/>
+			<item value="Selector"/>
+			<item value="DeleteCommand"/>
+			<item value="StringConstant"/>
+			<item value="Command"/>
+			<item value="print"/>
+			<item value="println"/>
 			<item value="ret"/>
 			<item value="LC"/>
 			<item value="col"/>
 			<item value="WS"/>
-			<item value="len"/>
-			<item value="VariableConstant"/>
-			<item value="Expression"/>
-			<item value="Set"/>
-			<item value="Selector"/>
-			<item value="TODO"/>
-			<item value="store"/>
-			<item value="export"/>
-			<item value="StringConstant"/>
-			<item value="block"/>
-			<item value="Count"/>
 		</list>
 		<list key="replacehistory">
 			<item value="WS"/>

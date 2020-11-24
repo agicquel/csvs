@@ -1,8 +1,26 @@
 load csv "./deniro.csv";
-load csv2 "./deniro2.csv";
 
-concat csv with csv2;
-store csv "./deniro3.csv";
+print csv;
+print "Hello";
+calcul=1+2;
+print calcul;
+
+i=0;
+//while i < 5 {
+//	print i;
+//	i=i+1;
+//}
+if i > 0 {
+	print "yes";
+}
+
+
+
+
+//load csv2 "./deniro2.csv";
+//
+//concat csv with csv2;
+//store csv "./deniro3.csv";
 
 
 //csv = csv[1:1][5:5];

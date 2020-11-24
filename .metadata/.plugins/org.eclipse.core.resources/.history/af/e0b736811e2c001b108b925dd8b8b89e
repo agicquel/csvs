@@ -1,0 +1,6 @@
+array_test() {
+    [[ $# -ne 1 ]] && return 2
+    var=$1
+    regex="^declare -[aA] ${var}(=|$)"
+    [[ $(declare -p "$var" 2> /dev/null) =~ $regex ]] && return 0
+}

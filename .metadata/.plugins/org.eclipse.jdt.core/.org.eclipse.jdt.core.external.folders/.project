@@ -10,9 +10,9 @@
 	</natures>
 	<linkedResources>
 		<link>
-			<name>.link1</name>
+			<name>.link2</name>
 			<type>2</type>
-			<location>/usr/lib/eclipse/plugins/org.eclipse.swt.gtk.linux.x86_64_3.114.100.v20200612-0706</location>
+			<location>/usr/lib/eclipse/plugins/org.eclipse.swt.gtk.linux.x86_64_3.115.0.v20200914-0420</location>
 		</link>
 	</linkedResources>
 </projectDescription>

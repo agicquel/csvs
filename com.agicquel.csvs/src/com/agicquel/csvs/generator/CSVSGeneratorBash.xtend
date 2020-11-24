@@ -39,20 +39,20 @@ import com.agicquel.csvs.csvs.RenameCommand
 import com.agicquel.csvs.csvs.LastExpr
 import com.agicquel.csvs.csvs.MergeCommand
 import com.agicquel.csvs.csvs.ConcatCommand
+import java.nio.file.Files
+import java.nio.file.Path
 
 class CSVSGeneratorBash {
 	
 	def String compileIR(Resource resource) {
-		var bashCode = "import pandas as pd\n";
-		bashCode += "pd.options.mode.chained_assignment = None\n"
+		var bashCode = Files.readString(Path.of("/home/agicquel/workspace/CsvDslProject/com.agicquel.csvs/src/com/agicquel/csvs/generator/bash_lib"))
 		bashCode += "\n"
-		bashCode += "def len_csvs(obj):\r\n\tif hasattr(obj, \'__len__\'):\r\n\t\treturn len(obj)\r\n\telse:\r\n\t\treturn 1\n"
-		bashCode += "\n"
+		
 		for(model : resource.allContents.toIterable.filter(Model)) {
 			for(command : model.commands) {
 				bashCode += command.compileCommand() + "\n"	
 			}
-		}
+		}	
 		
 		return bashCode;
 	}
@@ -66,64 +66,80 @@ class CSVSGeneratorBash {
 	}
 	
 	private def dispatch String compileCommand(LoadCommand loadCommand) {
-		"" // TODO
+		return "declare -A " + loadCommand.^var + "\n" + "read_csv_array " + 
+			loadCommand.^var + " " + loadCommand.path
 	}
 	
 	private def dispatch String compileCommand(StoreCommand storeCommand) {
-		"" // TODO
+		return "print_all "+ storeCommand.^var + " > " + storeCommand.path
 	}
 	
 	private def dispatch String compileCommand(CreateCommand createCommand) {
-		"" // TODO
+		return "declare -A " + createCommand.^var
 	}
 	
 	private def dispatch String compileCommand(SetCommand setCommand) {
-		"" // TODO
+		var expr = setCommand.expression.compileExpr()
+		println(setCommand.expression.class.typeName)
+		if(expr.contains("\"")) { // Pattern.matches(".*[a-zA-Z]+.*", expr)
+			return setCommand.^var.compileExpr() + "=" + expr
+		}
+		else {
+			return "let \"" + setCommand.^var.compileExpr() + " = " + expr + "\""
+		}
 	}
 	
 	private def dispatch String compileCommand(PrintCommand printCommand) {
-		"" // TODO
+		return "print_all "+ printCommand.expression.compileExpr()
 	}
 	
 	private def dispatch String compileCommand(ExportCommand exportCommand) {
-		"" // TODO
+		"export_json_csv " + exportCommand.^var + " " + exportCommand.path
 	}
 	
 	private def dispatch String compileCommand(DeleteCommand deleteCommand) {
-		"" // TODO
+		"unset " + deleteCommand.expression.compileExpr()
 	}
 	
 	private def dispatch String compileCommand(AddCommand addCommand) {
-		"" // TODO
+		return "add_" + addCommand.op + "_csv " + addCommand.expression.compileExpr()
 	}
 	
 	private def dispatch String compileCommand(RenameCommand renameCommand) {
-		"" // TODO
+		"rename_csv " + renameCommand.expr.compileExpr() + " " + 
+			renameCommand.oldname.compileExpr() + " " + renameCommand.newname.compileExpr()  
 	}
 		
 	private def dispatch String compileCommand(ApplyCommand applyCommand) {
-		"" // TODO
+		"# Apply is not implemented yet"
 	}
 	
 	private def dispatch String compileCommand(MergeCommand mergeCommand) {
-		"" // TODO 
+		"# Merge is not implemented yet"
 	}
 	
 	private def dispatch String compileCommand(ConcatCommand concatCommand) {
-		"" // TODO 
+		"concat_two_csv " + concatCommand.selection1.compileExpr() + " " + concatCommand.selection2.compileExpr() 
 	}
 	
 	private def String compileBlock(Block block) {
-		"" // TODO
+		var blockString = ""
+		for(Command com : block.commands) {
+			var comString = com.compileCommand()
+			for(String s : comString.toString.split(System.getProperty("line.separator"))) {
+				blockString += "\t" + s + "\n";
+			}
+		}
+		return blockString
 	}
 	
 	
 	private def dispatch String compileCommand(WhileCommand whileCommand) {
-		"" // TODO
+		"while [[ " + whileCommand.cond.compileExpr() + " ]]; do\n" + whileCommand.body.compileBlock() + "done"
 	}
 	
 	private def dispatch String compileCommand(IfCommand ifCommand) {
-		"" // TODO
+		"if [[ " + ifCommand.cond.compileExpr() + " ]]; then \n" + ifCommand.thenBody.compileBlock() + (ifCommand.elseBody === null ? "" : ("\nelse\n" + ifCommand.elseBody.compileBlock())) + "fi"
 	}
 
 	
@@ -132,39 +148,68 @@ class CSVSGeneratorBash {
 	}
 	
 	private	def dispatch String compileExpr(OrExpr orExpr) {
-		"" // TODO
+		var code = orExpr.left.compileExpr()
+		for(AddExpr right : orExpr.right) {
+			code += "||" + right.compileExpr()
+		}
+		return code
 	}
 	
 	private	def dispatch String compileExpr(AddExpr addExpr) {
-		"" // TODO
+		var code = addExpr.left.compileExpr()
+		for(EqualityExpr right : addExpr.right) {
+			code += "&&" + right.compileExpr()
+		}
+		return code
 	}
 	
 	private	def dispatch String compileExpr(EqualityExpr equalityExpr) {
-		"" // TODO
+		equalityExpr.left.compileExpr() + (equalityExpr.right === null ? "" : (equalityExpr.op + equalityExpr.right.compileExpr()))
 	}
 	
 	private	def dispatch String compileExpr(ComparaisonExpr comparaisonExpr) {
-		"" // TODO
+		if(comparaisonExpr.right === null) {
+			return comparaisonExpr.left.compileExpr() 
+		}
+		else {
+			var ret = comparaisonExpr.left.compileExpr();
+			var op = "";
+			switch(comparaisonExpr.op) {
+				case ">=": op = "-ge"
+				case "<=": op = "-le"
+				case ">": op = "-gt"
+				case "<": op = "-lt"
+			}
+			return ret + " " + op + " " + comparaisonExpr.right.compileExpr();
+		}
 	}
 	
 	private	def dispatch String compileExpr(PlusOrMinusExpr comparaisonExpr) {
-		"" // TODO
+		var code = comparaisonExpr.left.compileExpr()
+		for(i : 0 ..< comparaisonExpr.right.size) {
+			code += comparaisonExpr.op.get(i) + comparaisonExpr.right.get(i).compileExpr()
+		}
+		return code
 	}
 	
 	private	def dispatch String compileExpr(MulOrDivExpr mulOrDivExpr) {
-		"" // TODO
+		var code = mulOrDivExpr.left.compileExpr()
+		for(i : 0 ..< mulOrDivExpr.right.size) {
+			code += mulOrDivExpr.op.get(i) + mulOrDivExpr.right.get(i).compileExpr()
+		}
+		return code
 	}
 	
 	private	def dispatch String compileExpr(PrimaryExpr primaryExpr) {
-		"" // TODO
+		primaryExpr.compileExpr()
 	}
 	
 	private	def dispatch String compileExpr(NotExpr notExpr) {
-		"" // TODO
+		"!" + notExpr.expr.compileExpr()
 	}
 	
 	private	def dispatch String compileExpr(AtomicExpr atomicExpr) {
-		"" // TODO
+		atomicExpr.compileExpr()
 	}
 	
 	private	def dispatch String compileExpr(IntConstant intConstant) {
@@ -176,7 +221,7 @@ class CSVSGeneratorBash {
 	}
 	
 	private	def dispatch String compileExpr(BoolConstant boolConstant) {
-		"" // TODO boolConstant.value.substring(0, 1).toUpperCase() + boolConstant.value.substring(1)
+		boolConstant.value
 	}
 	
 	private	def dispatch String compileExpr(VariableConstant variableConstant) {
@@ -188,19 +233,21 @@ class CSVSGeneratorBash {
 	}
 	
 	private	def dispatch String compileExpr(CountExpr countExpr) {
-		"" // TODO 
+		"$(count_csv " + countExpr.expression.compileExpr() + ")"
 	}
 	
 	private	def dispatch String compileExpr(Selector cellSelect) {
-		"" // TODO
+		"$(get_val_csv_simple " + cellSelect.^var + " " + 
+			cellSelect.expressionRow.compileExpr() + " " + 
+			cellSelect.expressionCol.compileExpr() + ")"
 	}
 	
 	private	def dispatch String compileExpr(FieldSelect fieldSelect) {
-		"" // TODO
+		"" // TODO ok
 	}
 	
 	private def dispatch String compileExpr(LastExpr lastExpr) {
-		"" // TODO
+		"" // TODO ok
 	}
 	
 }

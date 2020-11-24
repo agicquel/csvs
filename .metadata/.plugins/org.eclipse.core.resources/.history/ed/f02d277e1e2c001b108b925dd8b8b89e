@@ -1,0 +1,100 @@
+#!/usr/bin/env bash
+read_csv_array() {
+    local -n csv_var=$1
+    local path=$2
+    local row=1
+    IFS=$'\n'
+    for line in `cat $path`
+    do
+        local col=1
+        for val in `echo $line | tr , "\n"`
+        do
+            csv_var[$row,$col]=$val
+            let "col++"
+        done
+        let "row++"
+    done
+}
+
+array_test() {
+    [[ $# -ne 1 ]] && return 2
+    var=$1
+    regex="^declare -[aA] ${var}(=|$)"
+    [[ $(declare -p "$var" 2> /dev/null) =~ $regex ]] && return 0
+}
+
+get_array_shape() {
+    local -n csv_var_shape=$1
+    echo "${!csv_var_shape[@]}" | tr " " "\n" | sort -n | tail -n1
+}
+get_array_col() {
+    local -n csv_var_col=$1
+    get_array_shape csv_var_col | cut -d"," -f2
+}
+get_array_row() {
+    local -n csv_var_row=$1
+    get_array_shape csv_var_row | cut -d"," -f1
+}
+
+extract_value() {
+    if [ -v $1 ]
+    then
+        local -n extract=$1
+        echo $extract
+    else
+        echo $1
+    fi
+}
+
+print_all() {
+    if array_test $1; then
+        local -n csv_var_print=$1
+        local rows=$(get_array_row csv_var_print)
+        local columns=$(get_array_col csv_var_print)
+        for ((i=1;i<=rows;i++))
+        do
+            for ((j=1;j<=columns;j++))
+            do
+                echo -ne ${csv_var_print[$i,$j]}
+                if  [ $j -lt $columns ]
+                then
+                    echo -ne ","
+                fi
+            done
+            echo -ne "\n"
+        done
+    else
+        echo $(extract_value $1)
+    fi
+}
+
+set_val_csv() {
+    local -n csv_var_set=$1
+    local row=$(extract_value $2)
+    local col=$(extract_value $3)
+    local val=$(extract_value $4)
+
+    let "row++"
+    let "col++"
+
+    csv_var_set[$row,$col]=$val
+}
+
+get_val_csv() {
+    local -n csv_var_get=$1
+    local row=$(extract_value $2)
+    local col=$(extract_value $3)
+
+    let "row++"
+    let "col++"
+
+    if [$row = "*" && $col = "*"]; then
+        print_all csv_var_get
+    elif [$row = "*" && $col != "*"]; then
+        echo "not yet"
+    elif [$row != "*" && $col = "*"]; then
+        echo "not yet"
+    else
+        echo ${csv_var_get[$row,$col]}
+    fi
+}

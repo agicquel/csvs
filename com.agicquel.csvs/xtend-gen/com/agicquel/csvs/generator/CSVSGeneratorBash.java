@@ -39,35 +39,38 @@ import com.agicquel.csvs.csvs.StringConstant;
 import com.agicquel.csvs.csvs.VariableConstant;
 import com.agicquel.csvs.csvs.WhileCommand;
 import com.google.common.collect.Iterables;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.Arrays;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.xtext.xbase.lib.Exceptions;
+import org.eclipse.xtext.xbase.lib.ExclusiveRange;
+import org.eclipse.xtext.xbase.lib.InputOutput;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 
 @SuppressWarnings("all")
 public class CSVSGeneratorBash {
   public String compileIR(final Resource resource) {
-    String bashCode = "import pandas as pd\n";
-    String _bashCode = bashCode;
-    bashCode = (_bashCode + "pd.options.mode.chained_assignment = None\n");
-    String _bashCode_1 = bashCode;
-    bashCode = (_bashCode_1 + "\n");
-    String _bashCode_2 = bashCode;
-    bashCode = (_bashCode_2 + "def len_csvs(obj):\r\n\tif hasattr(obj, \'__len__\'):\r\n\t\treturn len(obj)\r\n\telse:\r\n\t\treturn 1\n");
-    String _bashCode_3 = bashCode;
-    bashCode = (_bashCode_3 + "\n");
-    Iterable<Model> _filter = Iterables.<Model>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), Model.class);
-    for (final Model model : _filter) {
-      EList<Command> _commands = model.getCommands();
-      for (final Command command : _commands) {
-        String _bashCode_4 = bashCode;
-        String _compileCommand = this.compileCommand(command);
-        String _plus = (_compileCommand + "\n");
-        bashCode = (_bashCode_4 + _plus);
+    try {
+      String bashCode = Files.readString(Path.of("/home/agicquel/workspace/CsvDslProject/com.agicquel.csvs/src/com/agicquel/csvs/generator/bash_lib"));
+      String _bashCode = bashCode;
+      bashCode = (_bashCode + "\n");
+      Iterable<Model> _filter = Iterables.<Model>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), Model.class);
+      for (final Model model : _filter) {
+        EList<Command> _commands = model.getCommands();
+        for (final Command command : _commands) {
+          String _bashCode_1 = bashCode;
+          String _compileCommand = this.compileCommand(command);
+          String _plus = (_compileCommand + "\n");
+          bashCode = (_bashCode_1 + _plus);
+        }
       }
+      return bashCode;
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
     }
-    return bashCode;
   }
   
   private String _compileCommand(final CsvCommand csvCommand) {
@@ -79,63 +82,142 @@ public class CSVSGeneratorBash {
   }
   
   private String _compileCommand(final LoadCommand loadCommand) {
-    return "";
+    String _var = loadCommand.getVar();
+    String _plus = ("declare -A " + _var);
+    String _plus_1 = (_plus + "\n");
+    String _plus_2 = (_plus_1 + "read_csv_array ");
+    String _var_1 = loadCommand.getVar();
+    String _plus_3 = (_plus_2 + _var_1);
+    String _plus_4 = (_plus_3 + " ");
+    String _path = loadCommand.getPath();
+    return (_plus_4 + _path);
   }
   
   private String _compileCommand(final StoreCommand storeCommand) {
-    return "";
+    String _var = storeCommand.getVar();
+    String _plus = ("print_all " + _var);
+    String _plus_1 = (_plus + " > ");
+    String _path = storeCommand.getPath();
+    return (_plus_1 + _path);
   }
   
   private String _compileCommand(final CreateCommand createCommand) {
-    return "";
+    String _var = createCommand.getVar();
+    return ("declare -A " + _var);
   }
   
   private String _compileCommand(final SetCommand setCommand) {
-    return "";
+    String expr = this.compileExpr(setCommand.getExpression());
+    InputOutput.<String>println(setCommand.getExpression().getClass().getTypeName());
+    boolean _contains = expr.contains("\"");
+    if (_contains) {
+      String _compileExpr = this.compileExpr(setCommand.getVar());
+      String _plus = (_compileExpr + "=");
+      return (_plus + expr);
+    } else {
+      String _compileExpr_1 = this.compileExpr(setCommand.getVar());
+      String _plus_1 = ("let \"" + _compileExpr_1);
+      String _plus_2 = (_plus_1 + " = ");
+      String _plus_3 = (_plus_2 + expr);
+      return (_plus_3 + "\"");
+    }
   }
   
   private String _compileCommand(final PrintCommand printCommand) {
-    return "";
+    String _compileExpr = this.compileExpr(printCommand.getExpression());
+    return ("print_all " + _compileExpr);
   }
   
   private String _compileCommand(final ExportCommand exportCommand) {
-    return "";
+    String _var = exportCommand.getVar();
+    String _plus = ("export_json_csv " + _var);
+    String _plus_1 = (_plus + " ");
+    String _path = exportCommand.getPath();
+    return (_plus_1 + _path);
   }
   
   private String _compileCommand(final DeleteCommand deleteCommand) {
-    return "";
+    String _compileExpr = this.compileExpr(deleteCommand.getExpression());
+    return ("unset " + _compileExpr);
   }
   
   private String _compileCommand(final AddCommand addCommand) {
-    return "";
+    String _op = addCommand.getOp();
+    String _plus = ("add_" + _op);
+    String _plus_1 = (_plus + "_csv ");
+    String _compileExpr = this.compileExpr(addCommand.getExpression());
+    return (_plus_1 + _compileExpr);
   }
   
   private String _compileCommand(final RenameCommand renameCommand) {
-    return "";
+    String _compileExpr = this.compileExpr(renameCommand.getExpr());
+    String _plus = ("rename_csv " + _compileExpr);
+    String _plus_1 = (_plus + " ");
+    String _compileExpr_1 = this.compileExpr(renameCommand.getOldname());
+    String _plus_2 = (_plus_1 + _compileExpr_1);
+    String _plus_3 = (_plus_2 + " ");
+    String _compileExpr_2 = this.compileExpr(renameCommand.getNewname());
+    return (_plus_3 + _compileExpr_2);
   }
   
   private String _compileCommand(final ApplyCommand applyCommand) {
-    return "";
+    return "# Apply is not implemented yet";
   }
   
   private String _compileCommand(final MergeCommand mergeCommand) {
-    return "";
+    return "# Merge is not implemented yet";
   }
   
   private String _compileCommand(final ConcatCommand concatCommand) {
-    return "";
+    String _compileExpr = this.compileExpr(concatCommand.getSelection1());
+    String _plus = ("concat_two_csv " + _compileExpr);
+    String _plus_1 = (_plus + " ");
+    String _compileExpr_1 = this.compileExpr(concatCommand.getSelection2());
+    return (_plus_1 + _compileExpr_1);
   }
   
   private String compileBlock(final Block block) {
-    return "";
+    String blockString = "";
+    EList<Command> _commands = block.getCommands();
+    for (final Command com : _commands) {
+      {
+        String comString = this.compileCommand(com);
+        String[] _split = comString.toString().split(System.getProperty("line.separator"));
+        for (final String s : _split) {
+          String _blockString = blockString;
+          blockString = (_blockString + (("\t" + s) + "\n"));
+        }
+      }
+    }
+    return blockString;
   }
   
   private String _compileCommand(final WhileCommand whileCommand) {
-    return "";
+    String _compileExpr = this.compileExpr(whileCommand.getCond());
+    String _plus = ("while [[ " + _compileExpr);
+    String _plus_1 = (_plus + " ]]; do\n");
+    String _compileBlock = this.compileBlock(whileCommand.getBody());
+    String _plus_2 = (_plus_1 + _compileBlock);
+    return (_plus_2 + "done");
   }
   
   private String _compileCommand(final IfCommand ifCommand) {
-    return "";
+    String _compileExpr = this.compileExpr(ifCommand.getCond());
+    String _plus = ("if [[ " + _compileExpr);
+    String _plus_1 = (_plus + " ]]; then \n");
+    String _compileBlock = this.compileBlock(ifCommand.getThenBody());
+    String _plus_2 = (_plus_1 + _compileBlock);
+    String _xifexpression = null;
+    Block _elseBody = ifCommand.getElseBody();
+    boolean _tripleEquals = (_elseBody == null);
+    if (_tripleEquals) {
+      _xifexpression = "";
+    } else {
+      String _compileBlock_1 = this.compileBlock(ifCommand.getElseBody());
+      _xifexpression = ("\nelse\n" + _compileBlock_1);
+    }
+    String _plus_3 = (_plus_2 + _xifexpression);
+    return (_plus_3 + "fi");
   }
   
   private String _compileExpr(final Expression expression) {
@@ -143,39 +225,113 @@ public class CSVSGeneratorBash {
   }
   
   private String _compileExpr(final OrExpr orExpr) {
-    return "";
+    String code = this.compileExpr(orExpr.getLeft());
+    EList<AddExpr> _right = orExpr.getRight();
+    for (final AddExpr right : _right) {
+      String _code = code;
+      String _compileExpr = this.compileExpr(right);
+      String _plus = ("||" + _compileExpr);
+      code = (_code + _plus);
+    }
+    return code;
   }
   
   private String _compileExpr(final AddExpr addExpr) {
-    return "";
+    String code = this.compileExpr(addExpr.getLeft());
+    EList<EqualityExpr> _right = addExpr.getRight();
+    for (final EqualityExpr right : _right) {
+      String _code = code;
+      String _compileExpr = this.compileExpr(right);
+      String _plus = ("&&" + _compileExpr);
+      code = (_code + _plus);
+    }
+    return code;
   }
   
   private String _compileExpr(final EqualityExpr equalityExpr) {
-    return "";
+    String _compileExpr = this.compileExpr(equalityExpr.getLeft());
+    String _xifexpression = null;
+    ComparaisonExpr _right = equalityExpr.getRight();
+    boolean _tripleEquals = (_right == null);
+    if (_tripleEquals) {
+      _xifexpression = "";
+    } else {
+      String _op = equalityExpr.getOp();
+      String _compileExpr_1 = this.compileExpr(equalityExpr.getRight());
+      _xifexpression = (_op + _compileExpr_1);
+    }
+    return (_compileExpr + _xifexpression);
   }
   
   private String _compileExpr(final ComparaisonExpr comparaisonExpr) {
-    return "";
+    PlusOrMinusExpr _right = comparaisonExpr.getRight();
+    boolean _tripleEquals = (_right == null);
+    if (_tripleEquals) {
+      return this.compileExpr(comparaisonExpr.getLeft());
+    } else {
+      String ret = this.compileExpr(comparaisonExpr.getLeft());
+      String op = "";
+      String _op = comparaisonExpr.getOp();
+      if (_op != null) {
+        switch (_op) {
+          case ">=":
+            op = "-ge";
+            break;
+          case "<=":
+            op = "-le";
+            break;
+          case ">":
+            op = "-gt";
+            break;
+          case "<":
+            op = "-lt";
+            break;
+        }
+      }
+      String _compileExpr = this.compileExpr(comparaisonExpr.getRight());
+      return ((((ret + " ") + op) + " ") + _compileExpr);
+    }
   }
   
   private String _compileExpr(final PlusOrMinusExpr comparaisonExpr) {
-    return "";
+    String code = this.compileExpr(comparaisonExpr.getLeft());
+    int _size = comparaisonExpr.getRight().size();
+    ExclusiveRange _doubleDotLessThan = new ExclusiveRange(0, _size, true);
+    for (final Integer i : _doubleDotLessThan) {
+      String _code = code;
+      String _get = comparaisonExpr.getOp().get((i).intValue());
+      String _compileExpr = this.compileExpr(comparaisonExpr.getRight().get((i).intValue()));
+      String _plus = (_get + _compileExpr);
+      code = (_code + _plus);
+    }
+    return code;
   }
   
   private String _compileExpr(final MulOrDivExpr mulOrDivExpr) {
-    return "";
+    String code = this.compileExpr(mulOrDivExpr.getLeft());
+    int _size = mulOrDivExpr.getRight().size();
+    ExclusiveRange _doubleDotLessThan = new ExclusiveRange(0, _size, true);
+    for (final Integer i : _doubleDotLessThan) {
+      String _code = code;
+      String _get = mulOrDivExpr.getOp().get((i).intValue());
+      String _compileExpr = this.compileExpr(mulOrDivExpr.getRight().get((i).intValue()));
+      String _plus = (_get + _compileExpr);
+      code = (_code + _plus);
+    }
+    return code;
   }
   
   private String _compileExpr(final PrimaryExpr primaryExpr) {
-    return "";
+    return this.compileExpr(primaryExpr);
   }
   
   private String _compileExpr(final NotExpr notExpr) {
-    return "";
+    String _compileExpr = this.compileExpr(notExpr.getExpr());
+    return ("!" + _compileExpr);
   }
   
   private String _compileExpr(final AtomicExpr atomicExpr) {
-    return "";
+    return this.compileExpr(atomicExpr);
   }
   
   private String _compileExpr(final IntConstant intConstant) {
@@ -189,7 +345,7 @@ public class CSVSGeneratorBash {
   }
   
   private String _compileExpr(final BoolConstant boolConstant) {
-    return "";
+    return boolConstant.getValue();
   }
   
   private String _compileExpr(final VariableConstant variableConstant) {
@@ -201,11 +357,21 @@ public class CSVSGeneratorBash {
   }
   
   private String _compileExpr(final CountExpr countExpr) {
-    return "";
+    String _compileExpr = this.compileExpr(countExpr.getExpression());
+    String _plus = ("$(count_csv " + _compileExpr);
+    return (_plus + ")");
   }
   
   private String _compileExpr(final Selector cellSelect) {
-    return "";
+    String _var = cellSelect.getVar();
+    String _plus = ("$(get_val_csv_simple " + _var);
+    String _plus_1 = (_plus + " ");
+    String _compileExpr = this.compileExpr(cellSelect.getExpressionRow());
+    String _plus_2 = (_plus_1 + _compileExpr);
+    String _plus_3 = (_plus_2 + " ");
+    String _compileExpr_1 = this.compileExpr(cellSelect.getExpressionCol());
+    String _plus_4 = (_plus_3 + _compileExpr_1);
+    return (_plus_4 + ")");
   }
   
   private String _compileExpr(final FieldSelect fieldSelect) {

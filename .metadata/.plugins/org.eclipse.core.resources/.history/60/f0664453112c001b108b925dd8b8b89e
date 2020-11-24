@@ -1,0 +1,22 @@
+print_all() {
+    if array_test $1; then
+        local -n csv_var_print=$1
+        local rows=$(get_array_row csv_var_print)
+        local columns=$(get_array_col csv_var_print)
+        for ((i=1;i<=rows;i++))
+        do
+            for ((j=1;j<=columns;j++))
+            do
+                echo -ne ${csv_var_print[$i,$j]}
+                if  [ $j -lt $columns ]
+                then
+                    echo -ne ","
+                fi
+            done
+            echo -ne "\n"
+        done
+    else
+        echo $1
+    fi
+
+}

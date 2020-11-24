@@ -1,43 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<config date="1605737538923" transient="false" version="3.0">
+<config date="1606260294643" transient="false" version="3.0">
 <site enabled="true" policy="USER-EXCLUDE" updateable="true" url="platform:/base/">
-<feature id="org.eclipse.ecf.filetransfer.httpclient4.feature" url="features/org.eclipse.ecf.filetransfer.httpclient4.feature_3.14.8.v20200618-1435/" version="3.14.8.v20200618-1435">
+<feature id="org.eclipse.ecf.filetransfer.httpclient4.feature" url="features/org.eclipse.ecf.filetransfer.httpclient4.feature_3.14.17.v20201028-1443/" version="3.14.17.v20201028-1443">
 </feature>
-<feature id="org.eclipse.equinox.p2.user.ui" url="features/org.eclipse.equinox.p2.user.ui_2.4.800.v20200612-0706/" version="2.4.800.v20200612-0706">
+<feature id="org.eclipse.emf.ecore" url="features/org.eclipse.emf.ecore_2.23.0.v20201028-1058/" version="2.23.0.v20201028-1058">
 </feature>
-<feature id="org.eclipse.emf.ecore" url="features/org.eclipse.emf.ecore_2.22.0.v20200618-1402/" version="2.22.0.v20200618-1402">
+<feature id="org.eclipse.equinox.p2.user.ui" url="features/org.eclipse.equinox.p2.user.ui_2.4.900.v20200914-0420/" version="2.4.900.v20200914-0420">
 </feature>
-<feature id="org.eclipse.help" plugin-identifier="org.eclipse.help.base" url="features/org.eclipse.help_2.3.200.v20200612-0706/" version="2.3.200.v20200612-0706">
+<feature id="org.eclipse.help" plugin-identifier="org.eclipse.help.base" url="features/org.eclipse.help_2.3.300.v20200914-0420/" version="2.3.300.v20200914-0420">
 </feature>
-<feature id="org.eclipse.ecf.filetransfer.httpclient4.ssl.feature" url="features/org.eclipse.ecf.filetransfer.httpclient4.ssl.feature_1.1.300.v20200618-1435/" version="1.1.300.v20200618-1435">
+<feature id="org.eclipse.ecf.filetransfer.httpclient4.ssl.feature" url="features/org.eclipse.ecf.filetransfer.httpclient4.ssl.feature_1.1.300.v20201028-1443/" version="1.1.300.v20201028-1443">
 </feature>
-<feature id="org.eclipse.equinox.p2.extras.feature" url="features/org.eclipse.equinox.p2.extras.feature_1.4.800.v20200612-0706/" version="1.4.800.v20200612-0706">
+<feature id="org.eclipse.equinox.p2.extras.feature" url="features/org.eclipse.equinox.p2.extras.feature_1.4.900.v20200914-0420/" version="1.4.900.v20200914-0420">
 </feature>
-<feature id="org.eclipse.rcp" url="features/org.eclipse.rcp_4.16.0.v20200612-0706/" version="4.16.0.v20200612-0706">
+<feature id="org.eclipse.rcp" url="features/org.eclipse.rcp_4.17.0.v20200914-0420/" version="4.17.0.v20200914-0420">
 </feature>
-<feature id="org.eclipse.ecf.filetransfer.httpclient45.feature" url="features/org.eclipse.ecf.filetransfer.httpclient45.feature_1.0.400.v20200618-1435/" version="1.0.400.v20200618-1435">
+<feature id="org.eclipse.emf.common" url="features/org.eclipse.emf.common_2.20.0.v20201028-1058/" version="2.20.0.v20201028-1058">
 </feature>
-<feature id="org.eclipse.ecf.core.feature" url="features/org.eclipse.ecf.core.feature_1.5.600.v20200618-1435/" version="1.5.600.v20200618-1435">
+<feature id="org.eclipse.equinox.p2.core.feature" url="features/org.eclipse.equinox.p2.core.feature_1.6.700.v20200914-0420/" version="1.6.700.v20200914-0420">
 </feature>
-<feature id="org.eclipse.equinox.p2.core.feature" url="features/org.eclipse.equinox.p2.core.feature_1.6.600.v20200612-0706/" version="1.6.600.v20200612-0706">
+<feature id="org.eclipse.ecf.core.feature" url="features/org.eclipse.ecf.core.feature_1.5.701.v20201028-1443/" version="1.5.701.v20201028-1443">
 </feature>
-<feature id="org.eclipse.emf.common" url="features/org.eclipse.emf.common_2.19.0.v20200618-1402/" version="2.19.0.v20200618-1402">
+<feature id="org.eclipse.ecf.filetransfer.httpclient45.feature" url="features/org.eclipse.ecf.filetransfer.httpclient45.feature_1.0.702.v20201028-1443/" version="1.0.702.v20201028-1443">
 </feature>
-<feature id="org.eclipse.equinox.p2.rcp.feature" url="features/org.eclipse.equinox.p2.rcp.feature_1.4.800.v20200612-0706/" version="1.4.800.v20200612-0706">
+<feature id="org.eclipse.equinox.p2.rcp.feature" url="features/org.eclipse.equinox.p2.rcp.feature_1.4.900.v20200914-0420/" version="1.4.900.v20200914-0420">
 </feature>
-<feature id="org.eclipse.ecf.filetransfer.feature" url="features/org.eclipse.ecf.filetransfer.feature_3.14.800.v20200618-1435/" version="3.14.800.v20200618-1435">
+<feature id="org.eclipse.ecf.filetransfer.feature" url="features/org.eclipse.ecf.filetransfer.feature_3.14.1702.v20201028-1443/" version="3.14.1702.v20201028-1443">
 </feature>
-<feature id="org.eclipse.ecf.core.ssl.feature" url="features/org.eclipse.ecf.core.ssl.feature_1.1.400.v20200618-1435/" version="1.1.400.v20200618-1435">
+<feature id="org.eclipse.ecf.core.ssl.feature" url="features/org.eclipse.ecf.core.ssl.feature_1.1.500.v20201028-1443/" version="1.1.500.v20201028-1443">
 </feature>
-<feature id="org.eclipse.platform" url="features/org.eclipse.platform_4.16.0.v20200612-0706/" version="4.16.0.v20200612-0706">
+<feature id="org.eclipse.ecf.filetransfer.ssl.feature" url="features/org.eclipse.ecf.filetransfer.ssl.feature_1.1.400.v20201028-1443/" version="1.1.400.v20201028-1443">
 </feature>
-<feature id="org.eclipse.ecf.filetransfer.ssl.feature" url="features/org.eclipse.ecf.filetransfer.ssl.feature_1.1.300.v20200618-1435/" version="1.1.300.v20200618-1435">
+<feature id="org.eclipse.platform" url="features/org.eclipse.platform_4.17.0.v20200914-0420/" version="4.17.0.v20200914-0420">
 </feature>
-<feature id="org.eclipse.core.runtime.feature" url="features/org.eclipse.core.runtime.feature_1.2.900.v20200612-0706/" version="1.2.900.v20200612-0706">
+<feature id="org.eclipse.core.runtime.feature" url="features/org.eclipse.core.runtime.feature_1.2.1000.v20200914-0420/" version="1.2.1000.v20200914-0420">
 </feature>
-<feature id="org.eclipse.e4.rcp" url="features/org.eclipse.e4.rcp_4.16.0.v20200612-0706/" version="4.16.0.v20200612-0706">
+<feature id="org.eclipse.e4.rcp" url="features/org.eclipse.e4.rcp_4.17.0.v20200914-0420/" version="4.17.0.v20200914-0420">
 </feature>
-<feature id="org.eclipse.equinox.core.feature" url="features/org.eclipse.equinox.core.feature_1.11.200.v20200612-0706/" version="1.11.200.v20200612-0706">
+<feature id="org.eclipse.equinox.core.feature" url="features/org.eclipse.equinox.core.feature_1.12.0.v20200914-0420/" version="1.12.0.v20200914-0420">
 </feature>
 </site>
 </config>
