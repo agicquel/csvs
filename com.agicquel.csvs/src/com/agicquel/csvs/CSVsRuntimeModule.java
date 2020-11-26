@@ -3,9 +3,18 @@
  */
 package com.agicquel.csvs;
 
+import org.eclipse.xtext.generator.IGenerator2;
+
+import com.agicquel.csvs.generator.CSVSGeneratorPython;
 
 /**
  * Use this class to register components to be used at runtime / without the Equinox extension registry.
  */
 public class CSVsRuntimeModule extends AbstractCSVsRuntimeModule {
+
+	@Override
+	public Class<? extends IGenerator2> bindIGenerator2() {
+		return CSVSGeneratorPython.class;
+	}
+	
 }

@@ -1,0 +1,76 @@
+package com.agicquel.csvs
+
+import com.google.inject.Inject
+import com.google.inject.Provider
+import org.eclipse.emf.common.util.URI
+import org.eclipse.emf.ecore.resource.ResourceSet
+import org.eclipse.xtext.generator.GeneratorContext
+import org.eclipse.xtext.generator.JavaIoFileSystemAccess
+import org.eclipse.xtext.util.CancelIndicator
+import org.eclipse.xtext.validation.CheckMode
+import org.eclipse.xtext.validation.IResourceValidator
+import com.agicquel.csvs.generator.CSVSGeneratorBash
+import com.agicquel.csvs.generator.CSVSGeneratorPython
+
+class CSVsMain {
+	static int GENERATE_BASH = 0
+	static int GENERATE_PYTHON = 1
+	
+	@Inject Provider<ResourceSet> resourceSetProvider
+	@Inject IResourceValidator validator
+	@Inject JavaIoFileSystemAccess fileAccess
+	
+	def static main(String[] args) {
+		for(String arg : args) {
+			println(arg)
+		}
+		if (args.size() != 2) {
+			println("Bad parameters : java -jar compiler.jar -bash|-python input_file")
+			return
+		}
+		
+		var mode=0
+		if(args.get(0).equals("-bash")) {
+			println("bash !")
+			mode = GENERATE_BASH
+		}
+		else if(args.get(0).equals("-python")) {
+			println("python !")
+			mode = GENERATE_PYTHON
+		}
+		else {
+			println("Bad parameters : use java -jar compiler.jar -bash|-python output_file")
+			return
+		}
+		
+		val injector = new CSVsStandaloneSetup().createInjectorAndDoEMFRegistration
+		val main = injector.getInstance(CSVsMain)
+		
+		val input = args.get(1)
+		var output = input
+		if(mode == GENERATE_BASH) output = output.replace(".csvs", ".sh")
+		else if(mode == GENERATE_PYTHON) output = output.replace(".csvs", ".py")
+		
+		// Load the resource
+		val set = main.resourceSetProvider.get
+		val resource = set.getResource(URI.createFileURI(input), true)
+		
+		// Validate the resource
+		val issues = main.validator.validate(resource, CheckMode.ALL, CancelIndicator.NullImpl)
+		if (!issues.empty) {
+			println("Erreur : Le fichier source est invalide.")
+			issues.forEach[System.err.println("\t" + it)]
+			return
+		}
+		
+		// Configure and start the generator
+		main.fileAccess.outputPath = './'
+		val context = new GeneratorContext => [
+			cancelIndicator = CancelIndicator.NullImpl
+		]
+		if(mode == GENERATE_BASH) new CSVSGeneratorBash(output).doGenerate(resource, main.fileAccess, context)
+		else if(mode == GENERATE_PYTHON) new CSVSGeneratorPython(output).doGenerate(resource, main.fileAccess, context)
+	
+	}
+	 
+}

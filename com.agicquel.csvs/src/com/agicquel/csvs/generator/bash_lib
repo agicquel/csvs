@@ -230,3 +230,24 @@ count_csv() {
     echo $total
 }
 
+get_field_csv() {
+    local -n csv_field=$1
+    local field=$(extract_value $2)
+    let "field++"
+    echo ${csv_field[1,$field]}
+}
+
+get_len_row_csv() {
+    local -n csv_last_row=$1
+    size_row=$(get_array_row csv_last_row)
+    let "size_row--"
+    echo $size_row
+}
+
+get_len_col_csv() {
+    local -n csv_last_col=$1
+    size_col=$(get_array_col csv_last_col)
+    let "size_col--"
+    echo $size_col
+}
+

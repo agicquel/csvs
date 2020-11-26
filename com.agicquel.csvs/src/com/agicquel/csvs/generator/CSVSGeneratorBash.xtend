@@ -41,10 +41,26 @@ import com.agicquel.csvs.csvs.MergeCommand
 import com.agicquel.csvs.csvs.ConcatCommand
 import java.nio.file.Files
 import java.nio.file.Path
+import org.eclipse.xtext.generator.AbstractGenerator
+import org.eclipse.xtext.generator.IFileSystemAccess2
+import org.eclipse.xtext.generator.IGeneratorContext
 
-class CSVSGeneratorBash {
+class CSVSGeneratorBash extends AbstractGenerator {
+	String output
 	
-	def String compileIR(Resource resource) {
+	new () {
+		this.output = "output.sh"
+	}
+	
+	new (String output) {
+		this.output = output
+	}
+	
+	override void doGenerate(Resource input, IFileSystemAccess2 fsa, IGeneratorContext context) {
+		fsa.generateFile(output, compile(input))
+	}
+	
+	private def String compile(Resource resource) {
 		var bashCode = Files.readString(Path.of("/home/agicquel/workspace/CsvDslProject/com.agicquel.csvs/src/com/agicquel/csvs/generator/bash_lib"))
 		bashCode += "\n"
 		
@@ -245,11 +261,17 @@ class CSVSGeneratorBash {
 	}
 	
 	private	def dispatch String compileExpr(FieldSelect fieldSelect) {
-		"" // TODO ok
+		"$(get_field_csv " + fieldSelect.^var + " " + fieldSelect.expression.compileExpr() + ")"
 	}
 	
 	private def dispatch String compileExpr(LastExpr lastExpr) {
-		"" // TODO ok
+		if(lastExpr.op.equals("row")) {
+			return "$(get_len_row_csv " + lastExpr.expression.compileExpr() + ")"
+		}
+		else if(lastExpr.op.equals("col")) {
+			return "$(get_len_col_csv " + lastExpr.expression.compileExpr() + ")"
+		}
 	}
+	
 	
 }

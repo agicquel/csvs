@@ -1,0 +1,31 @@
+package com.agicquel.csvs
+
+import com.google.inject.Inject
+import com.google.inject.Provider
+import org.eclipse.emf.common.util.URI
+import org.eclipse.emf.ecore.resource.ResourceSet
+import org.eclipse.xtext.generator.GeneratorContext
+import org.eclipse.xtext.generator.JavaIoFileSystemAccess
+import org.eclipse.xtext.util.CancelIndicator
+import org.eclipse.xtext.validation.CheckMode
+import org.eclipse.xtext.validation.IResourceValidator
+
+class CSVsMain {
+	@Inject Provider<ResourceSet> resourceSetProvider
+	@Inject IResourceValidator validator
+	@Inject JavaIoFileSystemAccess fileAccess
+	
+	def static main(String[] args) {
+		if (args.size() != 1) {
+			println("Bad parameters : use java -jar compiler.jar -bash|-python output_file")
+			return
+		}
+		
+		val injector = new CSVsStandaloneSetup().createInjectorAndDoEMFRegistration
+		val main = injector.getInstance(CSVsMain)
+		
+		
+		
+		main.runGenerator(args.get(0), args.get(0).replace(".wh", ".cpp"))
+	}
+}

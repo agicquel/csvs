@@ -44,13 +44,31 @@ import java.util.Arrays;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.xtext.generator.AbstractGenerator;
+import org.eclipse.xtext.generator.IFileSystemAccess2;
+import org.eclipse.xtext.generator.IGeneratorContext;
 import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.ExclusiveRange;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 
 @SuppressWarnings("all")
-public class CSVSGeneratorPython {
-  public String compileIR(final Resource resource) {
+public class CSVSGeneratorPython extends AbstractGenerator {
+  private String output;
+  
+  public CSVSGeneratorPython() {
+    this.output = "output.py";
+  }
+  
+  public CSVSGeneratorPython(final String output) {
+    this.output = output;
+  }
+  
+  @Override
+  public void doGenerate(final Resource input, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
+    fsa.generateFile(this.output, this.compile(input));
+  }
+  
+  public String compile(final Resource resource) {
     String pythonCode = "import pandas as pd\n";
     String _pythonCode = pythonCode;
     pythonCode = (_pythonCode + "pd.options.mode.chained_assignment = None\n");

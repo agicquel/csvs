@@ -39,10 +39,26 @@ import com.agicquel.csvs.csvs.RenameCommand
 import com.agicquel.csvs.csvs.LastExpr
 import com.agicquel.csvs.csvs.MergeCommand
 import com.agicquel.csvs.csvs.ConcatCommand
+import org.eclipse.xtext.generator.AbstractGenerator
+import org.eclipse.xtext.generator.IFileSystemAccess2
+import org.eclipse.xtext.generator.IGeneratorContext
 
-class CSVSGeneratorPython {
+class CSVSGeneratorPython extends AbstractGenerator {
+	String output
 	
-	def String compileIR(Resource resource) {
+	new () {
+		this.output = "output.py"
+	}
+	
+	new (String output) {
+		this.output = output
+	}
+	
+	override void doGenerate(Resource input, IFileSystemAccess2 fsa, IGeneratorContext context) {
+		fsa.generateFile(output, compile(input))
+	}
+	
+	def String compile(Resource resource) {
 		var pythonCode = "import pandas as pd\n";
 		pythonCode += "pd.options.mode.chained_assignment = None\n"
 		pythonCode += "\n"

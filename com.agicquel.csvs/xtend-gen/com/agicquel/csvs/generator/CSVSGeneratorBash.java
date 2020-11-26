@@ -45,14 +45,32 @@ import java.util.Arrays;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.xtext.generator.AbstractGenerator;
+import org.eclipse.xtext.generator.IFileSystemAccess2;
+import org.eclipse.xtext.generator.IGeneratorContext;
 import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.ExclusiveRange;
 import org.eclipse.xtext.xbase.lib.InputOutput;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 
 @SuppressWarnings("all")
-public class CSVSGeneratorBash {
-  public String compileIR(final Resource resource) {
+public class CSVSGeneratorBash extends AbstractGenerator {
+  private String output;
+  
+  public CSVSGeneratorBash() {
+    this.output = "output.sh";
+  }
+  
+  public CSVSGeneratorBash(final String output) {
+    this.output = output;
+  }
+  
+  @Override
+  public void doGenerate(final Resource input, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
+    fsa.generateFile(this.output, this.compile(input));
+  }
+  
+  private String compile(final Resource resource) {
     try {
       String bashCode = Files.readString(Path.of("/home/agicquel/workspace/CsvDslProject/com.agicquel.csvs/src/com/agicquel/csvs/generator/bash_lib"));
       String _bashCode = bashCode;
@@ -375,11 +393,29 @@ public class CSVSGeneratorBash {
   }
   
   private String _compileExpr(final FieldSelect fieldSelect) {
-    return "";
+    String _var = fieldSelect.getVar();
+    String _plus = ("$(get_field_csv " + _var);
+    String _plus_1 = (_plus + " ");
+    String _compileExpr = this.compileExpr(fieldSelect.getExpression());
+    String _plus_2 = (_plus_1 + _compileExpr);
+    return (_plus_2 + ")");
   }
   
   private String _compileExpr(final LastExpr lastExpr) {
-    return "";
+    boolean _equals = lastExpr.getOp().equals("row");
+    if (_equals) {
+      String _compileExpr = this.compileExpr(lastExpr.getExpression());
+      String _plus = ("$(get_len_row_csv " + _compileExpr);
+      return (_plus + ")");
+    } else {
+      boolean _equals_1 = lastExpr.getOp().equals("col");
+      if (_equals_1) {
+        String _compileExpr_1 = this.compileExpr(lastExpr.getExpression());
+        String _plus_1 = ("$(get_len_col_csv " + _compileExpr_1);
+        return (_plus_1 + ")");
+      }
+    }
+    return null;
   }
   
   private String compileCommand(final Command addCommand) {
