@@ -1,0 +1,4 @@
+load csv "./resources/5000_sales_records.csv";
+load csv2 "./resources/5000_sales_records.csv";
+concat csv with csv2;
+print csv;

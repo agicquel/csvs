@@ -44,6 +44,7 @@ import java.nio.file.Path
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
+import java.util.regex.Pattern
 
 class CSVSGeneratorBash extends AbstractGenerator {
 	String output
@@ -96,12 +97,22 @@ class CSVSGeneratorBash extends AbstractGenerator {
 	
 	private def dispatch String compileCommand(SetCommand setCommand) {
 		var expr = setCommand.expression.compileExpr()
-		println(setCommand.expression.class.typeName)
 		if(expr.contains("\"")) { // Pattern.matches(".*[a-zA-Z]+.*", expr)
 			return setCommand.^var.compileExpr() + "=" + expr
 		}
 		else {
-			return "let \"" + setCommand.^var.compileExpr() + " = " + expr + "\""
+			var r = Pattern.compile("[a-zA-Z\\s\\$_\\(]+")
+			var m = r.matcher(expr)
+			while(m.find()) {
+				var word = expr.substring(m.start(), m.end())
+         		if(!word.contains("$(")){
+         			if(word.startsWith("+") ||word.startsWith("-") || word.startsWith("*") || word.startsWith("/")) {
+         				word = expr.substring(m.start()+1, m.end())
+         			}
+         			expr = expr.replace(word, "$" + word)
+         		}
+			}
+			return setCommand.^var.compileExpr() + "=$(bc <<< \"" + expr + "\")"
 		}
 	}
 	

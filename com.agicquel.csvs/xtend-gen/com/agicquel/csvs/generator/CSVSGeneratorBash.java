@@ -42,6 +42,8 @@ import com.google.common.collect.Iterables;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Arrays;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -50,7 +52,6 @@ import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
 import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.ExclusiveRange;
-import org.eclipse.xtext.xbase.lib.InputOutput;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 
 @SuppressWarnings("all")
@@ -126,18 +127,33 @@ public class CSVSGeneratorBash extends AbstractGenerator {
   
   private String _compileCommand(final SetCommand setCommand) {
     String expr = this.compileExpr(setCommand.getExpression());
-    InputOutput.<String>println(setCommand.getExpression().getClass().getTypeName());
     boolean _contains = expr.contains("\"");
     if (_contains) {
       String _compileExpr = this.compileExpr(setCommand.getVar());
       String _plus = (_compileExpr + "=");
       return (_plus + expr);
     } else {
+      Pattern r = Pattern.compile("[a-zA-Z\\s\\$_\\(]+");
+      Matcher m = r.matcher(expr);
+      while (m.find()) {
+        {
+          String word = expr.substring(m.start(), m.end());
+          boolean _contains_1 = word.contains("$(");
+          boolean _not = (!_contains_1);
+          if (_not) {
+            if ((((word.startsWith("+") || word.startsWith("-")) || word.startsWith("*")) || word.startsWith("/"))) {
+              int _start = m.start();
+              int _plus_1 = (_start + 1);
+              word = expr.substring(_plus_1, m.end());
+            }
+            expr = expr.replace(word, ("$" + word));
+          }
+        }
+      }
       String _compileExpr_1 = this.compileExpr(setCommand.getVar());
-      String _plus_1 = ("let \"" + _compileExpr_1);
-      String _plus_2 = (_plus_1 + " = ");
-      String _plus_3 = (_plus_2 + expr);
-      return (_plus_3 + "\"");
+      String _plus_1 = (_compileExpr_1 + "=$(bc <<< \"");
+      String _plus_2 = (_plus_1 + expr);
+      return (_plus_2 + "\")");
     }
   }
   

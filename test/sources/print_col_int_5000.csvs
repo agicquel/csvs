@@ -1,0 +1,7 @@
+load csv "./resources/5000_sales_records.csv";
+limit=(last row csv);
+row_counter=0;
+while row_counter < limit {
+    print csv[8 : row_counter];
+    row_counter=row_counter+1;
+}

@@ -1,4 +1,4 @@
-# List of external plug-in models previously loaded. Timestamp: 1606411390348
+# List of external plug-in models previously loaded. Timestamp: 1606651581492
 file:/home/agicquel/.eclipse/org.eclipse.platform_155965261_linux_gtk_x86_64/plugins/com.google.guava_27.1.0.v20190517-1946.jar
 file:/home/agicquel/.eclipse/org.eclipse.platform_155965261_linux_gtk_x86_64/plugins/com.google.inject_3.0.0.v201605172100.jar
 file:/usr/lib/eclipse/plugins/com.ibm.icu_65.1.0.jar
@@ -89,8 +89,6 @@ file:/usr/lib/eclipse/plugins/org.eclipse.ecf_3.9.101.v20201028-1443.jar
 file:/usr/lib/eclipse/plugins/org.eclipse.ecf.filetransfer_5.1.101.v20201028-1443.jar
 file:/usr/lib/eclipse/plugins/org.eclipse.ecf.identity_3.9.401.v20201028-1443.jar
 file:/usr/lib/eclipse/plugins/org.eclipse.ecf.provider.filetransfer_3.2.601.v20201028-1443.jar
-file:/usr/lib/eclipse/plugins/org.eclipse.ecf.provider.filetransfer.httpclient4_1.1.501.v20201028-1443.jar
-file:/usr/lib/eclipse/plugins/org.eclipse.ecf.provider.filetransfer.httpclient4.ssl_1.1.200.v20201028-1443.jar
 file:/usr/lib/eclipse/plugins/org.eclipse.ecf.provider.filetransfer.httpclient45_1.0.301.v20201028-1443.jar
 file:/usr/lib/eclipse/plugins/org.eclipse.ecf.provider.filetransfer.ssl_1.0.200.v20201028-1443.jar
 file:/usr/lib/eclipse/plugins/org.eclipse.ecf.ssl_1.2.400.v20201028-1443.jar
@@ -327,6 +325,10 @@ file:/usr/lib/eclipse/plugins/org.sat4j.pb_2.3.5.v20130405.jar
 file:/usr/lib/eclipse/plugins/org.tukaani.xz_1.8.0.jar
 file:/usr/lib/eclipse/plugins/org.w3c.css.sac_1.3.0.v200805290154.jar
 file:/usr/lib/eclipse/plugins/org.w3c.dom.svg_1.1.0.v200806040011.jar
+file:/usr/share/eclipse/droplets/eclipse-jdt/plugins/com.univocity.parsers_2.9.0.jar
+file:/usr/share/eclipse/droplets/eclipse-jdt/plugins/org.apiguardian_1.1.0.jar
+file:/usr/share/eclipse/droplets/eclipse-jdt/plugins/org.eclipse.ant.launching_1.2.1000.v20200914-0420.jar
+file:/usr/share/eclipse/droplets/eclipse-jdt/plugins/org.eclipse.ant.ui_3.7.900.v20200914-0420.jar
 file:/home/agicquel/.eclipse/org.eclipse.platform_155965261_linux_gtk_x86_64/plugins/org.eclipse.emf.common.source_2.20.0.v20200822-0801.jar
 file:/home/agicquel/.eclipse/org.eclipse.platform_155965261_linux_gtk_x86_64/plugins/org.eclipse.emf.ecore.source_2.23.0.v20200630-0516.jar
 file:/home/agicquel/.eclipse/org.eclipse.platform_155965261_linux_gtk_x86_64/plugins/org.eclipse.emf.mwe2.language.ide.source_2.12.0.v20201119-2018.jar
@@ -336,6 +338,26 @@ file:/home/agicquel/.eclipse/org.eclipse.platform_155965261_linux_gtk_x86_64/plu
 file:/home/agicquel/.eclipse/org.eclipse.platform_155965261_linux_gtk_x86_64/plugins/org.eclipse.emf.mwe2.launch.ui.source_2.12.0.v20201119-2018.jar
 file:/home/agicquel/.eclipse/org.eclipse.platform_155965261_linux_gtk_x86_64/plugins/org.eclipse.emf.mwe2.lib.source_2.12.0.v20201119-2018.jar
 file:/home/agicquel/.eclipse/org.eclipse.platform_155965261_linux_gtk_x86_64/plugins/org.eclipse.emf.mwe2.runtime.source_2.12.0.v20201119-2018.jar
+file:/usr/share/eclipse/droplets/eclipse-jdt/plugins/org.eclipse.jdt_3.18.500.v20200914-0420.jar
+file:/usr/share/eclipse/droplets/eclipse-jdt/plugins/org.eclipse.jdt.annotation_2.2.600.v20200914-0420.jar
+file:/usr/share/eclipse/droplets/eclipse-jdt/plugins/org.eclipse.jdt.apt.core_3.6.700.v20200914-0420.jar
+file:/usr/share/eclipse/droplets/eclipse-jdt/plugins/org.eclipse.jdt.apt.pluggable.core_1.2.500.v20200914-0420.jar
+file:/usr/share/eclipse/droplets/eclipse-jdt/plugins/org.eclipse.jdt.apt.ui_3.6.500.v20200914-0420.jar
+file:/usr/share/eclipse/droplets/eclipse-jdt/plugins/org.eclipse.jdt.compiler.apt_1.3.1100.v20200914-0420.jar
+file:/usr/share/eclipse/droplets/eclipse-jdt/plugins/org.eclipse.jdt.compiler.tool_1.2.1000.v20200914-0420.jar
+file:/usr/share/eclipse/droplets/eclipse-jdt/plugins/org.eclipse.jdt.core_3.23.0.v20200914-0420.jar
+file:/usr/share/eclipse/droplets/eclipse-jdt/plugins/org.eclipse.jdt.core.formatterapp_1.0.0.v20200914-0420.jar
+file:/usr/share/eclipse/droplets/eclipse-jdt/plugins/org.eclipse.jdt.core.manipulation_1.14.100.v20200914-0420.jar
+file:/usr/share/eclipse/droplets/eclipse-jdt/plugins/org.eclipse.jdt.debug_3.16.0.v20200914-0420/
+file:/usr/share/eclipse/droplets/eclipse-jdt/plugins/org.eclipse.jdt.debug.ui_3.12.0.v20200914-0420.jar
+file:/usr/share/eclipse/droplets/eclipse-jdt/plugins/org.eclipse.jdt.doc.user_3.15.800.v20200914-0420.jar
+file:/usr/share/eclipse/droplets/eclipse-jdt/plugins/org.eclipse.jdt.junit_3.11.900.v20200914-0420.jar
+file:/usr/share/eclipse/droplets/eclipse-jdt/plugins/org.eclipse.jdt.junit.core_3.10.800.v20200914-0420.jar
+file:/usr/share/eclipse/droplets/eclipse-jdt/plugins/org.eclipse.jdt.junit.runtime_3.5.300.v20200914-0420.jar
+file:/usr/share/eclipse/droplets/eclipse-jdt/plugins/org.eclipse.jdt.junit4.runtime_1.1.1300.v20200914-0420.jar
+file:/usr/share/eclipse/droplets/eclipse-jdt/plugins/org.eclipse.jdt.junit5.runtime_1.0.1000.v20200914-0420.jar
+file:/usr/share/eclipse/droplets/eclipse-jdt/plugins/org.eclipse.jdt.launching_3.18.0.v20200914-0420.jar
+file:/usr/share/eclipse/droplets/eclipse-jdt/plugins/org.eclipse.jdt.ui_3.21.200.v20200914-0420.jar
 file:/home/agicquel/.eclipse/org.eclipse.platform_155965261_linux_gtk_x86_64/plugins/org.eclipse.xtend.core.source_2.23.0.v20200831-0856.jar
 file:/home/agicquel/.eclipse/org.eclipse.platform_155965261_linux_gtk_x86_64/plugins/org.eclipse.xtend.ide.common.source_2.23.0.v20200831-0856.jar
 file:/home/agicquel/.eclipse/org.eclipse.platform_155965261_linux_gtk_x86_64/plugins/org.eclipse.xtend.ide.source_2.23.0.v20200831-0856.jar
@@ -386,3 +408,16 @@ file:/home/agicquel/.eclipse/org.eclipse.platform_155965261_linux_gtk_x86_64/plu
 file:/home/agicquel/.eclipse/org.eclipse.platform_155965261_linux_gtk_x86_64/plugins/org.eclipse.xtext.xtext.ui.graph.source_2.23.0.v20200831-0808.jar
 file:/home/agicquel/.eclipse/org.eclipse.platform_155965261_linux_gtk_x86_64/plugins/org.eclipse.xtext.xtext.ui.source_2.23.0.v20200831-0808.jar
 file:/home/agicquel/.eclipse/org.eclipse.platform_155965261_linux_gtk_x86_64/plugins/org.eclipse.xtext.xtext.wizard.source_2.23.0.v20200831-0730.jar
+file:/usr/share/eclipse/droplets/eclipse-jdt/plugins/org.hamcrest.core_1.3.0.v201303031735.jar
+file:/usr/share/eclipse/droplets/eclipse-jdt/plugins/org.junit_4.13.0.jar
+file:/usr/share/eclipse/droplets/eclipse-jdt/plugins/org.junit.jupiter.api_5.6.2.jar
+file:/usr/share/eclipse/droplets/eclipse-jdt/plugins/org.junit.jupiter.engine_5.6.2.jar
+file:/usr/share/eclipse/droplets/eclipse-jdt/plugins/org.junit.jupiter.migrationsupport_5.6.2.jar
+file:/usr/share/eclipse/droplets/eclipse-jdt/plugins/org.junit.jupiter.params_5.6.2.jar
+file:/usr/share/eclipse/droplets/eclipse-jdt/plugins/org.junit.platform.commons_1.6.2.jar
+file:/usr/share/eclipse/droplets/eclipse-jdt/plugins/org.junit.platform.engine_1.6.2.jar
+file:/usr/share/eclipse/droplets/eclipse-jdt/plugins/org.junit.platform.launcher_1.6.2.jar
+file:/usr/share/eclipse/droplets/eclipse-jdt/plugins/org.junit.platform.runner_1.6.2.jar
+file:/usr/share/eclipse/droplets/eclipse-jdt/plugins/org.junit.platform.suite.api_1.6.2.jar
+file:/usr/share/eclipse/droplets/eclipse-jdt/plugins/org.junit.vintage.engine_5.6.2.jar
+file:/usr/share/eclipse/droplets/eclipse-jdt/plugins/org.opentest4j_1.2.0.jar

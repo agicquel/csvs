@@ -1,0 +1,2 @@
+load csv "./resources/10000_sales_records.csv";
+print csv;

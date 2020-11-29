@@ -73,7 +73,7 @@ set_val_csv() {
     local col=$(extract_value $3)
     local val=$(extract_value $4)
 
-    let "row++"
+    let "row+=2"
     let "col++"
 
     csv_var_set[$row,$col]=$val
@@ -91,7 +91,7 @@ get_val_csv_simple() {
     elif [[ $row != "@" && $col == "@" ]]; then
         echo "Not implemented yet."
     else
-        let "row++"
+        let "row+=2"
         let "col++"
         echo ${csv_var_get[$row,$col]}
     fi
@@ -240,7 +240,7 @@ get_field_csv() {
 get_len_row_csv() {
     local -n csv_last_row=$1
     size_row=$(get_array_row csv_last_row)
-    let "size_row--"
+    let "size_row-=2"
     echo $size_row
 }
 
@@ -250,4 +250,3 @@ get_len_col_csv() {
     let "size_col--"
     echo $size_col
 }
-
